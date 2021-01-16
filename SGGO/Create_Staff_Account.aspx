@@ -56,6 +56,32 @@
                 <asp:TextBox ID="staff_address_tb" runat="server"></asp:TextBox>
             </td>
         </tr>
+        <tr>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style2">
+                &nbsp;</td>
+            <td class="auto-style3">&nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style1">Password:</td>
+            <td class="auto-style2">
+                <asp:TextBox ID="staff_password_tb" runat="server"></asp:TextBox>
+            </td>
+            <td class="auto-style3">&nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style1">Confirm Password:</td>
+            <td class="auto-style2">
+                <asp:TextBox ID="staff_password2_tb" runat="server"></asp:TextBox>
+            </td>
+            <td class="auto-style3">&nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
     </table>
     <br />
     <asp:Button ID="submit_btn" runat="server" Text="Submit" />
