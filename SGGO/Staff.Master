@@ -32,8 +32,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDD" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">hamborg</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDD">
-                            <a class="dropdown-item" href="#">pp</a>
-                            <a class="dropdown-item" href="#">pp</a>
+                            <a class="dropdown-item" href="Create_Staff_Account.aspx">create staff account</a>
+                            <a class="dropdown-item" href="Create_Partner_Account.aspx">create partner account</a>
                         </div>
                     </li>
                 </ul>

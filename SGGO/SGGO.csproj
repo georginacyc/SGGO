@@ -75,6 +75,7 @@
     <Content Include="Create_Staff_Account.aspx" />
     <Content Include="Create_User_Account.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Staff_Account_Details.aspx" />
     <Content Include="Staff_Home.aspx" />
     <Content Include="testform.aspx" />
     <Content Include="Web.config" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="Staff.Master.designer.cs">
       <DependentUpon>Staff.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Account_Details.aspx.cs">
+      <DependentUpon>Staff_Account_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Account_Details.aspx.designer.cs">
+      <DependentUpon>Staff_Account_Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff_Home.aspx.cs">
       <DependentUpon>Staff_Home.aspx</DependentUpon>
