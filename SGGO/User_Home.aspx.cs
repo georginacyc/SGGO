@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace SGGO
 {
-    public partial class Create_User_Account : System.Web.UI.Page
+    public partial class User_Home : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void tb_email_TextChanged(object sender, EventArgs e)
         {
 
         }
