@@ -21,7 +21,7 @@ namespace DBService.Entity
         public DateTime? Last_Login { get; set; }
         public DateTime Account_Created { get; set; }
         public string Staff_Id { get; set; }
-        public int Points { get; set; }
+        public int? Points { get; set; }
         public List<int> Owns { get; set; }
 
         public Account()
@@ -29,7 +29,7 @@ namespace DBService.Entity
 
         }
 
-        public Account(string email, string pw, string type, string first_name, string last_name, string hp, string address, DateTime last_login, DateTime account_created, string staff_id, int points, List<int> owns)
+        public Account(string email, string pw, string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, List<int> owns)
         {
             Email = email;
             Password = pw;

@@ -22,7 +22,13 @@ namespace SGGO
         protected void submit_btn_Click(object sender, EventArgs e)
         {
             string email = partner_email_tb.Text;
-            string 
+            string fname = partner_fn_tb.Text;
+            string hp = partner_hp_tb.Text;
+            string address = partner_address_tb.Text;
+            string pw = "password";
+
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            int result = client.CreateAccount(email, pw, "Partner", fname, null, hp, address, null, DateTime.Now, null, null, null);
         }
     }
 }

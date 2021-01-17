@@ -20,7 +20,7 @@ namespace DBService
 
         // TODO: Add your service operations here
         [OperationContract]
-        int CreateAccount (string email, string password, string type, string first_name, string last_name, string hp, string address, DateTime last_login, DateTime account_created, string staff_id, int points, List<int> owns);
+        int CreateAccount (string email, string password, string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, List<int> owns);
 
         [OperationContract]
         Account GetAccountByEmail(string email);
