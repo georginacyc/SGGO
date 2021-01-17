@@ -44,6 +44,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,6 +73,12 @@
     <Content Include="App_Data\SGGO_DB_log.ldf">
       <DependentUpon>SGGO_DB.mdf</DependentUpon>
     </Content>
+    <None Include="Connected Services\DBServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\DBServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\DBServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Create_Partner_Account.aspx" />
     <Content Include="Create_Staff_Account.aspx" />
     <Content Include="Create_User_Account.aspx" />
@@ -83,6 +91,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\DBServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Create_Partner_Account.aspx.cs">
       <DependentUpon>Create_Partner_Account.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +172,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\DBServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DBServiceReference\DBService.Entity.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DBServiceReference\DBService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DBServiceReference\service.wsdl" />
+    <None Include="Connected Services\DBServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DBServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Staff.Master" />
     <Content Include="User.Master" />
@@ -174,6 +209,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\DBServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
