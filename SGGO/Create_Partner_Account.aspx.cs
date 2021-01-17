@@ -18,5 +18,11 @@ namespace SGGO
         {
 
         }
+
+        protected void submit_btn_Click(object sender, EventArgs e)
+        {
+            string email = partner_email_tb.Text;
+            string 
+        }
     }
 }
