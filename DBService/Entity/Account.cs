@@ -17,7 +17,7 @@ namespace DBService.Entity
         public string Name { get; set; }
         public string Hp { get; set; }
         public string Address { get; set; }
-        public DateTime Last_Login { get; set; }
+        public DateTime? Last_Login { get; set; }
         public DateTime Account_Created { get; set; }
         public string Staff_Id { get; set; }
         public int Points { get; set; }
@@ -85,10 +85,10 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["SGGO_DB"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Account (email, password, type, name, hp, address, last_login, account_created, staff_id, profile_pic, points) " + "VALUES (@email, @password, @type, @name, @hp, @address, @last_login, @account_created, @staf_id, @profile_pic, @points)";
+            string query = "INSERT INTO Accounts (email, password, type, name, hp, address, last_login, account_created, staff_id, points) " + "VALUES (@email, @password, @type, @name, @hp, @address, @last_login, @account_created, @staff_id, @points)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@email", Email);
@@ -100,7 +100,7 @@ namespace DBService.Entity
             cmd.Parameters.AddWithValue("@last_login", Last_Login);
             cmd.Parameters.AddWithValue("@account_created", Account_Created);
             cmd.Parameters.AddWithValue("@staff_id", Staff_Id);
-            cmd.Parameters.AddWithValue("@profile_pic", null);
+            // cmd.Parameters.AddWithValue("@profile_pic", null);
             cmd.Parameters.AddWithValue("@points", Points);
 
             conn.Open();
@@ -115,9 +115,9 @@ namespace DBService.Entity
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "SELECT * FROM Account WHERE email = @email";
+            string query = "SELECT * FROM Accounts WHERE email = @email";
             SqlDataAdapter da = new SqlDataAdapter(query, conn);
-            da.SelectCommand.Parameters.AddWithValue("@email", Email);
+            da.SelectCommand.Parameters.AddWithValue("@email", email);
 
             DataSet ds = new DataSet();
 
@@ -140,7 +140,7 @@ namespace DBService.Entity
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                user = new Account(email, password, type, name, hp, address, last_login, account_created, staff_id, points);
+                user = new Account(email, password, type, name, hp, address, last_login, account_created, staff_id, points, null);
             }
             return user;
         }
@@ -150,7 +150,7 @@ namespace DBService.Entity
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "SELECT * FROM Account";
+            string query = "SELECT * FROM Accounts";
             SqlDataAdapter da = new SqlDataAdapter(query, conn);
 
             DataSet ds = new DataSet();
@@ -174,7 +174,7 @@ namespace DBService.Entity
                 int points = Convert.ToInt32(row["points"].ToString());
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                Account user = new Account(email, password, type, name, hp, address, last_login, account_created, staff_id, points);
+                Account user = new Account(email, password, type, name, hp, address, last_login, account_created, staff_id, points, null);
                 accountList.Add(user);
             }
             return accountList;
