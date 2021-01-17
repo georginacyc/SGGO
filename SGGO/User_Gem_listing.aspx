@@ -3,6 +3,11 @@
     <form id="form1" runat="server">
         <table style="width:100%; text-align:center;" >
             <tr>
+                <td style="width: 439px">&nbsp;</td>
+                <td style="width: 279px">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
                 <td rowspan="3" style="width: 439px">
                     <asp:Image ID="Image1" runat="server" Height="141px" Width="281px" />
                 </td>
@@ -51,6 +56,8 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
+        <div _designerregion="0">
+        </div>
     </form>
 </asp:Content>
 
