@@ -14,13 +14,14 @@ namespace DBService.Entity
         public string Email { get; set; }
         public string Password { get; set; }
         public string Type { get; set; }
-        public string Name { get; set; }
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
         public string Hp { get; set; }
         public string Address { get; set; }
         public DateTime? Last_Login { get; set; }
         public DateTime Account_Created { get; set; }
         public string Staff_Id { get; set; }
-        public int Points { get; set; }
+        public int? Points { get; set; }
         public List<int> Owns { get; set; }
 
         public Account()
@@ -28,12 +29,13 @@ namespace DBService.Entity
 
         }
 
-        public Account(string email, string pw, string type, string name, string hp, string address, DateTime last_login, DateTime account_created, string staff_id, int points, List<int> owns)
+        public Account(string email, string pw, string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, List<int> owns)
         {
             Email = email;
             Password = pw;
             Type = type;
-            Name = name;
+            First_Name = first_name;
+            Last_Name = last_name;
             Hp = hp;
             Address = address;
             Last_Login = last_login;
@@ -88,13 +90,14 @@ namespace DBService.Entity
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Accounts (email, password, type, name, hp, address, last_login, account_created, staff_id, points) " + "VALUES (@email, @password, @type, @name, @hp, @address, @last_login, @account_created, @staff_id, @points)";
+            string query = "INSERT INTO Accounts (email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points) " + "VALUES (@email, @password, @type, @first_name, @last_name, @hp, @address, @last_login, @account_created, @staff_id, @points)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@email", Email);
             cmd.Parameters.AddWithValue("@password", Password);
             cmd.Parameters.AddWithValue("@type", Type);
-            cmd.Parameters.AddWithValue("@name", Name);
+            cmd.Parameters.AddWithValue("@first_name", First_Name);
+            cmd.Parameters.AddWithValue("@last_name", Last_Name);
             cmd.Parameters.AddWithValue("@hp", Hp);
             cmd.Parameters.AddWithValue("@address", Address);
             cmd.Parameters.AddWithValue("@last_login", Last_Login);
@@ -130,7 +133,8 @@ namespace DBService.Entity
                 DataRow row = ds.Tables[0].Rows[0];
                 string password = row["password"].ToString();
                 string type = row["type"].ToString();
-                string name = row["name"].ToString();
+                string first_name = row["first_name"].ToString();
+                string last_name = row["last_name"].ToString();
                 string hp = row["hp"].ToString();
                 string address = row["address"].ToString();
                 DateTime last_login = Convert.ToDateTime(row["last_login"].ToString());
@@ -140,7 +144,7 @@ namespace DBService.Entity
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                user = new Account(email, password, type, name, hp, address, last_login, account_created, staff_id, points, null);
+                user = new Account(email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, null);
             }
             return user;
         }
@@ -165,7 +169,8 @@ namespace DBService.Entity
                 string email = row["email"].ToString();
                 string password = row["password"].ToString();
                 string type = row["type"].ToString();
-                string name = row["name"].ToString();
+                string first_name = row["first_name"].ToString();
+                string last_name = row["last_name"].ToString();
                 string hp = row["hp"].ToString();
                 string address = row["address"].ToString();
                 DateTime last_login = Convert.ToDateTime(row["last_login"].ToString());
@@ -174,7 +179,7 @@ namespace DBService.Entity
                 int points = Convert.ToInt32(row["points"].ToString());
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                Account user = new Account(email, password, type, name, hp, address, last_login, account_created, staff_id, points, null);
+                Account user = new Account(email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, null);
                 accountList.Add(user);
             }
             return accountList;

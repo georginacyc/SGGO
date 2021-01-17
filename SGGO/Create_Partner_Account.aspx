@@ -27,7 +27,7 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style1">First Name:</td>
+            <td class="auto-style1">Store Name:</td>
             <td class="auto-style2">
                 <asp:TextBox ID="partner_fn_tb" runat="server" CssClass="offset-sm-0"></asp:TextBox>
             </td>
@@ -58,6 +58,6 @@
         </tr>
     </table>
     <br />
-    <asp:Button ID="submit_btn" runat="server" Text="Submit" />
+    <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" />
     <br />
 </asp:Content>
