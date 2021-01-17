@@ -86,7 +86,6 @@
     <Content Include="Staff_Account_Details.aspx" />
     <Content Include="Staff_Home.aspx" />
     <Content Include="testform.aspx" />
-    <Content Include="User_Gem_listing.aspx" />
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
     <Content Include="Web.config" />
@@ -156,13 +155,6 @@
     </Compile>
     <Compile Include="User.Master.designer.cs">
       <DependentUpon>User.Master</DependentUpon>
-    </Compile>
-    <Compile Include="User_Gem_listing.aspx.cs">
-      <DependentUpon>User_Gem_listing.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User_Gem_listing.aspx.designer.cs">
-      <DependentUpon>User_Gem_listing.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Home.aspx.cs">
       <DependentUpon>User_Home.aspx</DependentUpon>
