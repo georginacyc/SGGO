@@ -10,10 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <style>
         #nav_1 {
-            list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow: hidden;
             padding:5px;
         }
 
@@ -30,7 +28,7 @@
         #nav_home , #nav_gem , #nav_trail , #nav_about
         {
             position:relative;
-            left:250px;
+            left:160px;
         }
 
         li a {
@@ -41,41 +39,37 @@
             text-decoration: none;
         }
 
-        li a:hover {
-            background-color: #111;
-        }
-
     </style>
 </head>
 <body>
-        <div>
-           <nav class="navbar navbar-dark bg-dark">
-                <a class="navbar-brand" href="Create_User_Account.aspx">
-                    SGGO
-                </a>
-                <ul class="nav navbar-nav" id="nav_1"> 
-                    <li class="nav-item active" id="nav_home">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item" id="nav_gem">
-                        <a class="nav-link" href="#">Hidden Gems</a>
-                    </li>
-                    <li class="nav-item" id="nav_trail">
-                        <a class="nav-link" href="#">Trails</a>
-                    </li>
-                    <li class="nav-item" id="nav_about">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                   
-                    <li class="nav-item active" id="nav_signup">
-                        <a class="nav-link" href="Create_User_Account.aspx">Sign Up</a>
-                    </li>
-                    <li class="nav-item" id="nav_login">
-                        <a class="nav-link" href="User_Login.aspx">Login</a>
-                    </li>         
-                </ul>
-            </nav>
-        </div>
+    <div>
+        <nav class="navbar navbar-dark bg-dark">
+            <ul class="nav navbar-nav" id="nav_1"> 
+                <li class="nav-item" id="nav_sggo">
+                    <a class="nav-link" href="Create_User_Account.aspx">SGGO</a>
+                </li>
+                <li class="nav-item active" id="nav_home">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item" id="nav_gem">
+                    <a class="nav-link" href="#">Hidden Gems</a>
+                </li>
+                <li class="nav-item" id="nav_trail">
+                    <a class="nav-link" href="#">Trails</a>
+                </li>
+                <li class="nav-item" id="nav_about">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                
+                <li class="nav-item active" id="nav_signup">
+                    <a class="nav-link" href="Create_User_Account.aspx">Sign Up</a>
+                </li>
+                <li class="nav-item" id="nav_login">
+                    <a class="nav-link" href="User_Login.aspx">Login</a>
+                </li>         
+            </ul>
+        </nav>
+    </div>
     
    
     <asp:ContentPlaceHolder ID="UserContent" runat="server">
