@@ -34,10 +34,10 @@
                  <div>
                     <ul class="navbar-nav mr-auto"> 
                     <li class="nav-item active">
-                    <a class="nav-link" href="#">Sign Up</a>
+                    <a class="nav-link" href="Create_User_Account.aspx">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="User_Login.aspx">Login</a>
                     </li>         
                     </ul>
                 </div>

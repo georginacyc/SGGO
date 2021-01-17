@@ -5,7 +5,9 @@
     <form id="form1" runat="server">
         <table class="auto-style1">
             <tr>
-                <td>Login</td>
+                <td>
+                    <asp:Label ID="Label3" runat="server" Font-Size="25pt" Text="Login"></asp:Label>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
