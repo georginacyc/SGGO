@@ -48,6 +48,24 @@ namespace DBService
         }
 
         // Gems
+        public List<Gem> GetAllGems()
+        {
+            Gem gem = new Gem();
+            return gem.SelectAll();
+        }
+
+        public Gem GetGemByTitle(string title)
+        {
+            Gem gem = new Gem();
+            return gem.SelectByTitle(title);
+        }
+
+        public int CreateTrail(string trailId, string name, DateTime date, string description, int gem1, int gem2, int gem3, string banner)
+        {
+            Trail tr = new Trail(trailId, name, date, description, gem1, gem2, gem3, banner);
+            return tr.Insert();
+        }
+
 
         // Monthly Trail
         public List<Trail> GetAllTrails()

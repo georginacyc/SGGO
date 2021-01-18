@@ -29,6 +29,15 @@ namespace DBService
         List<Account> GetAllAccounts();
 
         //Gem
+        [OperationContract]
+        int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image);
+
+        [OperationContract]
+        Trail GetGemByTile(string title);
+
+        [OperationContract]
+        List<Trail> GetAllGems();
+
 
         //Trail
         [OperationContract]
