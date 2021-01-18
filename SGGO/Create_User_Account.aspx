@@ -6,7 +6,7 @@
 
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Join us"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Size="25pt" Text="Join us"></asp:Label>
             <br />
             <table style="width: 100%">
                 <tr>
@@ -38,7 +38,7 @@
             <asp:Label ID="lbl_pw" runat="server" Text="Password"></asp:Label>
                     </td>
                     <td>
-            <asp:TextBox ID="tb_pw" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tb_pw" runat="server" OnTextChanged="tb_pw_TextChanged"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -54,9 +54,24 @@
                     <td>
                         &nbsp;</td>
                     <td>
-                        <asp:Button ID="btn_Create" runat="server" Text="Sign Up" />
+                        <asp:Button ID="btn_Create" runat="server" Text="Sign Up" OnClick="btn_Create_Click" />
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                    <td>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lbMsg" runat="server" Text="Message"></asp:Label>
+                    </td>
+                    <td>                       
+                    </td>
+                </tr>
+
             </table>
             
         </div>
