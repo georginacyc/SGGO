@@ -46,27 +46,5 @@ namespace DBService
             Account accounts = new Account();
             return accounts.SelectAll();
         }
-
-        // Gems
-
-        // Monthly Trail
-        public List<Trail> GetAllTrails()
-        {
-            Trail tr = new Trail();
-            return tr.SelectAll();
-        }
-        
-        public Trail GetTrailById(string id)
-        {
-            Trail tr = new Trail();
-            return tr.SelectById(id);
-        }
-
-        public int CreateTrail(string trailId, string name, DateTime date, string description, int gem1, int gem2, int gem3, string banner)
-        {
-            Trail tr = new Trail(trailId, name, date, description, gem1, gem2, gem3, banner);
-            return tr.Insert();
-        }
-
     }
 }

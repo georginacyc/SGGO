@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Account.cs" />
-    <Compile Include="Entity\Trail.cs" />
     <Compile Include="Entity\Employee.cs" />
     <Compile Include="Entity\Review.cs" />
     <Compile Include="IService1.cs" />
@@ -55,10 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Gem\" />
-    <Folder Include="Images\Trail\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
