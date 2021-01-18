@@ -3,20 +3,26 @@
     <form id="form1" runat="server">
         <table style="width:1204px; text-align:center;">
             <tr>
-                <td style="width: 401px">Rate &amp; Review</td>
-                <td rowspan="3" style="width: 401px">
-                    <asp:Image ID="Image1" runat="server" Height="179px" Width="367px" />
+                <td style="width: 341px">&nbsp;</td>
+                <td style="width: 381px">
+                    &nbsp;</td>
+                <td style="width: 402px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 341px">Rate &amp; Review</td>
+                <td rowspan="3" style="width: 381px">
+                    <asp:Image ID="Image1" runat="server" Height="179px" Width="304px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
                 </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 401px; height: 18px">
+                <td style="width: 341px; height: 18px">
                     <asp:Label ID="review_date" runat="server"></asp:Label>
                 </td>
                 <td style="width: 402px; height: 18px"></td>
             </tr>
             <tr>
-                <td style="width: 401px">&nbsp;</td>
+                <td style="width: 341px">&nbsp;</td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
             <tr>
@@ -40,8 +46,8 @@
                 <td style="width: 402px">&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 401px">&nbsp;</td>
-                <td style="width: 401px">&nbsp;</td>
+                <td style="width: 341px">&nbsp;</td>
+                <td style="width: 381px">&nbsp;</td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
         </table>
