@@ -19,42 +19,50 @@
     <br />
     <table class="w-100">
         <tr>
-            <td class="auto-style1">Email</td>
+            <td class="auto-style1">Store Name:</td>
             <td class="auto-style2">
                 <asp:TextBox ID="partner_email_tb" runat="server"></asp:TextBox>
             </td>
-            <td class="auto-style3">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style3">Date Established:</td>
+            <td>
+                <asp:TextBox ID="partner_dob_tb" runat="server"></asp:TextBox>
+            </td>
         </tr>
         <tr>
-            <td class="auto-style1">Store Name:</td>
+            <td class="auto-style1">Email:</td>
             <td class="auto-style2">
                 <asp:TextBox ID="partner_fn_tb" runat="server" CssClass="offset-sm-0"></asp:TextBox>
             </td>
-            <td class="auto-style3">Last Name: </td>
-            <td>
-                <asp:TextBox ID="partner_ln_tb" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style1">DOB:</td>
-            <td class="auto-style2">
-                <asp:TextBox ID="partner_dob_tb" runat="server"></asp:TextBox>
-            </td>
-            <td class="auto-style3">HP:</td>
+            <td class="auto-style3">&nbsp;HP:</td>
             <td>
                 <asp:TextBox ID="partner_hp_tb" runat="server"></asp:TextBox>
             </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style2">
+                &nbsp;</td>
+            <td class="auto-style3">&nbsp;</td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style1">Postal Code:</td>
             <td class="auto-style2">
                 <asp:TextBox ID="partner_postalcode_tb" runat="server"></asp:TextBox>
             </td>
-            <td class="auto-style3">Address:</td>
+            <td class="auto-style3">&nbsp;</td>
             <td>
-                <asp:TextBox ID="partner_address_tb" runat="server"></asp:TextBox>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style1">Address:</td>
+            <td class="auto-style2">
+                <asp:TextBox ID="partner_address_tb" runat="server" Height="66px" Width="293px"></asp:TextBox>
             </td>
+            <td class="auto-style3">&nbsp;</td>
+            <td>
+                &nbsp;</td>
         </tr>
     </table>
     <br />

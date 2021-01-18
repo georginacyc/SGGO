@@ -40,5 +40,11 @@ namespace DBService
             Account accounts = new Account();
             return accounts.SelectByEmail(email);
         }
+
+        public List<Account> GetAllAccounts()
+        {
+            Account accounts = new Account();
+            return accounts.SelectAll();
+        }
     }
 }

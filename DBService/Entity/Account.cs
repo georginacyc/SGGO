@@ -98,14 +98,14 @@ namespace DBService.Entity
             cmd.Parameters.AddWithValue("@password", Password);
             cmd.Parameters.AddWithValue("@type", Type);
             cmd.Parameters.AddWithValue("@first_name", First_Name);
-            cmd.Parameters.AddWithValue("@last_name", Last_Name);
+            cmd.Parameters.AddWithValue("@last_name", string.IsNullOrEmpty(Last_Name) ? (object)DBNull.Value : Last_Name);
             cmd.Parameters.AddWithValue("@hp", Hp);
             cmd.Parameters.AddWithValue("@address", Address);
-            cmd.Parameters.AddWithValue("@last_login", Last_Login);
+            cmd.Parameters.AddWithValue("@last_login", Last_Login == null ? (object)DBNull.Value : Last_Login);
             cmd.Parameters.AddWithValue("@account_created", Account_Created);
-            cmd.Parameters.AddWithValue("@staff_id", Staff_Id);
+            cmd.Parameters.AddWithValue("@staff_id", string.IsNullOrEmpty(Staff_Id) ? (object)DBNull.Value : Staff_Id);
             // cmd.Parameters.AddWithValue("@profile_pic", null);
-            cmd.Parameters.AddWithValue("@points", Points);
+            cmd.Parameters.AddWithValue("@points", Points == null ? (object)DBNull.Value : Points);
 
             conn.Open();
             int result = cmd.ExecuteNonQuery();

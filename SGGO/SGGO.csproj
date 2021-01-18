@@ -82,9 +82,13 @@
     <Content Include="Create_Partner_Account.aspx" />
     <Content Include="Create_Staff_Account.aspx" />
     <Content Include="Create_User_Account.aspx" />
+    <Content Include="Gem_Listing.aspx" />
+    <Content Include="Gem_Review.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Staff_Accounts_List.aspx" />
     <Content Include="Staff_Account_Details.aspx" />
     <Content Include="Staff_Home.aspx" />
+    <Content Include="Staff_Login.aspx" />
     <Content Include="testform.aspx" />
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
@@ -118,6 +122,20 @@
     <Compile Include="Create_User_Account.aspx.designer.cs">
       <DependentUpon>Create_User_Account.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Gem_Listing.aspx.cs">
+      <DependentUpon>Gem_Listing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gem_Listing.aspx.designer.cs">
+      <DependentUpon>Gem_Listing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gem_Review.aspx.cs">
+      <DependentUpon>Gem_Review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gem_Review.aspx.designer.cs">
+      <DependentUpon>Gem_Review.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -128,6 +146,13 @@
     </Compile>
     <Compile Include="Staff.Master.designer.cs">
       <DependentUpon>Staff.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Accounts_List.aspx.cs">
+      <DependentUpon>Staff_Accounts_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Accounts_List.aspx.designer.cs">
+      <DependentUpon>Staff_Accounts_List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff_Account_Details.aspx.cs">
       <DependentUpon>Staff_Account_Details.aspx</DependentUpon>
@@ -142,6 +167,13 @@
     </Compile>
     <Compile Include="Staff_Home.aspx.designer.cs">
       <DependentUpon>Staff_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Login.aspx.cs">
+      <DependentUpon>Staff_Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Login.aspx.designer.cs">
+      <DependentUpon>Staff_Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="testform.aspx.cs">
       <DependentUpon>testform.aspx</DependentUpon>
