@@ -16,6 +16,7 @@ namespace DBService.Entity
         public DateTime? Date { get; set; }
         public float? Rating { get; set; }
         public string Partner { get; set; }
+        public string Image { get; set; }
 
 
         public Gem()
@@ -23,7 +24,7 @@ namespace DBService.Entity
 
         }
 
-        public Gem(string title, string description, string type, string location, DateTime? date, string partner)
+        public Gem(string title, string description, string type, string location, DateTime? date, string partner, string image)
         {
             Title = title;
             Description = description;
@@ -34,6 +35,7 @@ namespace DBService.Entity
             Status = "Active";
             Rating = null;
             Partner = partner;
+            Image = image;
         }
 
 
