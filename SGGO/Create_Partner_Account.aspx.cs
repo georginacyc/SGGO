@@ -23,7 +23,7 @@ namespace SGGO
         {
             string email = partner_email_tb.Text;
             string fname = partner_fn_tb.Text;
-            string lname = " ";
+            string lname = "";
             string hp = partner_hp_tb.Text;
             string address = partner_address_tb.Text;
             string pw = "password";

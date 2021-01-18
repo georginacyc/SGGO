@@ -88,6 +88,7 @@
     <Content Include="Staff_Accounts_List.aspx" />
     <Content Include="Staff_Account_Details.aspx" />
     <Content Include="Staff_Home.aspx" />
+    <Content Include="Staff_Login.aspx" />
     <Content Include="testform.aspx" />
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
@@ -165,6 +166,13 @@
     </Compile>
     <Compile Include="Staff_Home.aspx.designer.cs">
       <DependentUpon>Staff_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Login.aspx.cs">
+      <DependentUpon>Staff_Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Login.aspx.designer.cs">
+      <DependentUpon>Staff_Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="testform.aspx.cs">
       <DependentUpon>testform.aspx</DependentUpon>

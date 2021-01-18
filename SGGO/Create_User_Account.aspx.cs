@@ -50,22 +50,22 @@ namespace SGGO
                 lbMsg.Text += "Please confirm your password" + "<br/>";
             }
             DateTime dob;
-            result = DateTime.TryParse(tbBirthDate.Text, out dob);
-            if (!result)
-            {
-                lbMsg.Text += "Birth Date is invalid" + "<br/>";
-            }
+            //result = DateTime.TryParse(tbBirthDate.Text, out dob);
+            //if (!result)
+            //{
+            //    lbMsg.Text += "Birth Date is invalid" + "<br/>";
+            //}
 
-            if (Department2.SelectedIndex == -1)
-            {
-                lbMsg.Text += "Department must be selected!" + "<br/>";
-            }
-            double wage;
-            result = double.TryParse(tbMonthlySalary.Text, out wage);
-            if (!result)
-            {
-                lbMsg.Text += "Monthly Wage is Invalid!" + "<br/>";
-            }
+            //if (Department2.SelectedIndex == -1)
+            //{
+            //    lbMsg.Text += "Department must be selected!" + "<br/>";
+            //}
+            //double wage;
+            //result = double.TryParse(tbMonthlySalary.Text, out wage);
+            //if (!result)
+            //{
+            //    lbMsg.Text += "Monthly Wage is Invalid!" + "<br/>";
+            //}
             if (String.IsNullOrEmpty(lbMsg.Text))
             {
                 return true;
