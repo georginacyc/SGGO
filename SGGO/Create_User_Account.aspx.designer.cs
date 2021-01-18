@@ -42,13 +42,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lbl_fname;
 
         /// <summary>
-        /// tb_fname control.
+        /// user_fname_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_fname;
+        protected global::System.Web.UI.WebControls.TextBox user_fname_tb;
 
         /// <summary>
         /// lbl_lname control.
@@ -60,13 +60,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lbl_lname;
 
         /// <summary>
-        /// tb_lname control.
+        /// user_lname_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_lname;
+        protected global::System.Web.UI.WebControls.TextBox user_lname_tb;
 
         /// <summary>
         /// lbl_email control.
@@ -78,13 +78,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lbl_email;
 
         /// <summary>
-        /// tb_email control.
+        /// user_email_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_email;
+        protected global::System.Web.UI.WebControls.TextBox user_email_tb;
 
         /// <summary>
         /// lbl_pw control.
@@ -96,13 +96,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lbl_pw;
 
         /// <summary>
-        /// tb_pw control.
+        /// user_password_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_pw;
+        protected global::System.Web.UI.WebControls.TextBox user_password_tb;
 
         /// <summary>
         /// lbl_confirmpw control.

@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
 namespace SGGO
 {
     public partial class Create_User_Account : System.Web.UI.Page
     {
+
+        Regex passReg = new Regex(@"^(?=.*[a-zA-Z])(?=.*[!-/])(?=.*\d).{8}$"); // Minimum eight characters, at least one letter and one number:
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -29,43 +32,27 @@ namespace SGGO
             bool result;
             lbMsg.Text = String.Empty;
 
-            if (tb_fname.Text == "")
+            if (user_fname_tb.Text == "")
             {
                 lbMsg.Text += "First name is required" + "<br/>";
             }
-            if (tb_lname.Text == "")
+            if (user_lname_tb.Text == "")
             {
                 lbMsg.Text += "Last name is required" + "<br/>";
             }
-            if (tb_email.Text == "")
+            if (user_email_tb.Text == "")
             {
                 lbMsg.Text += "Email is required" + "<br/>";
             }
-            if (tb_pw.Text == "")
+            if (user_password_tb.Text == "")
             {
                 lbMsg.Text += "Password is required" + "<br/>";
             }
-            if (tb_confirmpw.Text == "")
-            {
-                lbMsg.Text += "Please confirm your password" + "<br/>";
-            }
-            DateTime dob;
-            result = DateTime.TryParse(tbBirthDate.Text, out dob);
-            if (!result)
-            {
-                lbMsg.Text += "Birth Date is invalid" + "<br/>";
-            }
-
-            if (Department2.SelectedIndex == -1)
-            {
-                lbMsg.Text += "Department must be selected!" + "<br/>";
-            }
-            double wage;
-            result = double.TryParse(tbMonthlySalary.Text, out wage);
-            if (!result)
-            {
-                lbMsg.Text += "Monthly Wage is Invalid!" + "<br/>";
-            }
+            //if(passReg.IsMatch(tb_pw.Text))
+            //{
+            //    lbMsg.Text += "Password is valid" + "<br/>";
+            //}
+           
             if (String.IsNullOrEmpty(lbMsg.Text))
             {
                 return true;
@@ -76,8 +63,28 @@ namespace SGGO
             }
         }
 
+        //private void PasswordChange()
+        //{
+        //    if (passReg.IsMatch(tb_pw.Text))
+        //        lbMsg.Text = "Password validated";
+        //    else
+        //        lbMsg.Text = "Password invalid";
+        //}
+
+
         protected void btn_Create_Click(object sender, EventArgs e)
         {
+            ValidateInput();
+            //PasswordChange();
+            string email = user_email_tb.Text;
+            string fname = user_fname_tb.Text;
+            string lname = user_lname_tb.Text;
+            string pw = user_password_tb.Text;
+
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            int result = client.CreateAccount(email, pw, "User", fname, lname, null, null,DateTime.Now, DateTime.Now, null, null, null);
+            
+
 
         }
     }

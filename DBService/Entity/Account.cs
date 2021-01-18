@@ -87,7 +87,8 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
+            
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "INSERT INTO Accounts (email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points) " + "VALUES (@email, @password, @type, @first_name, @last_name, @hp, @address, @last_login, @account_created, @staff_id, @points)";

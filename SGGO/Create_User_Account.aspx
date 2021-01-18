@@ -14,7 +14,7 @@
             <asp:Label ID="lbl_fname" runat="server" Text="First Name"></asp:Label>
                     </td>
                     <td>
-            <asp:TextBox ID="tb_fname" runat="server"></asp:TextBox>
+            <asp:TextBox ID="user_fname_tb" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -22,7 +22,7 @@
             <asp:Label ID="lbl_lname" runat="server" Text="Last Name"></asp:Label>
                     </td>
                     <td>
-            <asp:TextBox ID="tb_lname" runat="server"></asp:TextBox>
+            <asp:TextBox ID="user_lname_tb" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -30,7 +30,7 @@
             <asp:Label ID="lbl_email" runat="server" Text="Email"></asp:Label>
                     </td>
                     <td>
-            <asp:TextBox ID="tb_email" runat="server" OnTextChanged="tb_email_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="user_email_tb" runat="server" OnTextChanged="tb_email_TextChanged"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -38,7 +38,7 @@
             <asp:Label ID="lbl_pw" runat="server" Text="Password"></asp:Label>
                     </td>
                     <td>
-            <asp:TextBox ID="tb_pw" runat="server" OnTextChanged="tb_pw_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="user_password_tb" runat="server" OnTextChanged="tb_pw_TextChanged" ></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
