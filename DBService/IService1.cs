@@ -24,6 +24,9 @@ namespace DBService
 
         [OperationContract]
         Account GetAccountByEmail(string email);
+
+        [OperationContract]
+        List<Account> GetAllAccounts();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

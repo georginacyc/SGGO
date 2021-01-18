@@ -67,7 +67,7 @@
         <tr>
             <td class="auto-style1">Password:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="staff_password_tb" runat="server"></asp:TextBox>
+                <asp:TextBox ID="staff_password_tb" TextMode="Password" runat="server"></asp:TextBox>
             </td>
             <td class="auto-style3">&nbsp;</td>
             <td>
@@ -76,7 +76,7 @@
         <tr>
             <td class="auto-style1">Confirm Password:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="staff_password2_tb" runat="server"></asp:TextBox>
+                <asp:TextBox ID="staff_password2_tb" TextMode="Password" runat="server"></asp:TextBox>
             </td>
             <td class="auto-style3">&nbsp;</td>
             <td>
@@ -84,6 +84,6 @@
         </tr>
     </table>
     <br />
-    <asp:Button ID="submit_btn" runat="server" Text="Submit" />
+    <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" />
     <br />
 </asp:Content>

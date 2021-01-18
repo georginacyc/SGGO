@@ -322,6 +322,12 @@ namespace SGGO.DBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountByEmail", ReplyAction="http://tempuri.org/IService1/GetAccountByEmailResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Account> GetAccountByEmailAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
+        SGGO.DBServiceReference.Account[] GetAllAccounts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
+        System.Threading.Tasks.Task<SGGO.DBServiceReference.Account[]> GetAllAccountsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -381,6 +387,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Account> GetAccountByEmailAsync(string email) {
             return base.Channel.GetAccountByEmailAsync(email);
+        }
+        
+        public SGGO.DBServiceReference.Account[] GetAllAccounts() {
+            return base.Channel.GetAllAccounts();
+        }
+        
+        public System.Threading.Tasks.Task<SGGO.DBServiceReference.Account[]> GetAllAccountsAsync() {
+            return base.Channel.GetAllAccountsAsync();
         }
     }
 }
