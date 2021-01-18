@@ -27,6 +27,19 @@ namespace DBService
 
         [OperationContract]
         List<Account> GetAllAccounts();
+
+        //Gem
+
+        //Trail
+        [OperationContract]
+        int CreateTrail(string trailId, string name, DateTime date, string description, int gem1, int gem2, int gem3, string banner);
+
+        [OperationContract]
+        Trail GetTrailById(string id);
+
+        [OperationContract]
+        List<Trail> GetAllTrails();
+
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
