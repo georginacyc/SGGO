@@ -54,16 +54,16 @@ namespace DBService
             return gem.SelectAll();
         }
 
-        public Gem GetGemByTitle(string title)
+        public Gem GetGemByTitle (string title)
         {
             Gem gem = new Gem();
             return gem.SelectByTitle(title);
         }
 
-        public int CreateTrail(string trailId, string name, DateTime date, string description, int gem1, int gem2, int gem3, string banner)
+        public int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image)
         {
-            Trail tr = new Trail(trailId, name, date, description, gem1, gem2, gem3, banner);
-            return tr.Insert();
+            Gem gem = new Gem(title, description, type, location, date, status, rating, partner, image);
+            return gem.Insert();
         }
 
 
