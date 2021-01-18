@@ -23,12 +23,14 @@ namespace SGGO
         {
             string email = partner_email_tb.Text;
             string fname = partner_fn_tb.Text;
+            string lname = " ";
             string hp = partner_hp_tb.Text;
             string address = partner_address_tb.Text;
             string pw = "password";
 
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateAccount(email, pw, "Partner", fname, null, hp, address, null, DateTime.Now, null, null, null);
+            int result = client.CreateAccount(email, pw, "Partner", fname, lname, hp, address, null, DateTime.Now, null, null, null);
+            Response.Redirect("Staff_Accounts_List.aspx");
         }
     }
 }

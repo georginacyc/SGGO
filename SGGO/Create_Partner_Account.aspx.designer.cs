@@ -42,24 +42,6 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.TextBox partner_email_tb;
 
         /// <summary>
-        /// partner_fn_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox partner_fn_tb;
-
-        /// <summary>
-        /// partner_ln_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox partner_ln_tb;
-
-        /// <summary>
         /// partner_dob_tb control.
         /// </summary>
         /// <remarks>
@@ -67,6 +49,15 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox partner_dob_tb;
+
+        /// <summary>
+        /// partner_fn_tb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox partner_fn_tb;
 
         /// <summary>
         /// partner_hp_tb control.
