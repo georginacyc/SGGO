@@ -92,6 +92,8 @@
     <Content Include="Staff_Login.aspx" />
     <Content Include="testform.aspx" />
     <Content Include="Test_Image\Cafe-De-Nicoles.jpg" />
+    <Content Include="Test_Image\FilledStar.png" />
+    <Content Include="Test_Image\Star.png" />
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
     <Content Include="User_Profile.aspx" />
