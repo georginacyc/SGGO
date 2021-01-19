@@ -184,7 +184,7 @@
         <xs:element minOccurs="0" name="post" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="author" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="rating" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

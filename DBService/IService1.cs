@@ -52,7 +52,7 @@ namespace DBService
 
         //Review
         [OperationContract]
-        int CreateReview(string status, string post, string author, string rating, string desc);
+        int CreateReview(string status, string post, string author, string rating, string description);
 
         [OperationContract]
         Review GetReviewByAuthor(string author);

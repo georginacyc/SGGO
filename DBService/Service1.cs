@@ -99,9 +99,9 @@ namespace DBService
             return review.SelectByAuthor(author);
         }
 
-        public int CreateReview(string status, string post, string author, string rating, string desc)
+        public int CreateReview(string status, string post, string author, string rating, string description)
         {
-            Review review = new Review(status, post, author, rating, desc);
+            Review review = new Review(status, post, author, rating, description);
             return review.Insert();
         }
     }
