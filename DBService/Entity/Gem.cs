@@ -27,7 +27,7 @@ namespace DBService.Entity
 
         }
 
-        public Gem(string title, string description, string type, string location, DateTime? date,string status, float rating, string partner, string image)
+        public Gem(string title, string description, string type, string location, DateTime? date,string status, float? rating, string partner, string image)
         {
             Title = title;
             Description = description;
@@ -36,7 +36,7 @@ namespace DBService.Entity
             Date = date;
             // default status when created is Active | when activity type is over/company disables gem, status is "disabled"
             Status = "Active";
-            Rating = null;
+            Rating = rating;
             Partner = partner;
             Image = image;
         }
@@ -50,13 +50,22 @@ namespace DBService.Entity
             string query = "INSERT INTO Gem (title,description,type,status,location,date,rating,partner,image) " + "VALUES (@title,@description,@type,@status,@location,@date,@rating,@partner,@image)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
+            if(Date is null)
+            {
+                cmd.Parameters.AddWithValue("@date", DBNull.Value);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@date", Date);
+            }
+
+
             cmd.Parameters.AddWithValue("@title", Title );
             cmd.Parameters.AddWithValue("@description", Description);
             cmd.Parameters.AddWithValue("@type", Type);
             cmd.Parameters.AddWithValue("@status", Status);
             cmd.Parameters.AddWithValue("@location",Location );
-            cmd.Parameters.AddWithValue("@date", Date);
-            cmd.Parameters.AddWithValue("@rating", Rating);
+            cmd.Parameters.AddWithValue("@rating", DBNull.Value);
             cmd.Parameters.AddWithValue("@partner", Partner);
             cmd.Parameters.AddWithValue("@Image", Image);
 
@@ -88,14 +97,31 @@ namespace DBService.Entity
             if (count == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                DateTime date = Convert.ToDateTime(row["date"].ToString());
                 string description = row["description"].ToString();
                 string type = row["type"].ToString();
                 string status = row["status"].ToString();
                 string location = row["location"].ToString();
                 string partner = row["partner"].ToString();
                 string image = row["image"].ToString();
-                float rating = (float) Convert.ToDouble(row["rating"].ToString());
+                float rating;
+                DateTime? date;
+                if (row["rating"].Equals(System.DBNull.Value))
+                {
+                    rating = 0;
+                }
+                else
+                {
+                    rating = (float)Convert.ToDouble(row["rating"]);
+                }
+
+                if (row["date"].Equals(System.DBNull.Value))
+                {
+                    date = null;
+                }
+                else
+                {
+                    date = Convert.ToDateTime(row["date"]);
+                }
 
                 gem = new Gem(title, description, type, location, date, status, rating, partner, image);
             }

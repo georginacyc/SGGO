@@ -84,15 +84,15 @@
     <Content Include="Create_Staff_Account.aspx" />
     <Content Include="Create_Trail.aspx" />
     <Content Include="Create_User_Account.aspx" />
-    <Content Include="Gem_Cata.aspx" />
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Staff_Accounts_List.aspx" />
     <Content Include="Staff_Account_Details.aspx" />
+    <Content Include="Staff_Gem_List.aspx" />
     <Content Include="Staff_Home.aspx" />
     <Content Include="Staff_Login.aspx" />
-    <Content Include="Staff_Review.aspx" />
+    <Content Include="Staff_Ongoing_Trails.aspx" />
     <Content Include="testform.aspx" />
     <Content Include="Test_Image\Cafe-De-Nicoles.jpg" />
     <Content Include="Test_Image\FilledStar.png" />
@@ -143,13 +143,6 @@
     <Compile Include="Create_User_Account.aspx.designer.cs">
       <DependentUpon>Create_User_Account.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Gem_Cata.aspx.cs">
-      <DependentUpon>Gem_Cata.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Gem_Cata.aspx.designer.cs">
-      <DependentUpon>Gem_Cata.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Gem_Listing.aspx.cs">
       <DependentUpon>Gem_Listing.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,6 +182,13 @@
     <Compile Include="Staff_Account_Details.aspx.designer.cs">
       <DependentUpon>Staff_Account_Details.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Staff_Gem_List.aspx.cs">
+      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Gem_List.aspx.designer.cs">
+      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Staff_Home.aspx.cs">
       <DependentUpon>Staff_Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,12 +203,12 @@
     <Compile Include="Staff_Login.aspx.designer.cs">
       <DependentUpon>Staff_Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Staff_Review.aspx.cs">
-      <DependentUpon>Staff_Review.aspx</DependentUpon>
+    <Compile Include="Staff_Ongoing_Trails.aspx.cs">
+      <DependentUpon>Staff_Ongoing_Trails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Staff_Review.aspx.designer.cs">
-      <DependentUpon>Staff_Review.aspx</DependentUpon>
+    <Compile Include="Staff_Ongoing_Trails.aspx.designer.cs">
+      <DependentUpon>Staff_Ongoing_Trails.aspx</DependentUpon>
     </Compile>
     <Compile Include="testform.aspx.cs">
       <DependentUpon>testform.aspx</DependentUpon>

@@ -80,9 +80,9 @@ namespace DBService
             return tr.SelectById(id);
         }
 
-        public int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner)
+        public int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status)
         {
-            Trail tr = new Trail(trailId, name, date, description, gem1, gem2, gem3, banner);
+            Trail tr = new Trail(trailId, name, date, description, gem1, gem2, gem3, banner,status);
             return tr.Insert();
         }
 
