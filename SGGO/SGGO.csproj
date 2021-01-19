@@ -80,6 +80,7 @@
       <DependentUpon>SGGO_DB.mdf</DependentUpon>
     </Content>
     <Content Include="Create_Partner_Account.aspx" />
+    <Content Include="Create_Gem.aspx" />
     <Content Include="Create_Staff_Account.aspx" />
     <Content Include="Create_User_Account.aspx" />
     <Content Include="Gem_Listing.aspx" />
@@ -108,6 +109,13 @@
     </Compile>
     <Compile Include="Create_Partner_Account.aspx.designer.cs">
       <DependentUpon>Create_Partner_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Gem.aspx.cs">
+      <DependentUpon>Create_Gem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create_Gem.aspx.designer.cs">
+      <DependentUpon>Create_Gem.aspx</DependentUpon>
     </Compile>
     <Compile Include="Create_Staff_Account.aspx.cs">
       <DependentUpon>Create_Staff_Account.aspx</DependentUpon>
