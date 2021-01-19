@@ -61,7 +61,7 @@ namespace SGGO
             }
             else if (lb_gem3_pc.Text == "-")
             {
-                lb_gem3_pc.Text = title;
+                lb_gem3_lisitng.Text = title;
                 lb_gem3_pc.Text = pc;
                 lb_gem3_type.Text = type;
             }

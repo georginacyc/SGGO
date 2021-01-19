@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SGGO.DBServiceReference;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +17,26 @@ namespace SGGO
 
         protected void btn_upload_Click(object sender, EventArgs e)
         {
-
+            if (tb_title.Text is null)
+            {
+                lb_uploadstatus.Text = "Gem title must be entered before banner upload can be attempted";
+                lb_uploadstatus.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                if (ImageUpload.HasFile)
+                {
+                    string filename = tb_title.Text + ".png";
+                    ImageUpload.SaveAs(Path.Combine(Server.MapPath("/Images/Gem"), filename));
+                    lb_uploadstatus.Text = "File Successfully Uploaded";
+                    lb_uploadstatus.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    lb_uploadstatus.Text = "Please Select Your File";
+                    lb_uploadstatus.ForeColor = System.Drawing.Color.Red;
+                }
+            }
         }
 
 
@@ -24,15 +45,38 @@ namespace SGGO
             if (rb_type.SelectedValue == "Activity")
             {
                 lb_date.Visible = true;
-                Calendar1.Visible = true;
+                tb_date.Visible = true;
             }
             if (rb_type.SelectedValue == "Destination")
             {
                 lb_date.Visible = false;
-                Calendar1.Visible = false;
+                tb_date.Visible = false;
             }
         }
 
+        protected void btn_submit_Click(object sender, EventArgs e)
+        {
+            string title = tb_title.Text;
+            string description = tb_description.Text;
+            string type = rb_type.SelectedValue;
+            string partner = tb_pc.Text;
+            string location = tb_location.Text;
+            DateTime? date = null;
+            if(type == "Activity")
+            {
+                date = Convert.ToDateTime(tb_date.Text);
+            }
+            
+            string image = title;
+            
 
+            Service1Client client = new DBServiceReference.Service1Client();
+            int result = client.CreateGem(title, description, type, location, date, "Active", 0, partner, image);
+
+            //string success_msg = title + " has been successfully created";
+            //Session["success_gem_creation"] = success_msg;
+
+            Response.Redirect("Staff_Gem_List.aspx");
+        }
     }
 }

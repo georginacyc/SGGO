@@ -89,6 +89,7 @@
     <Content Include="Global.asax" />
     <Content Include="Staff_Accounts_List.aspx" />
     <Content Include="Staff_Account_Details.aspx" />
+    <Content Include="Staff_Gem_List.aspx" />
     <Content Include="Staff_Home.aspx" />
     <Content Include="Staff_Login.aspx" />
     <Content Include="testform.aspx" />
@@ -179,6 +180,13 @@
     </Compile>
     <Compile Include="Staff_Account_Details.aspx.designer.cs">
       <DependentUpon>Staff_Account_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Gem_List.aspx.cs">
+      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Gem_List.aspx.designer.cs">
+      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff_Home.aspx.cs">
       <DependentUpon>Staff_Home.aspx</DependentUpon>

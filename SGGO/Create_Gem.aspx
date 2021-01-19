@@ -75,7 +75,7 @@
             </td>
             
             <td>
-                <asp:Calendar ID="Calendar1" AutoPostBack="True" runat="server" ></asp:Calendar>
+                <asp:TextBox ID="tb_date" TextMode="DateTimeLocal" runat="server"></asp:TextBox>
             </td>
         </tr>
         
@@ -92,7 +92,7 @@
     <br />
         <div id="button">
         
-        <asp:Button ID="btn_submit" runat="server" Text="Submit" />
+        <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" />
         
         </div>
         
