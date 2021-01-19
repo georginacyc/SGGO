@@ -11,7 +11,6 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btn_upload_Click(object sender, EventArgs e)
@@ -19,9 +18,21 @@ namespace SGGO
 
         }
 
-        protected void btn_create_Click(object sender, EventArgs e)
-        {
 
+        protected void rb_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rb_type.SelectedValue == "Activity")
+            {
+                lb_date.Visible = true;
+                Calendar1.Visible = true;
+            }
+            if (rb_type.SelectedValue == "Destination")
+            {
+                lb_date.Visible = false;
+                Calendar1.Visible = false;
+            }
         }
+
+
     }
 }
