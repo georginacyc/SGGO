@@ -141,6 +141,7 @@
         <xs:element minOccurs="0" name="gem2" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="gem3" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="banner" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

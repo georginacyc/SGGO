@@ -31,11 +31,12 @@ namespace SGGO
             string gem3 = lb_gem3_lisitng.Text;
             string banner = title;
             string trailid = month + year + "trail";
+            string status = "upcoming";
 
             Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateTrail(trailid, title, date, description, gem1, gem2, gem3, banner);
+            int result = client.CreateTrail(trailid, title, date, description, gem1, gem2, gem3, banner,status);
 
-            //Response.Redirect("Staff_Ongoing_Trails.aspx");
+            Response.Redirect("Staff_Ongoing_Trails.aspx");
 
         }
 

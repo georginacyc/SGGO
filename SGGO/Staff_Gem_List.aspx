@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class ="container-fluid">
         <asp:Label ID="lb_msg" runat="server"></asp:Label>
+        <br />
         <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="Gem List"></asp:Label>
     <br />
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="GemDataSource" ForeColor="Black" GridLines="Horizontal"  Width="100%">

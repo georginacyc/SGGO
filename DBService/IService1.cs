@@ -41,7 +41,7 @@ namespace DBService
 
         //Trail
         [OperationContract]
-        int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner);
+        int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
 
         [OperationContract]
         Trail GetTrailById(string id);

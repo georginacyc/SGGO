@@ -499,6 +499,9 @@ namespace SGGO.DBServiceReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TrailIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -603,6 +606,19 @@ namespace SGGO.DBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrailId {
             get {
                 return this.TrailIdField;
@@ -678,10 +694,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Gem[]> GetAllGemsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTrail", ReplyAction="http://tempuri.org/IService1/CreateTrailResponse")]
-        int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner);
+        int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTrail", ReplyAction="http://tempuri.org/IService1/CreateTrailResponse")]
-        System.Threading.Tasks.Task<int> CreateTrailAsync(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner);
+        System.Threading.Tasks.Task<int> CreateTrailAsync(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTrailById", ReplyAction="http://tempuri.org/IService1/GetTrailByIdResponse")]
         SGGO.DBServiceReference.Trail GetTrailById(string id);
@@ -787,12 +803,12 @@ namespace SGGO.DBServiceReference {
             return base.Channel.GetAllGemsAsync();
         }
         
-        public int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner) {
-            return base.Channel.CreateTrail(trailId, name, date, description, gem1, gem2, gem3, banner);
+        public int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status) {
+            return base.Channel.CreateTrail(trailId, name, date, description, gem1, gem2, gem3, banner, status);
         }
         
-        public System.Threading.Tasks.Task<int> CreateTrailAsync(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner) {
-            return base.Channel.CreateTrailAsync(trailId, name, date, description, gem1, gem2, gem3, banner);
+        public System.Threading.Tasks.Task<int> CreateTrailAsync(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status) {
+            return base.Channel.CreateTrailAsync(trailId, name, date, description, gem1, gem2, gem3, banner, status);
         }
         
         public SGGO.DBServiceReference.Trail GetTrailById(string id) {
