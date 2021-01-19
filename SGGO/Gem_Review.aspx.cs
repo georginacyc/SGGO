@@ -15,7 +15,7 @@ namespace SGGO
 
         }
 
-        public string rating_score = "";
+        public string rating_score = "0";
 
         protected void Rating_1_Click(object sender, ImageClickEventArgs e)
         {

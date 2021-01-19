@@ -36,8 +36,7 @@ namespace DBService.Entity
             string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
-
-            string query = "INSERT INTO Review (status,post,author,rating,desc) " + "VALUES (@status,@post,@author,@rating,@desc)";
+            string query = "INSERT INTO Review (status, post, author, rating, desc) " + "VALUES (@status, @post, @author, @rating, @desc)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@status", Status);
@@ -74,10 +73,10 @@ namespace DBService.Entity
             if (count == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                string desc = row["desc"].ToString();
                 string status = row["status"].ToString();
                 string post = row["post"].ToString();
                 string rating = row["rating"].ToString();
+                string desc = row["desc"].ToString();
 
                 review = new Review(status, post, author, rating, desc);
             }
