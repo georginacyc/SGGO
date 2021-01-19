@@ -86,5 +86,23 @@ namespace DBService
             return tr.Insert();
         }
 
+        //Reviews
+        public List<Review> GetAllReview()
+        {
+            Review review = new Review();
+            return review.SelectAll();
+        }
+
+        public Review GetReviewByAuthor(string author)
+        {
+            Review review = new Review();
+            return review.SelectByAuthor(author);
+        }
+
+        public int CreateReview(string status, string post, string author, string rating, string desc)
+        {
+            Review review = new Review(status, post, author, rating, desc);
+            return review.Insert();
+        }
     }
 }

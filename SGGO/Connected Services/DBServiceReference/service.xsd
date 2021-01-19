@@ -177,4 +177,48 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CreateReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="post" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="author" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rating" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateReviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateReviewResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReviewByAuthor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="author" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReviewByAuthorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetReviewByAuthorResult" nillable="true" type="q10:Review" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReview">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllReviewResult" nillable="true" type="q11:ArrayOfReview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
