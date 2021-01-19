@@ -49,9 +49,9 @@
       <xs:element minOccurs="0" name="Banner" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Gem1" type="xs:int" />
-      <xs:element minOccurs="0" name="Gem2" type="xs:int" />
-      <xs:element minOccurs="0" name="Gem3" type="xs:int" />
+      <xs:element minOccurs="0" name="Gem1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gem2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gem3" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TrailId" nillable="true" type="xs:string" />
     </xs:sequence>

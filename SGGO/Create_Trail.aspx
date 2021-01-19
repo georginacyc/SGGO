@@ -124,7 +124,7 @@
     <asp:FileUpload ID="BannerUpload" runat="server" Width="521px" />
         <asp:Button ID="btn_upload" runat="server" Text="Upload Image" margin-left="10px" OnClick="btn_upload_Click"/>
     <br />
-        <asp:Label ID="lbl_uploaderror" runat="server" Text="[errormsg]"></asp:Label>
+        <asp:Label ID="lb_uploadstatus" runat="server"></asp:Label>
     <br />
     <br />
     <div id ="buttons">

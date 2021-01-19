@@ -137,9 +137,9 @@
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="date" type="xs:dateTime" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="gem1" type="xs:int" />
-        <xs:element minOccurs="0" name="gem2" type="xs:int" />
-        <xs:element minOccurs="0" name="gem3" type="xs:int" />
+        <xs:element minOccurs="0" name="gem1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gem2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gem3" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="banner" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

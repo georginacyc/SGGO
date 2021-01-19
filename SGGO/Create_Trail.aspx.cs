@@ -29,13 +29,13 @@ namespace SGGO
             string gem1 = lb_gem1_listing.Text;
             string gem2 = lb_gem2_listing.Text;
             string gem3 = lb_gem3_lisitng.Text;
-            string banner = title.Trim() + "Banner";
+            string banner = title;
             string trailid = month + year + "trail";
 
             Service1Client client = new DBServiceReference.Service1Client();
             int result = client.CreateTrail(trailid, title, date, description, gem1, gem2, gem3, banner);
 
-            //Response.Redirect("Staff_Accounts_List.aspx");
+            //Response.Redirect("Staff_Ongoing_Trails.aspx");
 
         }
 
@@ -77,17 +77,27 @@ namespace SGGO
 
         protected void btn_upload_Click(object sender, EventArgs e)
         {
-            if (BannerUpload.HasFile)
+            if(tb_title.Text is null)
             {
-                string banner = tb_title.Text.Trim() + "Banner";
-                string filename = Path.Combine(Server.MapPath("~/Images/Trail"), banner);
-                BannerUpload.SaveAs(filename);
+                lb_uploadstatus.Text = "Trail title must be entered before banner upload can be attempted";
+                lb_uploadstatus.ForeColor = System.Drawing.Color.Red;
             }
             else
             {
-                lbl_uploaderror.Text = "Please Select Your File";
-                lbl_uploaderror.ForeColor = System.Drawing.Color.Red;
+                if (BannerUpload.HasFile)
+                {
+                    string filename = tb_title.Text + ".png";
+                    BannerUpload.SaveAs(Path.Combine(Server.MapPath("/Images/Trail"), filename));
+                    lb_uploadstatus.Text = "File Successfully Uploaded";
+                    lb_uploadstatus.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    lb_uploadstatus.Text = "Please Select Your File";
+                    lb_uploadstatus.ForeColor = System.Drawing.Color.Red;
+                }
             }
+            
         }
 
 

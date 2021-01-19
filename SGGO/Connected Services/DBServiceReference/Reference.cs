@@ -487,13 +487,13 @@ namespace SGGO.DBServiceReference {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Gem1Field;
+        private string Gem1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Gem2Field;
+        private string Gem2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Gem3Field;
+        private string Gem3Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -551,12 +551,12 @@ namespace SGGO.DBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Gem1 {
+        public string Gem1 {
             get {
                 return this.Gem1Field;
             }
             set {
-                if ((this.Gem1Field.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.Gem1Field, value) != true)) {
                     this.Gem1Field = value;
                     this.RaisePropertyChanged("Gem1");
                 }
@@ -564,12 +564,12 @@ namespace SGGO.DBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Gem2 {
+        public string Gem2 {
             get {
                 return this.Gem2Field;
             }
             set {
-                if ((this.Gem2Field.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.Gem2Field, value) != true)) {
                     this.Gem2Field = value;
                     this.RaisePropertyChanged("Gem2");
                 }
@@ -577,12 +577,12 @@ namespace SGGO.DBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Gem3 {
+        public string Gem3 {
             get {
                 return this.Gem3Field;
             }
             set {
-                if ((this.Gem3Field.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.Gem3Field, value) != true)) {
                     this.Gem3Field = value;
                     this.RaisePropertyChanged("Gem3");
                 }
@@ -678,10 +678,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Gem[]> GetAllGemsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTrail", ReplyAction="http://tempuri.org/IService1/CreateTrailResponse")]
-        int CreateTrail(string trailId, string name, System.DateTime date, string description, int gem1, int gem2, int gem3, string banner);
+        int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTrail", ReplyAction="http://tempuri.org/IService1/CreateTrailResponse")]
-        System.Threading.Tasks.Task<int> CreateTrailAsync(string trailId, string name, System.DateTime date, string description, int gem1, int gem2, int gem3, string banner);
+        System.Threading.Tasks.Task<int> CreateTrailAsync(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTrailById", ReplyAction="http://tempuri.org/IService1/GetTrailByIdResponse")]
         SGGO.DBServiceReference.Trail GetTrailById(string id);
@@ -787,11 +787,11 @@ namespace SGGO.DBServiceReference {
             return base.Channel.GetAllGemsAsync();
         }
         
-        public int CreateTrail(string trailId, string name, System.DateTime date, string description, int gem1, int gem2, int gem3, string banner) {
+        public int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner) {
             return base.Channel.CreateTrail(trailId, name, date, description, gem1, gem2, gem3, banner);
         }
         
-        public System.Threading.Tasks.Task<int> CreateTrailAsync(string trailId, string name, System.DateTime date, string description, int gem1, int gem2, int gem3, string banner) {
+        public System.Threading.Tasks.Task<int> CreateTrailAsync(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner) {
             return base.Channel.CreateTrailAsync(trailId, name, date, description, gem1, gem2, gem3, banner);
         }
         
