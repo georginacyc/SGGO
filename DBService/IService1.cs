@@ -27,6 +27,38 @@ namespace DBService
 
         [OperationContract]
         List<Account> GetAllAccounts();
+
+        //Gem
+        [OperationContract]
+        int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image);
+
+        [OperationContract]
+        Gem GetGemByTitle(string title);
+
+        [OperationContract]
+        List<Gem> GetAllGems();
+
+
+        //Trail
+        [OperationContract]
+        int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner);
+
+        [OperationContract]
+        Trail GetTrailById(string id);
+
+        [OperationContract]
+        List<Trail> GetAllTrails();
+
+
+        //Review
+        [OperationContract]
+        int CreateReview(string status, string post, string author, string rating, string desc);
+
+        [OperationContract]
+        Review GetReviewByAuthor(string author);
+
+        [OperationContract]
+        List<Review> GetAllReview();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

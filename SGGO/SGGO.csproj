@@ -79,8 +79,10 @@
     <Content Include="App_Data\SGGO_DB_log.ldf">
       <DependentUpon>SGGO_DB.mdf</DependentUpon>
     </Content>
+    <Content Include="Create_Gem.aspx" />
     <Content Include="Create_Partner_Account.aspx" />
     <Content Include="Create_Staff_Account.aspx" />
+    <Content Include="Create_Trail.aspx" />
     <Content Include="Create_User_Account.aspx" />
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
@@ -90,6 +92,9 @@
     <Content Include="Staff_Home.aspx" />
     <Content Include="Staff_Login.aspx" />
     <Content Include="testform.aspx" />
+    <Content Include="Test_Image\Cafe-De-Nicoles.jpg" />
+    <Content Include="Test_Image\FilledStar.png" />
+    <Content Include="Test_Image\Star.png" />
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
     <Content Include="User_Profile.aspx" />
@@ -100,6 +105,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Gem.aspx.cs">
+      <DependentUpon>Create_Gem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create_Gem.aspx.designer.cs">
+      <DependentUpon>Create_Gem.aspx</DependentUpon>
     </Compile>
     <Compile Include="Create_Partner_Account.aspx.cs">
       <DependentUpon>Create_Partner_Account.aspx</DependentUpon>
@@ -114,6 +126,13 @@
     </Compile>
     <Compile Include="Create_Staff_Account.aspx.designer.cs">
       <DependentUpon>Create_Staff_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Trail.aspx.cs">
+      <DependentUpon>Create_Trail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create_Trail.aspx.designer.cs">
+      <DependentUpon>Create_Trail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Create_User_Account.aspx.cs">
       <DependentUpon>Create_User_Account.aspx</DependentUpon>
@@ -234,6 +253,15 @@
     <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Gem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Trail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Review.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Staff.Master" />
     <Content Include="User.Master" />
@@ -245,6 +273,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\Gem\" />
+    <Folder Include="Images\Trail\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

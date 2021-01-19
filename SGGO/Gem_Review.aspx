@@ -3,21 +3,33 @@
     <form id="form1" runat="server">
         <table style="width:1204px; text-align:center;">
             <tr>
-                <td style="width: 401px">Rate &amp; Review</td>
-                <td rowspan="3" style="width: 401px">
-                    <asp:Image ID="Image1" runat="server" Height="179px" Width="367px" />
+                <td style="width: 341px">&nbsp;</td>
+                <td style="width: 381px">
+                    &nbsp;</td>
+                <td style="width: 402px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 341px">Rate &amp; Review</td>
+                <td rowspan="3" style="width: 381px">
+                    <asp:Image ID="Image1" runat="server" Height="179px" Width="304px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
                 </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 401px; height: 18px">
+                <td style="width: 341px; height: 18px">
                     <asp:Label ID="review_date" runat="server"></asp:Label>
                 </td>
                 <td style="width: 402px; height: 18px"></td>
             </tr>
             <tr>
-                <td style="width: 401px">&nbsp;</td>
-                <td style="width: 402px">&nbsp;</td>
+                <td class="auto-style1">
+                    <asp:ImageButton ID="Rating_1" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_1_Click" />
+                    <asp:ImageButton ID="Rating_2" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_2_Click" />
+                    <asp:ImageButton ID="Rating_3" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_3_Click" />
+                    <asp:ImageButton ID="Rating_4" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_4_Click" />
+                    <asp:ImageButton ID="Rating_5" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_5_Click" />
+                 </td>
+                <td class="auto-style2"></td>
             </tr>
             <tr>
                 <td colspan="2">&nbsp;</td>
@@ -25,7 +37,7 @@
             </tr>
             <tr>
                 <td colspan="2" style="height: 99px">
-                    <asp:TextBox ID="TextBox1" runat="server" Height="91px" Width="700px"></asp:TextBox>
+                    <asp:TextBox ID="tb_desc" runat="server" Height="91px" Width="700px"></asp:TextBox>
                 </td>
                 <td style="width: 402px; height: 99px"></td>
             </tr>
@@ -35,15 +47,16 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Button ID="btn_submit_review" runat="server" OnClick="Button1_Click" Text="Submit" Width="700px" />
+                    <asp:Button ID="btn_submit_review" runat="server" Text="Submit" Width="700px" OnClick="btn_submit_review_Click" />
                 </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 401px">&nbsp;</td>
-                <td style="width: 401px">&nbsp;</td>
+                <td style="width: 341px">&nbsp;</td>
+                <td style="width: 381px">&nbsp;</td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
         </table>
     </form>
+    
 </asp:Content>
