@@ -22,8 +22,14 @@
                 <td style="width: 402px; height: 18px"></td>
             </tr>
             <tr>
-                <td style="width: 341px">&nbsp;</td>
-                <td style="width: 402px">&nbsp;</td>
+                <td class="auto-style1">
+                    <asp:ImageButton ID="Rating_1" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_1_Click" />
+                    <asp:ImageButton ID="Rating_2" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_2_Click" />
+                    <asp:ImageButton ID="Rating_3" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_3_Click" />
+                    <asp:ImageButton ID="Rating_4" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_4_Click" />
+                    <asp:ImageButton ID="Rating_5" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_5_Click" />
+                 </td>
+                <td class="auto-style2"></td>
             </tr>
             <tr>
                 <td colspan="2">&nbsp;</td>
@@ -41,7 +47,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Button ID="btn_submit_review" runat="server" OnClick="Button1_Click" Text="Submit" Width="700px" />
+                    <asp:Button ID="btn_submit_review" runat="server" Text="Submit" Width="700px" OnClick="btn_submit_review_Click" />
                 </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
@@ -52,4 +58,5 @@
             </tr>
         </table>
     </form>
+    
 </asp:Content>
