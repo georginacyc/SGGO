@@ -39,6 +39,42 @@
   <wsdl:message name="IService1_GetAllAccounts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAccountsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_CreateGem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateGem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGemByTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGemByTitle" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGemByTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGemByTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllGems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGems" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllGems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateTrail_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTrail" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateTrail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTrailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTrailById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrailById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTrailById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrailByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllTrails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrails" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllTrails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrailsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -59,6 +95,30 @@
     <wsdl:operation name="GetAllAccounts">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllAccounts" message="tns:IService1_GetAllAccounts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllAccountsResponse" message="tns:IService1_GetAllAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateGem" message="tns:IService1_CreateGem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateGemResponse" message="tns:IService1_CreateGem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGemByTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGemByTitle" message="tns:IService1_GetGemByTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGemByTitleResponse" message="tns:IService1_GetGemByTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllGems" message="tns:IService1_GetAllGems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllGemsResponse" message="tns:IService1_GetAllGems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTrail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateTrail" message="tns:IService1_CreateTrail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateTrailResponse" message="tns:IService1_CreateTrail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTrailById" message="tns:IService1_GetTrailById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTrailByIdResponse" message="tns:IService1_GetTrailById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllTrails" message="tns:IService1_GetAllTrails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllTrailsResponse" message="tns:IService1_GetAllTrails_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -101,6 +161,60 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllAccounts">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGem">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateGem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGemByTitle">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetGemByTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGems">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllGems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTrail">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateTrail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTrailById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrails">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllTrails" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
