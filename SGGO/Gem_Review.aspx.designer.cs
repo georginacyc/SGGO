@@ -87,13 +87,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.ImageButton Rating_5;
 
         /// <summary>
-        /// TextBox1 control.
+        /// tb_desc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox tb_desc;
 
         /// <summary>
         /// btn_submit_review control.

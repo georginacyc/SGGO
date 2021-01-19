@@ -49,6 +49,16 @@ namespace DBService
         [OperationContract]
         List<Trail> GetAllTrails();
 
+
+        //Review
+        [OperationContract]
+        int CreateReview(string status, string post, string author, string rating, string desc);
+
+        [OperationContract]
+        Review GetReviewByAuthor(string author);
+
+        [OperationContract]
+        List<Review> GetAllReview();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

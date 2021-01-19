@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <td colspan="2" style="height: 99px">
-                    <asp:TextBox ID="TextBox1" runat="server" Height="91px" Width="700px"></asp:TextBox>
+                    <asp:TextBox ID="tb_desc" runat="server" Height="91px" Width="700px"></asp:TextBox>
                 </td>
                 <td style="width: 402px; height: 99px"></td>
             </tr>

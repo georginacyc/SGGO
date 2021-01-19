@@ -275,6 +275,9 @@
     <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Trail.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Review.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Staff.Master" />
     <Content Include="User.Master" />
