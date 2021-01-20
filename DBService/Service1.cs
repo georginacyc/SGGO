@@ -86,5 +86,23 @@ namespace DBService
             return tr.Insert();
         }
 
+        public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr)
+        {
+            Point_Shop_Item item = new Point_Shop_Item(name, partner, description, price, image, type, qr);
+            return item.Insert();
+        }
+
+        //Point Shop
+        public Point_Shop_Item SelectById(string Point_Shop_Item_Id) 
+        {
+            Point_Shop_Item items = new Point_Shop_Item();
+            return items.SelectById(Point_Shop_Item_Id);
+        }
+
+        public List<Point_Shop_Item> SelectAll()
+        {
+            Point_Shop_Item items = new Point_Shop_Item();
+            return items.SelectAll();
+        }
     }
 }
