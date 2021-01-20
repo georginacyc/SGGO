@@ -87,6 +87,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.ImageButton Rating_5;
 
         /// <summary>
+        /// lbl_rating_score control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_rating_score;
+
+        /// <summary>
         /// tb_desc control.
         /// </summary>
         /// <remarks>
@@ -103,5 +112,14 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_submit_review;
+
+        /// <summary>
+        /// btn_back control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_back;
     }
 }

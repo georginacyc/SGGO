@@ -53,7 +53,17 @@
             </tr>
             <tr>
                 <td style="width: 549px">
+                    <div style="padding-left:50px">
                     <asp:Label ID="gem_review" runat="server"></asp:Label>
+                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="0" CssClass="myDatagrid" Width="541px" DataKeyNames="id" DataSourceID="GetGemReviews" >
+                        <Columns>
+                            <asp:BoundField DataField="rating" HeaderText="rating" SortExpression="rating" />
+                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
+                        </Columns>
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="GetGemReviews" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Review]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                    </div>
                 </td>
                 <td style="width: 196px">&nbsp;</td>
                 <td style="width: 350px">&nbsp;</td>
