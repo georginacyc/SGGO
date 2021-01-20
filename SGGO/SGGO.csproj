@@ -79,21 +79,24 @@
     <Content Include="App_Data\SGGO_DB_log.ldf">
       <DependentUpon>SGGO_DB.mdf</DependentUpon>
     </Content>
+    <Content Include="Create_Gem.aspx" />
     <Content Include="Create_Partner_Account.aspx" />
     <Content Include="Create_Staff_Account.aspx" />
+    <Content Include="Create_Trail.aspx" />
     <Content Include="Create_User_Account.aspx" />
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Point_Shop_Catalogue.aspx" />
-    <Content Include="Point_Shop_Create_Item.aspx" />
-    <Content Include="Point_Shop_Main_Page.aspx" />
     <Content Include="Staff_Accounts_List.aspx" />
     <Content Include="Staff_Account_Details.aspx" />
+    <Content Include="Staff_Gem_List.aspx" />
     <Content Include="Staff_Home.aspx" />
     <Content Include="Staff_Login.aspx" />
+    <Content Include="Staff_Ongoing_Trails.aspx" />
     <Content Include="testform.aspx" />
     <Content Include="Test_Image\Cafe-De-Nicoles.jpg" />
+    <Content Include="Test_Image\FilledStar.png" />
+    <Content Include="Test_Image\Star.png" />
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
     <Content Include="User_Profile.aspx" />
@@ -104,6 +107,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Gem.aspx.cs">
+      <DependentUpon>Create_Gem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create_Gem.aspx.designer.cs">
+      <DependentUpon>Create_Gem.aspx</DependentUpon>
     </Compile>
     <Compile Include="Create_Partner_Account.aspx.cs">
       <DependentUpon>Create_Partner_Account.aspx</DependentUpon>
@@ -118,6 +128,13 @@
     </Compile>
     <Compile Include="Create_Staff_Account.aspx.designer.cs">
       <DependentUpon>Create_Staff_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Trail.aspx.cs">
+      <DependentUpon>Create_Trail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create_Trail.aspx.designer.cs">
+      <DependentUpon>Create_Trail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Create_User_Account.aspx.cs">
       <DependentUpon>Create_User_Account.aspx</DependentUpon>
@@ -143,27 +160,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Point_Shop_Catalogue.aspx.cs">
-      <DependentUpon>Point_Shop_Catalogue.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Point_Shop_Catalogue.aspx.designer.cs">
-      <DependentUpon>Point_Shop_Catalogue.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Point_Shop_Create_Item.aspx.cs">
-      <DependentUpon>Point_Shop_Create_Item.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Point_Shop_Create_Item.aspx.designer.cs">
-      <DependentUpon>Point_Shop_Create_Item.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Point_Shop_Main_Page.aspx.cs">
-      <DependentUpon>Point_Shop_Main_Page.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Point_Shop_Main_Page.aspx.designer.cs">
-      <DependentUpon>Point_Shop_Main_Page.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staff.Master.cs">
       <DependentUpon>Staff.Master</DependentUpon>
@@ -186,6 +182,13 @@
     <Compile Include="Staff_Account_Details.aspx.designer.cs">
       <DependentUpon>Staff_Account_Details.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Staff_Gem_List.aspx.cs">
+      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Gem_List.aspx.designer.cs">
+      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Staff_Home.aspx.cs">
       <DependentUpon>Staff_Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -199,6 +202,13 @@
     </Compile>
     <Compile Include="Staff_Login.aspx.designer.cs">
       <DependentUpon>Staff_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Ongoing_Trails.aspx.cs">
+      <DependentUpon>Staff_Ongoing_Trails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Ongoing_Trails.aspx.designer.cs">
+      <DependentUpon>Staff_Ongoing_Trails.aspx</DependentUpon>
     </Compile>
     <Compile Include="testform.aspx.cs">
       <DependentUpon>testform.aspx</DependentUpon>
@@ -262,10 +272,10 @@
     <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Gem.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Point_Shop_Item.datasource">
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Trail.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Trail.datasource">
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Review.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="packages.config" />
@@ -279,6 +289,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\Gem\" />
+    <Folder Include="Images\Trail\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

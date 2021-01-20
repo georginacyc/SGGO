@@ -17,17 +17,18 @@ namespace DBService.Entity
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public string Description { get; set; }
-        public int Gem1 { get; set; }
-        public int Gem2 { get; set; }
-        public int Gem3 { get; set; }
+        public string Gem1 { get; set; }
+        public string Gem2 { get; set; }
+        public string Gem3 { get; set; }
         public string Banner { get; set; }
+        public string Status { get; set; }
 
         public Trail()
         {
 
         }
 
-        public Trail(string trailId, string name, DateTime date, string description, int gem1, int gem2, int gem3, string banner)
+        public Trail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status)
         {
             TrailId = trailId;
             Name = name;
@@ -37,6 +38,7 @@ namespace DBService.Entity
             Gem2 = gem2;
             Gem3 = gem3;
             Banner = banner;
+            Status = status;
         }
 
         // Insert
@@ -47,7 +49,7 @@ namespace DBService.Entity
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Trail (trailid, name, date, description, gem1, gem2, gem3, banner) " + "VALUES (@trailid, @name, @date, @description, @gem1, @gem2, @gem3, @banner)";
+            string query = "INSERT INTO Trail (trailid, name, date, description, gem1, gem2, gem3, banner, status) " + "VALUES (@trailid, @name, @date, @description, @gem1, @gem2, @gem3, @banner, @status)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@trailid", TrailId );
@@ -58,6 +60,7 @@ namespace DBService.Entity
             cmd.Parameters.AddWithValue("@gem2", Gem2);
             cmd.Parameters.AddWithValue("@gem3", Gem3);
             cmd.Parameters.AddWithValue("@banner", Banner);
+            cmd.Parameters.AddWithValue("@status", Status);
 
             conn.Open();
             int result = cmd.ExecuteNonQuery();
@@ -90,13 +93,14 @@ namespace DBService.Entity
                 string name = row["name"].ToString();
                 DateTime date = Convert.ToDateTime(row["date"].ToString());
                 string description = row["description"].ToString();
-                int gem1 = Convert.ToInt32(row["gem1"].ToString());
-                int gem2 = Convert.ToInt32(row["gem2"].ToString());
-                int gem3 = Convert.ToInt32(row["gem3"].ToString());
+                string gem1 = row["gem1"].ToString();
+                string gem2 = row["gem2"].ToString();
+                string gem3 = row["gem3"].ToString();
                 string banner = row["banner"].ToString();
+                string status = row["status"].ToString();
 
 
-                tr = new Trail(id, name, date, description, gem1, gem2, gem3, banner);
+                tr = new Trail(id, name, date, description, gem1, gem2, gem3, banner,status);
             }
             return tr;
         }
@@ -124,12 +128,13 @@ namespace DBService.Entity
                 string name = row["name"].ToString();
                 DateTime date = Convert.ToDateTime(row["date"].ToString());
                 string description = row["description"].ToString();
-                int gem1 = Convert.ToInt32(row["gem1"].ToString());
-                int gem2 = Convert.ToInt32(row["gem2"].ToString());
-                int gem3 = Convert.ToInt32(row["gem3"].ToString());
+                string gem1 = row["gem1"].ToString();
+                string gem2 = row["gem2"].ToString();
+                string gem3 = row["gem3"].ToString();
                 string banner = row["banner"].ToString();
+                string status = row["status"].ToString();
 
-                Trail tr = new Trail(trailid, name, date, description, gem1, gem2, gem3, banner);
+                Trail tr = new Trail(trailid, name, date, description, gem1, gem2, gem3, banner,status);
                 trailList.Add(tr);
             }
             return trailList;

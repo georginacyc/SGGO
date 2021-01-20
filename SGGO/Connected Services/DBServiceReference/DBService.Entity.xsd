@@ -49,10 +49,11 @@
       <xs:element minOccurs="0" name="Banner" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Gem1" type="xs:int" />
-      <xs:element minOccurs="0" name="Gem2" type="xs:int" />
-      <xs:element minOccurs="0" name="Gem3" type="xs:int" />
+      <xs:element minOccurs="0" name="Gem1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gem2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gem3" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TrailId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -63,23 +64,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTrail" nillable="true" type="tns:ArrayOfTrail" />
-  <xs:complexType name="Point_Shop_Item">
+  <xs:complexType name="Review">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Partner" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Point_Shop_Item_Id" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Price" type="xs:float" />
-      <xs:element minOccurs="0" name="QR" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Post" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Point_Shop_Item" nillable="true" type="tns:Point_Shop_Item" />
-  <xs:complexType name="ArrayOfPoint_Shop_Item">
+  <xs:element name="Review" nillable="true" type="tns:Review" />
+  <xs:complexType name="ArrayOfReview">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Point_Shop_Item" nillable="true" type="tns:Point_Shop_Item" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Review" nillable="true" type="tns:Review" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfPoint_Shop_Item" nillable="true" type="tns:ArrayOfPoint_Shop_Item" />
+  <xs:element name="ArrayOfReview" nillable="true" type="tns:ArrayOfReview" />
 </xs:schema>

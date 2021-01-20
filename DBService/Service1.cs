@@ -80,12 +80,30 @@ namespace DBService
             return tr.SelectById(id);
         }
 
-        public int CreateTrail(string trailId, string name, DateTime date, string description, int gem1, int gem2, int gem3, string banner)
+        public int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status)
         {
-            Trail tr = new Trail(trailId, name, date, description, gem1, gem2, gem3, banner);
+            Trail tr = new Trail(trailId, name, date, description, gem1, gem2, gem3, banner,status);
             return tr.Insert();
         }
 
+        //Reviews
+        public List<Review> GetAllReview()
+        {
+            Review review = new Review();
+            return review.SelectAll();
+        }
+
+        public Review GetReviewByAuthor(string author)
+        {
+            Review review = new Review();
+            return review.SelectByAuthor(author);
+        }
+
+        public int CreateReview(string status, string post, string author, string rating, string description)
+        {
+            Review review = new Review(status, post, author, rating, description);
+            return review.Insert();
+        }
         public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr)
         {
             Point_Shop_Item item = new Point_Shop_Item(name, partner, description, price, image, type, qr);

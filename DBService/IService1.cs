@@ -41,7 +41,7 @@ namespace DBService
 
         //Trail
         [OperationContract]
-        int CreateTrail(string trailId, string name, DateTime date, string description, int gem1, int gem2, int gem3, string banner);
+        int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
 
         [OperationContract]
         Trail GetTrailById(string id);
@@ -49,6 +49,16 @@ namespace DBService
         [OperationContract]
         List<Trail> GetAllTrails();
 
+
+        //Review
+        [OperationContract]
+        int CreateReview(string status, string post, string author, string rating, string description);
+
+        [OperationContract]
+        Review GetReviewByAuthor(string author);
+
+        [OperationContract]
+        List<Review> GetAllReview();
 
         //Point Shop
         [OperationContract]

@@ -75,23 +75,23 @@
   <wsdl:message name="IService1_GetAllTrails_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTrailsResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_CreatePointShopItem_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreatePointShopItem" />
+  <wsdl:message name="IService1_CreateReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReview" />
   </wsdl:message>
-  <wsdl:message name="IService1_CreatePointShopItem_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreatePointShopItemResponse" />
+  <wsdl:message name="IService1_CreateReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReviewResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_SelectById_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectById" />
+  <wsdl:message name="IService1_GetReviewByAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewByAuthor" />
   </wsdl:message>
-  <wsdl:message name="IService1_SelectById_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectByIdResponse" />
+  <wsdl:message name="IService1_GetReviewByAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewByAuthorResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_SelectAll_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectAll" />
+  <wsdl:message name="IService1_GetAllReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReview" />
   </wsdl:message>
-  <wsdl:message name="IService1_SelectAll_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectAllResponse" />
+  <wsdl:message name="IService1_GetAllReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReviewResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
@@ -138,17 +138,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllTrails" message="tns:IService1_GetAllTrails_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllTrailsResponse" message="tns:IService1_GetAllTrails_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CreatePointShopItem">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePointShopItem" message="tns:IService1_CreatePointShopItem_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreatePointShopItemResponse" message="tns:IService1_CreatePointShopItem_OutputMessage" />
+    <wsdl:operation name="CreateReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateReview" message="tns:IService1_CreateReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateReviewResponse" message="tns:IService1_CreateReview_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SelectById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectById" message="tns:IService1_SelectById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectByIdResponse" message="tns:IService1_SelectById_OutputMessage" />
+    <wsdl:operation name="GetReviewByAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReviewByAuthor" message="tns:IService1_GetReviewByAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReviewByAuthorResponse" message="tns:IService1_GetReviewByAuthor_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SelectAll">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectAll" message="tns:IService1_SelectAll_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectAllResponse" message="tns:IService1_SelectAll_OutputMessage" />
+    <wsdl:operation name="GetAllReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllReview" message="tns:IService1_GetAllReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllReviewResponse" message="tns:IService1_GetAllReview_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -252,8 +252,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreatePointShopItem">
-      <soap:operation soapAction="http://tempuri.org/IService1/CreatePointShopItem" style="document" />
+    <wsdl:operation name="CreateReview">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateReview" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -261,8 +261,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SelectById">
-      <soap:operation soapAction="http://tempuri.org/IService1/SelectById" style="document" />
+    <wsdl:operation name="GetReviewByAuthor">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReviewByAuthor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -270,8 +270,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SelectAll">
-      <soap:operation soapAction="http://tempuri.org/IService1/SelectAll" style="document" />
+    <wsdl:operation name="GetAllReview">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllReview" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
