@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Entity\Account.cs" />
     <Compile Include="Entity\Gem.cs" />
+    <Compile Include="Entity\Point_Shop_Item.cs" />
     <Compile Include="Entity\Trail.cs" />
     <Compile Include="Entity\Employee.cs" />
     <Compile Include="Entity\Review.cs" />

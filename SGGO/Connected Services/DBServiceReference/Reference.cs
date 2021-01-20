@@ -750,6 +750,163 @@ namespace SGGO.DBServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Point_Shop_Item", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class Point_Shop_Item : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PartnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Point_Shop_Item_IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string QRField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Partner {
+            get {
+                return this.PartnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PartnerField, value) != true)) {
+                    this.PartnerField = value;
+                    this.RaisePropertyChanged("Partner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Point_Shop_Item_Id {
+            get {
+                return this.Point_Shop_Item_IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Point_Shop_Item_IdField, value) != true)) {
+                    this.Point_Shop_Item_IdField = value;
+                    this.RaisePropertyChanged("Point_Shop_Item_Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string QR {
+            get {
+                return this.QRField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QRField, value) != true)) {
+                    this.QRField = value;
+                    this.RaisePropertyChanged("QR");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DBServiceReference.IService1")]
     public interface IService1 {
@@ -837,6 +994,24 @@ namespace SGGO.DBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllReview", ReplyAction="http://tempuri.org/IService1/GetAllReviewResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Review[]> GetAllReviewAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePointShopItem", ReplyAction="http://tempuri.org/IService1/CreatePointShopItemResponse")]
+        int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePointShopItem", ReplyAction="http://tempuri.org/IService1/CreatePointShopItemResponse")]
+        System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string description, int price, string image, string type, string qr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectById", ReplyAction="http://tempuri.org/IService1/SelectByIdResponse")]
+        SGGO.DBServiceReference.Point_Shop_Item SelectById(string Point_Shop_Item_Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectById", ReplyAction="http://tempuri.org/IService1/SelectByIdResponse")]
+        System.Threading.Tasks.Task<SGGO.DBServiceReference.Point_Shop_Item> SelectByIdAsync(string Point_Shop_Item_Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectAll", ReplyAction="http://tempuri.org/IService1/SelectAllResponse")]
+        SGGO.DBServiceReference.Point_Shop_Item[] SelectAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectAll", ReplyAction="http://tempuri.org/IService1/SelectAllResponse")]
+        System.Threading.Tasks.Task<SGGO.DBServiceReference.Point_Shop_Item[]> SelectAllAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -976,6 +1151,30 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Review[]> GetAllReviewAsync() {
             return base.Channel.GetAllReviewAsync();
+        }
+        
+        public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr) {
+            return base.Channel.CreatePointShopItem(name, partner, description, price, image, type, qr);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string description, int price, string image, string type, string qr) {
+            return base.Channel.CreatePointShopItemAsync(name, partner, description, price, image, type, qr);
+        }
+        
+        public SGGO.DBServiceReference.Point_Shop_Item SelectById(string Point_Shop_Item_Id) {
+            return base.Channel.SelectById(Point_Shop_Item_Id);
+        }
+        
+        public System.Threading.Tasks.Task<SGGO.DBServiceReference.Point_Shop_Item> SelectByIdAsync(string Point_Shop_Item_Id) {
+            return base.Channel.SelectByIdAsync(Point_Shop_Item_Id);
+        }
+        
+        public SGGO.DBServiceReference.Point_Shop_Item[] SelectAll() {
+            return base.Channel.SelectAll();
+        }
+        
+        public System.Threading.Tasks.Task<SGGO.DBServiceReference.Point_Shop_Item[]> SelectAllAsync() {
+            return base.Channel.SelectAllAsync();
         }
     }
 }

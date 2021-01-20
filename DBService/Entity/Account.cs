@@ -87,7 +87,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -138,10 +138,26 @@ namespace DBService.Entity
                 string last_name = row["last_name"].ToString();
                 string hp = row["hp"].ToString();
                 string address = row["address"].ToString();
-                DateTime last_login = Convert.ToDateTime(row["last_login"].ToString());
-                DateTime account_created = Convert.ToDateTime(row["account_created"].ToString());
+                DateTime? last_login;
+                DateTime account_created;
+                try
+                {
+                    last_login = Convert.ToDateTime(row["last_login"].ToString());
+                } catch
+                {
+                    last_login = null;
+                }
+                try
+                {
+                    account_created = Convert.ToDateTime(row["account_created"].ToString());
+                }
+                catch
+                {
+                    account_created = DateTime.Now;
+                }
                 string staff_id = row["staff_id"].ToString();
-                int points = Convert.ToInt32(row["points"].ToString());
+                int points = 0;
+                //int points = Convert.ToInt32(row["points"].ToString());
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 

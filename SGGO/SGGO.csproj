@@ -282,6 +282,9 @@
     <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Review.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Point_Shop_Item1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Staff.Master" />
     <Content Include="User.Master" />

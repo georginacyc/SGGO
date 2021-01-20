@@ -59,6 +59,16 @@ namespace DBService
 
         [OperationContract]
         List<Review> GetAllReview();
+
+        //Point Shop
+        [OperationContract]
+        int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);
+
+        [OperationContract]
+        Point_Shop_Item SelectById(string Point_Shop_Item_Id);
+
+        [OperationContract]
+        List<Point_Shop_Item> SelectAll();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
