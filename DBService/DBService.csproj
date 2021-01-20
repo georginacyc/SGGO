@@ -46,7 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Account.cs" />
+    <Compile Include="Entity\Gem.cs" />
+    <Compile Include="Entity\Point_Shop_Item.cs" />
+    <Compile Include="Entity\Trail.cs" />
     <Compile Include="Entity\Employee.cs" />
+    <Compile Include="Entity\Review.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service1.cs" />
@@ -54,6 +58,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

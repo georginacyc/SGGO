@@ -57,7 +57,7 @@ namespace SGGO
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label gem_desc;
+        protected global::System.Web.UI.WebControls.Label gem_description;
 
         /// <summary>
         /// btn_review control.
