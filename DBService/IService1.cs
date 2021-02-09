@@ -20,7 +20,7 @@ namespace DBService
 
         // TODO: Add your service operations here
         [OperationContract]
-        int CreateAccount (string email, string password, string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, List<int> owns);
+        int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string address, string staff_id, int? points);
 
         [OperationContract]
         Account GetAccountByEmail(string email);
@@ -41,7 +41,7 @@ namespace DBService
 
         //Trail
         [OperationContract]
-        int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner);
+        int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
 
         [OperationContract]
         Trail GetTrailById(string id);
@@ -52,13 +52,23 @@ namespace DBService
 
         //Review
         [OperationContract]
-        int CreateReview(string status, string post, string author, string rating, string desc);
+        int CreateReview(string status, string post, string author, string rating, string description);
 
         [OperationContract]
         Review GetReviewByAuthor(string author);
 
         [OperationContract]
         List<Review> GetAllReview();
+
+        //Point Shop
+        [OperationContract]
+        int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);
+
+        [OperationContract]
+        Point_Shop_Item SelectById(string Point_Shop_Item_Id);
+
+        [OperationContract]
+        List<Point_Shop_Item> SelectAll();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

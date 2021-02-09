@@ -69,16 +69,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\SGGO_DB.mdf" />
     <None Include="Connected Services\DBServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\DBServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\DBServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="App_Data\SGGO_DB_log.ldf">
-      <DependentUpon>SGGO_DB.mdf</DependentUpon>
-    </Content>
     <Content Include="Create_Gem.aspx" />
     <Content Include="Create_Partner_Account.aspx" />
     <Content Include="Create_Staff_Account.aspx" />
@@ -89,8 +85,13 @@
     <Content Include="Global.asax" />
     <Content Include="Staff_Accounts_List.aspx" />
     <Content Include="Staff_Account_Details.aspx" />
+    <Content Include="Staff_Change_Password.aspx" />
+    <Content Include="Staff_Gem_List.aspx" />
     <Content Include="Staff_Home.aspx" />
     <Content Include="Staff_Login.aspx" />
+    <Content Include="Staff_Ongoing_Trails.aspx" />
+    <Content Include="Staff_Own_Account_Details.aspx" />
+    <Content Include="Staff_Review.aspx" />
     <Content Include="testform.aspx" />
     <Content Include="Test_Image\Cafe-De-Nicoles.jpg" />
     <Content Include="Test_Image\FilledStar.png" />
@@ -180,6 +181,20 @@
     <Compile Include="Staff_Account_Details.aspx.designer.cs">
       <DependentUpon>Staff_Account_Details.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Staff_Change_Password.aspx.cs">
+      <DependentUpon>Staff_Change_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Change_Password.aspx.designer.cs">
+      <DependentUpon>Staff_Change_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Gem_List.aspx.cs">
+      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Gem_List.aspx.designer.cs">
+      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Staff_Home.aspx.cs">
       <DependentUpon>Staff_Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -193,6 +208,27 @@
     </Compile>
     <Compile Include="Staff_Login.aspx.designer.cs">
       <DependentUpon>Staff_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Ongoing_Trails.aspx.cs">
+      <DependentUpon>Staff_Ongoing_Trails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Ongoing_Trails.aspx.designer.cs">
+      <DependentUpon>Staff_Ongoing_Trails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Own_Account_Details.aspx.cs">
+      <DependentUpon>Staff_Own_Account_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Own_Account_Details.aspx.designer.cs">
+      <DependentUpon>Staff_Own_Account_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Review.aspx.cs">
+      <DependentUpon>Staff_Review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Review.aspx.designer.cs">
+      <DependentUpon>Staff_Review.aspx</DependentUpon>
     </Compile>
     <Compile Include="testform.aspx.cs">
       <DependentUpon>testform.aspx</DependentUpon>
@@ -231,9 +267,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\DBServiceReference\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\DBServiceReference\DBService.Entity.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -262,6 +295,9 @@
     <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Review.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Point_Shop_Item1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Staff.Master" />
     <Content Include="User.Master" />
@@ -273,6 +309,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Images\Gem\" />
     <Folder Include="Images\Trail\" />
     <Folder Include="Models\" />

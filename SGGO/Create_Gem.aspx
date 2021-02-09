@@ -9,13 +9,12 @@
             width: 221px;
         }
        
-        #buttons{
-            position: fixed;
+        #button{
+            position: absolute;
             right: 10px;
         }
         table,tr{
             margin:10px;
-            
         }
        
     </style>
@@ -47,7 +46,7 @@
                 <asp:Label ID="lb_type" runat="server" Text="Type:"></asp:Label>
             </td>
             <td>
-                <asp:RadioButtonList ID="rb_type" runat="server" RepeatDirection="Horizontal" Width="307px">
+                <asp:RadioButtonList ID="rb_type" runat="server" AutoPostBack="True" RepeatDirection="Horizontal" Width="307px" OnSelectedIndexChanged="rb_type_SelectedIndexChanged">
                     <asp:ListItem>Destination</asp:ListItem>
                     <asp:ListItem>Activity</asp:ListItem>
                 </asp:RadioButtonList>
@@ -70,13 +69,13 @@
                 <asp:TextBox ID="tb_location" runat="server" Width="100%"></asp:TextBox>
             </td>
         </tr>
-            <tr id="date_row" style="visibility:collapse">
+            <tr id="date_row" >
             <td class="auto-style7">
                 <asp:Label ID="lb_date" runat="server" Text="Date:"></asp:Label>
             </td>
             
             <td>
-                <asp:Calendar ID="Calendar1" runat="server" ></asp:Calendar>
+                <asp:TextBox ID="tb_date" TextMode="DateTimeLocal" runat="server"></asp:TextBox>
             </td>
         </tr>
         
@@ -91,9 +90,19 @@
         <asp:Label ID="lb_uploadstatus" runat="server"></asp:Label>
     <br />
     <br />
-    <div id ="buttons">
-    <asp:Button ID="btn_create" runat="server" Text="Create Gem" OnClick="btn_create_Click" />
-    </div>
+        <div id="button">
+        
+        <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" />
+        
+        </div>
+        
     <br />
         </div>
+
+    
 </asp:Content>
+
+
+
+
+

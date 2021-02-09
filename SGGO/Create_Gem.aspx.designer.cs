@@ -123,13 +123,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lb_date;
 
         /// <summary>
-        /// Calendar1 control.
+        /// tb_date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.TextBox tb_date;
 
         /// <summary>
         /// lb_image control.
@@ -168,12 +168,12 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lb_uploadstatus;
 
         /// <summary>
-        /// btn_create control.
+        /// btn_submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_create;
+        protected global::System.Web.UI.WebControls.Button btn_submit;
     }
 }

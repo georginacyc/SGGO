@@ -5,7 +5,6 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/DBService" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/DBService.Entity" />
     </xsd:schema>
   </wsdl:types>
@@ -93,6 +92,24 @@
   <wsdl:message name="IService1_GetAllReview_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllReviewResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_CreatePointShopItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePointShopItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreatePointShopItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePointShopItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAll" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -149,6 +166,18 @@
     <wsdl:operation name="GetAllReview">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllReview" message="tns:IService1_GetAllReview_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllReviewResponse" message="tns:IService1_GetAllReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePointShopItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePointShopItem" message="tns:IService1_CreatePointShopItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreatePointShopItemResponse" message="tns:IService1_CreatePointShopItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectById" message="tns:IService1_SelectById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectByIdResponse" message="tns:IService1_SelectById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectAll" message="tns:IService1_SelectAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectAllResponse" message="tns:IService1_SelectAll_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -272,6 +301,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllReview">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePointShopItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreatePointShopItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

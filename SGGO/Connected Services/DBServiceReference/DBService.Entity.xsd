@@ -1,17 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DBService.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DBService.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="Account">
     <xs:sequence>
       <xs:element minOccurs="0" name="Account_Created" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attempts_Left" type="xs:int" />
+      <xs:element minOccurs="0" name="Dob" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="First_Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Hp" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Last_Login" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Last_Name" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Owns" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="Locked_Since" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Old_Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Old_Password2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password_Age" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Password_Salt" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Points" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Staff_Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
@@ -53,6 +58,7 @@
       <xs:element minOccurs="0" name="Gem2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Gem3" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TrailId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -66,7 +72,7 @@
   <xs:complexType name="Review">
     <xs:sequence>
       <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Post" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
@@ -79,4 +85,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfReview" nillable="true" type="tns:ArrayOfReview" />
+  <xs:complexType name="Point_Shop_Item">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Partner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Point_Shop_Item_Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:int" />
+      <xs:element minOccurs="0" name="QR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Point_Shop_Item" nillable="true" type="tns:Point_Shop_Item" />
+  <xs:complexType name="ArrayOfPoint_Shop_Item">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Point_Shop_Item" nillable="true" type="tns:Point_Shop_Item" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPoint_Shop_Item" nillable="true" type="tns:ArrayOfPoint_Shop_Item" />
 </xs:schema>

@@ -11,7 +11,22 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if (Session["LoggedIn"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
+            //{
+            //    if (Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+            //    {
+            //        DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            //        var user = client.GetAccountByEmail(Session["LoggedIn"].ToString());
+            //    }
+            //    else
+            //    {
+            //        Response.Redirect("Login.aspx");
+            //    }
+            //}
+            //else
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -29,7 +44,7 @@ namespace SGGO
             string pw = "password";
 
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateAccount(email, pw, "Partner", fname, lname, hp, address, null, DateTime.Now, null, null, null);
+            //int result = client.CreateAccount(email, pw, "Partner", fname, lname, hp, address, null, DateTime.Now, null, null, null);
             Response.Redirect("Staff_Accounts_List.aspx");
         }
     }

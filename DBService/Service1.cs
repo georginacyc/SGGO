@@ -29,9 +29,9 @@ namespace DBService
             return composite;
         }
 
-        public int CreateAccount(string email, string password, string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, List<int> owns)
+        public int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string address, string staff_id, int? points)
         {
-            Account user = new Account(email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, null);
+            Account user = new Account(email, pw, salt, type, first_name, last_name, dob, hp, address, staff_id, points);
             return user.Insert();
         }
 
@@ -80,9 +80,9 @@ namespace DBService
             return tr.SelectById(id);
         }
 
-        public int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner)
+        public int CreateTrail(string trailId, string name, DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status)
         {
-            Trail tr = new Trail(trailId, name, date, description, gem1, gem2, gem3, banner);
+            Trail tr = new Trail(trailId, name, date, description, gem1, gem2, gem3, banner,status);
             return tr.Insert();
         }
 
@@ -99,10 +99,28 @@ namespace DBService
             return review.SelectByAuthor(author);
         }
 
-        public int CreateReview(string status, string post, string author, string rating, string desc)
+        public int CreateReview(string status, string post, string author, string rating, string description)
         {
-            Review review = new Review(status, post, author, rating, desc);
+            Review review = new Review(status, post, author, rating, description);
             return review.Insert();
+        }
+        public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr)
+        {
+            Point_Shop_Item item = new Point_Shop_Item(name, partner, description, price, image, type, qr);
+            return item.Insert();
+        }
+
+        //Point Shop
+        public Point_Shop_Item SelectById(string Point_Shop_Item_Id) 
+        {
+            Point_Shop_Item items = new Point_Shop_Item();
+            return items.SelectById(Point_Shop_Item_Id);
+        }
+
+        public List<Point_Shop_Item> SelectAll()
+        {
+            Point_Shop_Item items = new Point_Shop_Item();
+            return items.SelectAll();
         }
     }
 }

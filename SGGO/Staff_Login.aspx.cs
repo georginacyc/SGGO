@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -23,7 +25,14 @@ namespace SGGO
                 return false;
             } else
             {
-                if (staff.Password == pw)
+                // initializing hashing thingy
+                SHA512Managed hashing = new SHA512Managed();
+
+                // salting plaintext and hashing after
+                string saltedpw = pw + staff.Password_Salt;
+                string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
+
+                if (staff.Password == hashedpw)
                 {
                     return true;
                 } else
@@ -52,6 +61,11 @@ namespace SGGO
             }
             else if (pass && !Check(email_tb.Text, password_tb.Text))
             {
+                Session["LoggedIn"] = email_tb.Text;
+                string guid = Guid.NewGuid().ToString();
+                Session["AuthToken"] = guid;
+                Response.Cookies.Add(new HttpCookie("AuthToken", guid));
+
                 error2_lb.Text = null;
                 error_lb.Text = "Invalid email or password.";
             }

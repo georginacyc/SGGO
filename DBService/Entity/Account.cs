@@ -13,99 +13,98 @@ namespace DBService.Entity
     {
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Password_Salt { get; set; }
+        public string Old_Password { get; set; }
+        public string Old_Password2 { get; set; }
+        public DateTime Password_Age { get; set; }
         public string Type { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
+        public DateTime Dob { get; set; }
         public string Hp { get; set; }
         public string Address { get; set; }
         public DateTime? Last_Login { get; set; }
         public DateTime Account_Created { get; set; }
         public string Staff_Id { get; set; }
         public int? Points { get; set; }
-        public List<int> Owns { get; set; }
+        // public List<int> Owns { get; set; }
+        public int Attempts_Left { get; set; }
+        public DateTime? Locked_Since { get; set; }
 
         public Account()
         {
 
         }
 
-        public Account(string email, string pw, string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, List<int> owns)
+        // for retrieving accounts
+        public Account(string email, string pw, string salt, string old_pw, string old_pw2, DateTime pw_age, string type, string first_name, string last_name, DateTime dob, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, int attempts_left, DateTime? locked_since)
         {
             Email = email;
             Password = pw;
+            Password_Salt = salt;
+            Old_Password = old_pw;
+            Old_Password2 = old_pw2;
+            Password_Age = pw_age;
             Type = type;
             First_Name = first_name;
             Last_Name = last_name;
+            Dob = dob;
             Hp = hp;
             Address = address;
             Last_Login = last_login;
             Account_Created = account_created;
             Staff_Id = staff_id;
             Points = points;
-            Owns = owns;
+            // Owns = owns;
+            Attempts_Left = attempts_left;
+            Locked_Since = locked_since;
         }
 
-        /*// Staff Account
-        public Account(string email, string pw, string type, string name, string hp, string address, string staff_id)
+        // account creation
+        public Account(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string address, string staff_id, int? points)
         {
             Email = email;
             Password = pw;
+            Password_Salt = salt;
             Type = type;
-            Name = name;
+            First_Name = first_name;
+            Last_Name = last_name;
+            Dob = dob;
             Hp = hp;
             Address = address;
             Staff_Id = staff_id;
+            Points = 0;
+            // Owns = owns;
+            Attempts_Left = 3;
             Account_Created = DateTime.Now;
+            Password_Age = DateTime.Now;
         }
 
-        // Customer Account
-        public Account(string email, string pw, string type, string name, string hp, string address, int points, List<int> owns)
-        {
-            Email = email;
-            Password = pw;
-            Type = type;
-            Name = name;
-            Hp = hp;
-            Address = address;
-            Points = points;
-            Owns = owns;
-            Account_Created = DateTime.Now;
-        }
-
-        // Partner Organisation Account
-        public Account(string email, string pw, string type, string name, string hp, string address, List<int> owns)
-        {
-            Email = email;
-            Password = pw;
-            Type = type;
-            Name = name;
-            Hp = hp;
-            Address = address;
-            Owns = owns;
-            Account_Created = DateTime.Now;
-        }*/
-
+        // account creation
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Accounts (email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points) " + "VALUES (@email, @password, @type, @first_name, @last_name, @hp, @address, @last_login, @account_created, @staff_id, @points)";
+            string query = "INSERT INTO Accounts (email, password, password_salt, password_age, type, first_name, last_name, dob, hp, address, account_created, staff_id, points, attempts_left) " + "VALUES (@email, @password, @password_salt, @password_age, @type, @first_name, @last_name, @dob, @hp, @address, @account_created, @staff_id, @points, @attempts_left)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@email", Email);
             cmd.Parameters.AddWithValue("@password", Password);
+            cmd.Parameters.AddWithValue("@password_salt", Password_Salt);
+            cmd.Parameters.AddWithValue("@password_age", Password_Age);
             cmd.Parameters.AddWithValue("@type", Type);
             cmd.Parameters.AddWithValue("@first_name", First_Name);
             cmd.Parameters.AddWithValue("@last_name", string.IsNullOrEmpty(Last_Name) ? (object)DBNull.Value : Last_Name);
+            cmd.Parameters.AddWithValue("@dob", Dob);
             cmd.Parameters.AddWithValue("@hp", Hp);
             cmd.Parameters.AddWithValue("@address", Address);
-            cmd.Parameters.AddWithValue("@last_login", Last_Login == null ? (object)DBNull.Value : Last_Login);
             cmd.Parameters.AddWithValue("@account_created", Account_Created);
             cmd.Parameters.AddWithValue("@staff_id", string.IsNullOrEmpty(Staff_Id) ? (object)DBNull.Value : Staff_Id);
             // cmd.Parameters.AddWithValue("@profile_pic", null);
-            cmd.Parameters.AddWithValue("@points", Points == null ? (object)DBNull.Value : Points);
+            cmd.Parameters.AddWithValue("@points", Points);
+            cmd.Parameters.AddWithValue("@attempts_left", Attempts_Left);
 
             conn.Open();
             int result = cmd.ExecuteNonQuery();
@@ -116,7 +115,7 @@ namespace DBService.Entity
 
         public Account SelectByEmail(string email)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Accounts WHERE email = @email";
@@ -133,28 +132,57 @@ namespace DBService.Entity
             {
                 DataRow row = ds.Tables[0].Rows[0];
                 string password = row["password"].ToString();
+                string salt = row["password_salt"].ToString();
+                string old_pw = row["password_last1"].ToString();
+                string old_pw2 = row["password_last2"].ToString();
+                DateTime pw_age = Convert.ToDateTime(row["password_age"].ToString());
                 string type = row["type"].ToString();
                 string first_name = row["first_name"].ToString();
                 string last_name = row["last_name"].ToString();
+                DateTime dob = Convert.ToDateTime(row["dob"].ToString());
                 string hp = row["hp"].ToString();
                 string address = row["address"].ToString();
-                //DateTime last_login = Convert.ToDateTime(row["last_login"].ToString());
-                //DateTime account_created = Convert.ToDateTime(row["account_created"].ToString());
-                DateTime? last_login = null;
-                DateTime account_created = DateTime.Now;
+                DateTime? last_login;
+                DateTime account_created;
+                try
+                {
+                    last_login = Convert.ToDateTime(row["last_login"].ToString());
+                } catch
+                {
+                    last_login = null;
+                }
+                try
+                {
+                    account_created = Convert.ToDateTime(row["account_created"].ToString());
+                }
+                catch
+                {
+                    account_created = DateTime.Now;
+                }
                 string staff_id = row["staff_id"].ToString();
+                int points = Convert.ToInt32(row["points"].ToString());
+                int attempts = Convert.ToInt16(row["Attempts_left"].ToString());
+                DateTime? locked_since;
+                try
+                {
+                    locked_since = Convert.ToDateTime(row["locked_since"].ToString());
+                }
+                catch
+                {
+                    locked_since = null;
+                }
                 //int points = Convert.ToInt32(row["points"].ToString());
-                int points = 0;
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                user = new Account(email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, null);
+                user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, address, last_login, account_created, staff_id, points, attempts, locked_since);
             }
             return user;
         }
 
         public List<Account> SelectAll()
         {
+            //return null;
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -169,24 +197,97 @@ namespace DBService.Entity
             int count = ds.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                DataRow row = ds.Tables[0].Rows[0];
+                DataRow row = ds.Tables[0].Rows[i];
                 string email = row["email"].ToString();
                 string password = row["password"].ToString();
+                string salt = row["password_salt"].ToString();
+                string old_pw = row["password_last1"].ToString();
+                string old_pw2 = row["password_last2"].ToString();
+                DateTime pw_age = Convert.ToDateTime(row["password_age"].ToString());
                 string type = row["type"].ToString();
                 string first_name = row["first_name"].ToString();
                 string last_name = row["last_name"].ToString();
+                DateTime dob = Convert.ToDateTime(row["dob"].ToString());
                 string hp = row["hp"].ToString();
                 string address = row["address"].ToString();
-                DateTime last_login = Convert.ToDateTime(row["last_login"].ToString());
-                DateTime account_created = Convert.ToDateTime(row["account_created"].ToString());
+                DateTime? last_login;
+                DateTime account_created;
+                try
+                {
+                    last_login = Convert.ToDateTime(row["last_login"].ToString());
+                }
+                catch
+                {
+                    last_login = null;
+                }
+                account_created = Convert.ToDateTime(row["account_created"].ToString());
                 string staff_id = row["staff_id"].ToString();
                 int points = Convert.ToInt32(row["points"].ToString());
+                int attempts = Convert.ToInt16(row["attempts_left"].ToString());
+                DateTime? locked_since;
+                try
+                {
+                    locked_since = Convert.ToDateTime(row["locked_since"].ToString());
+                } catch
+                {
+                    locked_since = null;
+                }
+                //int points = Convert.ToInt32(row["points"].ToString());
+                // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                Account user = new Account(email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, null);
+                Account user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, address, last_login, account_created, staff_id, points, attempts, locked_since);
                 accountList.Add(user);
             }
             return accountList;
+        }
+
+        // update account details
+
+        public int ChangePassword(string email, string newpass)
+        {
+            Account user = new Account().SelectByEmail(email);
+            string currentpass = user.Password;
+            string lastpass = user.Old_Password;
+
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Account SET password = @new, old_password = @current, old_password2 = @old, password_age = @age WHERE email = @email";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@new", newpass);
+            cmd.Parameters.AddWithValue("@current", currentpass);
+            cmd.Parameters.AddWithValue("@old", lastpass);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@age", DateTime.Now);
+
+            conn.Open();
+            int result = cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return result;
+        }
+
+        public int UpdateLogin(string email)
+        {
+            Account user = new Account().SelectByEmail(email);
+
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Account SET last_login = @last_login WHERE email = @email";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@last_login", DateTime.Now);
+
+            conn.Open();
+            int result = cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return result;
         }
     }
 }
