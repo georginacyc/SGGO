@@ -17,6 +17,22 @@ namespace SGGO
             staff_password_tb.Attributes.Add("onkeyup", "pwdChecker();");
             staff_password2_tb.Attributes.Add("onkeyup", "pwdMatcher();");
 
+            //if (Session["LoggedIn"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
+            //{
+            //    if (Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+            //    {
+            //        DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            //        var user = client.GetAccountByEmail(Session["LoggedIn"].ToString());
+            //    }
+            //    else
+            //    {
+            //        Response.Redirect("Login.aspx");
+            //    }
+            //}
+            //else
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
         }
 
         protected void submit_btn_Click(object sender, EventArgs e)

@@ -11,7 +11,22 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if (Session["LoggedIn"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
+            //{
+            //    if (Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+            //    {
+            //        DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            //        var user = client.GetAccountByEmail(Session["LoggedIn"].ToString());
+            //    }
+            //    else
+            //    {
+            //        Response.Redirect("Login.aspx");
+            //    }
+            //}
+            //else
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)

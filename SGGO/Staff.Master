@@ -33,6 +33,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDD" role="button" data-toggle="dropdown"><span class="navbar-toggler-icon"></span></a>
                         <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Staff_Own_Account_Details.aspx">account details</a>
                             <a class="dropdown-item" href="Create_Staff_Account.aspx">create staff account</a>
                             <a class="dropdown-item" href="Create_Partner_Account.aspx">create partner account</a>
                             <a class="dropdown-item" href="Staff_Accounts_List.aspx">accounts list</a>
