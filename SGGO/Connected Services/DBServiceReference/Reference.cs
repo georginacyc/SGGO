@@ -114,16 +114,16 @@ namespace SGGO.DBServiceReference {
         private System.Nullable<System.DateTime> Locked_SinceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Old_PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Old_Password2Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime Password_AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Password_LastField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Password_Last2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Password_SaltField;
@@ -278,32 +278,6 @@ namespace SGGO.DBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Old_Password {
-            get {
-                return this.Old_PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Old_PasswordField, value) != true)) {
-                    this.Old_PasswordField = value;
-                    this.RaisePropertyChanged("Old_Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Old_Password2 {
-            get {
-                return this.Old_Password2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Old_Password2Field, value) != true)) {
-                    this.Old_Password2Field = value;
-                    this.RaisePropertyChanged("Old_Password2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Password {
             get {
                 return this.PasswordField;
@@ -325,6 +299,32 @@ namespace SGGO.DBServiceReference {
                 if ((this.Password_AgeField.Equals(value) != true)) {
                     this.Password_AgeField = value;
                     this.RaisePropertyChanged("Password_Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password_Last {
+            get {
+                return this.Password_LastField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Password_LastField, value) != true)) {
+                    this.Password_LastField = value;
+                    this.RaisePropertyChanged("Password_Last");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password_Last2 {
+            get {
+                return this.Password_Last2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Password_Last2Field, value) != true)) {
+                    this.Password_Last2Field = value;
+                    this.RaisePropertyChanged("Password_Last2");
                 }
             }
         }
@@ -1037,6 +1037,24 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Account[]> GetAllAccountsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
+        int ChangePassword(string email, string newpass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
+        System.Threading.Tasks.Task<int> ChangePasswordAsync(string email, string newpass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckAttempts", ReplyAction="http://tempuri.org/IService1/CheckAttemptsResponse")]
+        bool CheckAttempts(string email, bool pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckAttempts", ReplyAction="http://tempuri.org/IService1/CheckAttemptsResponse")]
+        System.Threading.Tasks.Task<bool> CheckAttemptsAsync(string email, bool pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckSuspended", ReplyAction="http://tempuri.org/IService1/CheckSuspendedResponse")]
+        bool CheckSuspended(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckSuspended", ReplyAction="http://tempuri.org/IService1/CheckSuspendedResponse")]
+        System.Threading.Tasks.Task<bool> CheckSuspendedAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateGem", ReplyAction="http://tempuri.org/IService1/CreateGemResponse")]
         int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
         
@@ -1175,6 +1193,30 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Account[]> GetAllAccountsAsync() {
             return base.Channel.GetAllAccountsAsync();
+        }
+        
+        public int ChangePassword(string email, string newpass) {
+            return base.Channel.ChangePassword(email, newpass);
+        }
+        
+        public System.Threading.Tasks.Task<int> ChangePasswordAsync(string email, string newpass) {
+            return base.Channel.ChangePasswordAsync(email, newpass);
+        }
+        
+        public bool CheckAttempts(string email, bool pass) {
+            return base.Channel.CheckAttempts(email, pass);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckAttemptsAsync(string email, bool pass) {
+            return base.Channel.CheckAttemptsAsync(email, pass);
+        }
+        
+        public bool CheckSuspended(string email) {
+            return base.Channel.CheckSuspended(email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckSuspendedAsync(string email) {
+            return base.Channel.CheckSuspendedAsync(email);
         }
         
         public int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {

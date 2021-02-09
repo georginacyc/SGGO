@@ -14,8 +14,8 @@ namespace DBService.Entity
         public string Email { get; set; }
         public string Password { get; set; }
         public string Password_Salt { get; set; }
-        public string Old_Password { get; set; }
-        public string Old_Password2 { get; set; }
+        public string Password_Last { get; set; }
+        public string Password_Last2 { get; set; }
         public DateTime Password_Age { get; set; }
         public string Type { get; set; }
         public string First_Name { get; set; }
@@ -42,8 +42,8 @@ namespace DBService.Entity
             Email = email;
             Password = pw;
             Password_Salt = salt;
-            Old_Password = old_pw;
-            Old_Password2 = old_pw2;
+            Password_Last = old_pw;
+            Password_Last2 = old_pw2;
             Password_Age = pw_age;
             Type = type;
             First_Name = first_name;
@@ -84,7 +84,7 @@ namespace DBService.Entity
         public int Insert()
         {
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
-            
+
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "INSERT INTO Accounts (email, password, password_salt, password_age, type, first_name, last_name, dob, hp, address, account_created, staff_id, points, attempts_left) " + "VALUES (@email, @password, @password_salt, @password_age, @type, @first_name, @last_name, @dob, @hp, @address, @account_created, @staff_id, @points, @attempts_left)";
@@ -133,7 +133,7 @@ namespace DBService.Entity
                 DataRow row = ds.Tables[0].Rows[0];
                 string password = row["password"].ToString();
                 string salt = row["password_salt"].ToString();
-                string old_pw = row["password_last1"].ToString();
+                string old_pw = row["password_last"].ToString();
                 string old_pw2 = row["password_last2"].ToString();
                 DateTime pw_age = Convert.ToDateTime(row["password_age"].ToString());
                 string type = row["type"].ToString();
@@ -147,7 +147,8 @@ namespace DBService.Entity
                 try
                 {
                     last_login = Convert.ToDateTime(row["last_login"].ToString());
-                } catch
+                }
+                catch
                 {
                     last_login = null;
                 }
@@ -201,7 +202,7 @@ namespace DBService.Entity
                 string email = row["email"].ToString();
                 string password = row["password"].ToString();
                 string salt = row["password_salt"].ToString();
-                string old_pw = row["password_last1"].ToString();
+                string old_pw = row["password_last"].ToString();
                 string old_pw2 = row["password_last2"].ToString();
                 DateTime pw_age = Convert.ToDateTime(row["password_age"].ToString());
                 string type = row["type"].ToString();
@@ -228,7 +229,8 @@ namespace DBService.Entity
                 try
                 {
                     locked_since = Convert.ToDateTime(row["locked_since"].ToString());
-                } catch
+                }
+                catch
                 {
                     locked_since = null;
                 }
@@ -248,13 +250,13 @@ namespace DBService.Entity
         {
             Account user = new Account().SelectByEmail(email);
             string currentpass = user.Password;
-            string lastpass = user.Old_Password;
+            string lastpass = user.Password_Last;
 
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "UPDATE Account SET password = @new, old_password = @current, old_password2 = @old, password_age = @age WHERE email = @email";
+            string query = "UPDATE Accounts SET password = @new, password_last = @current, password_last2 = @old, password_age = @age WHERE email = @email";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@new", newpass);
@@ -278,7 +280,7 @@ namespace DBService.Entity
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "UPDATE Account SET last_login = @last_login WHERE email = @email";
+            string query = "UPDATE Accounts SET last_login = @last_login WHERE email = @email";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@last_login", DateTime.Now);
@@ -288,6 +290,124 @@ namespace DBService.Entity
             conn.Close();
 
             return result;
+        }
+
+        public bool CheckSuspended(string email) // true == suspended, false == not suspended
+        {
+            Account user = new Account().SelectByEmail(email);
+
+            if (user.Locked_Since != null)
+            {
+                int span = Convert.ToInt16(DateTime.Now.Subtract(Convert.ToDateTime(user.Locked_Since)).TotalMinutes);
+                if (span < 30)
+                {
+                    return true;
+                }
+                else
+                {
+                    if (user.Attempts_Left == 0)
+                    {
+
+                        string connStr = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+
+                        SqlConnection conn = new SqlConnection(connStr);
+
+                        string query = "UPDATE Accounts SET attempts_left = @attempts_left WHERE email = @email";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+
+                        cmd.Parameters.AddWithValue("@attempts_left", 3);
+                        cmd.Parameters.AddWithValue("@email", user.Email);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                        return false;
+                    }
+                    return false;
+                }
+            }
+            else
+            {
+                if (user.Attempts_Left == 0)
+                {
+                    string connStr = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+
+                    SqlConnection conn = new SqlConnection(connStr);
+
+                    string query = "UPDATE Accounts SET attempts_left = @attempts_left, suspended_since = @since WHERE email = @email";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@attempts_left", 0);
+                    cmd.Parameters.AddWithValue("@since", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@email", user.Email);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    //System.Diagnostics.Debug.WriteLine("suspended");
+                    return true;
+                }
+                return false;
+            }
+
+        }
+
+        public bool CheckAttempts(string email, bool pass) // true == attempt passed, false == attempt failed
+        {
+
+            string connStr = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            Account user = new Account().SelectByEmail(email);
+            int attempts = user.Attempts_Left;
+
+            if (pass)
+            {
+                string query = "UPDATE Accounts SET attempts_left = @attempts_left WHERE email = @email";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@attempts_left", 3);
+                cmd.Parameters.AddWithValue("@email", user.Email);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                return true;
+            }
+            else
+            {
+                attempts -= 1;
+
+                if (attempts > 0)
+                {
+                    string query = "UPDATE Accounts SET attempts_left = @attempts_left WHERE email = @email";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@attempts_left", attempts);
+                    cmd.Parameters.AddWithValue("@email", user.Email);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    return false;
+                }
+                else
+                {
+                    string query = "UPDATE Accounts SET attempts_left = @attempts_left, suspended_since = @since WHERE email = @email";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@attempts_left", 0);
+                    cmd.Parameters.AddWithValue("@since", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@email", user.Email);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    return false;
+                }
+            }
         }
     }
 }

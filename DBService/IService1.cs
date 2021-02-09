@@ -28,6 +28,15 @@ namespace DBService
         [OperationContract]
         List<Account> GetAllAccounts();
 
+        [OperationContract]
+        int ChangePassword(string email, string newpass);
+
+        [OperationContract]
+        bool CheckAttempts(string email, bool pass);
+
+        [OperationContract]
+        bool CheckSuspended(string email);
+
         //Gem
         [OperationContract]
         int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image);

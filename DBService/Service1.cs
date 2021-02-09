@@ -46,6 +46,23 @@ namespace DBService
             Account accounts = new Account();
             return accounts.SelectAll();
         }
+        public int ChangePassword(string email, string newpass)
+        {
+            Account user = new Account();
+            return user.ChangePassword(email, newpass);
+        }
+
+        public bool CheckAttempts(string email, bool pass)
+        {
+            Account user = new Account();
+            return user.CheckAttempts(email, pass);
+        }
+
+        public bool CheckSuspended(string email)
+        {
+            Account user = new Account();
+            return user.CheckSuspended(email);
+        }
 
         // Gems
         public List<Gem> GetAllGems()

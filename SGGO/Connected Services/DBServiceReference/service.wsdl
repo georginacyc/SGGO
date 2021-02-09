@@ -38,6 +38,24 @@
   <wsdl:message name="IService1_GetAllAccounts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAccountsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckAttempts_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAttempts" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckAttempts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAttemptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckSuspended_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSuspended" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckSuspended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSuspendedResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateGem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateGem" />
   </wsdl:message>
@@ -131,6 +149,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllAccounts" message="tns:IService1_GetAllAccounts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllAccountsResponse" message="tns:IService1_GetAllAccounts_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ChangePassword" message="tns:IService1_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangePasswordResponse" message="tns:IService1_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAttempts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckAttempts" message="tns:IService1_CheckAttempts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckAttemptsResponse" message="tns:IService1_CheckAttempts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSuspended">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckSuspended" message="tns:IService1_CheckSuspended_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckSuspendedResponse" message="tns:IService1_CheckSuspended_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateGem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateGem" message="tns:IService1_CreateGem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateGemResponse" message="tns:IService1_CreateGem_OutputMessage" />
@@ -220,6 +250,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllAccounts">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IService1/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAttempts">
+      <soap:operation soapAction="http://tempuri.org/IService1/CheckAttempts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSuspended">
+      <soap:operation soapAction="http://tempuri.org/IService1/CheckSuspended" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

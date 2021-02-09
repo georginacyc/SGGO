@@ -57,15 +57,14 @@ namespace SGGO
             }
             if (pass && Check(email_tb.Text, password_tb.Text))
             {
-                Response.Redirect("Staff_Home.aspx");
-            }
-            else if (pass && !Check(email_tb.Text, password_tb.Text))
-            {
                 Session["LoggedIn"] = email_tb.Text;
                 string guid = Guid.NewGuid().ToString();
                 Session["AuthToken"] = guid;
                 Response.Cookies.Add(new HttpCookie("AuthToken", guid));
-
+                Response.Redirect("Staff_Home.aspx");
+            }
+            else if (pass && !Check(email_tb.Text, password_tb.Text))
+            {
                 error2_lb.Text = null;
                 error_lb.Text = "Invalid email or password.";
             }
