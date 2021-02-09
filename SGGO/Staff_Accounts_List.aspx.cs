@@ -20,7 +20,9 @@ namespace SGGO
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Server.Transfer("~/Staff_Account_Details.aspx");
         }
+
+
     }
 }
