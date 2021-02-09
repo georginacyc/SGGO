@@ -90,6 +90,12 @@ namespace SGGO.DBServiceReference {
         private string AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Attempts_LeftField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DobField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -105,10 +111,22 @@ namespace SGGO.DBServiceReference {
         private string Last_NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int[] OwnsField;
+        private System.Nullable<System.DateTime> Locked_SinceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Old_PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Old_Password2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Password_AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Password_SaltField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> PointsField;
@@ -151,6 +169,32 @@ namespace SGGO.DBServiceReference {
                 if ((object.ReferenceEquals(this.AddressField, value) != true)) {
                     this.AddressField = value;
                     this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Attempts_Left {
+            get {
+                return this.Attempts_LeftField;
+            }
+            set {
+                if ((this.Attempts_LeftField.Equals(value) != true)) {
+                    this.Attempts_LeftField = value;
+                    this.RaisePropertyChanged("Attempts_Left");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Dob {
+            get {
+                return this.DobField;
+            }
+            set {
+                if ((this.DobField.Equals(value) != true)) {
+                    this.DobField = value;
+                    this.RaisePropertyChanged("Dob");
                 }
             }
         }
@@ -221,14 +265,40 @@ namespace SGGO.DBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int[] Owns {
+        public System.Nullable<System.DateTime> Locked_Since {
             get {
-                return this.OwnsField;
+                return this.Locked_SinceField;
             }
             set {
-                if ((object.ReferenceEquals(this.OwnsField, value) != true)) {
-                    this.OwnsField = value;
-                    this.RaisePropertyChanged("Owns");
+                if ((this.Locked_SinceField.Equals(value) != true)) {
+                    this.Locked_SinceField = value;
+                    this.RaisePropertyChanged("Locked_Since");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Old_Password {
+            get {
+                return this.Old_PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Old_PasswordField, value) != true)) {
+                    this.Old_PasswordField = value;
+                    this.RaisePropertyChanged("Old_Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Old_Password2 {
+            get {
+                return this.Old_Password2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Old_Password2Field, value) != true)) {
+                    this.Old_Password2Field = value;
+                    this.RaisePropertyChanged("Old_Password2");
                 }
             }
         }
@@ -242,6 +312,32 @@ namespace SGGO.DBServiceReference {
                 if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
                     this.PasswordField = value;
                     this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Password_Age {
+            get {
+                return this.Password_AgeField;
+            }
+            set {
+                if ((this.Password_AgeField.Equals(value) != true)) {
+                    this.Password_AgeField = value;
+                    this.RaisePropertyChanged("Password_Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password_Salt {
+            get {
+                return this.Password_SaltField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Password_SaltField, value) != true)) {
+                    this.Password_SaltField = value;
+                    this.RaisePropertyChanged("Password_Salt");
                 }
             }
         }
@@ -924,10 +1020,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task<SGGO.DBServiceReference.CompositeType> GetDataUsingDataContractAsync(SGGO.DBServiceReference.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateAccount", ReplyAction="http://tempuri.org/IService1/CreateAccountResponse")]
-        int CreateAccount(string email, string password, string type, string first_name, string last_name, string hp, string address, System.Nullable<System.DateTime> last_login, System.DateTime account_created, string staff_id, System.Nullable<int> points, int[] owns);
+        int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string address, string staff_id, System.Nullable<int> points);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateAccount", ReplyAction="http://tempuri.org/IService1/CreateAccountResponse")]
-        System.Threading.Tasks.Task<int> CreateAccountAsync(string email, string password, string type, string first_name, string last_name, string hp, string address, System.Nullable<System.DateTime> last_login, System.DateTime account_created, string staff_id, System.Nullable<int> points, int[] owns);
+        System.Threading.Tasks.Task<int> CreateAccountAsync(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string address, string staff_id, System.Nullable<int> points);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountByEmail", ReplyAction="http://tempuri.org/IService1/GetAccountByEmailResponse")]
         SGGO.DBServiceReference.Account GetAccountByEmail(string email);
@@ -1057,12 +1153,12 @@ namespace SGGO.DBServiceReference {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public int CreateAccount(string email, string password, string type, string first_name, string last_name, string hp, string address, System.Nullable<System.DateTime> last_login, System.DateTime account_created, string staff_id, System.Nullable<int> points, int[] owns) {
-            return base.Channel.CreateAccount(email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, owns);
+        public int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string address, string staff_id, System.Nullable<int> points) {
+            return base.Channel.CreateAccount(email, pw, salt, type, first_name, last_name, dob, hp, address, staff_id, points);
         }
         
-        public System.Threading.Tasks.Task<int> CreateAccountAsync(string email, string password, string type, string first_name, string last_name, string hp, string address, System.Nullable<System.DateTime> last_login, System.DateTime account_created, string staff_id, System.Nullable<int> points, int[] owns) {
-            return base.Channel.CreateAccountAsync(email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, owns);
+        public System.Threading.Tasks.Task<int> CreateAccountAsync(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string address, string staff_id, System.Nullable<int> points) {
+            return base.Channel.CreateAccountAsync(email, pw, salt, type, first_name, last_name, dob, hp, address, staff_id, points);
         }
         
         public SGGO.DBServiceReference.Account GetAccountByEmail(string email) {

@@ -29,7 +29,7 @@ namespace SGGO
             string pw = "password";
 
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateAccount(email, pw, "Partner", fname, lname, hp, address, null, DateTime.Now, null, null, null);
+            //int result = client.CreateAccount(email, pw, "Partner", fname, lname, hp, address, null, DateTime.Now, null, null, null);
             Response.Redirect("Staff_Accounts_List.aspx");
         }
     }

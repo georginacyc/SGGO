@@ -251,9 +251,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\DBServiceReference\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\DBServiceReference\DBService.Entity.xsd">
       <SubType>Designer</SubType>
     </None>

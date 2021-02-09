@@ -20,6 +20,7 @@ namespace DBService.Entity
         public string Type { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
+        public DateTime Dob { get; set; }
         public string Hp { get; set; }
         public string Address { get; set; }
         public DateTime? Last_Login { get; set; }
@@ -36,7 +37,7 @@ namespace DBService.Entity
         }
 
         // for retrieving accounts
-        public Account(string email, string pw, string salt, string old_pw, string old_pw2, DateTime pw_age string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, int attempts_left, DateTime? locked_since)
+        public Account(string email, string pw, string salt, string old_pw, string old_pw2, DateTime pw_age, string type, string first_name, string last_name, DateTime dob, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, int attempts_left, DateTime? locked_since)
         {
             Email = email;
             Password = pw;
@@ -47,6 +48,7 @@ namespace DBService.Entity
             Type = type;
             First_Name = first_name;
             Last_Name = last_name;
+            Dob = dob;
             Hp = hp;
             Address = address;
             Last_Login = last_login;
@@ -59,7 +61,7 @@ namespace DBService.Entity
         }
 
         // account creation
-        public Account(string email, string pw, string salt, string type, string first_name, string last_name, string hp, string address, string staff_id, int? points)
+        public Account(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string address, string staff_id, int? points)
         {
             Email = email;
             Password = pw;
@@ -67,6 +69,7 @@ namespace DBService.Entity
             Type = type;
             First_Name = first_name;
             Last_Name = last_name;
+            Dob = dob;
             Hp = hp;
             Address = address;
             Staff_Id = staff_id;
@@ -84,16 +87,17 @@ namespace DBService.Entity
             
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Accounts (email, password, password_salt, password_age, type, first_name, last_name, hp, address, account_created, staff_id, points, attempts_left) " + "VALUES (@email, @password, @password_salt, @password_age, @type, @first_name, @last_name, @hp, @address, @account_created, @staff_id, @points, @attempts_left)";
+            string query = "INSERT INTO Accounts (email, password, password_salt, password_age, type, first_name, last_name, dob, hp, address, account_created, staff_id, points, attempts_left) " + "VALUES (@email, @password, @password_salt, @password_age, @type, @first_name, @last_name, @dob, @hp, @address, @account_created, @staff_id, @points, @attempts_left)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@email", Email);
             cmd.Parameters.AddWithValue("@password", Password);
-            cmd.Parameters.AddWithValue("@password_salt", Password);
+            cmd.Parameters.AddWithValue("@password_salt", Password_Salt);
             cmd.Parameters.AddWithValue("@password_age", Password_Age);
             cmd.Parameters.AddWithValue("@type", Type);
             cmd.Parameters.AddWithValue("@first_name", First_Name);
             cmd.Parameters.AddWithValue("@last_name", string.IsNullOrEmpty(Last_Name) ? (object)DBNull.Value : Last_Name);
+            cmd.Parameters.AddWithValue("@dob", Dob);
             cmd.Parameters.AddWithValue("@hp", Hp);
             cmd.Parameters.AddWithValue("@address", Address);
             cmd.Parameters.AddWithValue("@account_created", Account_Created);
@@ -129,12 +133,13 @@ namespace DBService.Entity
                 DataRow row = ds.Tables[0].Rows[0];
                 string password = row["password"].ToString();
                 string salt = row["password_salt"].ToString();
-                string old_pw = row["old_password"].ToString();
-                string old_pw2 = row["old_password2"].ToString();
+                string old_pw = row["password_last1"].ToString();
+                string old_pw2 = row["password_last2"].ToString();
                 DateTime pw_age = Convert.ToDateTime(row["password_age"].ToString());
                 string type = row["type"].ToString();
                 string first_name = row["first_name"].ToString();
                 string last_name = row["last_name"].ToString();
+                DateTime dob = Convert.ToDateTime(row["dob"].ToString());
                 string hp = row["hp"].ToString();
                 string address = row["address"].ToString();
                 DateTime? last_login;
@@ -157,12 +162,20 @@ namespace DBService.Entity
                 string staff_id = row["staff_id"].ToString();
                 int points = Convert.ToInt32(row["points"].ToString());
                 int attempts = Convert.ToInt16(row["Attempts_left"].ToString());
-                DateTime? locked = Convert.ToDateTime(row["points"].ToString());
+                DateTime? locked_since;
+                try
+                {
+                    locked_since = Convert.ToDateTime(row["locked_since"].ToString());
+                }
+                catch
+                {
+                    locked_since = null;
+                }
                 //int points = Convert.ToInt32(row["points"].ToString());
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, attempts, locked);
+                user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, address, last_login, account_created, staff_id, points, attempts, locked_since);
             }
             return user;
         }
@@ -184,16 +197,17 @@ namespace DBService.Entity
             int count = ds.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                DataRow row = ds.Tables[0].Rows[0];
+                DataRow row = ds.Tables[0].Rows[i];
                 string email = row["email"].ToString();
                 string password = row["password"].ToString();
                 string salt = row["password_salt"].ToString();
-                string old_pw = row["old_password"].ToString();
-                string old_pw2 = row["old_password2"].ToString();
+                string old_pw = row["password_last1"].ToString();
+                string old_pw2 = row["password_last2"].ToString();
                 DateTime pw_age = Convert.ToDateTime(row["password_age"].ToString());
                 string type = row["type"].ToString();
                 string first_name = row["first_name"].ToString();
                 string last_name = row["last_name"].ToString();
+                DateTime dob = Convert.ToDateTime(row["dob"].ToString());
                 string hp = row["hp"].ToString();
                 string address = row["address"].ToString();
                 DateTime? last_login;
@@ -209,13 +223,20 @@ namespace DBService.Entity
                 account_created = Convert.ToDateTime(row["account_created"].ToString());
                 string staff_id = row["staff_id"].ToString();
                 int points = Convert.ToInt32(row["points"].ToString());
-                int attempts = Convert.ToInt16(row["Attempts_left"].ToString());
-                DateTime? locked = Convert.ToDateTime(row["points"].ToString());
+                int attempts = Convert.ToInt16(row["attempts_left"].ToString());
+                DateTime? locked_since;
+                try
+                {
+                    locked_since = Convert.ToDateTime(row["locked_since"].ToString());
+                } catch
+                {
+                    locked_since = null;
+                }
                 //int points = Convert.ToInt32(row["points"].ToString());
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                Account user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, attempts, locked);
+                Account user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, address, last_login, account_created, staff_id, points, attempts, locked_since);
                 accountList.Add(user);
             }
             return accountList;

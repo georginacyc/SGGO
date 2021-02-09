@@ -82,7 +82,7 @@ namespace SGGO
             string pw = user_password_tb.Text;
 
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateAccount(email, pw, "User", fname, lname, "90098008", "Blk 123 NYP",null, DateTime.Now, null, null, null);
+            //int result = client.CreateAccount(email, pw, "User", fname, lname, "90098008", "Blk 123 NYP",null, DateTime.Now, null, null, null);
             
 
 
