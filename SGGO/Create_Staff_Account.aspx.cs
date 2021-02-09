@@ -26,12 +26,12 @@ namespace SGGO
             //    }
             //    else
             //    {
-            //        Response.Redirect("Login.aspx");
+            //        Response.Redirect("Staff_Login.aspx");
             //    }
             //}
             //else
             //{
-            //    Response.Redirect("Login.aspx");
+            //    Response.Redirect("Staff_Login.aspx");
             //}
         }
 
