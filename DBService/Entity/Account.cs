@@ -13,6 +13,9 @@ namespace DBService.Entity
     {
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Password_Salt { get; set; }
+        public string Old_Password { get; set; }
+        public string Old_Password2 { get; set; }
         public string Type { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
@@ -22,17 +25,23 @@ namespace DBService.Entity
         public DateTime Account_Created { get; set; }
         public string Staff_Id { get; set; }
         public int? Points { get; set; }
-        public List<int> Owns { get; set; }
+        // public List<int> Owns { get; set; }
+        public int Attempts_Left { get; set; }
+        public DateTime? Locked_Since { get; set; }
 
         public Account()
         {
 
         }
 
-        public Account(string email, string pw, string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, List<int> owns)
+        // for retrieving accounts
+        public Account(string email, string pw, string salt, string old_pw, string old_pw2, string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, int attempts_left, DateTime? locked_since)
         {
             Email = email;
             Password = pw;
+            Password_Salt = salt;
+            Old_Password = old_pw;
+            Old_Password2 = old_pw2;
             Type = type;
             First_Name = first_name;
             Last_Name = last_name;
@@ -42,7 +51,26 @@ namespace DBService.Entity
             Account_Created = account_created;
             Staff_Id = staff_id;
             Points = points;
-            Owns = owns;
+            // Owns = owns;
+            Attempts_Left = attempts_left;
+            Locked_Since = locked_since;
+        }
+
+        // account creation
+        public Account(string email, string pw, string salt, string type, string first_name, string last_name, string hp, string address, string staff_id, int? points)
+        {
+            Email = email;
+            Password = pw;
+            Password_Salt = salt;
+            Type = type;
+            First_Name = first_name;
+            Last_Name = last_name;
+            Hp = hp;
+            Address = address;
+            Staff_Id = staff_id;
+            Points = 0;
+            // Owns = owns;
+            Attempts_Left = 3;
         }
 
         /*// Staff Account
@@ -85,27 +113,29 @@ namespace DBService.Entity
             Account_Created = DateTime.Now;
         }*/
 
+        // account creation
         public int Insert()
         {
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Accounts (email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points) " + "VALUES (@email, @password, @type, @first_name, @last_name, @hp, @address, @last_login, @account_created, @staff_id, @points)";
+            string query = "INSERT INTO Accounts (email, password, password_salt, type, first_name, last_name, hp, address, account_created, staff_id, points, attempts_left) " + "VALUES (@email, @password, @password_salt, @type, @first_name, @last_name, @hp, @address, @account_created, @staff_id, @points, @attempts_left)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@email", Email);
             cmd.Parameters.AddWithValue("@password", Password);
+            cmd.Parameters.AddWithValue("@password_salt", Password);
             cmd.Parameters.AddWithValue("@type", Type);
             cmd.Parameters.AddWithValue("@first_name", First_Name);
             cmd.Parameters.AddWithValue("@last_name", string.IsNullOrEmpty(Last_Name) ? (object)DBNull.Value : Last_Name);
             cmd.Parameters.AddWithValue("@hp", Hp);
             cmd.Parameters.AddWithValue("@address", Address);
-            cmd.Parameters.AddWithValue("@last_login", Last_Login == null ? (object)DBNull.Value : Last_Login);
-            cmd.Parameters.AddWithValue("@account_created", Account_Created);
+            cmd.Parameters.AddWithValue("@account_created", DateTime.Now);
             cmd.Parameters.AddWithValue("@staff_id", string.IsNullOrEmpty(Staff_Id) ? (object)DBNull.Value : Staff_Id);
             // cmd.Parameters.AddWithValue("@profile_pic", null);
-            cmd.Parameters.AddWithValue("@points", Points == null ? (object)DBNull.Value : Points);
+            cmd.Parameters.AddWithValue("@points", Points);
+            cmd.Parameters.AddWithValue("@attempts_left", Attempts_Left);
 
             conn.Open();
             int result = cmd.ExecuteNonQuery();
@@ -200,6 +230,32 @@ namespace DBService.Entity
                 accountList.Add(user);
             }
             return accountList;
+        }
+
+        public int ChangePassword(string email, string newpass)
+        {
+            Account user = new Account().SelectByEmail(email);
+            string currentpass = user.Password;
+            string lastpass = user.Old_Password;
+
+            string connStr = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Account SET password = @new, old_password = @current, old_password2 = @old, password_age = @age WHERE email = @email";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@new", newpass);
+            cmd.Parameters.AddWithValue("@current", currentpass);
+            cmd.Parameters.AddWithValue("@old", lastpass);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@age", DateTime.Now);
+
+            conn.Open();
+            int result = cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return result;
         }
     }
 }
