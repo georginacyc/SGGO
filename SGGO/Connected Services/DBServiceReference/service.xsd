@@ -41,6 +41,7 @@
         <xs:element minOccurs="0" name="last_name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="dob" type="xs:dateTime" />
         <xs:element minOccurs="0" name="hp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="postal" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="staff_id" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="points" nillable="true" type="xs:int" />

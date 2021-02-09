@@ -63,7 +63,7 @@ namespace SGGO
             lname_lb.Text = user.Last_Name;
             dob_lb.Text = user.Dob.ToString();
             hp_lb.Text = user.Hp;
-            postal_lb.Text = "pp";
+            postal_lb.Text = user.Postal_Code;
             address_lb.Text = user.Address;
             created_lb.Text = user.Account_Created.ToString();
         }

@@ -106,7 +106,7 @@ namespace SGGO
                 string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
 
                 DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                int result = client.CreateAccount(email, hashedpw, pwsalt, "Staff", fname, lname, dob, hp, address, "000001", 0);
+                int result = client.CreateAccount(email, hashedpw, pwsalt, "Staff", fname, lname, dob, hp, postal, address, "000001", 0);
                 Response.Redirect("Staff_Accounts_List.aspx");
             }
 
