@@ -38,7 +38,7 @@
             <asp:Label ID="lbl_pw" runat="server" Text="Password"></asp:Label>
                     </td>
                     <td>
-            <asp:TextBox ID="user_password_tb" runat="server" OnTextChanged="tb_pw_TextChanged" ></asp:TextBox>
+            <asp:TextBox ID="user_password_tb" TextMode="Password" runat="server" OnTextChanged="tb_pw_TextChanged" ></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +46,7 @@
             <asp:Label ID="lbl_confirmpw" runat="server" Text="Confirm Password"></asp:Label>
                     </td>
                     <td>
-            <asp:TextBox ID="tb_confirmpw" runat="server"></asp:TextBox>
+            <asp:TextBox TextMode="Password" ID="tb_confirmpw" runat="server"></asp:TextBox>
                         <asp:Label ID="Label2" runat="server" Text="Password Strength/same pw"></asp:Label>
                     </td>
                 </tr>

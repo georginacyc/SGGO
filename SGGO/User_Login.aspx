@@ -15,7 +15,8 @@
                     <asp:Label ID="label" runat="server" Text="Email"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_email" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_email" runat="server"  Width="192px"></asp:TextBox>
+                    <asp:Label ID="lblMsg2" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -23,14 +24,14 @@
                     <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_pw" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_pw" TextMode="Password" runat="server" Width="187px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>
                     &nbsp;</td>
                 <td>
-                    <asp:Button ID="btn_login" runat="server" Text="Login" />
+                    <asp:Button ID="btn_login" runat="server" Text="Login" OnClick="btn_login_Click" />
                 </td>
             </tr>
             <tr>

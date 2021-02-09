@@ -116,7 +116,7 @@ namespace DBService.Entity
 
         public Account SelectByEmail(string email)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Accounts WHERE email = @email";
@@ -138,10 +138,13 @@ namespace DBService.Entity
                 string last_name = row["last_name"].ToString();
                 string hp = row["hp"].ToString();
                 string address = row["address"].ToString();
-                DateTime last_login = Convert.ToDateTime(row["last_login"].ToString());
-                DateTime account_created = Convert.ToDateTime(row["account_created"].ToString());
+                //DateTime last_login = Convert.ToDateTime(row["last_login"].ToString());
+                //DateTime account_created = Convert.ToDateTime(row["account_created"].ToString());
+                DateTime? last_login = null;
+                DateTime account_created = DateTime.Now;
                 string staff_id = row["staff_id"].ToString();
-                int points = Convert.ToInt32(row["points"].ToString());
+                //int points = Convert.ToInt32(row["points"].ToString());
+                int points = 0;
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
