@@ -319,6 +319,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\Gem\" />
+    <Folder Include="Images\Profile_Pictures\" />
     <Folder Include="Images\Trail\" />
     <Folder Include="Models\" />
   </ItemGroup>

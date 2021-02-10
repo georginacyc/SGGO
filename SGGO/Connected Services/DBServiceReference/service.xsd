@@ -44,7 +44,7 @@
         <xs:element minOccurs="0" name="postal" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="staff_id" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="points" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="diamonds" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -122,6 +122,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CheckSuspendedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffId">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStaffIdResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

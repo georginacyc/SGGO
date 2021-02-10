@@ -93,6 +93,9 @@ namespace SGGO.DBServiceReference {
         private int Attempts_LeftField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> DiamondsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime DobField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -127,9 +130,6 @@ namespace SGGO.DBServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Password_SaltField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> PointsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Postal_CodeField;
@@ -185,6 +185,19 @@ namespace SGGO.DBServiceReference {
                 if ((this.Attempts_LeftField.Equals(value) != true)) {
                     this.Attempts_LeftField = value;
                     this.RaisePropertyChanged("Attempts_Left");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Diamonds {
+            get {
+                return this.DiamondsField;
+            }
+            set {
+                if ((this.DiamondsField.Equals(value) != true)) {
+                    this.DiamondsField = value;
+                    this.RaisePropertyChanged("Diamonds");
                 }
             }
         }
@@ -341,19 +354,6 @@ namespace SGGO.DBServiceReference {
                 if ((object.ReferenceEquals(this.Password_SaltField, value) != true)) {
                     this.Password_SaltField = value;
                     this.RaisePropertyChanged("Password_Salt");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Points {
-            get {
-                return this.PointsField;
-            }
-            set {
-                if ((this.PointsField.Equals(value) != true)) {
-                    this.PointsField = value;
-                    this.RaisePropertyChanged("Points");
                 }
             }
         }
@@ -1036,10 +1036,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task<SGGO.DBServiceReference.CompositeType> GetDataUsingDataContractAsync(SGGO.DBServiceReference.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateAccount", ReplyAction="http://tempuri.org/IService1/CreateAccountResponse")]
-        int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string postal, string address, string staff_id, System.Nullable<int> points);
+        int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string postal, string address, string staff_id, System.Nullable<int> diamonds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateAccount", ReplyAction="http://tempuri.org/IService1/CreateAccountResponse")]
-        System.Threading.Tasks.Task<int> CreateAccountAsync(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string postal, string address, string staff_id, System.Nullable<int> points);
+        System.Threading.Tasks.Task<int> CreateAccountAsync(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string postal, string address, string staff_id, System.Nullable<int> diamonds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountByEmail", ReplyAction="http://tempuri.org/IService1/GetAccountByEmailResponse")]
         SGGO.DBServiceReference.Account GetAccountByEmail(string email);
@@ -1070,6 +1070,12 @@ namespace SGGO.DBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckSuspended", ReplyAction="http://tempuri.org/IService1/CheckSuspendedResponse")]
         System.Threading.Tasks.Task<bool> CheckSuspendedAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetStaffId", ReplyAction="http://tempuri.org/IService1/GetStaffIdResponse")]
+        string GetStaffId();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetStaffId", ReplyAction="http://tempuri.org/IService1/GetStaffIdResponse")]
+        System.Threading.Tasks.Task<string> GetStaffIdAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateGem", ReplyAction="http://tempuri.org/IService1/CreateGemResponse")]
         int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
@@ -1187,12 +1193,12 @@ namespace SGGO.DBServiceReference {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string postal, string address, string staff_id, System.Nullable<int> points) {
-            return base.Channel.CreateAccount(email, pw, salt, type, first_name, last_name, dob, hp, postal, address, staff_id, points);
+        public int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string postal, string address, string staff_id, System.Nullable<int> diamonds) {
+            return base.Channel.CreateAccount(email, pw, salt, type, first_name, last_name, dob, hp, postal, address, staff_id, diamonds);
         }
         
-        public System.Threading.Tasks.Task<int> CreateAccountAsync(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string postal, string address, string staff_id, System.Nullable<int> points) {
-            return base.Channel.CreateAccountAsync(email, pw, salt, type, first_name, last_name, dob, hp, postal, address, staff_id, points);
+        public System.Threading.Tasks.Task<int> CreateAccountAsync(string email, string pw, string salt, string type, string first_name, string last_name, System.DateTime dob, string hp, string postal, string address, string staff_id, System.Nullable<int> diamonds) {
+            return base.Channel.CreateAccountAsync(email, pw, salt, type, first_name, last_name, dob, hp, postal, address, staff_id, diamonds);
         }
         
         public SGGO.DBServiceReference.Account GetAccountByEmail(string email) {
@@ -1233,6 +1239,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<bool> CheckSuspendedAsync(string email) {
             return base.Channel.CheckSuspendedAsync(email);
+        }
+        
+        public string GetStaffId() {
+            return base.Channel.GetStaffId();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetStaffIdAsync() {
+            return base.Channel.GetStaffIdAsync();
         }
         
         public int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {

@@ -56,6 +56,12 @@
   <wsdl:message name="IService1_CheckSuspended_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckSuspendedResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetStaffId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetStaffId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateGem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateGem" />
   </wsdl:message>
@@ -160,6 +166,10 @@
     <wsdl:operation name="CheckSuspended">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckSuspended" message="tns:IService1_CheckSuspended_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckSuspendedResponse" message="tns:IService1_CheckSuspended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetStaffId" message="tns:IService1_GetStaffId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetStaffIdResponse" message="tns:IService1_GetStaffId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateGem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateGem" message="tns:IService1_CreateGem_InputMessage" />
@@ -277,6 +287,15 @@
     </wsdl:operation>
     <wsdl:operation name="CheckSuspended">
       <soap:operation soapAction="http://tempuri.org/IService1/CheckSuspended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffId">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetStaffId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

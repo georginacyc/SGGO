@@ -88,7 +88,7 @@
             <td class="auto-style7">
                 <asp:Label ID="created_lb" runat="server"></asp:Label>
             </td>
-            <td class="auto-style8"><strong>Points:</strong></td>
+            <td class="auto-style8"><strong>Diamonds:</strong></td>
             <td class="auto-style9">
                 <asp:Label ID="points_lb" runat="server"></asp:Label>
             </td>

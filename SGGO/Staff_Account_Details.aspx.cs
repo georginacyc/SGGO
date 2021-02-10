@@ -30,7 +30,7 @@ namespace SGGO
                     address_lb.Text = user.Address;
                     created_lb.Text = user.Account_Created.ToString();
                     login_lb.Text = user.Last_Login.ToString();
-                    points_lb.Text = user.Points.ToString();
+                    points_lb.Text = user.Diamonds.ToString();
                 }                    
             }
             else

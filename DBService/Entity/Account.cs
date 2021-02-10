@@ -27,7 +27,8 @@ namespace DBService.Entity
         public DateTime? Last_Login { get; set; }
         public DateTime Account_Created { get; set; }
         public string Staff_Id { get; set; }
-        public int? Points { get; set; }
+        public int? Diamonds { get; set; }
+        // profile pic
         // public List<int> Owns { get; set; }
         public int Attempts_Left { get; set; }
         public DateTime? Locked_Since { get; set; }
@@ -38,7 +39,7 @@ namespace DBService.Entity
         }
 
         // for retrieving accounts
-        public Account(string email, string pw, string salt, string old_pw, string old_pw2, DateTime pw_age, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, int attempts_left, DateTime? locked_since)
+        public Account(string email, string pw, string salt, string old_pw, string old_pw2, DateTime pw_age, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, DateTime? last_login, DateTime account_created, string staff_id, int? diamonds, int attempts_left, DateTime? locked_since)
         {
             Email = email;
             Password = pw;
@@ -56,14 +57,14 @@ namespace DBService.Entity
             Last_Login = last_login;
             Account_Created = account_created;
             Staff_Id = staff_id;
-            Points = points;
+            Diamonds = diamonds;
             // Owns = owns;
             Attempts_Left = attempts_left;
             Locked_Since = locked_since;
         }
 
         // account creation
-        public Account(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string staff_id, int? points)
+        public Account(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string staff_id, int? diamonds)
         {
             Email = email;
             Password = pw;
@@ -76,7 +77,7 @@ namespace DBService.Entity
             Postal_Code = postal;
             Address = address;
             Staff_Id = staff_id;
-            Points = 0;
+            Diamonds = 0;
             // Owns = owns;
             Attempts_Left = 3;
             Account_Created = DateTime.Now;
@@ -90,7 +91,7 @@ namespace DBService.Entity
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Accounts (email, password, password_salt, password_age, type, first_name, last_name, dob, hp, postal_code, address, account_created, staff_id, points, attempts_left) " + "VALUES (@email, @password, @password_salt, @password_age, @type, @first_name, @last_name, @dob, @hp, @postal, @address, @account_created, @staff_id, @points, @attempts_left)";
+            string query = "INSERT INTO Accounts (email, password, password_salt, password_age, type, first_name, last_name, dob, hp, postal_code, address, account_created, staff_id, diamonds, attempts_left) " + "VALUES (@email, @password, @password_salt, @password_age, @type, @first_name, @last_name, @dob, @hp, @postal, @address, @account_created, @staff_id, @diamonds, @attempts_left)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@email", Email);
@@ -107,7 +108,7 @@ namespace DBService.Entity
             cmd.Parameters.AddWithValue("@account_created", Account_Created);
             cmd.Parameters.AddWithValue("@staff_id", string.IsNullOrEmpty(Staff_Id) ? (object)DBNull.Value : Staff_Id);
             // cmd.Parameters.AddWithValue("@profile_pic", null);
-            cmd.Parameters.AddWithValue("@points", Points);
+            cmd.Parameters.AddWithValue("@diamonds", Diamonds);
             cmd.Parameters.AddWithValue("@attempts_left", Attempts_Left);
 
             conn.Open();
@@ -166,7 +167,7 @@ namespace DBService.Entity
                     account_created = DateTime.Now;
                 }
                 string staff_id = row["staff_id"].ToString();
-                int points = Convert.ToInt32(row["points"].ToString());
+                int diamonds = Convert.ToInt32(row["diamonds"].ToString());
                 int attempts = Convert.ToInt16(row["Attempts_left"].ToString());
                 DateTime? locked_since;
                 try
@@ -177,11 +178,11 @@ namespace DBService.Entity
                 {
                     locked_since = null;
                 }
-                //int points = Convert.ToInt32(row["points"].ToString());
+                //int diamonds = Convert.ToInt32(row["diamonds"].ToString());
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, postal, address, last_login, account_created, staff_id, points, attempts, locked_since);
+                user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, postal, address, last_login, account_created, staff_id, diamonds, attempts, locked_since);
             }
             return user;
         }
@@ -229,7 +230,7 @@ namespace DBService.Entity
                 }
                 account_created = Convert.ToDateTime(row["account_created"].ToString());
                 string staff_id = row["staff_id"].ToString();
-                int points = Convert.ToInt32(row["points"].ToString());
+                int diamonds = Convert.ToInt32(row["diamonds"].ToString());
                 int attempts = Convert.ToInt16(row["attempts_left"].ToString());
                 DateTime? locked_since;
                 try
@@ -240,11 +241,11 @@ namespace DBService.Entity
                 {
                     locked_since = null;
                 }
-                //int points = Convert.ToInt32(row["points"].ToString());
+                //int diamonds = Convert.ToInt32(row["diamonds"].ToString());
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                Account user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, postal, address, last_login, account_created, staff_id, points, attempts, locked_since);
+                Account user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, postal, address, last_login, account_created, staff_id, diamonds, attempts, locked_since);
                 accountList.Add(user);
             }
             return accountList;
@@ -336,7 +337,7 @@ namespace DBService.Entity
             {
                 if (user.Attempts_Left == 0)
                 {
-                    string connStr = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+                    string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
                     SqlConnection conn = new SqlConnection(connStr);
 
@@ -361,7 +362,7 @@ namespace DBService.Entity
         public bool CheckAttempts(string email, bool pass) // true == attempt passed, false == attempt failed
         {
 
-            string connStr = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -414,6 +415,23 @@ namespace DBService.Entity
                     return false;
                 }
             }
+        }
+
+        public string GetStaffId()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            string query = "SELECT COUNT(*) FROM Accounts WHERE type = 'Staff'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            conn.Open();
+            Int32 count = (Int32) cmd.ExecuteScalar();
+            count++;
+            conn.Close();
+
+            string id = count.ToString().PadLeft(6, '0');
+
+            return id;
         }
     }
 }

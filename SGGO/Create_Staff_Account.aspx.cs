@@ -17,6 +17,9 @@ namespace SGGO
             staff_password_tb.Attributes.Add("onkeyup", "pwdChecker();");
             staff_password2_tb.Attributes.Add("onkeyup", "pwdMatcher();");
 
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            staff_email_tb.Text = client.GetStaffId() + "@sggo.com";
+
             //if (Session["LoggedIn"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
             //{
             //    if (Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
@@ -106,7 +109,7 @@ namespace SGGO
                 string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
 
                 DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                int result = client.CreateAccount(email, hashedpw, pwsalt, "Staff", fname, lname, dob, hp, postal, address, "000001", 0);
+                int result = client.CreateAccount(email, hashedpw, pwsalt, "Staff", fname, lname, dob, hp, postal, address, client.GetStaffId(), 0);
                 Response.Redirect("Staff_Accounts_List.aspx");
             }
 
