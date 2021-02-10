@@ -41,7 +41,7 @@ namespace DBService.Entity
             string query = "INSERT INTO Reports (date_reported, type, reported_by, main_reason, remarks, status)" + "VALUES (@date_reported, @type, @reported_by, @main_reason, @remarks, @status)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
-            cmd.Parameters.AddWithValue("@date_reported", DateTime.Now);
+            cmd.Parameters.AddWithValue("@date_reported", Date_reported);
             cmd.Parameters.AddWithValue("@type", Type);
             cmd.Parameters.AddWithValue("@reported_by", Reported_by);
             cmd.Parameters.AddWithValue("@main_reason", Reason);

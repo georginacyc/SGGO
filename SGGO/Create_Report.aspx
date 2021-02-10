@@ -39,7 +39,7 @@
                 <td style="height: 99px">
                     &nbsp;</td>
                 <td style="height: 99px">
-                    <asp:Button ID="btn_submit_report" runat="server" Text="Submit" Width="700px" BackColor="Gray" />
+                    <asp:Button ID="btn_submit_report" runat="server" Text="Submit" Width="700px" BackColor="Gray" OnClick="btn_submit_report_Click" />
                 </td>
                 <td style="width: 402px; height: 99px"></td>
             </tr>

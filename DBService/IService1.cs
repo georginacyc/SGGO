@@ -77,7 +77,7 @@ namespace DBService
         int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status);
 
         [OperationContract]
-        Review GetReportByStatus(string status);
+        Report GetReportByStatus(string status);
 
         [OperationContract]
         List<Report> GetAllReport();
