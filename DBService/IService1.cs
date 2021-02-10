@@ -40,6 +40,9 @@ namespace DBService
         [OperationContract]
         string GetStaffId();
 
+        [OperationContract]
+        void UpdateLastLogin(string email);
+
         //Gem
         [OperationContract]
         int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image);

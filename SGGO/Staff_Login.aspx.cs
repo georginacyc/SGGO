@@ -97,7 +97,7 @@ namespace SGGO
                 Session["AuthToken"] = guid;
 
                 Response.Cookies.Add(new HttpCookie("AuthToken", guid));
-
+                client.UpdateLastLogin(user.Email);
                 Response.Redirect("Staff_Home.aspx");
             }
             //DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();

@@ -1250,6 +1250,12 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetStaffId", ReplyAction="http://tempuri.org/IService1/GetStaffIdResponse")]
         System.Threading.Tasks.Task<string> GetStaffIdAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateLastLogin", ReplyAction="http://tempuri.org/IService1/UpdateLastLoginResponse")]
+        void UpdateLastLogin(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateLastLogin", ReplyAction="http://tempuri.org/IService1/UpdateLastLoginResponse")]
+        System.Threading.Tasks.Task UpdateLastLoginAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateGem", ReplyAction="http://tempuri.org/IService1/CreateGemResponse")]
         int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
         
@@ -1462,6 +1468,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<string> GetStaffIdAsync() {
             return base.Channel.GetStaffIdAsync();
+        }
+        
+        public void UpdateLastLogin(string email) {
+            base.Channel.UpdateLastLogin(email);
+        }
+        
+        public System.Threading.Tasks.Task UpdateLastLoginAsync(string email) {
+            return base.Channel.UpdateLastLoginAsync(email);
         }
         
         public int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {

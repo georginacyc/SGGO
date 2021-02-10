@@ -70,6 +70,12 @@ namespace DBService
             return user.GetStaffId();
         }
 
+        public void UpdateLastLogin(string email)
+        {
+            Account user = new Account();
+            user.UpdateLogin(email);
+        }
+
         // Gems
         public List<Gem> GetAllGems()
         {

@@ -286,8 +286,6 @@ namespace DBService.Entity
 
         public int UpdateLogin(string email)
         {
-            Account user = new Account().SelectByEmail(email);
-
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
@@ -296,6 +294,7 @@ namespace DBService.Entity
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@last_login", DateTime.Now);
+            cmd.Parameters.AddWithValue("@email", email);
 
             conn.Open();
             int result = cmd.ExecuteNonQuery();
