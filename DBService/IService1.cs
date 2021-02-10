@@ -91,6 +91,9 @@ namespace DBService
         [OperationContract]
         List<Report> GetAllReports();
 
+        [OperationContract]
+        void UpdateReportStatus(int review_id, string status);
+
         //Point Shop
         [OperationContract]
         int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);

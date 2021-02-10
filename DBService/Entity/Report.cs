@@ -166,5 +166,23 @@ namespace DBService.Entity
             }
             return reportList;
         }
+
+        public void UpdateStatus(int id, string status)
+        {
+            System.Diagnostics.Debug.WriteLine(id.ToString() + status);
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Report SET status = @status WHERE report_id = @id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            conn.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            conn.Close();
+        }
     }
 }

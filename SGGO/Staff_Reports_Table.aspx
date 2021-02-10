@@ -3,9 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Reports Table"></asp:Label>
-    <asp:GridView ID="reports_gv" runat="server" AutoGenerateColumns="False" AllowPaging="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+    <asp:GridView ID="reports_gv" runat="server" AutoGenerateColumns="False" AllowPaging="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="reports_gv_SelectedIndexChanged">
         <Columns>
-            <asp:BoundField DataField="reported_date" HeaderText="Date Reported" ReadOnly="True" />
+            <asp:BoundField DataField="report_id" HeaderText="ID" ReadOnly="True" />
+            <asp:BoundField DataField="date_reported" HeaderText="Date Reported" ReadOnly="True" />
             <asp:BoundField DataField="status" HeaderText="Status" ReadOnly="True" />
             <asp:BoundField DataField="type" HeaderText="Type" ReadOnly="True" />
             <asp:BoundField DataField="main_reason" HeaderText="Reason" ReadOnly="True" />

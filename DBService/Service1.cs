@@ -165,6 +165,12 @@ namespace DBService
             return report.Insert();
         }
 
+        public void UpdateReportStatus(int review_id, string status)
+        {
+            Report report = new Report();
+            report.UpdateStatus(review_id, status);
+        }
+
 
 
 

@@ -98,6 +98,7 @@
     <Content Include="Staff_Ongoing_Trails.aspx" />
     <Content Include="Staff_Own_Account_Details.aspx" />
     <Content Include="Staff_Reports_Table.aspx" />
+    <Content Include="Staff_Report_Details.aspx" />
     <Content Include="Staff_Review.aspx" />
     <Content Include="Staff_Reviews_Table.aspx" />
     <Content Include="Staff_Review_Details.aspx" />
@@ -252,6 +253,13 @@
     </Compile>
     <Compile Include="Staff_Reports_Table.aspx.designer.cs">
       <DependentUpon>Staff_Reports_Table.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff_Report_Details.aspx.cs">
+      <DependentUpon>Staff_Report_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Report_Details.aspx.designer.cs">
+      <DependentUpon>Staff_Report_Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff_Review.aspx.cs">
       <DependentUpon>Staff_Review.aspx</DependentUpon>

@@ -1340,6 +1340,12 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllReports", ReplyAction="http://tempuri.org/IService1/GetAllReportsResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Report[]> GetAllReportsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateReportStatus", ReplyAction="http://tempuri.org/IService1/UpdateReportStatusResponse")]
+        void UpdateReportStatus(int review_id, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateReportStatus", ReplyAction="http://tempuri.org/IService1/UpdateReportStatusResponse")]
+        System.Threading.Tasks.Task UpdateReportStatusAsync(int review_id, string status);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePointShopItem", ReplyAction="http://tempuri.org/IService1/CreatePointShopItemResponse")]
         int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);
         
@@ -1576,6 +1582,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Report[]> GetAllReportsAsync() {
             return base.Channel.GetAllReportsAsync();
+        }
+        
+        public void UpdateReportStatus(int review_id, string status) {
+            base.Channel.UpdateReportStatus(review_id, status);
+        }
+        
+        public System.Threading.Tasks.Task UpdateReportStatusAsync(int review_id, string status) {
+            return base.Channel.UpdateReportStatusAsync(review_id, status);
         }
         
         public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr) {

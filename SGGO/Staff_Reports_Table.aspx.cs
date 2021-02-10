@@ -17,5 +17,11 @@ namespace SGGO
             reports_gv.DataSource = x;
             reports_gv.DataBind();
         }
+
+        protected void reports_gv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = reports_gv.SelectedRow.Cells[0].Text;
+            Response.Redirect("Staff_Report_Details.aspx?id=" + id);
+        }
     }
 }

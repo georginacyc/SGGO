@@ -152,6 +152,12 @@
   <wsdl:message name="IService1_GetAllReports_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllReportsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateReportStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReportStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateReportStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReportStatusResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreatePointShopItem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreatePointShopItem" />
   </wsdl:message>
@@ -266,6 +272,10 @@
     <wsdl:operation name="GetAllReports">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllReports" message="tns:IService1_GetAllReports_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllReportsResponse" message="tns:IService1_GetAllReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateReportStatus" message="tns:IService1_UpdateReportStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateReportStatusResponse" message="tns:IService1_UpdateReportStatus_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreatePointShopItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePointShopItem" message="tns:IService1_CreatePointShopItem_InputMessage" />
@@ -491,6 +501,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllReports">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateReportStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
