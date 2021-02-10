@@ -64,7 +64,7 @@
             <td class="auto-style2">
                 <asp:Button ID="approve_btn" runat="server" Text="Approve" CssClass="btn btn-success" OnClick="approve_btn_Click" />
 &nbsp;
-                <asp:Button ID="disapprove_btn" runat="server" Text="Reject" CssClass="btn btn-danger" OnClick="disapprove_btn_Click" style="height: 31px" />
+                <asp:Button ID="disapprove_btn" runat="server" Text="Reject" CssClass="btn btn-danger" OnClick="disapprove_btn_Click" />
             </td>
         </tr>
     </table>

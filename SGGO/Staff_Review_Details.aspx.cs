@@ -11,30 +11,23 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Page.PreviousPage != null)
+            if (!String.IsNullOrEmpty(Request.QueryString["id"]))
             {
-                ContentPlaceHolder cp = (ContentPlaceHolder)this.Page.PreviousPage.Master.FindControl("ContentPlaceHolder1");
-                GridView gv = (GridView)cp.FindControl("reviews_gv");
-                if (gv != null)
-                {
-                    GridViewRow row = gv.SelectedRow;
-                    DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                    var review = client.GetReviewById(Convert.ToInt32(row.Cells[0].Text));
+                DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+                var review = client.GetReviewById(Convert.ToInt32(Request.QueryString["id"]));
 
-                    if (review.Status.Trim() == "Approved" || review.Status.Trim() == "Rejected")
-                    {
-                        approve_btn.Visible = false;
-                        disapprove_btn.Visible = false;
-                    }
-                    review_lb.Text = review_lb.Text + review.Review_Id.ToString();
-                    status_lb.Text = review.Status;
-                    gem_lb.Text = review.Post; // now is id, will need to retrieve name with it next time.
-                    author_lb.Text = review.Author;
-                    rating_lb.Text = review.Rating;
-                    description_lb.Text = review.Description;
+                if (review.Status.Trim() == "Approved" || review.Status.Trim() == "Rejected")
+                {
+                    approve_btn.Visible = false;
+                    disapprove_btn.Visible = false;
                 }
-            }
-            else
+                review_lb.Text = review_lb.Text + review.Review_Id.ToString();
+                status_lb.Text = review.Status;
+                gem_lb.Text = review.Post; // now is id, will need to retrieve name with it next time. also want to make it clickable, link to gem page.
+                author_lb.Text = review.Author;
+                rating_lb.Text = review.Rating;
+                description_lb.Text = review.Description;
+            } else
             {
                 Response.Redirect("Staff_Reviews_Table.aspx");
             }
@@ -42,30 +35,18 @@ namespace SGGO
 
         protected void approve_btn_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder cp = (ContentPlaceHolder)this.Page.PreviousPage.Master.FindControl("ContentPlaceHolder1");
-            GridView gv = (GridView)cp.FindControl("reviews_gv");
-            if (gv != null)
-            {
-                GridViewRow row = gv.SelectedRow;
-                DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                client.UpdateReviewStatus(Convert.ToInt32(row.Cells[0].Text), "Approved");
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            client.UpdateReviewStatus(Convert.ToInt32(Request.QueryString["id"]), "Approved");
 
-                Response.Redirect("Staff_Reviews_Table.aspx");
-            }
+            Response.Redirect("Staff_Reviews_Table.aspx");
         }
 
         protected void disapprove_btn_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder cp = (ContentPlaceHolder)this.Page.PreviousPage.Master.FindControl("ContentPlaceHolder1");
-            GridView gv = (GridView)cp.FindControl("reviews_gv");
-            if (gv != null)
-            {
-                GridViewRow row = gv.SelectedRow;
-                DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                client.UpdateReviewStatus(Convert.ToInt32(row.Cells[0].Text), "Rejected");
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            client.UpdateReviewStatus(Convert.ToInt32(Request.QueryString["id"]), "Rejected");
 
-                Response.Redirect("Staff_Reviews_Table.aspx");
-            }
+            Response.Redirect("Staff_Reviews_Table.aspx");
         }
     }
 }
