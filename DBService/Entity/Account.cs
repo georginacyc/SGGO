@@ -24,11 +24,11 @@ namespace DBService.Entity
         public string Hp { get; set; }
         public string Postal_Code { get; set; }
         public string Address { get; set; }
+        public string Profile_Picture { get; set; }
         public DateTime? Last_Login { get; set; }
         public DateTime Account_Created { get; set; }
         public string Staff_Id { get; set; }
         public int? Diamonds { get; set; }
-        // profile pic
         // public List<int> Owns { get; set; }
         public int Attempts_Left { get; set; }
         public DateTime? Locked_Since { get; set; }
@@ -39,7 +39,7 @@ namespace DBService.Entity
         }
 
         // for retrieving accounts
-        public Account(string email, string pw, string salt, string old_pw, string old_pw2, DateTime pw_age, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, DateTime? last_login, DateTime account_created, string staff_id, int? diamonds, int attempts_left, DateTime? locked_since)
+        public Account(string email, string pw, string salt, string old_pw, string old_pw2, DateTime pw_age, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string profilepic, DateTime? last_login, DateTime account_created, string staff_id, int? diamonds, int attempts_left, DateTime? locked_since)
         {
             Email = email;
             Password = pw;
@@ -54,6 +54,7 @@ namespace DBService.Entity
             Hp = hp;
             Postal_Code = postal;
             Address = address;
+            Profile_Picture = profilepic;
             Last_Login = last_login;
             Account_Created = account_created;
             Staff_Id = staff_id;
@@ -64,7 +65,7 @@ namespace DBService.Entity
         }
 
         // account creation
-        public Account(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string staff_id, int? diamonds)
+        public Account(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string profilepic, string staff_id, int? diamonds)
         {
             Email = email;
             Password = pw;
@@ -76,6 +77,7 @@ namespace DBService.Entity
             Hp = hp;
             Postal_Code = postal;
             Address = address;
+            Profile_Picture = profilepic;
             Staff_Id = staff_id;
             Diamonds = 0;
             // Owns = owns;
@@ -91,7 +93,7 @@ namespace DBService.Entity
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Accounts (email, password, password_salt, password_age, type, first_name, last_name, dob, hp, postal_code, address, account_created, staff_id, diamonds, attempts_left) " + "VALUES (@email, @password, @password_salt, @password_age, @type, @first_name, @last_name, @dob, @hp, @postal, @address, @account_created, @staff_id, @diamonds, @attempts_left)";
+            string query = "INSERT INTO Accounts (email, password, password_salt, password_age, type, first_name, last_name, dob, hp, postal_code, address, profile_picture, account_created, staff_id, diamonds, attempts_left) " + "VALUES (@email, @password, @password_salt, @password_age, @type, @first_name, @last_name, @dob, @hp, @postal, @address, @profilepic, @account_created, @staff_id, @diamonds, @attempts_left)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@email", Email);
@@ -105,9 +107,10 @@ namespace DBService.Entity
             cmd.Parameters.AddWithValue("@hp", Hp);
             cmd.Parameters.AddWithValue("@postal", Postal_Code);
             cmd.Parameters.AddWithValue("@address", Address);
+            cmd.Parameters.AddWithValue("@profilepic", Profile_Picture);
             cmd.Parameters.AddWithValue("@account_created", Account_Created);
             cmd.Parameters.AddWithValue("@staff_id", string.IsNullOrEmpty(Staff_Id) ? (object)DBNull.Value : Staff_Id);
-            // cmd.Parameters.AddWithValue("@profile_pic", null);
+            cmd.Parameters.AddWithValue("@profile_pic", Profile_Picture);
             cmd.Parameters.AddWithValue("@diamonds", Diamonds);
             cmd.Parameters.AddWithValue("@attempts_left", Attempts_Left);
 
@@ -148,6 +151,7 @@ namespace DBService.Entity
                 string hp = row["hp"].ToString();
                 string postal = row["postal_code"].ToString();
                 string address = row["address"].ToString();
+                string profilepic = row["profile_picture"].ToString();
                 DateTime? last_login;
                 DateTime account_created;
                 try
@@ -182,7 +186,7 @@ namespace DBService.Entity
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, postal, address, last_login, account_created, staff_id, diamonds, attempts, locked_since);
+                user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, postal, address, profilepic, last_login, account_created, staff_id, diamonds, attempts, locked_since);
             }
             return user;
         }
@@ -218,6 +222,7 @@ namespace DBService.Entity
                 string hp = row["hp"].ToString();
                 string postal = row["postal_code"].ToString();
                 string address = row["address"].ToString();
+                string profilepic = row["profile_picture"].ToString();
                 DateTime? last_login;
                 DateTime account_created;
                 try
@@ -245,7 +250,7 @@ namespace DBService.Entity
                 // owns
                 // string profile_pic = row["profile_pic"].tosmthsmth();
 
-                Account user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, postal, address, last_login, account_created, staff_id, diamonds, attempts, locked_since);
+                Account user = new Account(email, password, salt, old_pw, old_pw2, pw_age, type, first_name, last_name, dob, hp, postal, address, profilepic, last_login, account_created, staff_id, diamonds, attempts, locked_since);
                 accountList.Add(user);
             }
             return accountList;

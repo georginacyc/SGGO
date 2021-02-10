@@ -34,6 +34,9 @@
     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Account Details"></asp:Label>
     <br />
     <br />
+    <asp:Image ID="profile_img" style="max-width:300px; max-height:300px; height:auto; width:auto;" runat="server" src="/Images/Profile_Pictures/default.jpg" />
+    <br />
+    <br />
     <table class="w-100">
         <tr>
             <td class="auto-style1"><strong>Email:</strong></td>

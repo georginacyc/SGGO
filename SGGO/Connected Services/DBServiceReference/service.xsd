@@ -43,6 +43,7 @@
         <xs:element minOccurs="0" name="hp" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="postal" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="profilepic" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="staff_id" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="diamonds" nillable="true" type="xs:int" />
       </xs:sequence>

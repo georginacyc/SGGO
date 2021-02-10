@@ -29,9 +29,9 @@ namespace DBService
             return composite;
         }
 
-        public int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string staff_id, int? diamonds)
+        public int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string profilepic, string staff_id, int? diamonds)
         {
-            Account user = new Account(email, pw, salt, type, first_name, last_name, dob, hp, postal, address, staff_id, diamonds);
+            Account user = new Account(email, pw, salt, type, first_name, last_name, dob, hp, postal, address, profilepic, staff_id, diamonds);
             return user.Insert();
         }
 

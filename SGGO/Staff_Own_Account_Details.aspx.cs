@@ -56,7 +56,7 @@ namespace SGGO
             }
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
             var user = client.GetAccountByEmail(Session["LoggedIn"].ToString());
-
+            profile_img.Attributes["src"] = "/Images/Profile_Pictures/" + user.Profile_Picture;
             email_lb.Text = user.Email;
             staffid_lb.Text = user.Staff_Id;
             fname_lb.Text = user.First_Name;

@@ -54,7 +54,7 @@ namespace SGGO
             string pw = staff_password_tb.Text;
             string pw2 = staff_password2_tb.Text;
 
-            if (String.IsNullOrEmpty(email) || String.IsNullOrEmpty(fname) || String.IsNullOrEmpty(lname) || String.IsNullOrEmpty(hp) || String.IsNullOrEmpty(address) || String.IsNullOrEmpty(postal) || String.IsNullOrEmpty(pw) || String.IsNullOrEmpty(pw2))
+            if (String.IsNullOrEmpty(email) || String.IsNullOrEmpty(fname) || String.IsNullOrEmpty(lname) || String.IsNullOrEmpty(hp) || String.IsNullOrEmpty(address) || String.IsNullOrEmpty(postal) || String.IsNullOrEmpty(pw) || String.IsNullOrEmpty(pw2) || !picture_file.HasFile)
             {
                 error_lb.Text = "Please fill all fields";
                 empty = true;
@@ -89,10 +89,28 @@ namespace SGGO
                     error_lb.Text = error_lb.Text + "Please input a valid address<br>";
                     pass = false;
                 }
+
+                if (picture_file.PostedFile.ContentLength > 2100000)
+                {
+                    error_lb.Text = error_lb.Text + "Please upload a photo smaller than 2MB <br>";
+                    pass = false;
+                }
+
+                var extension = System.IO.Path.GetExtension(Server.HtmlEncode(picture_file.FileName));
+                System.Diagnostics.Debug.WriteLine(extension);
+                if (extension != ".jpg" && extension != ".jpeg" && extension != ".png")
+                {
+                    error_lb.Text = error_lb.Text + "Please upload a .jpg/.jpeg/.png file <br>";
+                    pass = false;
+                }
             }
 
             if (!empty && pass)
             {
+                var extension = System.IO.Path.GetExtension(Server.HtmlEncode(picture_file.FileName));
+                var filename = fname + hp.Substring(4, 4) + extension; // first name + last 4 digits of phone number
+                picture_file.SaveAs(Request.PhysicalApplicationPath + "/Images/Profile_Pictures/" + filename);
+
                 // initializing bytes for salts
                 RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
                 byte[] pwsaltbyte = new byte[8];
@@ -109,7 +127,7 @@ namespace SGGO
                 string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
 
                 DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                int result = client.CreateAccount(email, hashedpw, pwsalt, "Staff", fname, lname, dob, hp, postal, address, client.GetStaffId(), 0);
+                int result = client.CreateAccount(email, hashedpw, pwsalt, "Staff", fname, lname, dob, hp, postal, address, filename, client.GetStaffId(), 0);
                 Response.Redirect("Staff_Accounts_List.aspx");
             }
 

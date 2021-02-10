@@ -19,6 +19,7 @@
       <xs:element minOccurs="0" name="Password_Last2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password_Salt" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Postal_Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Profile_Picture" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Staff_Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
     </xs:sequence>
