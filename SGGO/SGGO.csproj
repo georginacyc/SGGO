@@ -100,6 +100,7 @@
     <Content Include="Staff_Reports_Table.aspx" />
     <Content Include="Staff_Review.aspx" />
     <Content Include="Staff_Reviews_Table.aspx" />
+    <Content Include="Staff_Review_Details.aspx" />
     <Content Include="testform.aspx" />
     <Content Include="Test_Image\Cafe-De-Nicoles.jpg" />
     <Content Include="Test_Image\FilledStar.png" />
@@ -266,6 +267,13 @@
     <Compile Include="Staff_Reviews_Table.aspx.designer.cs">
       <DependentUpon>Staff_Reviews_Table.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Staff_Review_Details.aspx.cs">
+      <DependentUpon>Staff_Review_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Review_Details.aspx.designer.cs">
+      <DependentUpon>Staff_Review_Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="testform.aspx.cs">
       <DependentUpon>testform.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -332,6 +340,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Point_Shop_Item1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DBServiceReference\SGGO.DBServiceReference.Report.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="packages.config" />

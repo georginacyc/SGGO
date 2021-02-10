@@ -20,7 +20,6 @@ namespace SGGO
                     GridViewRow row = gv.SelectedRow;
                     DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                     var user = client.GetAccountByEmail(row.Cells[2].Text);
-                    // p p source
                     profile_img.Attributes["src"] = "/Images/Profile_Pictures/" + user.Profile_Picture;
                     email_lb.Text = user.Email;
                     staffid_lb.Text = user.Staff_Id;

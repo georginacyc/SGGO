@@ -47,7 +47,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
             string query = "INSERT INTO Review (status, post, author, rating, description)" + "VALUES (@status, @post, @author, @rating, @description)";
@@ -72,7 +72,7 @@ namespace DBService.Entity
 
         public Review SelectByAuthor(string author)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Review WHERE author = @author";
@@ -102,7 +102,7 @@ namespace DBService.Entity
         // Select by ID
         public Review SelectById(int review_id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Review WHERE review_id = @id";
@@ -133,7 +133,7 @@ namespace DBService.Entity
 
         public List<Review> SelectAll()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Review";
@@ -147,7 +147,7 @@ namespace DBService.Entity
             int count = ds.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                DataRow row = ds.Tables[0].Rows[0];
+                DataRow row = ds.Tables[0].Rows[i];
                 int id = Convert.ToInt32(row["review_id"]);
                 string description = row["description"].ToString();
                 string status = row["status"].ToString();
@@ -159,6 +159,24 @@ namespace DBService.Entity
                 reviewList.Add(review);
             }
             return reviewList;
+        }
+
+        public void UpdateStatus(int id, string status)
+        {
+            System.Diagnostics.Debug.WriteLine(id.ToString() + status);
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Review SET status = @status WHERE review_id = @id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            conn.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            conn.Close();
         }
     }
 }

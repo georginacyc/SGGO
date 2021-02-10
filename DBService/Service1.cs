@@ -134,8 +134,14 @@ namespace DBService
             return review.Insert();
         }
 
+        public void UpdateReviewStatus(int review_id, string status)
+        {
+            Review review = new Review();
+            review.UpdateStatus(review_id, status);
+        }
+
         //Reports
-        public List<Report> GetAllReport()
+        public List<Report> GetAllReports()
         {
             Report report = new Report();
             return report.SelectAll();

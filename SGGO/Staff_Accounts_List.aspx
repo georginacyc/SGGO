@@ -13,8 +13,8 @@
         }
     </style>
     <div id="mainDiv">
-        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Accounts List"></asp:Label>
-        <asp:GridView ID="accounts_gv" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Accounts Table"></asp:Label>
+        <asp:GridView ID="accounts_gv" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AllowPaging="True">
             <Columns>
                 <asp:BoundField DataField="type" HeaderText="Type" ReadOnly="True" />
                 <asp:BoundField DataField="first_name" HeaderText="Name" ReadOnly="True" />

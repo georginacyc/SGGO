@@ -75,6 +75,9 @@ namespace DBService
         [OperationContract]
         List<Review> GetAllReview();
 
+        [OperationContract]
+        void UpdateReviewStatus(int review_id, string status);
+
         //Report
         [OperationContract]
         int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status);
@@ -86,7 +89,7 @@ namespace DBService
         Report GetReportById(int report_id);
 
         [OperationContract]
-        List<Report> GetAllReport();
+        List<Report> GetAllReports();
 
         //Point Shop
         [OperationContract]

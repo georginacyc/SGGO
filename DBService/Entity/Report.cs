@@ -141,7 +141,7 @@ namespace DBService.Entity
             string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "SELECT * FROM Reports";
+            string query = "SELECT * FROM Reports ORDER BY status DESC";
             SqlDataAdapter da = new SqlDataAdapter(query, conn);
 
             DataSet ds = new DataSet();

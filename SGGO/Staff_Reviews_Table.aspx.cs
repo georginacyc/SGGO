@@ -11,7 +11,16 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            var x = client.GetAllReview();
 
+            reviews_gv.DataSource = x;
+            reviews_gv.DataBind();
+        }
+
+        protected void reviews_gv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Server.Transfer("~/Staff_Review_Details.aspx");
         }
     }
 }

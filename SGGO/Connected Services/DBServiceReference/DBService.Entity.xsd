@@ -77,6 +77,7 @@
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Post" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Review_Id" type="xs:int" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -87,6 +88,24 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfReview" nillable="true" type="tns:ArrayOfReview" />
+  <xs:complexType name="Report">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date_reported" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Report_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Reported_by" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Report" nillable="true" type="tns:Report" />
+  <xs:complexType name="ArrayOfReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Report" nillable="true" type="tns:Report" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReport" nillable="true" type="tns:ArrayOfReport" />
   <xs:complexType name="Point_Shop_Item">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
