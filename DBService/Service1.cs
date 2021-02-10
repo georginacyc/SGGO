@@ -122,6 +122,12 @@ namespace DBService
             return review.SelectByAuthor(author);
         }
 
+        public Review GetReviewById(int review_id)
+        {
+            Review review = new Review();
+            return review.SelectById(review_id);
+        }
+
         public int CreateReview(string status, string post, string author, string rating, string description)
         {
             Review review = new Review(status, post, author, rating, description);

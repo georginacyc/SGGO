@@ -70,6 +70,9 @@ namespace DBService
         Review GetReviewByAuthor(string author);
 
         [OperationContract]
+        Review GetReviewById(int review_id);
+
+        [OperationContract]
         List<Review> GetAllReview();
 
         //Point Shop

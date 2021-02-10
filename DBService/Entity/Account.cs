@@ -320,7 +320,7 @@ namespace DBService.Entity
                     if (user.Attempts_Left == 0)
                     {
 
-                        string connStr = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+                        string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
                         SqlConnection conn = new SqlConnection(connStr);
 
@@ -407,7 +407,7 @@ namespace DBService.Entity
                 }
                 else
                 {
-                    string query = "UPDATE Accounts SET attempts_left = @attempts_left, suspended_since = @since WHERE email = @email";
+                    string query = "UPDATE Accounts SET attempts_left = @attempts_left, locked_since = @since WHERE email = @email";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@attempts_left", 0);
