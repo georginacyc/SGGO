@@ -104,6 +104,29 @@ namespace DBService
             Review review = new Review(status, post, author, rating, description);
             return review.Insert();
         }
+
+        //Reports
+        public List<Report> GetAllReport()
+        {
+            Report report = new Report();
+            return report.SelectAll();
+        }
+
+        public Report GetReviewByStatus(string status)
+        {
+            Report report = new Report();
+            return report.SelectByStatus(status);
+        }
+
+        public int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status)
+        {
+            Report report = new Report(date_reported, type, reported_by, reason, remarks, status);
+            return report.Insert();
+        }
+
+
+
+
         public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr)
         {
             Point_Shop_Item item = new Point_Shop_Item(name, partner, description, price, image, type, qr);

@@ -60,6 +60,16 @@ namespace DBService
         [OperationContract]
         List<Review> GetAllReview();
 
+        //Report
+        [OperationContract]
+        int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status);
+
+        [OperationContract]
+        Review GetReportByStatus(string status);
+
+        [OperationContract]
+        List<Report> GetAllReport();
+
         //Point Shop
         [OperationContract]
         int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);

@@ -77,6 +77,7 @@
     </None>
     <Content Include="Create_Gem.aspx" />
     <Content Include="Create_Partner_Account.aspx" />
+    <Content Include="Create_Report.aspx" />
     <Content Include="Create_Staff_Account.aspx" />
     <Content Include="Create_Trail.aspx" />
     <Content Include="Create_User_Account.aspx" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="Create_Partner_Account.aspx.designer.cs">
       <DependentUpon>Create_Partner_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Report.aspx.cs">
+      <DependentUpon>Create_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create_Report.aspx.designer.cs">
+      <DependentUpon>Create_Report.aspx</DependentUpon>
     </Compile>
     <Compile Include="Create_Staff_Account.aspx.cs">
       <DependentUpon>Create_Staff_Account.aspx</DependentUpon>
