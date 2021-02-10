@@ -11,7 +11,7 @@ namespace SGGO
     public partial class Create_User_Account : System.Web.UI.Page
     {
 
-        Regex passReg = new Regex(@"^(?=.*[a-zA-Z])(?=.*[!-/])(?=.*\d).{8}$"); // Minimum eight characters, at least one letter and one number:
+        //Regex passReg = new Regex(@"^(?=.*[a-zA-Z])(?=.*[!-/])(?=.*\d).{8}$"); // Minimum eight characters, at least one letter and one number:
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -82,8 +82,9 @@ namespace SGGO
             string pw = user_password_tb.Text;
 
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            //int result = client.CreateAccount(email, pw, "User", fname, lname, "90098008", "Blk 123 NYP",null, DateTime.Now, null, null, null);
-            
+            int result = client.CreateAccount(email, pw, "User", fname, lname, "90098008", "Blk 123 NYP",null, DateTime.Now, null, null, null);
+            Response.Redirect("User_Login.aspx");
+
 
 
         }
