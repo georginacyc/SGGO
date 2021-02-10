@@ -89,14 +89,15 @@ namespace DBService.Entity
             if (count == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                DateTime date =Convert.ToDateTime(row["date_reported"]);
+                int report_id = Convert.ToInt32(row["report_id"]);
+                DateTime date = Convert.ToDateTime(row["date_reported"]);
                 string type = row["type"].ToString();
                 string reported_by = row["reported_by"].ToString();
                 string reason = row["main_reason"].ToString();
                 string remarks = row["remarks"].ToString();
               
 
-                report = new Report(date, type, reported_by, reason, remarks,status);
+                report = new Report(report_id, date, type, reported_by, reason, remarks,status);
             }
             return report;
         }
@@ -152,6 +153,7 @@ namespace DBService.Entity
             for (int i = 0; i < count; i++)
             {
                 DataRow row = ds.Tables[0].Rows[0];
+                int report_id = Convert.ToInt32(row["report_id"]);
                 DateTime date = Convert.ToDateTime(row["date_reported"]);
                 string type = row["type"].ToString();
                 string reported_by = row["reported_by"].ToString();
@@ -159,7 +161,7 @@ namespace DBService.Entity
                 string remarks = row["remarks"].ToString();
                 string status = row["status"].ToString();
 
-                Report report = new Report(date,type,reported_by,reason,remarks,status);
+                Report report = new Report(report_id, date,type,reported_by,reason,remarks,status);
                 reportList.Add(report);
             }
             return reportList;
