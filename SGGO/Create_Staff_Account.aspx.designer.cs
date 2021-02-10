@@ -87,6 +87,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.TextBox staff_address_tb;
 
         /// <summary>
+        /// picture_file control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload picture_file;
+
+        /// <summary>
         /// staff_password_tb control.
         /// </summary>
         /// <remarks>

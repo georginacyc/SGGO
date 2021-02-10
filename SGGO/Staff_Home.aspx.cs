@@ -20,12 +20,14 @@ namespace SGGO
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    System.Diagnostics.Debug.WriteLine("wat");
+                    Response.Redirect("Staff_Login.aspx");
                 }
             }
             else
             {
-                Response.Redirect("Login.aspx");
+                System.Diagnostics.Debug.WriteLine("watt");
+                Response.Redirect("Staff_Login.aspx");
             }
 
         }

@@ -37,6 +37,7 @@
                             <a class="dropdown-item" href="Create_Staff_Account.aspx">create staff account</a>
                             <a class="dropdown-item" href="Create_Partner_Account.aspx">create partner account</a>
                             <a class="dropdown-item" href="Staff_Accounts_List.aspx">accounts list</a>
+                            <a class="dropdown-item" href="#" onServerClick="Logout" runat="server">log out</a>
                         </div>
                     </li>
                 </ul>

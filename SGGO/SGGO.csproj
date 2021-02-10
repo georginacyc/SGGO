@@ -87,6 +87,7 @@
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Logout.aspx" />
     <Content Include="Staff_Accounts_List.aspx" />
     <Content Include="Staff_Account_Details.aspx" />
     <Content Include="Staff_Change_Password.aspx" />
@@ -162,6 +163,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staff.Master.cs">
@@ -314,6 +322,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\Gem\" />
+    <Folder Include="Images\Profile_Pictures\" />
     <Folder Include="Images\Trail\" />
     <Folder Include="Models\" />
   </ItemGroup>

@@ -29,9 +29,9 @@ namespace DBService
             return composite;
         }
 
-        public int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string address, string staff_id, int? points)
+        public int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string profilepic, string staff_id, int? diamonds)
         {
-            Account user = new Account(email, pw, salt, type, first_name, last_name, dob, hp, address, staff_id, points);
+            Account user = new Account(email, pw, salt, type, first_name, last_name, dob, hp, postal, address, profilepic, staff_id, diamonds);
             return user.Insert();
         }
 
@@ -45,6 +45,29 @@ namespace DBService
         {
             Account accounts = new Account();
             return accounts.SelectAll();
+        }
+        public int ChangePassword(string email, string newpass)
+        {
+            Account user = new Account();
+            return user.ChangePassword(email, newpass);
+        }
+
+        public bool CheckAttempts(string email, bool pass)
+        {
+            Account user = new Account();
+            return user.CheckAttempts(email, pass);
+        }
+
+        public bool CheckSuspended(string email)
+        {
+            Account user = new Account();
+            return user.CheckSuspended(email);
+        }
+
+        public string GetStaffId()
+        {
+            Account user = new Account();
+            return user.GetStaffId();
         }
 
         // Gems
