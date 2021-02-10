@@ -1256,6 +1256,12 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateLastLogin", ReplyAction="http://tempuri.org/IService1/UpdateLastLoginResponse")]
         System.Threading.Tasks.Task UpdateLastLoginAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/StaffResetPassword", ReplyAction="http://tempuri.org/IService1/StaffResetPasswordResponse")]
+        void StaffResetPassword(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/StaffResetPassword", ReplyAction="http://tempuri.org/IService1/StaffResetPasswordResponse")]
+        System.Threading.Tasks.Task StaffResetPasswordAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateGem", ReplyAction="http://tempuri.org/IService1/CreateGemResponse")]
         int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
         
@@ -1476,6 +1482,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task UpdateLastLoginAsync(string email) {
             return base.Channel.UpdateLastLoginAsync(email);
+        }
+        
+        public void StaffResetPassword(string email) {
+            base.Channel.StaffResetPassword(email);
+        }
+        
+        public System.Threading.Tasks.Task StaffResetPasswordAsync(string email) {
+            return base.Channel.StaffResetPasswordAsync(email);
         }
         
         public int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {

@@ -68,6 +68,12 @@
   <wsdl:message name="IService1_UpdateLastLogin_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateLastLoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_StaffResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:StaffResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IService1_StaffResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StaffResetPasswordResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateGem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateGem" />
   </wsdl:message>
@@ -222,6 +228,10 @@
     <wsdl:operation name="UpdateLastLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateLastLogin" message="tns:IService1_UpdateLastLogin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateLastLoginResponse" message="tns:IService1_UpdateLastLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/StaffResetPassword" message="tns:IService1_StaffResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/StaffResetPasswordResponse" message="tns:IService1_StaffResetPassword_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateGem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateGem" message="tns:IService1_CreateGem_InputMessage" />
@@ -385,6 +395,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateLastLogin">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdateLastLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffResetPassword">
+      <soap:operation soapAction="http://tempuri.org/IService1/StaffResetPassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

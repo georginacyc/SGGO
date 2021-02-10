@@ -76,6 +76,12 @@ namespace DBService
             user.UpdateLogin(email);
         }
 
+        public void StaffResetPassword(string email)
+        {
+            Account user = new Account();
+            user.ResetPassword(email);
+        }
+
         // Gems
         public List<Gem> GetAllGems()
         {

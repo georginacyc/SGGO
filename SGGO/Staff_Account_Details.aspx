@@ -104,5 +104,8 @@
                 &nbsp;</td>
         </tr>
     </table>
+                <asp:Label ID="resetpw_lb" runat="server" ForeColor="Red"></asp:Label>
+            <br />
+    <asp:Button ID="resetpw_btn" runat="server" CssClass="btn btn-dark" OnClick="resetpw_btn_Click" Text="Reset Password" />
     <br />
 </asp:Content>
