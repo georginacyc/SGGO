@@ -44,15 +44,11 @@ namespace SGGO
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            error_lb.Text = "";
             bool pass = true;
-            if (String.IsNullOrEmpty(email_tb.Text))
+            if (String.IsNullOrEmpty(email_tb.Text) || String.IsNullOrEmpty(password_tb.Text))
             {
-                error_lb.Text = "Please input your staff email address";
-                pass = false;
-            }
-            if (String.IsNullOrEmpty(password_tb.Text))
-            {
-                error2_lb.Text = "Please input your password";
+                error_lb.Text = "Please fill all fields.";
                 pass = false;
             }
             if (pass && Check(email_tb.Text, password_tb.Text))
@@ -65,7 +61,6 @@ namespace SGGO
             }
             else if (pass && !Check(email_tb.Text, password_tb.Text))
             {
-                error2_lb.Text = null;
                 error_lb.Text = "Invalid email or password.";
             }
         }
