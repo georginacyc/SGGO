@@ -75,6 +75,10 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="App_Data\SGGO_DB.mdf" />
+    <Content Include="App_Data\SGGO_DB_log.ldf">
+      <DependentUpon>SGGO_DB.mdf</DependentUpon>
+    </Content>
     <Content Include="Create_Gem.aspx" />
     <Content Include="Create_Partner_Account.aspx" />
     <Content Include="Create_Staff_Account.aspx" />
@@ -309,7 +313,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Images\Gem\" />
     <Folder Include="Images\Profile_Pictures\" />
     <Folder Include="Images\Trail\" />
