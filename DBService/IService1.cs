@@ -83,6 +83,9 @@ namespace DBService
         Report GetReportByStatus(string status);
 
         [OperationContract]
+        Report GetReportById(int report_id);
+
+        [OperationContract]
         List<Report> GetAllReport();
 
         //Point Shop

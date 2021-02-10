@@ -141,10 +141,16 @@ namespace DBService
             return report.SelectAll();
         }
 
-        public Report GetReviewByStatus(string status)
+        public Report GetReportByStatus(string status)
         {
             Report report = new Report();
             return report.SelectByStatus(status);
+        }
+
+        public Report GetReportById(int report_id)
+        {
+            Report report = new Report();
+            return report.SelectById(report_id);
         }
 
         public int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status)
