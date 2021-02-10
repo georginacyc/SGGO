@@ -5,6 +5,7 @@
       <xs:element minOccurs="0" name="Account_Created" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Attempts_Left" type="xs:int" />
+      <xs:element minOccurs="0" name="Diamonds" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Dob" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="First_Name" nillable="true" type="xs:string" />
@@ -12,12 +13,13 @@
       <xs:element minOccurs="0" name="Last_Login" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Last_Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Locked_Since" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Old_Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Old_Password2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password_Age" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Password_Last" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password_Last2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password_Salt" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Points" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Postal_Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Profile_Picture" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Staff_Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
     </xs:sequence>

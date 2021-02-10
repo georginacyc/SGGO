@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style2 {
-            width: 291px;
+            width: 233px;
         }
         .auto-style3 {
             width: 548px;
@@ -13,6 +13,9 @@
         .auto-style5 {
             width: 166px;
         }
+        .auto-style6 {
+            width: 140px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -21,15 +24,15 @@
     <br />
     <table class="w-100">
         <tr>
-            <td class="auto-style4">Email</td>
+            <td class="auto-style6">Email</td>
             <td class="auto-style2">
-                <asp:TextBox ID="staff_email_tb" runat="server"></asp:TextBox>
+                <asp:TextBox ID="staff_email_tb" runat="server" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style3">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style4">First Name:</td>
+            <td class="auto-style6">First Name:</td>
             <td class="auto-style2">
                 <asp:TextBox ID="staff_fn_tb" runat="server" CssClass="offset-sm-0"></asp:TextBox>
             </td>
@@ -39,7 +42,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style4">DOB:</td>
+            <td class="auto-style6">DOB:</td>
             <td class="auto-style2">
                 <asp:TextBox ID="staff_dob_tb" runat="server" TextMode="Date"></asp:TextBox>
             </td>
@@ -49,7 +52,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style4">Postal Code:</td>
+            <td class="auto-style6">Postal Code:</td>
             <td class="auto-style2">
                 <asp:TextBox ID="staff_postalcode_tb" runat="server"></asp:TextBox>
             </td>
@@ -59,15 +62,20 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style4">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
             <td class="auto-style2">
                 &nbsp;</td>
             <td class="auto-style5">&nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style4">Password:</td>
+            <td class="auto-style6">Picture:</td>
+            <td class="auto-style2">
+                <asp:FileUpload ID="picture_file" runat="server" />
+            </td>
+            <td class="auto-style5">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style6">Password:</td>
             <td class="auto-style2">
                 <asp:TextBox ID="staff_password_tb" TextMode="Password" runat="server"></asp:TextBox>
             </td>
@@ -82,8 +90,6 @@
             <td class="auto-style5">
                 &nbsp;</td>
             <td class="auto-style3">&nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
     </table>
     <asp:Label ID="error_lb" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>

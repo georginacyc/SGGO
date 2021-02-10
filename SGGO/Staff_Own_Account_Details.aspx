@@ -31,8 +31,9 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Create Staff Account"></asp:Label>
+    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Your Account Details"></asp:Label>
     <br />
+    <asp:Image ID="profile_img" style="max-width:300px; max-height:300px; height:auto; width:auto;" runat="server" src="/Images/Profile_Pictures/default.jpg" />
     <br />
     <table class="w-100">
         <tr>

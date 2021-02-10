@@ -20,13 +20,25 @@ namespace DBService
 
         // TODO: Add your service operations here
         [OperationContract]
-        int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string address, string staff_id, int? points);
+        int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string profilepic, string staff_id, int? diamonds);
 
         [OperationContract]
         Account GetAccountByEmail(string email);
 
         [OperationContract]
         List<Account> GetAllAccounts();
+
+        [OperationContract]
+        int ChangePassword(string email, string newpass);
+
+        [OperationContract]
+        bool CheckAttempts(string email, bool pass);
+
+        [OperationContract]
+        bool CheckSuspended(string email);
+
+        [OperationContract]
+        string GetStaffId();
 
         //Gem
         [OperationContract]

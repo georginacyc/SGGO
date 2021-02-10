@@ -44,29 +44,23 @@ namespace SGGO
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            error_lb.Text = "";
             bool pass = true;
-            if (String.IsNullOrEmpty(email_tb.Text))
+            if (String.IsNullOrEmpty(email_tb.Text) || String.IsNullOrEmpty(password_tb.Text))
             {
-                error_lb.Text = "Please input your staff email address";
-                pass = false;
-            }
-            if (String.IsNullOrEmpty(password_tb.Text))
-            {
-                error2_lb.Text = "Please input your password";
+                error_lb.Text = "Please fill all fields.";
                 pass = false;
             }
             if (pass && Check(email_tb.Text, password_tb.Text))
-            {
-                Response.Redirect("Staff_Home.aspx");
-            }
-            else if (pass && !Check(email_tb.Text, password_tb.Text))
             {
                 Session["LoggedIn"] = email_tb.Text;
                 string guid = Guid.NewGuid().ToString();
                 Session["AuthToken"] = guid;
                 Response.Cookies.Add(new HttpCookie("AuthToken", guid));
-
-                error2_lb.Text = null;
+                Response.Redirect("Staff_Home.aspx");
+            }
+            else if (pass && !Check(email_tb.Text, password_tb.Text))
+            {
                 error_lb.Text = "Invalid email or password.";
             }
         }
