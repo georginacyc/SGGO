@@ -9,7 +9,7 @@
             <asp:BoundField DataField="date_reported" HeaderText="Date Reported" ReadOnly="True" />
             <asp:BoundField DataField="status" HeaderText="Status" ReadOnly="True" />
             <asp:BoundField DataField="type" HeaderText="Type" ReadOnly="True" />
-            <asp:BoundField DataField="main_reason" HeaderText="Reason" ReadOnly="True" />
+            <asp:BoundField DataField="reason" HeaderText="Reason" ReadOnly="True" />
             <asp:CommandField SelectText="Details" ShowCancelButton="False" ShowSelectButton="True" />
         </Columns>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
