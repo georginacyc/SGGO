@@ -76,7 +76,7 @@ namespace DBService.Entity
             Dob = dob;
             Hp = hp;
             Postal_Code = postal;
-            Address = address;
+            Address = address;       
             Profile_Picture = profilepic;
             Staff_Id = staff_id;
             Diamonds = 0;
@@ -89,7 +89,7 @@ namespace DBService.Entity
         // account creation
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -123,7 +123,7 @@ namespace DBService.Entity
 
         public Account SelectByEmail(string email)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Accounts WHERE email = @email";
