@@ -18,7 +18,7 @@ namespace SGGO
             staff_password2_tb.Attributes.Add("onkeyup", "pwdMatcher();");
 
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            staff_email_tb.Text = client.GetStaffId() + "@sggo.com";
+            staff_email_lb.Text = client.GetStaffId() + "@sggo.com";
 
             //if (Session["LoggedIn"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
             //{
@@ -44,7 +44,7 @@ namespace SGGO
             bool pass = true; // overall validation
             bool empty = false; // empty checck
 
-            string email = staff_email_tb.Text;
+            string email = staff_email_lb.Text;
             string fname = staff_fn_tb.Text;
             string lname = staff_ln_tb.Text;
             DateTime dob = Convert.ToDateTime(staff_dob_tb.Text);

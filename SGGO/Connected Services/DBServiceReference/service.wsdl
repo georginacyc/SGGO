@@ -62,6 +62,18 @@
   <wsdl:message name="IService1_GetStaffId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetStaffIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateLastLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLastLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateLastLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLastLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_StaffResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:StaffResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IService1_StaffResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StaffResetPasswordResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateGem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateGem" />
   </wsdl:message>
@@ -110,11 +122,53 @@
   <wsdl:message name="IService1_GetReviewByAuthor_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetReviewByAuthorResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetReviewById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReviewById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetAllReview_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllReview" />
   </wsdl:message>
   <wsdl:message name="IService1_GetAllReview_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateReviewStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReviewStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateReviewStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReviewStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReport" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportByStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportByStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReports" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateReportStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReportStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateReportStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReportStatusResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_CreatePointShopItem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreatePointShopItem" />
@@ -171,6 +225,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetStaffId" message="tns:IService1_GetStaffId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetStaffIdResponse" message="tns:IService1_GetStaffId_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateLastLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateLastLogin" message="tns:IService1_UpdateLastLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateLastLoginResponse" message="tns:IService1_UpdateLastLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/StaffResetPassword" message="tns:IService1_StaffResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/StaffResetPasswordResponse" message="tns:IService1_StaffResetPassword_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateGem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateGem" message="tns:IService1_CreateGem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateGemResponse" message="tns:IService1_CreateGem_OutputMessage" />
@@ -203,9 +265,37 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReviewByAuthor" message="tns:IService1_GetReviewByAuthor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReviewByAuthorResponse" message="tns:IService1_GetReviewByAuthor_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetReviewById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReviewById" message="tns:IService1_GetReviewById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReviewByIdResponse" message="tns:IService1_GetReviewById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllReview">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllReview" message="tns:IService1_GetAllReview_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllReviewResponse" message="tns:IService1_GetAllReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReviewStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateReviewStatus" message="tns:IService1_UpdateReviewStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateReviewStatusResponse" message="tns:IService1_UpdateReviewStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateReport" message="tns:IService1_CreateReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateReportResponse" message="tns:IService1_CreateReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportByStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReportByStatus" message="tns:IService1_GetReportByStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReportByStatusResponse" message="tns:IService1_GetReportByStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReportById" message="tns:IService1_GetReportById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReportByIdResponse" message="tns:IService1_GetReportById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllReports" message="tns:IService1_GetAllReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllReportsResponse" message="tns:IService1_GetAllReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateReportStatus" message="tns:IService1_UpdateReportStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateReportStatusResponse" message="tns:IService1_UpdateReportStatus_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreatePointShopItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePointShopItem" message="tns:IService1_CreatePointShopItem_InputMessage" />
@@ -303,6 +393,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateLastLogin">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateLastLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffResetPassword">
+      <soap:operation soapAction="http://tempuri.org/IService1/StaffResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreateGem">
       <soap:operation soapAction="http://tempuri.org/IService1/CreateGem" style="document" />
       <wsdl:input>
@@ -375,8 +483,71 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetReviewById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReviewById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllReview">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReviewStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateReviewStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReport">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportByStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReportByStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReportById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReports">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateReportStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

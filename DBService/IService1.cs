@@ -40,6 +40,12 @@ namespace DBService
         [OperationContract]
         string GetStaffId();
 
+        [OperationContract]
+        void UpdateLastLogin(string email);
+
+        [OperationContract]
+        void StaffResetPassword(string email);
+
         //Gem
         [OperationContract]
         int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image);
@@ -70,7 +76,13 @@ namespace DBService
         Review GetReviewByAuthor(string author);
 
         [OperationContract]
+        Review GetReviewById(int review_id);
+
+        [OperationContract]
         List<Review> GetAllReview();
+
+        [OperationContract]
+        void UpdateReviewStatus(int review_id, string status);
 
         //Report
         [OperationContract]
@@ -80,7 +92,13 @@ namespace DBService
         Report GetReportByStatus(string status);
 
         [OperationContract]
-        List<Report> GetAllReport();
+        Report GetReportById(int report_id);
+
+        [OperationContract]
+        List<Report> GetAllReports();
+
+        [OperationContract]
+        void UpdateReportStatus(int review_id, string status);
 
         //Point Shop
         [OperationContract]
