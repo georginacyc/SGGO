@@ -1360,5 +1360,10 @@ namespace SGGO.DBServiceReference {
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Point_Shop_Item[]> SelectAllAsync() {
             return base.Channel.SelectAllAsync();
         }
+
+        internal int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
