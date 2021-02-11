@@ -43,7 +43,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["danae"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -81,7 +81,7 @@ namespace DBService.Entity
 
         public Gem SelectByTitle(string title)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["danae"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Gem WHERE title = @title";
@@ -132,7 +132,7 @@ namespace DBService.Entity
 
         public List<Gem> SelectAll()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["danae"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Gem";
