@@ -85,6 +85,7 @@
     <Content Include="Create_Staff_Account.aspx" />
     <Content Include="Create_Trail.aspx" />
     <Content Include="Create_User_Account.aspx" />
+    <Content Include="Gem_Catalogue.aspx" />
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
     <Content Include="Global.asax" />
@@ -170,6 +171,13 @@
     </Compile>
     <Compile Include="Create_User_Account.aspx.designer.cs">
       <DependentUpon>Create_User_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gem_Catalogue.aspx.cs">
+      <DependentUpon>Gem_Catalogue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gem_Catalogue.aspx.designer.cs">
+      <DependentUpon>Gem_Catalogue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gem_Listing.aspx.cs">
       <DependentUpon>Gem_Listing.aspx</DependentUpon>
