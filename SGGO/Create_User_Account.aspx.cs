@@ -191,11 +191,6 @@ namespace SGGO
             {
                 lbMsg.Text = "Please try again";
             }
-           
-           
-
-
-
         }
 
         protected void Button1_Click(object sender, EventArgs e)
