@@ -10,9 +10,12 @@ namespace SGGO
 {
     public partial class Gem_Review : System.Web.UI.Page
     {
+        string user = null;
+        string gem_id = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+           user = (string)Session["email"];
+           gem_id = (string)Request.QueryString["post"]; // id retrieve from gem listing
         }
 
         protected void Rating_1_Click(object sender, ImageClickEventArgs e)
@@ -58,16 +61,17 @@ namespace SGGO
         protected void btn_submit_review_Click(object sender, EventArgs e)
         {
             string rating = lbl_rating_score.Text;
-            string status = "approved";
+            string status = "Awaiting Approval";
             string description = tb_desc.Text;
-            string post = "";
-            string author = "";
+            string post = gem_id;
+            string author = "nina@yahoo.com";
+                //user;
 
 
             Service1Client client = new DBServiceReference.Service1Client();
             int result = client.CreateReview(status, post, author, rating, description);
-            Response.Write("<script>window.alert('Thank you for your review')</script>");
-            //Response.Redirect("Gem_Listing.aspx");
+            
+            
         }
 
         protected void btn_back_Click(object sender, EventArgs e)

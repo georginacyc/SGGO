@@ -11,7 +11,7 @@ namespace SGGO
 {
 
 
-    public partial class Create_Report
+    public partial class Gem_Catalogue
     {
 
         /// <summary>
@@ -24,57 +24,30 @@ namespace SGGO
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lbl_id control.
+        /// ListView_Gem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_id;
+        protected global::System.Web.UI.WebControls.ListView ListView_Gem;
 
         /// <summary>
-        /// ddl_reason control.
+        /// SGGO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_reason;
+        protected global::System.Web.UI.WebControls.SqlDataSource SGGO;
 
         /// <summary>
-        /// tb_remark control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_remark;
-
-        /// <summary>
-        /// lbl_msg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_msg;
-
-        /// <summary>
-        /// btn_submit_report control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_submit_report;
-
-        /// <summary>
-        /// btn_back control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_back;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

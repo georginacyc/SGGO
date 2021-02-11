@@ -135,7 +135,7 @@ namespace DBService
             return report.SelectAll();
         }
 
-        public Report GetReviewByStatus(string status)
+        public Report GetReportByStatus(string status)
         {
             Report report = new Report();
             return report.SelectByStatus(status);

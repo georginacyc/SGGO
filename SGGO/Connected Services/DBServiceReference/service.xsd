@@ -278,6 +278,51 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CreateReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date_reported" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reported_by" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reason" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateReportResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportByStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportByStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetReportByStatusResult" nillable="true" type="q11:Report" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReport">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllReportResult" nillable="true" type="q12:ArrayOfReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CreatePointShopItem">
     <xs:complexType>
       <xs:sequence>
@@ -308,7 +353,7 @@
   <xs:element name="SelectByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="SelectByIdResult" nillable="true" type="q11:Point_Shop_Item" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="SelectByIdResult" nillable="true" type="q13:Point_Shop_Item" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -320,7 +365,7 @@
   <xs:element name="SelectAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="SelectAllResult" nillable="true" type="q12:ArrayOfPoint_Shop_Item" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="SelectAllResult" nillable="true" type="q14:ArrayOfPoint_Shop_Item" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

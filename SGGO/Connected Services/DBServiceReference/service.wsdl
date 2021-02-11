@@ -116,6 +116,24 @@
   <wsdl:message name="IService1_GetAllReview_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllReviewResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_CreateReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReport" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportByStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportByStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReport" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReportResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreatePointShopItem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreatePointShopItem" />
   </wsdl:message>
@@ -206,6 +224,18 @@
     <wsdl:operation name="GetAllReview">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllReview" message="tns:IService1_GetAllReview_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllReviewResponse" message="tns:IService1_GetAllReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateReport" message="tns:IService1_CreateReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateReportResponse" message="tns:IService1_CreateReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportByStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReportByStatus" message="tns:IService1_GetReportByStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReportByStatusResponse" message="tns:IService1_GetReportByStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllReport" message="tns:IService1_GetAllReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllReportResponse" message="tns:IService1_GetAllReport_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreatePointShopItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePointShopItem" message="tns:IService1_CreatePointShopItem_InputMessage" />
@@ -377,6 +407,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllReview">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReport">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportByStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReportByStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReport">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllReport" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
