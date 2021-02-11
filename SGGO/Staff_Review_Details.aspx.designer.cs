@@ -11,70 +11,79 @@ namespace SGGO
 {
 
 
-    public partial class Create_Report
+    public partial class Staff_Review_Details
     {
 
         /// <summary>
-        /// form1 control.
+        /// review_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label review_lb;
 
         /// <summary>
-        /// lbl_id control.
+        /// status_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_id;
+        protected global::System.Web.UI.WebControls.Label status_lb;
 
         /// <summary>
-        /// ddl_reason control.
+        /// gem_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_reason;
+        protected global::System.Web.UI.WebControls.Label gem_lb;
 
         /// <summary>
-        /// tb_remark control.
+        /// author_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_remark;
+        protected global::System.Web.UI.WebControls.Label author_lb;
 
         /// <summary>
-        /// lbl_msg control.
+        /// rating_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_msg;
+        protected global::System.Web.UI.WebControls.Label rating_lb;
 
         /// <summary>
-        /// btn_submit_report control.
+        /// description_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_submit_report;
+        protected global::System.Web.UI.WebControls.Label description_lb;
 
         /// <summary>
-        /// btn_back control.
+        /// approve_btn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_back;
+        protected global::System.Web.UI.WebControls.Button approve_btn;
+
+        /// <summary>
+        /// disapprove_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button disapprove_btn;
     }
 }

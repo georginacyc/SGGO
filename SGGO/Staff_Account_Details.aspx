@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
-            width: 172px;
+            width: 109px;
         }
         .auto-style3 {
             width: 381px;
@@ -11,14 +11,14 @@
             width: 130px;
         }
         .auto-style5 {
-            width: 386px;
+            width: 169px;
         }
         .auto-style6 {
-            width: 172px;
+            width: 109px;
             height: 26px;
         }
         .auto-style7 {
-            width: 386px;
+            width: 169px;
             height: 26px;
         }
         .auto-style8 {
@@ -83,8 +83,6 @@
             <td class="auto-style5">
                 </td>
             <td class="auto-style4"></td>
-            <td class="auto-style8">
-                </td>
         </tr>
         <tr>
             <td class="auto-style6"><strong>Account Created:</strong></td>
@@ -106,5 +104,8 @@
                 &nbsp;</td>
         </tr>
     </table>
+                <asp:Label ID="resetpw_lb" runat="server" ForeColor="Red"></asp:Label>
+            <br />
+    <asp:Button ID="resetpw_btn" runat="server" CssClass="btn btn-dark" OnClick="resetpw_btn_Click" Text="Reset Password" />
     <br />
 </asp:Content>

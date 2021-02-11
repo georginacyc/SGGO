@@ -10,7 +10,7 @@
             </tr>
             <tr>
                 <td rowspan="3" style="width: 549px">
-                    <asp:Image ID="Image1" runat="server" Height="221px" Width="390px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
+                    <asp:Image ID="gem_image" runat="server" Height="221px" Width="390px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
                 </td>
                 <td style="width: 196px">
                     &nbsp;</td>
@@ -27,7 +27,8 @@
             </tr>
             <tr>
                 <td style="width: 196px">
-                    &nbsp;</td>
+                    <asp:Label ID="lbl_gemId" runat="server"></asp:Label>
+                </td>
                 <td style="width: 350px">
                     <asp:Button ID="btn_map" runat="server" Height="37px" Text="Bring Me" Width="148px" OnClick="btn_map_Click" />
                 </td>
@@ -48,7 +49,9 @@
                 <td style="width: 196px">
                     <asp:Button ID="btn_review" runat="server" Height="36px" Text="Leave a Review" Width="174px" OnClick="btn_review_Click"/>
                 </td>
-                <td style="width: 350px">&nbsp;</td>
+                <td style="width: 350px">
+                    <asp:Button ID="btn_report" runat="server" Height="41px" OnClick="btn_report_Click1" Text="Report" />
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>

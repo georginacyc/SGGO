@@ -11,70 +11,88 @@ namespace SGGO
 {
 
 
-    public partial class Create_Report
+    public partial class Staff_Report_Details
     {
 
         /// <summary>
-        /// form1 control.
+        /// review_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label review_lb;
 
         /// <summary>
-        /// lbl_id control.
+        /// status_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_id;
+        protected global::System.Web.UI.WebControls.Label status_lb;
 
         /// <summary>
-        /// ddl_reason control.
+        /// date_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_reason;
+        protected global::System.Web.UI.WebControls.Label date_lb;
 
         /// <summary>
-        /// tb_remark control.
+        /// reporter_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_remark;
+        protected global::System.Web.UI.WebControls.Label reporter_lb;
 
         /// <summary>
-        /// lbl_msg control.
+        /// type_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_msg;
+        protected global::System.Web.UI.WebControls.Label type_lb;
 
         /// <summary>
-        /// btn_submit_report control.
+        /// reported_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_submit_report;
+        protected global::System.Web.UI.WebControls.Label reported_lb;
 
         /// <summary>
-        /// btn_back control.
+        /// reason_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_back;
+        protected global::System.Web.UI.WebControls.Label reason_lb;
+
+        /// <summary>
+        /// remarks_lb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label remarks_lb;
+
+        /// <summary>
+        /// resolve_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button resolve_btn;
     }
 }

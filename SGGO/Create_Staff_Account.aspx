@@ -26,7 +26,7 @@
         <tr>
             <td class="auto-style6">Email</td>
             <td class="auto-style2">
-                <asp:TextBox ID="staff_email_tb" runat="server" ReadOnly="True"></asp:TextBox>
+                <asp:Label ID="staff_email_lb" runat="server"></asp:Label>
             </td>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style3">&nbsp;</td>
