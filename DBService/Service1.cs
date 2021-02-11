@@ -70,6 +70,18 @@ namespace DBService
             return user.GetStaffId();
         }
 
+        public void UpdateLastLogin(string email)
+        {
+            Account user = new Account();
+            user.UpdateLogin(email);
+        }
+
+        public void StaffResetPassword(string email)
+        {
+            Account user = new Account();
+            user.ResetPassword(email);
+        }
+
         // Gems
         public List<Gem> GetAllGems()
         {
@@ -122,14 +134,26 @@ namespace DBService
             return review.SelectByAuthor(author);
         }
 
+        public Review GetReviewById(int review_id)
+        {
+            Review review = new Review();
+            return review.SelectById(review_id);
+        }
+
         public int CreateReview(string status, string post, string author, string rating, string description)
         {
             Review review = new Review(status, post, author, rating, description);
             return review.Insert();
         }
 
+        public void UpdateReviewStatus(int review_id, string status)
+        {
+            Review review = new Review();
+            review.UpdateStatus(review_id, status);
+        }
+
         //Reports
-        public List<Report> GetAllReport()
+        public List<Report> GetAllReports()
         {
             Report report = new Report();
             return report.SelectAll();
@@ -141,10 +165,22 @@ namespace DBService
             return report.SelectByStatus(status);
         }
 
+        public Report GetReportById(int report_id)
+        {
+            Report report = new Report();
+            return report.SelectById(report_id);
+        }
+
         public int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status)
         {
             Report report = new Report(date_reported, type, reported_by, reason, remarks, status);
             return report.Insert();
+        }
+
+        public void UpdateReportStatus(int review_id, string status)
+        {
+            Report report = new Report();
+            report.UpdateStatus(review_id, status);
         }
 
 

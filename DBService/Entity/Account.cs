@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace DBService.Entity
 {
@@ -286,8 +287,6 @@ namespace DBService.Entity
 
         public int UpdateLogin(string email)
         {
-            Account user = new Account().SelectByEmail(email);
-
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
@@ -296,6 +295,7 @@ namespace DBService.Entity
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@last_login", DateTime.Now);
+            cmd.Parameters.AddWithValue("@email", email);
 
             conn.Open();
             int result = cmd.ExecuteNonQuery();
@@ -320,7 +320,7 @@ namespace DBService.Entity
                     if (user.Attempts_Left == 0)
                     {
 
-                        string connStr = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+                        string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
                         SqlConnection conn = new SqlConnection(connStr);
 
@@ -407,7 +407,7 @@ namespace DBService.Entity
                 }
                 else
                 {
-                    string query = "UPDATE Accounts SET attempts_left = @attempts_left, suspended_since = @since WHERE email = @email";
+                    string query = "UPDATE Accounts SET attempts_left = @attempts_left, locked_since = @since WHERE email = @email";
                     SqlCommand cmd = new SqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@attempts_left", 0);
@@ -437,6 +437,38 @@ namespace DBService.Entity
             string id = count.ToString().PadLeft(6, '0');
 
             return id;
+        }
+
+        public void ResetPassword(string email) // to reset password for users or partners to their DOB + Postal code
+        {
+            Account user = new Account().SelectByEmail(email);
+            string currentpass = user.Password;
+            string lastpass = user.Password_Last;
+            string newpass = user.Dob.ToString("dd/MM/yyyy") + user.Postal_Code;
+            System.Diagnostics.Debug.WriteLine(newpass);
+
+            SHA512Managed hashing = new SHA512Managed();
+
+            string saltedpw = newpass + user.Password_Salt;
+            string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
+
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Accounts SET password = @new, password_last = @current, password_last2 = @old, password_age = @age WHERE email = @email";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@new", hashedpw);
+            cmd.Parameters.AddWithValue("@current", currentpass);
+            cmd.Parameters.AddWithValue("@old", lastpass);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@age", DateTime.Now);
+
+            conn.Open();
+            int result = cmd.ExecuteNonQuery();
+            conn.Close();
+
         }
     }
 }

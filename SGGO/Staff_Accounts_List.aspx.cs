@@ -20,7 +20,8 @@ namespace SGGO
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Server.Transfer("~/Staff_Account_Details.aspx");
+            string email = accounts_gv.SelectedRow.Cells[2].Text;
+            Response.Redirect("Staff_Account_Details.aspx?email=" + email);
         }
 
 
