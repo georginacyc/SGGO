@@ -57,6 +57,14 @@ namespace SGGO
             }
             else
             {
+                Session["email"] = email;
+                //create GUID and save into the session, a unique value that is hard to guess 
+                string guid = Guid.NewGuid().ToString();
+                Session["AuthToken"] = guid; // save to the new session variable called auth token
+
+                //create a new cookie with guid value
+                Response.Cookies.Add(new HttpCookie("AuthToken", guid));
+
                 Response.Redirect("User_Profile.aspx");
             }
 

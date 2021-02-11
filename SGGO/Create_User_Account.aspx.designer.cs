@@ -105,6 +105,24 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.TextBox user_password_tb;
 
         /// <summary>
+        /// btn_checkpw control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_checkpw;
+
+        /// <summary>
+        /// lbl_pwchecker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_pwchecker;
+
+        /// <summary>
         /// lbl_confirmpw control.
         /// </summary>
         /// <remarks>
@@ -114,22 +132,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lbl_confirmpw;
 
         /// <summary>
-        /// tb_confirmpw control.
+        /// user_confirmpw_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_confirmpw;
-
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox user_confirmpw_tb;
 
         /// <summary>
         /// btn_Create control.
@@ -148,5 +157,14 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbMsg;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
