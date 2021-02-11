@@ -14,8 +14,26 @@ namespace SGGO
         string gem_id = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-           user = (string)Session["email"];
-           gem_id = (string)Request.QueryString["post"]; // id retrieve from gem listing
+            if (Session["email"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
+            {
+                if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+                {
+                    Response.Redirect("User_Login.aspx", false);
+                }
+                else
+                {
+                    user = (string)Session["email"];
+                    gem_id = (string)Request.QueryString["post"]; // id retrieve from gem listing
+                }
+            }
+            else
+            {
+                Response.Redirect("User_Login.aspx", false);
+            }
+
+
+           //user = (string)Session["email"];
+           //gem_id = (string)Request.QueryString["post"]; // id retrieve from gem listing
         }
 
         protected void Rating_1_Click(object sender, ImageClickEventArgs e)
@@ -64,8 +82,7 @@ namespace SGGO
             string status = "Awaiting Approval";
             string description = tb_desc.Text;
             string post = gem_id;
-            string author = "nina@yahoo.com";
-                //user;
+            string author = user;
 
 
             Service1Client client = new DBServiceReference.Service1Client();

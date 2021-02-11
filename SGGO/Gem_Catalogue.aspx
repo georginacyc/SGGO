@@ -59,7 +59,7 @@
     </table>
   </LayoutTemplate>
 </asp:ListView>
-        <asp:SqlDataSource ID="SGGO" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [title], [image], [rating] FROM [Gem]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SGGO" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" SelectCommand="SELECT [Id], [title], [image], [rating] FROM [Gem]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
     </form>
 </asp:Content>

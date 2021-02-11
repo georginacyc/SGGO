@@ -15,9 +15,29 @@ namespace SGGO
         string type_id;
         protected void Page_Load(object sender, EventArgs e)
         {
-            userid = (string)Session["email"];
-            type_id = Request.QueryString["post"];
-            lbl_id.Text = type_id;
+            if (Session["email"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
+            {
+                if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+                {
+                    Response.Redirect("User_Login.aspx", false);
+                }
+                else
+                {
+                    userid = (string)Session["email"];
+                    type_id = Request.QueryString["post"];
+                    lbl_id.Text = type_id;
+
+                }
+            }
+            else
+            {
+                Response.Redirect("User_Login.aspx", false);
+            }
+
+
+            //userid = (string)Session["email"];
+            //type_id = Request.QueryString["post"];
+            //lbl_id.Text = type_id;
         }
 
         protected void btn_back_Click(object sender, EventArgs e)
@@ -29,8 +49,7 @@ namespace SGGO
         {
             DateTime date_reported = DateTime.Now;
             string type = lbl_id.Text;
-            string reported_by = "nina@yahoo.com";
-                //userid;
+            string reported_by = userid;
             string reason = ddl_reason.SelectedValue;
             string remarks = tb_remark.Text;
             string status = "Unresolved";
