@@ -181,7 +181,7 @@ namespace DBService.Entity
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "UPDATE Report SET status = @status WHERE report_id = @id";
+            string query = "UPDATE Reports SET status = @status WHERE report_id = @id";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@status", status);

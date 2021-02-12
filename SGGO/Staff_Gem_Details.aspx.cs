@@ -45,7 +45,7 @@ namespace SGGO
                         title_lb.Text = gem.Title;
                         status_lb.Text = gem.Status;
                         id_lb.Text = gem.Gem_Id.ToString();
-                        partner_lb.Text = gem.Partner;
+                        partner_lb.Text = gem.Partner; // "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + review.Author + "'>" + review.Author + "</a>"
                         type_lb.Text = gem.Type;
                         date_lb.Text = gem.Date == null ? null : Convert.ToDateTime(gem.Date).ToString("dd/MM/yyyy");
                         location_lb.Text = gem.Location;

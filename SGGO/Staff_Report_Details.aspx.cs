@@ -42,6 +42,7 @@ namespace SGGO
                         {
                             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                             var report = client.GetReportById(Convert.ToInt32(Request.QueryString["id"]));
+                            var gem = client.GetGemById(Convert.ToInt32(report.Post));
 
                             if (report.Status.Trim() == "Resolved")
                             {
@@ -50,8 +51,9 @@ namespace SGGO
                             report_lb.Text = report_lb.Text + report.Report_Id;
                             status_lb.Text = report.Status;
                             date_lb.Text = report.Date_reported.ToString("dd/MM/yyyy");
-                            reporter_lb.Text = report.Reported_by; // links to account details page of reporter
-                                                                   // reported_lb.Text = report.Post; // links to reported gem/review
+                            reporter_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + report.Reported_by + "'>" + report.Reported_by + "</a>"; // links to account details page of reporter
+                            type_lb.Text = report.Type;
+                            reported_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + report.Post.ToString() + "'>" + gem.Title.ToString() + "</a>"; // links to reported gem/review
                             reason_lb.Text = report.Reason;
                             remarks_lb.Text = report.Remarks;
                         }

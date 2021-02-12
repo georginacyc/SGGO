@@ -23,7 +23,7 @@ namespace SGGO
                 else
                 {
                     user = (string)Session["email"];
-                    gem_id = (string)Request.QueryString["post"]; // id retrieve from gem listing
+                    gem_id = (string)Request.QueryString["id"]; // id retrieve from gem listing
                 }
             }
             else
@@ -79,7 +79,7 @@ namespace SGGO
         protected void btn_submit_review_Click(object sender, EventArgs e)
         {
             string rating = lbl_rating_score.Text;
-            string status = "Awaiting Approval";
+            string status = "Pending";
             string description = tb_desc.Text;
             string post = gem_id;
             string author = user;
