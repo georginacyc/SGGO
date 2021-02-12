@@ -62,6 +62,9 @@ namespace DBService
         [OperationContract]
         Gem GetGemById(int id);
 
+        [OperationContract]
+        int CountPendingGems();
+
 
         //Trail
         [OperationContract]
@@ -90,6 +93,9 @@ namespace DBService
         [OperationContract]
         void UpdateReviewStatus(int review_id, string status);
 
+        [OperationContract]
+        int CountPendingReviews();
+
         //Report
         [OperationContract]
         int CreateReport(DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status);
@@ -105,6 +111,10 @@ namespace DBService
 
         [OperationContract]
         void UpdateReportStatus(int review_id, string status);
+
+        [OperationContract]
+        int CountUnresolvedReports();
+
 
         //Point Shop
         [OperationContract]

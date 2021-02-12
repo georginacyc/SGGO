@@ -113,6 +113,11 @@ namespace DBService
             return gem.SelectById(id);
         }
 
+        public int CountPendingGems()
+        {
+            Gem gem = new Gem();
+            return gem.CountPending();
+        }
 
         // Monthly Trail
         public List<Trail> GetAllTrails()
@@ -164,6 +169,12 @@ namespace DBService
             review.UpdateStatus(review_id, status);
         }
 
+        public int CountPendingReviews()
+        {
+            Review review = new Review();
+            return review.CountPending();
+        }
+
         //Reports
         public List<Report> GetAllReports()
         {
@@ -195,7 +206,11 @@ namespace DBService
             report.UpdateStatus(review_id, status);
         }
 
-
+        public int CountUnresolvedReports()
+        {
+            Report report = new Report();
+            return report.CountUnresolved();
+        }
 
 
         public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr)

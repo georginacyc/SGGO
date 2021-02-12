@@ -15,6 +15,33 @@ namespace SGGO
     {
 
         /// <summary>
+        /// reports_lb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label reports_lb;
+
+        /// <summary>
+        /// reviews_lb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label reviews_lb;
+
+        /// <summary>
+        /// gems_lb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label gems_lb;
+
+        /// <summary>
         /// test_chart control.
         /// </summary>
         /// <remarks>

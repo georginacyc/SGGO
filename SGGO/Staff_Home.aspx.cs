@@ -42,6 +42,10 @@ namespace SGGO
                         DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                         var user = client.GetAccountByEmail(Session["LoggedIn"].ToString());
 
+                        reports_lb.Text = client.CountUnresolvedReports().ToString();
+                        reviews_lb.Text = client.CountPendingReviews().ToString();
+                        gems_lb.Text = client.CountPendingGems().ToString();
+
                         // populating charts
                         //double[] youthdata = new double[15];
                         //double[] yadultdata = new double[25];

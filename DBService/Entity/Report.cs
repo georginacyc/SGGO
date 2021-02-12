@@ -191,5 +191,21 @@ namespace DBService.Entity
             System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
             conn.Close();
         }
+
+        public int CountUnresolved()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT COUNT(*) FROM Reports WHERE status = 'Unresolved'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            conn.Open();
+            var count = (Int32)cmd.ExecuteScalar();
+            conn.Close();
+
+            return count;
+        }
     }
 }

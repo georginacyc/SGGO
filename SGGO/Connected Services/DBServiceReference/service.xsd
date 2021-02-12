@@ -237,6 +237,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CountPendingGems">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountPendingGemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountPendingGemsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CreateTrail">
     <xs:complexType>
       <xs:sequence>
@@ -356,6 +368,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="CountPendingReviews">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountPendingReviewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountPendingReviewsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CreateReport">
     <xs:complexType>
       <xs:sequence>
@@ -427,6 +451,18 @@
   <xs:element name="UpdateReportStatusResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountUnresolvedReports">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountUnresolvedReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountUnresolvedReportsResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreatePointShopItem">

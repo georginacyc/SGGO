@@ -248,6 +248,22 @@ namespace DBService.Entity
             System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
             conn.Close();
         }
+
+        public int CountPending()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT COUNT(*) FROM Gem WHERE status = 'Pending'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            conn.Open();
+            var count = (Int32)cmd.ExecuteScalar();
+            conn.Close();
+
+            return count;
+        }
     }
 
 
