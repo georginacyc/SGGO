@@ -4,8 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         #mainDiv {
-            margin-left: 20%;
-            margin-right: 20%;
+            width: 60%;
+            margin:auto;
+            font-size: 17px;
         }
         #accounts_gv {
             height: 100%;

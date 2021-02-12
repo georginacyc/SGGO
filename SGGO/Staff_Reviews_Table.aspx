@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="width: 60%; margin:auto; font-size: 17px;">
     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Reviews Table"></asp:Label>
     <asp:GridView ID="reviews_gv" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="reviews_gv_SelectedIndexChanged">
         <Columns>
@@ -19,4 +20,5 @@
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#242121" />
     </asp:GridView>
+        </div>
 </asp:Content>

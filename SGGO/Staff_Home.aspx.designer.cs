@@ -13,5 +13,23 @@ namespace SGGO
 
     public partial class Staff_Home
     {
+
+        /// <summary>
+        /// test_chart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart test_chart;
+
+        /// <summary>
+        /// age_chart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart age_chart;
     }
 }

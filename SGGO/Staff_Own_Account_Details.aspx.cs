@@ -61,11 +61,12 @@ namespace SGGO
             staffid_lb.Text = user.Staff_Id;
             fname_lb.Text = user.First_Name;
             lname_lb.Text = user.Last_Name;
-            dob_lb.Text = user.Dob.ToString();
+            dob_lb.Text = user.Dob.ToString("dd/MM/yyyy");
             hp_lb.Text = user.Hp;
             postal_lb.Text = user.Postal_Code;
             address_lb.Text = user.Address;
             created_lb.Text = user.Account_Created.ToString();
+            login_lb.Text = user.Last_Login.ToString();
         }
 
         protected void changepw_btn_Click(object sender, EventArgs e)

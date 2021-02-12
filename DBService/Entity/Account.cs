@@ -90,7 +90,7 @@ namespace DBService.Entity
         // account creation
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -124,7 +124,7 @@ namespace DBService.Entity
 
         public Account SelectByEmail(string email)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Accounts WHERE email = @email";
@@ -195,7 +195,7 @@ namespace DBService.Entity
         public List<Account> SelectAll()
         {
             //return null;
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Accounts";
@@ -287,7 +287,7 @@ namespace DBService.Entity
 
         public int UpdateLogin(string email)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -320,7 +320,7 @@ namespace DBService.Entity
                     if (user.Attempts_Left == 0)
                     {
 
-                        string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+                        string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
                         SqlConnection conn = new SqlConnection(connStr);
 
@@ -342,7 +342,7 @@ namespace DBService.Entity
             {
                 if (user.Attempts_Left == 0)
                 {
-                    string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+                    string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
                     SqlConnection conn = new SqlConnection(connStr);
 
@@ -367,7 +367,7 @@ namespace DBService.Entity
         public bool CheckAttempts(string email, bool pass) // true == attempt passed, false == attempt failed
         {
 
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -424,7 +424,7 @@ namespace DBService.Entity
 
         public string GetStaffId()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
             string query = "SELECT COUNT(*) FROM Accounts WHERE type = 'Staff'";
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -452,7 +452,7 @@ namespace DBService.Entity
             string saltedpw = newpass + user.Password_Salt;
             string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
 
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
