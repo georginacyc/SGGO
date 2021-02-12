@@ -15,13 +15,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Create Partner Account"></asp:Label>
     <br />
-    <asp:FileUpload ID="FileUpload1" runat="server" />
+    <asp:FileUpload ID="picture_file" runat="server" />
     <br />
     <table class="w-100">
         <tr>
             <td class="auto-style1">Store Name:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="partner_email_tb" runat="server"></asp:TextBox>
+                <asp:TextBox ID="partner_fn_tb" runat="server"></asp:TextBox>
             </td>
             <td class="auto-style3">Date Established:</td>
             <td>
@@ -31,7 +31,7 @@
         <tr>
             <td class="auto-style1">Email:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="partner_fn_tb" runat="server" CssClass="offset-sm-0"></asp:TextBox>
+                <asp:TextBox ID="partner_email_tb" runat="server" CssClass="offset-sm-0"></asp:TextBox>
             </td>
             <td class="auto-style3">&nbsp;HP:</td>
             <td>

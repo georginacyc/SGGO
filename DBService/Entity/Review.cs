@@ -88,13 +88,13 @@ namespace DBService.Entity
             if (count == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                int id = Convert.ToInt32(row["review_id"]);
+                int review_id = Convert.ToInt32(row["review_id"]);
                 string status = row["status"].ToString();
                 string post = row["post"].ToString();
                 string rating = row["rating"].ToString();
                 string description = row["description"].ToString();
 
-                review = new Review(id, status, post, author, rating, description);
+                review = new Review(review_id, status, post, author, rating, description);
             }
             return review;
         }
@@ -148,14 +148,14 @@ namespace DBService.Entity
             for (int i = 0; i < count; i++)
             {
                 DataRow row = ds.Tables[0].Rows[i];
-                int id = Convert.ToInt32(row["review_id"]);
+                int review_id = Convert.ToInt32(row["review_id"]);
                 string description = row["description"].ToString();
                 string status = row["status"].ToString();
                 string post = row["post"].ToString();
                 string author = row["author"].ToString();
                 string rating = row["rating"].ToString();
 
-                Review review = new Review(id, status, post, author, rating, description);
+                Review review = new Review(review_id, status, post, author, rating, description);
                 reviewList.Add(review);
             }
             return reviewList;

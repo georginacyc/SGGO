@@ -11,32 +11,62 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request.QueryString["email"]))
+            if (Session["LoggedIn"] != null && Session["Role"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
             {
-                DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                var user = client.GetAccountByEmail(Request.QueryString["email"]);
-                profile_img.Attributes["src"] = "/Images/Profile_Pictures/" + user.Profile_Picture;
-                email_lb.Text = user.Email;
-                staffid_lb.Text = user.Staff_Id;
-                fname_lb.Text = user.First_Name;
-                lname_lb.Text = user.Last_Name;
-                dob_lb.Text = user.Dob.ToString("dd/MM/yyyy");
-                hp_lb.Text = user.Hp;
-                postal_lb.Text = user.Postal_Code;
-                address_lb.Text = user.Address;
-                created_lb.Text = user.Account_Created.ToString();
-                login_lb.Text = user.Last_Login.ToString();
-                points_lb.Text = user.Diamonds.ToString();
-
-                if (user.Type.Trim() == "Staff")
+                if (Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
                 {
-                    resetpw_btn.Visible = false;
+                    if (Session["Role"].ToString() == "Staff")
+                    {
+                        if (!String.IsNullOrEmpty(Request.QueryString["email"]))
+                        {
+                            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+                            var user = client.GetAccountByEmail(Request.QueryString["email"]);
+                            profile_img.Attributes["src"] = "/Images/Profile_Pictures/" + user.Profile_Picture;
+                            type_lb.Text = user.Type;
+                            email_lb.Text = user.Email;
+                            staffid_lb.Text = user.Staff_Id;
+                            fname_lb.Text = user.First_Name;
+                            lname_lb.Text = user.Last_Name;
+                            dob_lb.Text = user.Dob.ToString("dd/MM/yyyy");
+                            hp_lb.Text = user.Hp;
+                            postal_lb.Text = user.Postal_Code;
+                            address_lb.Text = user.Address;
+                            created_lb.Text = user.Account_Created.ToString();
+                            login_lb.Text = user.Last_Login.ToString();
+                            points_lb.Text = user.Diamonds.ToString();
+
+                            if (user.Type.Trim() == "Staff")
+                            {
+                                resetpw_btn.Visible = false;
+                                diamonds_lb.Visible = false;
+                                points_lb.Visible = false;
+                            }
+                            else
+                            {
+                                staffid_lb.Visible = false;
+                            }
+                        }
+                        else
+                        {
+                            Response.Redirect("Staff_Accounts_List.aspx");
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect("Staff_Login.aspx");
+                    }
+
+                }
+                else
+                {
+                    Response.Redirect("Staff_Login.aspx");
                 }
             }
             else
             {
-                Response.Redirect("Staff_Accounts_List.aspx");
+                Response.Redirect("Staff_Login.aspx");
             }
+            
         }
 
         protected void resetpw_btn_Click(object sender, EventArgs e)

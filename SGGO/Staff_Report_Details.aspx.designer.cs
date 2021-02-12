@@ -15,13 +15,13 @@ namespace SGGO
     {
 
         /// <summary>
-        /// review_lb control.
+        /// report_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label review_lb;
+        protected global::System.Web.UI.WebControls.Label report_lb;
 
         /// <summary>
         /// status_lb control.

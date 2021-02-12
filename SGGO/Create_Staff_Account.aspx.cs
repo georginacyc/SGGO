@@ -47,14 +47,13 @@ namespace SGGO
             string email = staff_email_lb.Text;
             string fname = staff_fn_tb.Text;
             string lname = staff_ln_tb.Text;
-            DateTime dob = Convert.ToDateTime(staff_dob_tb.Text);
             string hp = staff_hp_tb.Text;
             string postal = staff_postalcode_tb.Text;
             string address = staff_address_tb.Text;
             string pw = staff_password_tb.Text;
             string pw2 = staff_password2_tb.Text;
 
-            if (String.IsNullOrEmpty(email) || String.IsNullOrEmpty(fname) || String.IsNullOrEmpty(lname) || String.IsNullOrEmpty(hp) || String.IsNullOrEmpty(address) || String.IsNullOrEmpty(postal) || String.IsNullOrEmpty(pw) || String.IsNullOrEmpty(pw2) || !picture_file.HasFile)
+            if (String.IsNullOrEmpty(email) || String.IsNullOrEmpty(fname) || String.IsNullOrEmpty(lname) || String.IsNullOrEmpty(hp) || String.IsNullOrEmpty(address) || String.IsNullOrEmpty(postal) || String.IsNullOrEmpty(pw) || String.IsNullOrEmpty(pw2) || String.IsNullOrEmpty(staff_dob_tb.Text) || !picture_file.HasFile)
             {
                 error_lb.Text = "Please fill all fields";
                 empty = true;
@@ -107,6 +106,8 @@ namespace SGGO
 
             if (!empty && pass)
             {
+                DateTime dob = Convert.ToDateTime(staff_dob_tb.Text);
+
                 var extension = System.IO.Path.GetExtension(Server.HtmlEncode(picture_file.FileName));
                 var filename = fname + hp.Substring(4, 4) + extension; // first name + last 4 digits of phone number
                 picture_file.SaveAs(Request.PhysicalApplicationPath + "/Images/Profile_Pictures/" + filename);

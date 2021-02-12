@@ -33,6 +33,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Image profile_img;
 
         /// <summary>
+        /// type_lb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label type_lb;
+
+        /// <summary>
         /// email_lb control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label email_lb;
+
+        /// <summary>
+        /// staffid_tb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label staffid_tb;
 
         /// <summary>
         /// staffid_lb control.
@@ -67,6 +85,24 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lname_lb;
+
+        /// <summary>
+        /// diamonds_lb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label diamonds_lb;
+
+        /// <summary>
+        /// points_lb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label points_lb;
 
         /// <summary>
         /// dob_lb control.
@@ -114,15 +150,6 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label created_lb;
 
         /// <summary>
-        /// points_lb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label points_lb;
-
-        /// <summary>
         /// login_lb control.
         /// </summary>
         /// <remarks>
@@ -148,5 +175,14 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button resetpw_btn;
+
+        /// <summary>
+        /// print_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button print_btn;
     }
 }

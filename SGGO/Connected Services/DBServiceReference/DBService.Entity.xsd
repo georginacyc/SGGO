@@ -35,6 +35,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gem_Id" type="xs:int" />
       <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Partner" nillable="true" type="xs:string" />
@@ -91,6 +92,7 @@
   <xs:complexType name="Report">
     <xs:sequence>
       <xs:element minOccurs="0" name="Date_reported" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Post" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Report_Id" type="xs:int" />

@@ -92,6 +92,18 @@
   <wsdl:message name="IService1_GetAllGems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllGemsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateGemStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGemStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateGemStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGemStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGemById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGemById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGemById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGemByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateTrail_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateTrail" />
   </wsdl:message>
@@ -244,6 +256,14 @@
     <wsdl:operation name="GetAllGems">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllGems" message="tns:IService1_GetAllGems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllGemsResponse" message="tns:IService1_GetAllGems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGemStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateGemStatus" message="tns:IService1_UpdateGemStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateGemStatusResponse" message="tns:IService1_UpdateGemStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGemById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGemById" message="tns:IService1_GetGemById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGemByIdResponse" message="tns:IService1_GetGemById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateTrail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateTrail" message="tns:IService1_CreateTrail_InputMessage" />
@@ -431,6 +451,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllGems">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllGems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGemStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateGemStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGemById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetGemById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

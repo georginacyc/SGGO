@@ -24,22 +24,22 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// picture_file control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.FileUpload picture_file;
 
         /// <summary>
-        /// partner_email_tb control.
+        /// partner_fn_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox partner_email_tb;
+        protected global::System.Web.UI.WebControls.TextBox partner_fn_tb;
 
         /// <summary>
         /// partner_dob_tb control.
@@ -51,13 +51,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.TextBox partner_dob_tb;
 
         /// <summary>
-        /// partner_fn_tb control.
+        /// partner_email_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox partner_fn_tb;
+        protected global::System.Web.UI.WebControls.TextBox partner_email_tb;
 
         /// <summary>
         /// partner_hp_tb control.
