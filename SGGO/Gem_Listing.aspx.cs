@@ -32,12 +32,14 @@ namespace SGGO
         protected void btn_report_Click1(object sender, EventArgs e)
         {
             //Response.Redirect("Create_Report.aspx?post=" + "123");
-            Response.Redirect("Create_Report.aspx?post=" + lbl_gemId.Text);
+            Response.Redirect("Create_Report.aspx?gem=" + lbl_gemId.Text);
         }
 
         protected void gvReview_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string id = gvReview.SelectedRow.Cells[0].Text;
+
+            string id = gvReview.DataKeys.ToString();
+            Response.Redirect("Create_Report.aspx?rev=" + id);
         }
     }
 }

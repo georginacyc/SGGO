@@ -12,7 +12,8 @@ namespace SGGO
     public partial class Create_Report : System.Web.UI.Page
     {
         string userid = null;
-        string type_id;
+        string type_id = null;
+        string type_type = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
@@ -24,8 +25,23 @@ namespace SGGO
                 else
                 {
                     userid = (string)Session["email"];
-                    type_id = Request.QueryString["post"];
-                    lbl_id.Text = type_id;
+
+                    if ( Request.QueryString["gem"] != null)
+                    {
+                        type_id = Request.QueryString["gem"];
+                        lbl_id.Text = type_id;
+                        type_type = "gem";
+                    }
+                    if (Request.QueryString["rev"] != null)
+                    {
+                        type_id = Request.QueryString["post"];
+                        lbl_id.Text = type_id;
+                        type_type = "review";
+                    }
+                    else
+                    {
+                        type_type = "gem";
+                    }
 
                 }
             }
@@ -49,7 +65,7 @@ namespace SGGO
         {
             DateTime date_reported = DateTime.Now;
             string post = lbl_id.Text;
-            string type = "gem";
+            string type = type_type;
             string reported_by = userid;
             string reason = ddl_reason.SelectedValue;
             string remarks = tb_remark.Text;

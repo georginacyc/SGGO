@@ -58,9 +58,9 @@
                 <td style="width: 549px">
                     <div style="padding-left:50px">
                     <asp:Label ID="gem_review" runat="server"></asp:Label>
-                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="0" CssClass="myDatagrid" Width="541px" DataKeyNames="id" DataSourceID="GetGemReviews" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" >
+                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="0" CssClass="myDatagrid" Width="541px" DataKeyNames="review_id" DataSourceID="GetGemReviews" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" >
                         <Columns>
-                            <asp:BoundField DataField="Review_Id" ReadOnly="True" />
+      
                             <asp:BoundField DataField="rating" HeaderText="rating" SortExpression="rating" />
                             <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
                             <asp:CommandField SelectText="Report" ShowCancelButton="False" ShowSelectButton="True" />
