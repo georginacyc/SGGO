@@ -90,7 +90,7 @@ namespace DBService.Entity
         // account creation
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -124,7 +124,7 @@ namespace DBService.Entity
 
         public Account SelectByEmail(string email)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Accounts WHERE email = @email";
@@ -265,7 +265,7 @@ namespace DBService.Entity
             string currentpass = user.Password;
             string lastpass = user.Password_Last;
 
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 

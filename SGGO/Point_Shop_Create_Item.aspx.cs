@@ -38,5 +38,10 @@ namespace SGGO
             int result = client.CreatePointShopItem(name, partner, description, price, image, type, qr);
             Response.Redirect("Point_Shop_Catalogue.aspx");
         }
+
+        protected void ddl_item_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

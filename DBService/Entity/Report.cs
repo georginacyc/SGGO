@@ -138,7 +138,7 @@ namespace DBService.Entity
 
         public List<Report> SelectAll()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Reports ORDER BY status DESC";
@@ -152,7 +152,7 @@ namespace DBService.Entity
             int count = ds.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                DataRow row = ds.Tables[0].Rows[0];
+                DataRow row = ds.Tables[0].Rows[i];
                 int report_id = Convert.ToInt32(row["report_id"]);
                 DateTime date = Convert.ToDateTime(row["date_reported"]);
                 string type = row["type"].ToString();

@@ -1,4 +1,4 @@
-﻿<%@ Page  Title="Create Gem" Language="C#" MasterPageFile="~/Staff.Master" AutoEventWireup="true" CodeBehind="Create_Gem.aspx.cs" Inherits="SGGO.Create_Gem" %>
+﻿<%@ Page  Title="Create Gem" Language="C#" MasterPageFile="~/Partner.Master" AutoEventWireup="true" CodeBehind="Create_Gem.aspx.cs" Inherits="SGGO.Create_Gem" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -58,7 +58,7 @@
                 <asp:Label ID="lb_partner" runat="server" Text="Partner Company:" ></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="tb_pc" runat="server" Width="100%"></asp:TextBox>
+                <asp:Label ID="lb_pc" runat="server" Width="100%"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -101,8 +101,3 @@
 
     
 </asp:Content>
-
-
-
-
-

@@ -16,6 +16,7 @@ namespace SGGO
                 DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                 var user = client.GetAccountByEmail(Request.QueryString["email"]);
                 profile_img.Attributes["src"] = "/Images/Profile_Pictures/" + user.Profile_Picture;
+                type_lb.Text = user.Type;
                 email_lb.Text = user.Email;
                 staffid_lb.Text = user.Staff_Id;
                 fname_lb.Text = user.First_Name;
@@ -31,6 +32,11 @@ namespace SGGO
                 if (user.Type.Trim() == "Staff")
                 {
                     resetpw_btn.Visible = false;
+                    diamonds_lb.Visible = false;
+                    points_lb.Visible = false;
+                } else
+                {
+                    staffid_lb.Visible = false;
                 }
             }
             else
