@@ -26,8 +26,7 @@
         <tr>
           <td>&nbsp</td>
           <td>
-            <a href='Gem_Listing.aspx?gemId=<%# Eval("Id") %>'>
-               <image src='Catalog/Images/Thumbs/<%# Eval("image") %>' 
+               <image src='SGGO/Images/Gems/<%# Eval("image") %>' 
                       width="100" height="75" border="0">
             </a> &nbsp
           </td>

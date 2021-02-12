@@ -44,7 +44,9 @@
                 <td style="width: 402px; height: 99px"></td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="2">
+                    <asp:Label ID="lbl_msg" runat="server" ForeColor="#006600"></asp:Label>
+                </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
             <tr>

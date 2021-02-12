@@ -37,6 +37,14 @@
             </tr>
             <tr>
                 <td style="width: 549px">
+                    <asp:Label ID="gem_add" runat="server"></asp:Label>
+                </td>
+                <td style="width: 196px">&nbsp;</td>
+                <td style="width: 350px">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 549px">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="gem_desc" runat="server">Most Instagram-Worthy Floral-Themed Café With Soufflé Pancakes Found At East Coast.</asp:Label>
                 </td>
@@ -57,8 +65,7 @@
             <tr>
                 <td style="width: 549px">
                     <div style="padding-left:50px">
-                    <asp:Label ID="gem_review" runat="server"></asp:Label>
-                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="0" CssClass="myDatagrid" Width="541px" DataKeyNames="review_id" DataSourceID="GetGemReviews" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" >
+                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="0" CssClass="myDatagrid" Width="541px" DataKeyNames="review_id" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" DataSourceID="GetGemReviews" >
                         <Columns>
       
                             <asp:BoundField DataField="rating" HeaderText="rating" SortExpression="rating" />
@@ -66,8 +73,15 @@
                             <asp:CommandField SelectText="Report" ShowCancelButton="False" ShowSelectButton="True" />
                         </Columns>
                     </asp:GridView>
-                    <asp:SqlDataSource ID="GetGemReviews" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Review]"></asp:SqlDataSource>
-                    
+                   
+                    <asp:SqlDataSource ID="GetGemReviews" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" 
+                        ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Review] WHERE (([status] = @status) AND ([post] = @post))">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="Pending" Name="status" Type="String" />
+                        <asp:SessionParameter Name="post" SessionField="gem_id" Type="String" />
+                    </SelectParameters>
+                    </asp:SqlDataSource>
+
                     </div>
                 </td>
                 <td style="width: 196px">&nbsp;</td>

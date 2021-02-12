@@ -123,6 +123,7 @@
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
     <Content Include="User_Profile.aspx" />
+    <Content Include="User_Reviews.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -428,6 +429,13 @@
     </Compile>
     <Compile Include="User_Profile.aspx.designer.cs">
       <DependentUpon>User_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Reviews.aspx.cs">
+      <DependentUpon>User_Reviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Reviews.aspx.designer.cs">
+      <DependentUpon>User_Reviews.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

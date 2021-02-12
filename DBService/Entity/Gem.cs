@@ -11,6 +11,7 @@ namespace DBService.Entity
 {
     public class Gem
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Type { get; set; }
@@ -29,6 +30,22 @@ namespace DBService.Entity
 
         public Gem(string title, string description, string type, string location, DateTime? date,string status, float? rating, string partner, string image)
         {
+            Title = title;
+            Description = description;
+            Type = type;
+            Location = location;
+            Date = date;
+            // default status when created is Active | when activity type is over/company disables gem, status is "disabled"
+            Status = "Active";
+            Rating = rating;
+            Partner = partner;
+            Image = image;
+        }
+
+        //individual gem - nina
+        public Gem(int id,string title, string description, string type, string location, DateTime? date, string status, float? rating, string partner, string image)
+        {
+            Id = id;
             Title = title;
             Description = description;
             Type = type;
@@ -81,7 +98,7 @@ namespace DBService.Entity
 
         public Gem SelectByTitle(string title)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Gem WHERE title = @title";
@@ -163,6 +180,56 @@ namespace DBService.Entity
             return gemList;
         }
         //end
+
+        public Gem SelectById(int id)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT * FROM Gem WHERE id = @id";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            da.SelectCommand.Parameters.AddWithValue("@id", id);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            Gem gem = null;
+            int count = ds.Tables[0].Rows.Count;
+            if (count == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                string title = row["title"].ToString();
+                string description = row["description"].ToString();
+                string type = row["type"].ToString();
+                string status = row["status"].ToString();
+                string location = row["location"].ToString();
+                string partner = row["partner"].ToString();
+                string image = row["image"].ToString();
+                float rating;
+                DateTime? date;
+                if (row["rating"].Equals(System.DBNull.Value))
+                {
+                    rating = 0;
+                }
+                else
+                {
+                    rating = (float)Convert.ToDouble(row["rating"]);
+                }
+
+                if (row["date"].Equals(System.DBNull.Value))
+                {
+                    date = null;
+                }
+                else
+                {
+                    date = Convert.ToDateTime(row["date"]);
+                }
+
+                gem = new Gem(id,title,description, type, location, date, status, rating, partner, image);
+            }
+            return gem;
+        }
     }
 
 

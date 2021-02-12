@@ -101,6 +101,12 @@ namespace DBService
             return gem.Insert();
         }
 
+        public Gem GetGemById(int id)
+        {
+            Gem gem = new Gem();
+            return gem.SelectById(id);
+        }
+
 
         // Monthly Trail
         public List<Trail> GetAllTrails()
@@ -150,6 +156,18 @@ namespace DBService
         {
             Review review = new Review();
             review.UpdateStatus(review_id, status);
+        }
+
+        public void DeleteReview (int review_id)
+        {
+            Review review = new Review();
+            review.DeleteReview(review_id);
+        }
+
+        public Review GetReviewByStatus(string status)
+        {
+            Review review = new Review();
+            return review.SelectByStatus(status);
         }
 
         //Reports

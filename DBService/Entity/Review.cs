@@ -47,7 +47,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
             string query = "INSERT INTO Review (status, post, author, rating, description)" + "VALUES (@status, @post, @author, @rating, @description)";
@@ -68,11 +68,11 @@ namespace DBService.Entity
         }
 
 
-        // Select by Title
+        // Select by author
 
         public Review SelectByAuthor(string author)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Review WHERE author = @author";
@@ -129,6 +129,36 @@ namespace DBService.Entity
             return review;
         }
 
+        //retrive all appreved reviews
+        public Review SelectByStatus(string status)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT * FROM Review WHERE status = @status";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            da.SelectCommand.Parameters.AddWithValue("@status", status);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            Review review = null;
+            int count = ds.Tables[0].Rows.Count;
+            if (count == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                int review_id = Convert.ToInt32(row["review_id"]);
+                string post = row["post"].ToString();
+                string author = row["author"].ToString();
+                string rating = row["rating"].ToString();
+                string description = row["description"].ToString();
+
+                review = new Review(review_id, status, post, author, rating, description);
+            }
+            return review;
+        }
+
         // Select All
 
         public List<Review> SelectAll()
@@ -172,6 +202,22 @@ namespace DBService.Entity
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            conn.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            conn.Close();
+        }
+
+        public void DeleteReview(int id)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "DELETE Review WHERE review_id = @id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
             cmd.Parameters.AddWithValue("@id", id);
 
             conn.Open();
