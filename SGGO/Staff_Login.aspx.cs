@@ -92,6 +92,7 @@ namespace SGGO
             {
                 // log in
                 Session["LoggedIn"] = user.Email;
+                Session["Role"] = user.Type;
 
                 string guid = Guid.NewGuid().ToString();
                 Session["AuthToken"] = guid;
