@@ -91,6 +91,7 @@
   <xs:complexType name="Report">
     <xs:sequence>
       <xs:element minOccurs="0" name="Date_reported" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Post" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Report_Id" type="xs:int" />

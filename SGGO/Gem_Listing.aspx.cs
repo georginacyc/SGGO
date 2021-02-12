@@ -35,6 +35,9 @@ namespace SGGO
             Response.Redirect("Create_Report.aspx?post=" + lbl_gemId.Text);
         }
 
-       
+        protected void gvReview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = gvReview.SelectedRow.Cells[0].Text;
+        }
     }
 }

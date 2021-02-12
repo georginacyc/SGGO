@@ -48,7 +48,8 @@ namespace SGGO
         protected void btn_submit_report_Click(object sender, EventArgs e)
         {
             DateTime date_reported = DateTime.Now;
-            string type = lbl_id.Text;
+            string post = lbl_id.Text;
+            string type = "gem";
             string reported_by = userid;
             string reason = ddl_reason.SelectedValue;
             string remarks = tb_remark.Text;
@@ -56,7 +57,7 @@ namespace SGGO
 
 
             Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateReport(date_reported,type,reported_by,reason,remarks,status);
+            int result = client.CreateReport(date_reported,post,type,reported_by,reason,remarks,status);
             lbl_msg.Text = "Report successfully submitted, we will resolve it soon.";
             
         }

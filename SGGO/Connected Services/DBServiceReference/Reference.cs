@@ -907,6 +907,9 @@ namespace SGGO.DBServiceReference {
         private System.DateTime Date_reportedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ReasonField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -943,6 +946,19 @@ namespace SGGO.DBServiceReference {
                 if ((this.Date_reportedField.Equals(value) != true)) {
                     this.Date_reportedField = value;
                     this.RaisePropertyChanged("Date_reported");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Post {
+            get {
+                return this.PostField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostField, value) != true)) {
+                    this.PostField = value;
+                    this.RaisePropertyChanged("Post");
                 }
             }
         }
@@ -1329,10 +1345,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task UpdateReviewStatusAsync(int review_id, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateReport", ReplyAction="http://tempuri.org/IService1/CreateReportResponse")]
-        int CreateReport(System.DateTime date_reported, string type, string reported_by, string reason, string remarks, string status);
+        int CreateReport(System.DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateReport", ReplyAction="http://tempuri.org/IService1/CreateReportResponse")]
-        System.Threading.Tasks.Task<int> CreateReportAsync(System.DateTime date_reported, string type, string reported_by, string reason, string remarks, string status);
+        System.Threading.Tasks.Task<int> CreateReportAsync(System.DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetReportByStatus", ReplyAction="http://tempuri.org/IService1/GetReportByStatusResponse")]
         SGGO.DBServiceReference.Report GetReportByStatus(string status);
@@ -1580,12 +1596,12 @@ namespace SGGO.DBServiceReference {
             return base.Channel.UpdateReviewStatusAsync(review_id, status);
         }
         
-        public int CreateReport(System.DateTime date_reported, string type, string reported_by, string reason, string remarks, string status) {
-            return base.Channel.CreateReport(date_reported, type, reported_by, reason, remarks, status);
+        public int CreateReport(System.DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status) {
+            return base.Channel.CreateReport(date_reported, post, type, reported_by, reason, remarks, status);
         }
         
-        public System.Threading.Tasks.Task<int> CreateReportAsync(System.DateTime date_reported, string type, string reported_by, string reason, string remarks, string status) {
-            return base.Channel.CreateReportAsync(date_reported, type, reported_by, reason, remarks, status);
+        public System.Threading.Tasks.Task<int> CreateReportAsync(System.DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status) {
+            return base.Channel.CreateReportAsync(date_reported, post, type, reported_by, reason, remarks, status);
         }
         
         public SGGO.DBServiceReference.Report GetReportByStatus(string status) {
