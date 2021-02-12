@@ -26,7 +26,9 @@ namespace SGGO
         protected void gvMyreview_SelectedIndexChanged(object sender, EventArgs e)
         {
             //delete review
-            string id = gvMyreview.SelectedRow.Cells[0].Text;
+            int index = gvMyreview.SelectedIndex;
+
+            string id = gvMyreview.DataKeys[index].Value.ToString();
 
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
             client.DeleteReview(Convert.ToInt32(id));

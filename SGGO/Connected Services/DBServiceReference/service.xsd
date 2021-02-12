@@ -289,7 +289,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="post" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gem_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gem_title" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="author" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="rating" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
@@ -352,6 +353,18 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateReviewStatusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="review_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReviewResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

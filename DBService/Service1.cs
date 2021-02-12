@@ -152,9 +152,9 @@ namespace DBService
             return review.SelectById(review_id);
         }
 
-        public int CreateReview(string status, string post, string author, string rating, string description)
+        public int CreateReview(string status, string gem_id, string gem_title, string author, string rating, string description)
         {
-            Review review = new Review(status, post, author, rating, description);
+            Review review = new Review(status, gem_id, gem_title, author, rating, description);
             return review.Insert();
         }
 
@@ -162,6 +162,12 @@ namespace DBService
         {
             Review review = new Review();
             review.UpdateStatus(review_id, status);
+        }
+
+        public void DeleteReview(int review_id)
+        {
+            Review review = new Review();
+            review.DeleteReview(review_id);
         }
 
         //Reports

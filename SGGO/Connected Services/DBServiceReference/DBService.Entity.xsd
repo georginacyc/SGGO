@@ -76,7 +76,8 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Post" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gem_Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gem_Title" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Review_Id" type="xs:int" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />

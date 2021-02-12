@@ -76,7 +76,7 @@ namespace DBService
 
         //Review
         [OperationContract]
-        int CreateReview(string status, string post, string author, string rating, string description);
+        int CreateReview(string status, string gem_id, string gem_title, string author, string rating, string description);
 
         [OperationContract]
         Review GetReviewByAuthor(string author);
@@ -89,6 +89,10 @@ namespace DBService
 
         [OperationContract]
         void UpdateReviewStatus(int review_id, string status);
+
+        [OperationContract]
+        void DeleteReview(int review_id);
+
 
         //Report
         [OperationContract]

@@ -12,6 +12,7 @@ namespace SGGO
     {
         string user = null;
         string gemid = null;
+        string gemtitle = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
@@ -24,7 +25,8 @@ namespace SGGO
                 {
                     review_date.Text = DateTime.Now.ToString();
                     user = (string)Session["email"];
-                    gemid = Request.QueryString["gem"]; // retrieve from gem listing
+                    gemid = Request.QueryString["gem"]; // retrieve from gem id listing
+                    gemtitle = Request.QueryString["gemtitle"]; // retrieve from gem title listing
                 }
             }
             else
@@ -82,12 +84,13 @@ namespace SGGO
             string rating = lbl_rating_score.Text;
             string status = "Pending";
             string description = tb_desc.Text;
-            string post = gemid;
+            string gem_id = gemid;
+            string gem_title = gemtitle;
             string author = user;
 
 
             Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateReview(status, post, author, rating, description);
+            int result = client.CreateReview(status, gem_id,gem_title, author, rating, description);
 
             lbl_msg.Text = "Review submitted successfully , Your review is on its way to our staff. Thank you!";
             lbl_rating_score.Text = "0";

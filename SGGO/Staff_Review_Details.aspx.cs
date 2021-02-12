@@ -50,8 +50,8 @@ namespace SGGO
                             }
                             review_lb.Text = review_lb.Text + review.Review_Id.ToString();
                             status_lb.Text = review.Status;
-                            gem_lb.Text = review.Post; // now is id, will need to retrieve name with it next time. also want to make it clickable, link to gem page.
-                            author_lb.Text = review.Author;
+                            gem_lb.Text = review.Gem_Title; // now is id, will need to retrieve name with it next time. also want to make it clickable, link to gem page.
+                            author_lb.Text = review.Author; 
                             rating_lb.Text = review.Rating;
                             description_lb.Text = review.Description;
                         } else

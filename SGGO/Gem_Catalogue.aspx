@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Gem_Catalogue.aspx.cs" Inherits="SGGO.Gem_Catalogue" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="padding-left:80px;padding-top:50px;">
 <asp:ListView ID="ListView_Gem" runat="server" 
               DataKeyNames="Id"  
               DataSourceID="SGGO" 
-              GroupItemCount="2">
+              GroupItemCount="3">
    <EmptyDataTemplate>
       <table runat="server">
         <tr>
@@ -22,12 +22,12 @@
   </GroupTemplate>
   <ItemTemplate>
     <td runat="server">
-      <table border="0" width="300">
+      <table border="0" width="400">
         <tr>
           <td>&nbsp</td>
           <td>
                <image src='SGGO/Images/Gems/<%# Eval("image") %>' 
-                      width="100" height="75" border="0">
+                      width="200" height="100" border="0">
             </a> &nbsp
           </td>
           <td>
@@ -37,7 +37,7 @@
             <span class="GemListItem">
               <b> Rating : </b><%# Eval("rating")%>
             </span><br />
-            <a href='Gem_Listing.aspx?gemId=<%# Eval("Id") %>'>
+            <a href='Gem_Listing.aspx?gemId=<%# Eval("Id") %>&gemT=<%# Eval("title") %>'>
                <span class="GemListItem"><b>View Details<b></font></span>
             </a>
           </td>
