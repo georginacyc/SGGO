@@ -101,6 +101,18 @@ namespace DBService
             return gem.Insert();
         }
 
+        public void UpdateGemStatus(int gem_id, string status)
+        {
+            Gem gem = new Gem();
+            gem.UpdateStatus(gem_id, status);
+        }
+
+        public Gem GetGemById(int id)
+        {
+            Gem gem = new Gem();
+            return gem.SelectById(id);
+        }
+
 
         // Monthly Trail
         public List<Trail> GetAllTrails()

@@ -11,11 +11,6 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            var x = client.GetAllReports();
-
-            reports_gv.DataSource = x;
-            reports_gv.DataBind();
         }
 
         protected void reports_gv_SelectedIndexChanged(object sender, EventArgs e)

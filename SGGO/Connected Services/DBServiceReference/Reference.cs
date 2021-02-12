@@ -439,6 +439,9 @@ namespace SGGO.DBServiceReference {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Gem_IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -491,6 +494,19 @@ namespace SGGO.DBServiceReference {
                 if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
                     this.DescriptionField = value;
                     this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Gem_Id {
+            get {
+                return this.Gem_IdField;
+            }
+            set {
+                if ((this.Gem_IdField.Equals(value) != true)) {
+                    this.Gem_IdField = value;
+                    this.RaisePropertyChanged("Gem_Id");
                 }
             }
         }
@@ -1280,6 +1296,18 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllGems", ReplyAction="http://tempuri.org/IService1/GetAllGemsResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Gem[]> GetAllGemsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateGemStatus", ReplyAction="http://tempuri.org/IService1/UpdateGemStatusResponse")]
+        void UpdateGemStatus(int gem_id, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateGemStatus", ReplyAction="http://tempuri.org/IService1/UpdateGemStatusResponse")]
+        System.Threading.Tasks.Task UpdateGemStatusAsync(int gem_id, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGemById", ReplyAction="http://tempuri.org/IService1/GetGemByIdResponse")]
+        SGGO.DBServiceReference.Gem GetGemById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGemById", ReplyAction="http://tempuri.org/IService1/GetGemByIdResponse")]
+        System.Threading.Tasks.Task<SGGO.DBServiceReference.Gem> GetGemByIdAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTrail", ReplyAction="http://tempuri.org/IService1/CreateTrailResponse")]
         int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
         
@@ -1514,6 +1542,22 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Gem[]> GetAllGemsAsync() {
             return base.Channel.GetAllGemsAsync();
+        }
+        
+        public void UpdateGemStatus(int gem_id, string status) {
+            base.Channel.UpdateGemStatus(gem_id, status);
+        }
+        
+        public System.Threading.Tasks.Task UpdateGemStatusAsync(int gem_id, string status) {
+            return base.Channel.UpdateGemStatusAsync(gem_id, status);
+        }
+        
+        public SGGO.DBServiceReference.Gem GetGemById(int id) {
+            return base.Channel.GetGemById(id);
+        }
+        
+        public System.Threading.Tasks.Task<SGGO.DBServiceReference.Gem> GetGemByIdAsync(int id) {
+            return base.Channel.GetGemByIdAsync(id);
         }
         
         public int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status) {

@@ -11,11 +11,6 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            var x = client.GetAllAccounts();
-
-            accounts_gv.DataSource = x;
-            accounts_gv.DataBind();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

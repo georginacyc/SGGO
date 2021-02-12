@@ -25,10 +25,16 @@
                 </a>
                     <ul class="nav navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="Staff_Reports_Table.aspx">reports table</a>
+                            <a class="nav-link" href="Staff_Reports_Table.aspx">reports</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Staff_Reviews_Table.aspx">reviews table</a>
+                            <a class="nav-link" href="Staff_Reviews_Table.aspx">reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Staff_Gems_Table.aspx">gems</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Staff_Accounts_List.aspx">accounts</a>
                         </li>
                     </ul>
                 <ul class="navbar-nav ">
@@ -40,7 +46,6 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="Create_Staff_Account.aspx">create staff account</a>
                             <a class="dropdown-item" href="Create_Partner_Account.aspx">create partner account</a>
-                            <a class="dropdown-item" href="Staff_Accounts_List.aspx">accounts list</a>
                             <a class="dropdown-item" href="#" onServerClick="Logout" runat="server">log out</a>
                         </div>
                     </li>

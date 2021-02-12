@@ -22,7 +22,7 @@ namespace SGGO
                 }
                 report_lb.Text = report_lb.Text + report.Report_Id;
                 status_lb.Text = report.Status;
-                date_lb.Text = report.Date_reported.ToString();
+                date_lb.Text = report.Date_reported.ToString("dd/MM/yyyy");
                 reporter_lb.Text = report.Reported_by; // links to account details page of reporter
                 // reported_lb.Text = report.Post; // links to reported gem/review
                 reason_lb.Text = report.Reason;

@@ -56,6 +56,12 @@ namespace DBService
         [OperationContract]
         List<Gem> GetAllGems();
 
+        [OperationContract]
+        void UpdateGemStatus(int gem_id, string status);
+
+        [OperationContract]
+        Gem GetGemById(int id);
+
 
         //Trail
         [OperationContract]

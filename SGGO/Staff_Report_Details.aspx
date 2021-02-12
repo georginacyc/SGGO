@@ -87,7 +87,7 @@
             </tr>
             <tr>
                 <td class="auto-style3"><strong>Remarks:</strong></td>
-                <td class="auto-style2" rowspan="2">
+                <td class="auto-style2" rowspan="2" style="vertical-align: top">
                     <asp:Label ID="remarks_lb" runat="server"></asp:Label>
                 </td>
             </tr>

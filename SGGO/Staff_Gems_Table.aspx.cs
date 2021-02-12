@@ -13,5 +13,11 @@ namespace SGGO
         {
 
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = gems_gv.SelectedRow.Cells[0].Text;
+            Response.Redirect("Staff_Gem_Details.aspx?id=" + id);
+        }
     }
 }
