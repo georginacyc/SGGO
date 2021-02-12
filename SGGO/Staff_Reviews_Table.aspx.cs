@@ -80,7 +80,7 @@ namespace SGGO
                     Response.Cookies["AuthToken"].Value = string.Empty;
                     Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
                 }
-            }s
+            }
         }
 
         protected void reviews_gv_SelectedIndexChanged(object sender, EventArgs e)
