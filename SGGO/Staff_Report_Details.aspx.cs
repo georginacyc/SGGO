@@ -11,26 +11,96 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request.QueryString["id"]))
+            if (Session["LoggedIn"] != null && Session["Role"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
             {
-                DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                var report = client.GetReportById(Convert.ToInt32(Request.QueryString["id"]));
-
-                if (report.Status.Trim() == "Resolved")
+                if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
                 {
-                    resolve_btn.Visible = false;
+                    Session.Clear();
+                    Session.Abandon();
+                    Session.RemoveAll();
+
+                    Response.Redirect("Staff_Login.aspx");
+
+                    if (Request.Cookies["ASP.NET_SessionId"] != null)
+                    {
+                        Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                        Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                    }
+
+                    if (Request.Cookies["AuthToken"] != null)
+                    {
+                        Response.Cookies["AuthToken"].Value = string.Empty;
+                        Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                    }
                 }
-                report_lb.Text = report_lb.Text + report.Report_Id;
-                status_lb.Text = report.Status;
-                date_lb.Text = report.Date_reported.ToString();
-                reporter_lb.Text = report.Reported_by; // links to account details page of reporter
-                // reported_lb.Text = report.Post; // links to reported gem/review
-                reason_lb.Text = report.Reason;
-                remarks_lb.Text = report.Remarks;
+                else
+                {
+                    if (Session["Role"].ToString() == "Staff")
+                    {
+                        // on page load codes here
+                        if (!String.IsNullOrEmpty(Request.QueryString["id"]))
+                        {
+                            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+                            var report = client.GetReportById(Convert.ToInt32(Request.QueryString["id"]));
+
+                            if (report.Status.Trim() == "Resolved")
+                            {
+                                resolve_btn.Visible = false;
+                            }
+                            report_lb.Text = report_lb.Text + report.Report_Id;
+                            status_lb.Text = report.Status;
+                            date_lb.Text = report.Date_reported.ToString("dd/MM/yyyy");
+                            reporter_lb.Text = report.Reported_by; // links to account details page of reporter
+                                                                   // reported_lb.Text = report.Post; // links to reported gem/review
+                            reason_lb.Text = report.Reason;
+                            remarks_lb.Text = report.Remarks;
+                        }
+                        else
+                        {
+                            Response.Redirect("Staff_Reports_Table.aspx");
+                        }
+                    }
+                    else
+                    {
+                        Session.Clear();
+                        Session.Abandon();
+                        Session.RemoveAll();
+
+                        Response.Redirect("Staff_Login.aspx");
+
+                        if (Request.Cookies["ASP.NET_SessionId"] != null)
+                        {
+                            Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                            Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+
+                        if (Request.Cookies["AuthToken"] != null)
+                        {
+                            Response.Cookies["AuthToken"].Value = string.Empty;
+                            Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+                    }
+                }
             }
             else
             {
-                Response.Redirect("Staff_Reports_Table.aspx");
+                Session.Clear();
+                Session.Abandon();
+                Session.RemoveAll();
+
+                Response.Redirect("Staff_Login.aspx");
+
+                if (Request.Cookies["ASP.NET_SessionId"] != null)
+                {
+                    Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                    Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                }
+
+                if (Request.Cookies["AuthToken"] != null)
+                {
+                    Response.Cookies["AuthToken"].Value = string.Empty;
+                    Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                }
             }
         }
 

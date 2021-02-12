@@ -57,7 +57,11 @@ namespace DBService
         List<Gem> GetAllGems();
 
         [OperationContract]
+        void UpdateGemStatus(int gem_id, string status);
+
+        [OperationContract]
         Gem GetGemById(int id);
+
 
         //Trail
         [OperationContract]
@@ -85,12 +89,6 @@ namespace DBService
 
         [OperationContract]
         void UpdateReviewStatus(int review_id, string status);
-
-        [OperationContract]
-        void DeleteReview(int review_id);
-
-        [OperationContract]
-        Review GetReviewByStatus(string status);
 
         //Report
         [OperationContract]

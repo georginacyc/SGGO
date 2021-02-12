@@ -101,6 +101,12 @@ namespace DBService
             return gem.Insert();
         }
 
+        public void UpdateGemStatus(int gem_id, string status)
+        {
+            Gem gem = new Gem();
+            gem.UpdateStatus(gem_id, status);
+        }
+
         public Gem GetGemById(int id)
         {
             Gem gem = new Gem();
@@ -156,18 +162,6 @@ namespace DBService
         {
             Review review = new Review();
             review.UpdateStatus(review_id, status);
-        }
-
-        public void DeleteReview (int review_id)
-        {
-            Review review = new Review();
-            review.DeleteReview(review_id);
-        }
-
-        public Review GetReviewByStatus(string status)
-        {
-            Review review = new Review();
-            return review.SelectByStatus(status);
         }
 
         //Reports

@@ -11,11 +11,76 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            var x = client.GetAllReview();
+            if (Session["LoggedIn"] != null && Session["Role"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
+            {
+                if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+                {
+                    Session.Clear();
+                    Session.Abandon();
+                    Session.RemoveAll();
 
-            reviews_gv.DataSource = x;
-            reviews_gv.DataBind();
+                    Response.Redirect("Staff_Login.aspx");
+
+                    if (Request.Cookies["ASP.NET_SessionId"] != null)
+                    {
+                        Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                        Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                    }
+
+                    if (Request.Cookies["AuthToken"] != null)
+                    {
+                        Response.Cookies["AuthToken"].Value = string.Empty;
+                        Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                    }
+                }
+                else
+                {
+                    if (Session["Role"].ToString() == "Staff")
+                    {
+                        // on page load codes here
+                    }
+                    else
+                    {
+                        Session.Clear();
+                        Session.Abandon();
+                        Session.RemoveAll();
+
+                        Response.Redirect("Staff_Login.aspx");
+
+                        if (Request.Cookies["ASP.NET_SessionId"] != null)
+                        {
+                            Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                            Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+
+                        if (Request.Cookies["AuthToken"] != null)
+                        {
+                            Response.Cookies["AuthToken"].Value = string.Empty;
+                            Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Session.Clear();
+                Session.Abandon();
+                Session.RemoveAll();
+
+                Response.Redirect("Staff_Login.aspx");
+
+                if (Request.Cookies["ASP.NET_SessionId"] != null)
+                {
+                    Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                    Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                }
+
+                if (Request.Cookies["AuthToken"] != null)
+                {
+                    Response.Cookies["AuthToken"].Value = string.Empty;
+                    Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                }
+            }
         }
 
         protected void reviews_gv_SelectedIndexChanged(object sender, EventArgs e)

@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         #mainDiv {
-            width: 60%;
+            width: 70%;
             margin:auto;
             font-size: 17px;
         }
@@ -15,11 +15,11 @@
     </style>
     <div id="mainDiv">
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Accounts Table"></asp:Label>
-        <asp:GridView ID="accounts_gv" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AllowPaging="True">
+        <asp:GridView ID="accounts_gv" runat="server" style="width: 100%" DataSourceID="accountsDS" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AllowPaging="True">
             <Columns>
-                <asp:BoundField DataField="type" HeaderText="Type" ReadOnly="True" />
-                <asp:BoundField DataField="first_name" HeaderText="Name" ReadOnly="True" />
-                <asp:BoundField DataField="email" HeaderText="Email" ReadOnly="True" />
+                <asp:BoundField DataField="type" HeaderText="Type" ReadOnly="True" SortExpression="type" />
+                <asp:BoundField DataField="first_name" HeaderText="Name" ReadOnly="True" SortExpression="first_name"/>
+                <asp:BoundField DataField="email" HeaderText="Email" ReadOnly="True" SortExpression="email" />
                 <asp:CommandField SelectText="Details" ShowCancelButton="False" ShowSelectButton="True" />
             </Columns>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -31,7 +31,7 @@
             <SortedDescendingCellStyle BackColor="#E5E5E5" />
             <SortedDescendingHeaderStyle BackColor="#242121" />
         </asp:GridView>
-        <p>
-        </p>
+        <asp:SqlDataSource ID="accountsDS" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True;Connect Timeout=30" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [type], [first_name], [email] FROM [Accounts] ORDER BY [type] DESC"></asp:SqlDataSource>
+
     </div>    
 </asp:Content>

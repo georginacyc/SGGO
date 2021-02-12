@@ -92,6 +92,12 @@
   <wsdl:message name="IService1_GetAllGems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllGemsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateGemStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGemStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateGemStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGemStatusResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetGemById_InputMessage">
     <wsdl:part name="parameters" element="tns:GetGemById" />
   </wsdl:message>
@@ -145,18 +151,6 @@
   </wsdl:message>
   <wsdl:message name="IService1_UpdateReviewStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateReviewStatusResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_DeleteReview_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteReview" />
-  </wsdl:message>
-  <wsdl:message name="IService1_DeleteReview_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteReviewResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetReviewByStatus_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetReviewByStatus" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetReviewByStatus_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetReviewByStatusResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_CreateReport_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateReport" />
@@ -263,6 +257,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllGems" message="tns:IService1_GetAllGems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllGemsResponse" message="tns:IService1_GetAllGems_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateGemStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateGemStatus" message="tns:IService1_UpdateGemStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateGemStatusResponse" message="tns:IService1_UpdateGemStatus_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetGemById">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGemById" message="tns:IService1_GetGemById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGemByIdResponse" message="tns:IService1_GetGemById_OutputMessage" />
@@ -298,14 +296,6 @@
     <wsdl:operation name="UpdateReviewStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateReviewStatus" message="tns:IService1_UpdateReviewStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateReviewStatusResponse" message="tns:IService1_UpdateReviewStatus_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteReview">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteReview" message="tns:IService1_DeleteReview_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteReviewResponse" message="tns:IService1_DeleteReview_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetReviewByStatus">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReviewByStatus" message="tns:IService1_GetReviewByStatus_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReviewByStatusResponse" message="tns:IService1_GetReviewByStatus_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateReport">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateReport" message="tns:IService1_CreateReport_InputMessage" />
@@ -468,6 +458,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateGemStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateGemStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetGemById">
       <soap:operation soapAction="http://tempuri.org/IService1/GetGemById" style="document" />
       <wsdl:input>
@@ -542,24 +541,6 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateReviewStatus">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdateReviewStatus" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteReview">
-      <soap:operation soapAction="http://tempuri.org/IService1/DeleteReview" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetReviewByStatus">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetReviewByStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
