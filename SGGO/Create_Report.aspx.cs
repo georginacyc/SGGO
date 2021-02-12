@@ -12,7 +12,8 @@ namespace SGGO
     public partial class Create_Report : System.Web.UI.Page
     {
         string userid = null;
-        string type_id;
+        string type_id = null;
+        string type_type = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
@@ -24,8 +25,23 @@ namespace SGGO
                 else
                 {
                     userid = (string)Session["email"];
-                    type_id = Request.QueryString["post"];
-                    lbl_id.Text = type_id;
+
+                    if ( Request.QueryString["gem"] != null)
+                    {
+                        type_id = Request.QueryString["gem"];
+                        lbl_id.Text = type_id;
+                        type_type = "gem";
+                    }
+                    if (Request.QueryString["rev"] != null)
+                    {
+                        type_id = Request.QueryString["post"];
+                        lbl_id.Text = type_id;
+                        type_type = "review";
+                    }
+                    else
+                    {
+                        type_type = "gem";
+                    }
 
                 }
             }
@@ -48,7 +64,8 @@ namespace SGGO
         protected void btn_submit_report_Click(object sender, EventArgs e)
         {
             DateTime date_reported = DateTime.Now;
-            string type = lbl_id.Text;
+            string post = lbl_id.Text;
+            string type = type_type;
             string reported_by = userid;
             string reason = ddl_reason.SelectedValue;
             string remarks = tb_remark.Text;
@@ -56,7 +73,7 @@ namespace SGGO
 
 
             Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateReport(date_reported,type,reported_by,reason,remarks,status);
+            int result = client.CreateReport(date_reported,post,type,reported_by,reason,remarks,status);
             lbl_msg.Text = "Report successfully submitted, we will resolve it soon.";
             
         }

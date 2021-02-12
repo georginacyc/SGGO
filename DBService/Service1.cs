@@ -183,9 +183,9 @@ namespace DBService
             return report.SelectById(report_id);
         }
 
-        public int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status)
+        public int CreateReport(DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status)
         {
-            Report report = new Report(date_reported, type, reported_by, reason, remarks, status);
+            Report report = new Report(date_reported, post, type, reported_by, reason, remarks, status);
             return report.Insert();
         }
 
