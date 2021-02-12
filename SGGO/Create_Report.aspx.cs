@@ -43,6 +43,7 @@ namespace SGGO
         protected void btn_back_Click(object sender, EventArgs e)
         {
             Response.Redirect("User_Home.aspx");
+
         }
 
         protected void btn_submit_report_Click(object sender, EventArgs e)
