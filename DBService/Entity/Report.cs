@@ -14,6 +14,7 @@ namespace DBService.Entity
         // Define class properties
         public int Report_Id { get; set; }
         public DateTime Date_reported { get; set; }
+        public string Post { get; set; }
         public string Type { get; set; }
         public string Reported_by { get; set; }
         public string Reason { get; set; }
@@ -24,9 +25,10 @@ namespace DBService.Entity
         {
 
         }
-        public Report(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status)
+        public Report(DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status)
         {
             Date_reported = date_reported;
+            Post = post;
             Type = type;
             Reported_by = reported_by;
             Reason = reason;
@@ -34,10 +36,11 @@ namespace DBService.Entity
             Status = status;
         }
 
-        public Report(int report_id, DateTime date_reported, string type, string reported_by, string reason, string remarks, string status)
+        public Report(int report_id, DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status)
         {
             Report_Id = report_id;
             Date_reported = date_reported;
+            Post = post;
             Type = type;
             Reported_by = reported_by;
             Reason = reason;
@@ -47,13 +50,14 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
-            string query = "INSERT INTO Reports (date_reported, type, reported_by, main_reason, remarks, status)" + "VALUES (@date_reported, @type, @reported_by, @main_reason, @remarks, @status)";
+            string query = "INSERT INTO Reports (date_reported, post, type, reported_by, main_reason, remarks, status)" + "VALUES (@date_reported, @post, @type, @reported_by, @main_reason, @remarks, @status)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@date_reported", Date_reported);
+            cmd.Parameters.AddWithValue("@post", Post);
             cmd.Parameters.AddWithValue("@type", Type);
             cmd.Parameters.AddWithValue("@reported_by", Reported_by);
             cmd.Parameters.AddWithValue("@main_reason", Reason);
@@ -91,13 +95,14 @@ namespace DBService.Entity
                 DataRow row = ds.Tables[0].Rows[0];
                 int report_id = Convert.ToInt32(row["report_id"]);
                 DateTime date = Convert.ToDateTime(row["date_reported"]);
+                string post = row["post"].ToString();
                 string type = row["type"].ToString();
                 string reported_by = row["reported_by"].ToString();
                 string reason = row["main_reason"].ToString();
                 string remarks = row["remarks"].ToString();
               
 
-                report = new Report(report_id, date, type, reported_by, reason, remarks,status);
+                report = new Report(report_id, date, post, type, reported_by, reason, remarks,status);
             }
             return report;
         }
@@ -122,6 +127,7 @@ namespace DBService.Entity
             {
                 DataRow row = ds.Tables[0].Rows[0];
                 DateTime date = Convert.ToDateTime(row["date_reported"]);
+                string post = row["post"].ToString();
                 string type = row["type"].ToString();
                 string reported_by = row["reported_by"].ToString();
                 string reason = row["main_reason"].ToString();
@@ -129,7 +135,7 @@ namespace DBService.Entity
                 string status = row["status"].ToString();
 
 
-                report = new Report(report_id, date, type, reported_by, reason, remarks, status);
+                report = new Report(report_id, date, post, type, reported_by, reason, remarks, status);
             }
             return report;
         }
@@ -138,7 +144,7 @@ namespace DBService.Entity
 
         public List<Report> SelectAll()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Reports ORDER BY status DESC";
@@ -152,16 +158,17 @@ namespace DBService.Entity
             int count = ds.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                DataRow row = ds.Tables[0].Rows[0];
+                DataRow row = ds.Tables[0].Rows[i];
                 int report_id = Convert.ToInt32(row["report_id"]);
                 DateTime date = Convert.ToDateTime(row["date_reported"]);
+                string post = row["post"].ToString();
                 string type = row["type"].ToString();
                 string reported_by = row["reported_by"].ToString();
                 string reason = row["main_reason"].ToString();
                 string remarks = row["remarks"].ToString();
                 string status = row["status"].ToString();
 
-                Report report = new Report(report_id, date,type,reported_by,reason,remarks,status);
+                Report report = new Report(report_id, date, post, type,reported_by,reason,remarks,status);
                 reportList.Add(report);
             }
             return reportList;

@@ -11,25 +11,95 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request.QueryString["id"]))
+            if (Session["LoggedIn"] != null && Session["Role"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
             {
-                DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                var review = client.GetReviewById(Convert.ToInt32(Request.QueryString["id"]));
-
-                if (review.Status.Trim() == "Approved" || review.Status.Trim() == "Rejected")
+                if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
                 {
-                    approve_btn.Visible = false;
-                    disapprove_btn.Visible = false;
+                    Session.Clear();
+                    Session.Abandon();
+                    Session.RemoveAll();
+
+                    Response.Redirect("Staff_Login.aspx");
+
+                    if (Request.Cookies["ASP.NET_SessionId"] != null)
+                    {
+                        Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                        Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                    }
+
+                    if (Request.Cookies["AuthToken"] != null)
+                    {
+                        Response.Cookies["AuthToken"].Value = string.Empty;
+                        Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                    }
                 }
-                review_lb.Text = review_lb.Text + review.Review_Id.ToString();
-                status_lb.Text = review.Status;
-                gem_lb.Text = review.Post; // now is id, will need to retrieve name with it next time. also want to make it clickable, link to gem page.
-                author_lb.Text = review.Author;
-                rating_lb.Text = review.Rating;
-                description_lb.Text = review.Description;
-            } else
+                else
+                {
+                    if (Session["Role"].ToString() == "Staff")
+                    {
+                        // on page load codes here
+                        if (!String.IsNullOrEmpty(Request.QueryString["id"]))
+                        {
+                            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+                            var review = client.GetReviewById(Convert.ToInt32(Request.QueryString["id"]));
+
+                            if (review.Status.Trim() == "Approved" || review.Status.Trim() == "Rejected")
+                            {
+                                approve_btn.Visible = false;
+                                disapprove_btn.Visible = false;
+                            }
+                            review_lb.Text = review_lb.Text + review.Review_Id.ToString();
+                            status_lb.Text = review.Status;
+                            gem_lb.Text = review.Gem_Title; // now is id, will need to retrieve name with it next time. also want to make it clickable, link to gem page.
+                            author_lb.Text = review.Author; 
+                            rating_lb.Text = review.Rating;
+                            description_lb.Text = review.Description;
+                        } else
+                        {
+                            Response.Redirect("Staff_Reviews_Table.aspx");
+                        }
+                    }
+                    else
+                    {
+                        Session.Clear();
+                        Session.Abandon();
+                        Session.RemoveAll();
+
+                        Response.Redirect("Staff_Login.aspx");
+
+                        if (Request.Cookies["ASP.NET_SessionId"] != null)
+                        {
+                            Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                            Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+
+                        if (Request.Cookies["AuthToken"] != null)
+                        {
+                            Response.Cookies["AuthToken"].Value = string.Empty;
+                            Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+                    }
+                }
+            }
+            else
             {
-                Response.Redirect("Staff_Reviews_Table.aspx");
+                Session.Clear();
+                Session.Abandon();
+                Session.RemoveAll();
+
+                Response.Redirect("Staff_Login.aspx");
+
+                if (Request.Cookies["ASP.NET_SessionId"] != null)
+                {
+                    Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                    Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                }
+
+                if (Request.Cookies["AuthToken"] != null)
+                {
+                    Response.Cookies["AuthToken"].Value = string.Empty;
+                    Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                }
             }
         }
 

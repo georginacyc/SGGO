@@ -101,6 +101,18 @@ namespace DBService
             return gem.Insert();
         }
 
+        public void UpdateGemStatus(int gem_id, string status)
+        {
+            Gem gem = new Gem();
+            gem.UpdateStatus(gem_id, status);
+        }
+
+        public Gem GetGemById(int id)
+        {
+            Gem gem = new Gem();
+            return gem.SelectById(id);
+        }
+
 
         // Monthly Trail
         public List<Trail> GetAllTrails()
@@ -140,9 +152,9 @@ namespace DBService
             return review.SelectById(review_id);
         }
 
-        public int CreateReview(string status, string post, string author, string rating, string description)
+        public int CreateReview(string status, string gem_id, string gem_title, string author, string rating, string description)
         {
-            Review review = new Review(status, post, author, rating, description);
+            Review review = new Review(status, gem_id, gem_title, author, rating, description);
             return review.Insert();
         }
 
@@ -150,6 +162,12 @@ namespace DBService
         {
             Review review = new Review();
             review.UpdateStatus(review_id, status);
+        }
+
+        public void DeleteReview(int review_id)
+        {
+            Review review = new Review();
+            review.DeleteReview(review_id);
         }
 
         //Reports
@@ -171,9 +189,9 @@ namespace DBService
             return report.SelectById(report_id);
         }
 
-        public int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status)
+        public int CreateReport(DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status)
         {
-            Report report = new Report(date_reported, type, reported_by, reason, remarks, status);
+            Report report = new Report(date_reported, post, type, reported_by, reason, remarks, status);
             return report.Insert();
         }
 

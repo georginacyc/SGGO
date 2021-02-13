@@ -56,6 +56,12 @@ namespace DBService
         [OperationContract]
         List<Gem> GetAllGems();
 
+        [OperationContract]
+        void UpdateGemStatus(int gem_id, string status);
+
+        [OperationContract]
+        Gem GetGemById(int id);
+
 
         //Trail
         [OperationContract]
@@ -70,7 +76,7 @@ namespace DBService
 
         //Review
         [OperationContract]
-        int CreateReview(string status, string post, string author, string rating, string description);
+        int CreateReview(string status, string gem_id, string gem_title, string author, string rating, string description);
 
         [OperationContract]
         Review GetReviewByAuthor(string author);
@@ -84,9 +90,13 @@ namespace DBService
         [OperationContract]
         void UpdateReviewStatus(int review_id, string status);
 
+        [OperationContract]
+        void DeleteReview(int review_id);
+
+
         //Report
         [OperationContract]
-        int CreateReport(DateTime date_reported, string type, string reported_by, string reason, string remarks, string status);
+        int CreateReport(DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status);
 
         [OperationContract]
         Report GetReportByStatus(string status);

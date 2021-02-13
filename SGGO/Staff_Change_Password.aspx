@@ -1,34 +1,42 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Staff.Master" AutoEventWireup="true" CodeBehind="Staff_Change_Password.aspx.cs" Inherits="SGGO.Staff_Change_Password" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            max-width: 300px;
+            width: 189px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Change Password"></asp:Label>
-        <table style="width:100%;">
+    <div class="card" style="width: 30%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Change Password"></asp:Label>
+        <table style="width:100%; " cellpadding="7px">
             <tr>
-                <td class="modal-sm" style="width: 166px">Current Password</td>
+                <td class="auto-style1">Current Password</td>
                 <td>
-                    <asp:TextBox ID="current_tb" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="current_tb" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="modal-sm" style="width: 166px">New Password</td>
+                <td class="auto-style1">New Password</td>
                 <td>
-                    <asp:TextBox ID="new_tb" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="new_tb" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="modal-sm" style="width: 166px">Confirm New Password</td>
+                <td class="auto-style1">Confirm New Password</td>
                 <td>
-                    <asp:TextBox ID="new2_tb" runat="server" TextMode="Password"></asp:TextBox>
-                    <strong>&nbsp;<asp:Label ID="pwd_match" runat="server" ForeColor="Red">Passwords must match!</asp:Label>
-                    </strong></td>
-                <td>&nbsp;</td>
+                    <asp:TextBox ID="new2_tb" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                    </td>
+            </tr>
+            <tr>
+                <td class="modal-sm" style="width: 166px" colspan="2">Password Complexity: <span id="complexity_rating" style="font-weight: bold;"></span></td>
             </tr>
         </table>
-    Password Complexity: <span id="complexity_rating" style="font-weight: bold;"></span>
-    <p><strong>
+    <p>
+                    <strong><asp:Label ID="pwd_match" runat="server" ForeColor="Red">Passwords must match!</asp:Label>
+                    </strong></p>
+        <p><strong>
         <asp:Label ID="error_lb" runat="server" ForeColor="Red"></asp:Label>
         </strong></p>
     <p>Your password must meet the following criteria:<br />
@@ -53,9 +61,12 @@
     </strong>
     <br />
     </p>
-    <p>
-        <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" />
-    </p>
+        <div class="display: inline-block">
+        <asp:Button ID="submit_btn" runat="server" CssClass="btn btn-dark" style="width: 15%; float:right" Text="Submit" OnClick="submit_btn_Click" />
+
+        </div>
+    </div>
+    
     <script type="text/javascript">
         document.getElementById("<%=pwd_match.ClientID %>").style.display = "none";
 

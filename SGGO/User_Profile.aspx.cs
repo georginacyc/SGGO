@@ -64,5 +64,10 @@ namespace SGGO
                 Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
             }
         }
+
+        protected void btn_reviews_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("User_Reviews.aspx");
+        }
     }
 }

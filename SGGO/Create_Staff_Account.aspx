@@ -19,103 +19,110 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Create Staff Account"></asp:Label>
-    <br />
-    <br />
-    <table class="w-100">
-        <tr>
-            <td class="auto-style6">Email</td>
-            <td class="auto-style2">
-                <asp:Label ID="staff_email_lb" runat="server"></asp:Label>
-            </td>
-            <td class="auto-style5">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style6">First Name:</td>
-            <td class="auto-style2">
-                <asp:TextBox ID="staff_fn_tb" runat="server" CssClass="offset-sm-0"></asp:TextBox>
-            </td>
-            <td class="auto-style5">Last Name: </td>
-            <td class="auto-style3">
-                <asp:TextBox ID="staff_ln_tb" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style6">DOB:</td>
-            <td class="auto-style2">
-                <asp:TextBox ID="staff_dob_tb" runat="server" TextMode="Date"></asp:TextBox>
-            </td>
-            <td class="auto-style5">HP (+65):</td>
-            <td class="auto-style3">
-                <asp:TextBox ID="staff_hp_tb" runat="server" TextMode="Phone"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style6">Postal Code:</td>
-            <td class="auto-style2">
-                <asp:TextBox ID="staff_postalcode_tb" runat="server"></asp:TextBox>
-            </td>
-            <td class="auto-style5">Address:</td>
-            <td class="auto-style3" rowspan="2">
-                <asp:TextBox ID="staff_address_tb" runat="server" Height="39px" TextMode="MultiLine" Width="201px"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style6">&nbsp;</td>
-            <td class="auto-style2">
-                &nbsp;</td>
-            <td class="auto-style5">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style6">Picture:</td>
-            <td class="auto-style2">
-                <asp:FileUpload ID="picture_file" runat="server" />
-            </td>
-            <td class="auto-style5">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style6">Password:</td>
-            <td class="auto-style2">
-                <asp:TextBox ID="staff_password_tb" TextMode="Password" runat="server"></asp:TextBox>
-            </td>
-            <td class="auto-style5">Confirm Password:</td>
-            <td class="auto-style3">
-                <asp:TextBox ID="staff_password2_tb" TextMode="Password" runat="server"></asp:TextBox>
-            &nbsp;<asp:Label ID="pwd_match" runat="server" Font-Bold="True" ForeColor="Red">Passwords must match!</asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style4" colspan="2">Password Complexty: <span id="complexity_rating" style="font-weight: bold;"></span></td>
-            <td class="auto-style5">
-                &nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
-        </tr>
-    </table>
-    <asp:Label ID="error_lb" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
-    <br />
-    <br />
-    Your password must meet the following criteria:<br />
-    &nbsp;&nbsp;&nbsp; - <strong>
-    <asp:Label ID="pwd_length" runat="server" ForeColor="Red" Text="At least 8 characters"></asp:Label>
-    </strong>
-    <br />
-    &nbsp;&nbsp;&nbsp; - <strong>
-    <asp:Label ID="pwd_case" runat="server" ForeColor="Red" Text="Mix of upper and lowercase characters"></asp:Label>
-    </strong>
-    <br />
-    &nbsp;&nbsp;&nbsp; - <strong>
-    <asp:Label ID="pwd_num" runat="server" ForeColor="Red" Text="At least 1 number"></asp:Label>
-    </strong>
-    <br />
-    &nbsp;&nbsp;&nbsp; - <strong>
-    <asp:Label ID="pwd_char" runat="server" ForeColor="Red" Text="At least 1 special character"></asp:Label>
-    </strong>
-    <br />
-    <br />
-    <br />
-    <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" />
-    <br />
+    <div class="card" style="width: 55%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Create Staff Account"></asp:Label>
+        <br />
+        <br />
+        <table class="" style="width:100%" cellpadding="7px">
+            <tr>
+                <td class="auto-style6" style="width: 15%">Email:</td>
+                <td class="auto-style2" style="width: 35%">
+                    <asp:Label ID="staff_email_lb" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style5" style="width: 15%">&nbsp;</td>
+                <td class="auto-style3" style="width: 35%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style6" style="width: 15%">First Name:</td>
+                <td class="auto-style2" style="width: 35%">
+                    <asp:TextBox ID="staff_fn_tb" runat="server" CssClass="offset-sm-0 form-control"></asp:TextBox>
+                </td>
+                <td class="auto-style5" style="width: 15%">Last Name: </td>
+                <td class="auto-style3" style="width: 35%">
+                    <asp:TextBox ID="staff_ln_tb" CssClass="form-control" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style6" style="">DOB:</td>
+                <td class="auto-style2" style="">
+                    <asp:TextBox ID="staff_dob_tb" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                </td>
+                <td class="auto-style5" style="">HP (+65):</td>
+                <td class="auto-style3" style="">
+                    <asp:TextBox ID="staff_hp_tb" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style6" style="">Postal Code:</td>
+                <td class="auto-style2" style="">
+                    <asp:TextBox ID="staff_postalcode_tb" CssClass="form-control" runat="server"></asp:TextBox>
+                </td>
+                <td class="auto-style5" style="">Address:</td>
+                <td class="auto-style3" rowspan="2" style="">
+                    <asp:TextBox ID="staff_address_tb" runat="server" CssClass="form-control" Height="39px" TextMode="MultiLine" Width="100%"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style6" style="">&nbsp;</td>
+                <td class="auto-style2" style="">
+                    &nbsp;</td>
+                <td class="auto-style5" style="">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style6" style="">Picture:</td>
+                <td class="auto-style2" style="">
+                    <asp:FileUpload ID="picture_file" runat="server" />
+                </td>
+                <td class="auto-style5" style="">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style6" style="">Password:</td>
+                <td class="auto-style2" style="">
+                    <asp:TextBox ID="staff_password_tb" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                </td>
+                <td class="auto-style5" style="">Confirm Password:</td>
+                <td class="auto-style3" style="">
+                    <asp:TextBox ID="staff_password2_tb" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style4" style="" colspan="4">Password Complexity: <span id="complexity_rating" style="font-weight: bold;"></span></td>
+            </tr>
+        </table>
+        <asp:Label ID="pwd_match" runat="server" Font-Bold="True" ForeColor="Red">Passwords must match!</asp:Label>
+                <br />
+        <asp:Label ID="error_lb" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
+        <br />
+        <br />
+        Your password must meet the following criteria:<br />
+        <div style="inline-block">
+        &nbsp;&nbsp;&nbsp; - <strong> <asp:Label ID="pwd_length" runat="server" ForeColor="Red" style="" Text="At least 8 characters"></asp:Label>
+            </strong>
+        </div>
+            <br />
+        <div style="inline-block">
+        &nbsp;&nbsp;&nbsp; - <strong> <asp:Label ID="pwd_case" runat="server" ForeColor="Red" Text="Mix of upper and lowercase characters"></asp:Label>
+            </strong>
+        </div>
+            <br />
+        <div style="inline-block">
+        &nbsp;&nbsp;&nbsp; - <strong> <asp:Label ID="pwd_num" runat="server" ForeColor="Red" Text="At least 1 number"></asp:Label>
+            </strong>
+        </div>
+            <br />
+        <div style="inline-block">
+        &nbsp;&nbsp;&nbsp; - <strong> <asp:Label ID="pwd_char" runat="server" ForeColor="Red" Text="At least 1 special character"></asp:Label>
+            </strong>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div style="display: inline-block">
+            <asp:Button ID="submit_btn" class="btn btn-dark" style="float: right" runat="server" Text="Create" OnClick="submit_btn_Click" />
+        </div>
+        <br />
+    </div>
+    
 
     <script>
         document.getElementById("<%=pwd_match.ClientID %>").style.display = "none";

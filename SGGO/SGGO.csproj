@@ -46,6 +46,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -105,14 +106,13 @@
     <Content Include="Staff_Account_Details.aspx" />
     <Content Include="Staff_Change_Password.aspx" />
     <Content Include="Staff_Gems_Table.aspx" />
-    <Content Include="Staff_Gem_List.aspx" />
+    <Content Include="Staff_Gem_Details.aspx" />
     <Content Include="Staff_Home.aspx" />
     <Content Include="Staff_Login.aspx" />
     <Content Include="Staff_Ongoing_Trails.aspx" />
     <Content Include="Staff_Own_Account_Details.aspx" />
     <Content Include="Staff_Reports_Table.aspx" />
     <Content Include="Staff_Report_Details.aspx" />
-    <Content Include="Staff_Review.aspx" />
     <Content Include="Staff_Reviews_Table.aspx" />
     <Content Include="Staff_Review_Details.aspx" />
     <Content Include="testform.aspx" />
@@ -122,6 +122,7 @@
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
     <Content Include="User_Profile.aspx" />
+    <Content Include="User_Reviews.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -323,12 +324,12 @@
     <Compile Include="Staff_Gems_Table.aspx.designer.cs">
       <DependentUpon>Staff_Gems_Table.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Staff_Gem_List.aspx.cs">
-      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
+    <Compile Include="Staff_Gem_Details.aspx.cs">
+      <DependentUpon>Staff_Gem_Details.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Staff_Gem_List.aspx.designer.cs">
-      <DependentUpon>Staff_Gem_List.aspx</DependentUpon>
+    <Compile Include="Staff_Gem_Details.aspx.designer.cs">
+      <DependentUpon>Staff_Gem_Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff_Home.aspx.cs">
       <DependentUpon>Staff_Home.aspx</DependentUpon>
@@ -371,13 +372,6 @@
     </Compile>
     <Compile Include="Staff_Report_Details.aspx.designer.cs">
       <DependentUpon>Staff_Report_Details.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff_Review.aspx.cs">
-      <DependentUpon>Staff_Review.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff_Review.aspx.designer.cs">
-      <DependentUpon>Staff_Review.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff_Reviews_Table.aspx.cs">
       <DependentUpon>Staff_Reviews_Table.aspx</DependentUpon>
@@ -427,6 +421,13 @@
     </Compile>
     <Compile Include="User_Profile.aspx.designer.cs">
       <DependentUpon>User_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Reviews.aspx.cs">
+      <DependentUpon>User_Reviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Reviews.aspx.designer.cs">
+      <DependentUpon>User_Reviews.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
