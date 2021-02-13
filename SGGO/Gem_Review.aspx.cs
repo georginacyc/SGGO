@@ -30,6 +30,8 @@ namespace SGGO
                     DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                     var gems = client.GetGemById(Convert.ToInt32(gemid));
                     gemtitle = gems.Title;
+                    string gem_des = gems.Image;
+                    gem_image.ImageUrl = "~/Images/Gem/"+gem_des;
                 }
             }
             else
