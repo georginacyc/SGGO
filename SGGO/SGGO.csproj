@@ -86,6 +86,8 @@
     <Content Include="Create_Staff_Account.aspx" />
     <Content Include="Create_Trail.aspx" />
     <Content Include="Create_User_Account.aspx" />
+    <Content Include="Error_Pages\404.aspx" />
+    <Content Include="Error_Pages\Generic.aspx" />
     <Content Include="Gem_Catalogue.aspx" />
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
@@ -172,6 +174,20 @@
     </Compile>
     <Compile Include="Create_User_Account.aspx.designer.cs">
       <DependentUpon>Create_User_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pages\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error_Pages\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pages\Generic.aspx.cs">
+      <DependentUpon>Generic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error_Pages\Generic.aspx.designer.cs">
+      <DependentUpon>Generic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gem_Catalogue.aspx.cs">
       <DependentUpon>Gem_Catalogue.aspx</DependentUpon>
