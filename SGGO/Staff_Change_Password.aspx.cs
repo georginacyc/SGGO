@@ -40,8 +40,6 @@ namespace SGGO
                     if (Session["Role"].ToString() == "Staff")
                     {
                         // on page load codes here
-                        success_lb.Visible = false;
-
                     }
                     else
                     {
@@ -152,12 +150,10 @@ namespace SGGO
                 int result = client.ChangePassword(Session["LoggedIn"].ToString(), hashednew);
                 if (result == 1)
                 {
-                    success_lb.Visible = true;
                     Session.Clear();
                     Session.Abandon();
                     Session.RemoveAll();
 
-                    System.Threading.Thread.Sleep(5000);
                     Response.Redirect("Staff_Login.aspx");
 
                     if (Request.Cookies["ASP.NET_SessionId"] != null)
