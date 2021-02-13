@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Staff_Login.aspx.cs" Inherits="SGGO.Staff_Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
+    <script src="<%= sourcekey %>" ></script>
     <div class="card" style="width: 19%; margin: 10px auto auto auto;">
         <div class="card-body">
             <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Staff Login"></asp:Label>
@@ -36,7 +37,15 @@
                         </td>
                     </tr>
                 </table>
+                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
             </form>
         </div>
     </div>
+<script>
+        grecaptcha.ready(function () {
+                grecaptcha.execute('<%= sitekey %>', { action: 'Login' }).then(function (token) {
+                document.getElementById("g-recaptcha-response").value = token
+            });
+        });
+</script>
 </asp:Content>
