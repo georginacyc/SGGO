@@ -59,8 +59,8 @@ namespace DBService
         [OperationContract]
         void UpdateGemStatus(int gem_id, string status);
 
-        [OperationContract]
-        void UpdateGemRating(int gem_id, float rating);
+        //[OperationContract]
+        //void UpdateGemRating(int gem_id, float rating);
 
         [OperationContract]
         Gem GetGemById(int id);
@@ -82,7 +82,7 @@ namespace DBService
 
         //Review
         [OperationContract]
-        int CreateReview(string status, string gem_id, string gem_title, string author, string rating, string description);
+        int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description);
 
         [OperationContract]
         Review GetReviewByAuthor(string author);

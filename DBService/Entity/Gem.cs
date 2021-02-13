@@ -62,7 +62,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -151,7 +151,7 @@ namespace DBService.Entity
         // Select by Id
         public Gem SelectById(int id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Gem WHERE Id = @id";
@@ -272,20 +272,27 @@ namespace DBService.Entity
             return count;
         }
 
-        public void UpdateRating(int id, float rating)
+        public void UpdateRating(int gem_id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
+
+            string avgquery = "SELECT AVG(rating) FROM Review WHERE gem_id = @id AND status = 'Approved'";
+            SqlCommand avgcmd = new SqlCommand(avgquery, conn);
+            avgcmd.Parameters.AddWithValue("@id", gem_id);
+
+            conn.Open();
+            var avg = avgcmd.ExecuteScalar();
 
             string query = "UPDATE Gem SET rating = @rating WHERE Id = @id";
             SqlCommand cmd = new SqlCommand(query, conn);
 
-            cmd.Parameters.AddWithValue("@rating", rating);
-            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@rating", avg);
+            cmd.Parameters.AddWithValue("@id", gem_id);
 
-            conn.Open();
-            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            cmd.ExecuteNonQuery();
+
             conn.Close();
         }
     }

@@ -54,7 +54,7 @@ namespace SGGO
                             status_lb.Text = review.Status;
                             gem_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + review.Gem_Id + "&gemT=" + review.Gem_Title + "'>" + review.Gem_Title + "</a>"; // now is id, will need to retrieve name with it next time. also want to make it clickable, link to gem page.
                             author_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + review.Author + "'>" + review.Author + "</a>";
-                            rating_lb.Text = review.Rating;
+                            rating_lb.Text = review.Rating.ToString();
                             description_lb.Text = review.Description;
                         } else
                         {

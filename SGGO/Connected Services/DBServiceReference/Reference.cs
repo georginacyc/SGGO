@@ -823,7 +823,7 @@ namespace SGGO.DBServiceReference {
         private string Gem_TitleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RatingField;
+        private int RatingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Review_IdField;
@@ -894,12 +894,12 @@ namespace SGGO.DBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Rating {
+        public int Rating {
             get {
                 return this.RatingField;
             }
             set {
-                if ((object.ReferenceEquals(this.RatingField, value) != true)) {
+                if ((this.RatingField.Equals(value) != true)) {
                     this.RatingField = value;
                     this.RaisePropertyChanged("Rating");
                 }
@@ -1350,12 +1350,6 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateGemStatus", ReplyAction="http://tempuri.org/IService1/UpdateGemStatusResponse")]
         System.Threading.Tasks.Task UpdateGemStatusAsync(int gem_id, string status);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateGemRating", ReplyAction="http://tempuri.org/IService1/UpdateGemRatingResponse")]
-        void UpdateGemRating(int gem_id, float rating);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateGemRating", ReplyAction="http://tempuri.org/IService1/UpdateGemRatingResponse")]
-        System.Threading.Tasks.Task UpdateGemRatingAsync(int gem_id, float rating);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGemById", ReplyAction="http://tempuri.org/IService1/GetGemByIdResponse")]
         SGGO.DBServiceReference.Gem GetGemById(int id);
         
@@ -1387,10 +1381,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Trail[]> GetAllTrailsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateReview", ReplyAction="http://tempuri.org/IService1/CreateReviewResponse")]
-        int CreateReview(string status, string gem_id, string gem_title, string author, string rating, string description);
+        int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateReview", ReplyAction="http://tempuri.org/IService1/CreateReviewResponse")]
-        System.Threading.Tasks.Task<int> CreateReviewAsync(string status, string gem_id, string gem_title, string author, string rating, string description);
+        System.Threading.Tasks.Task<int> CreateReviewAsync(string status, string gem_id, string gem_title, string author, int rating, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetReviewByAuthor", ReplyAction="http://tempuri.org/IService1/GetReviewByAuthorResponse")]
         SGGO.DBServiceReference.Review GetReviewByAuthor(string author);
@@ -1630,14 +1624,6 @@ namespace SGGO.DBServiceReference {
             return base.Channel.UpdateGemStatusAsync(gem_id, status);
         }
         
-        public void UpdateGemRating(int gem_id, float rating) {
-            base.Channel.UpdateGemRating(gem_id, rating);
-        }
-        
-        public System.Threading.Tasks.Task UpdateGemRatingAsync(int gem_id, float rating) {
-            return base.Channel.UpdateGemRatingAsync(gem_id, rating);
-        }
-        
         public SGGO.DBServiceReference.Gem GetGemById(int id) {
             return base.Channel.GetGemById(id);
         }
@@ -1678,11 +1664,11 @@ namespace SGGO.DBServiceReference {
             return base.Channel.GetAllTrailsAsync();
         }
         
-        public int CreateReview(string status, string gem_id, string gem_title, string author, string rating, string description) {
+        public int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description) {
             return base.Channel.CreateReview(status, gem_id, gem_title, author, rating, description);
         }
         
-        public System.Threading.Tasks.Task<int> CreateReviewAsync(string status, string gem_id, string gem_title, string author, string rating, string description) {
+        public System.Threading.Tasks.Task<int> CreateReviewAsync(string status, string gem_id, string gem_title, string author, int rating, string description) {
             return base.Channel.CreateReviewAsync(status, gem_id, gem_title, author, rating, description);
         }
         

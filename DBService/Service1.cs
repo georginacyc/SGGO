@@ -107,11 +107,11 @@ namespace DBService
             gem.UpdateStatus(gem_id, status);
         }
 
-        public void UpdateGemRating(int gem_id, float rating)
-        {
-            Gem gem = new Gem();
-            gem.UpdateRating(gem_id, rating);
-        }
+        //public void UpdateGemRating(int gem_id)
+        //{
+        //    Gem gem = new Gem();
+        //    gem.UpdateRating(gem_id);
+        //}
 
         public Gem GetGemById(int id)
         {
@@ -163,7 +163,7 @@ namespace DBService
             return review.SelectById(review_id);
         }
 
-        public int CreateReview(string status, string gem_id, string gem_title, string author, string rating, string description)
+        public int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description)
         {
             Review review = new Review(status, gem_id, gem_title, author, rating, description);
             return review.Insert();
@@ -173,6 +173,9 @@ namespace DBService
         {
             Review review = new Review();
             review.UpdateStatus(review_id, status);
+            var rev = review.SelectById(review_id);
+            Gem gem = new Gem();
+            gem.UpdateRating(Convert.ToInt32(rev.Gem_Id));
         }
 
         public int CountPendingReviews()
@@ -184,7 +187,11 @@ namespace DBService
         public void DeleteReview(int review_id)
         {
             Review review = new Review();
+            var rev = review.SelectById(review_id);
+            string gem_id = rev.Gem_Id;
             review.DeleteReview(review_id);
+            Gem gem = new Gem();
+            gem.UpdateRating(Convert.ToInt32(gem_id));
         }
 
         //Reports
