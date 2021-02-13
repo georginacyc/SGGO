@@ -271,6 +271,23 @@ namespace DBService.Entity
 
             return count;
         }
+
+        public void UpdateRating(int id, float rating)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Gem SET rating = @rating WHERE Id = @id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@rating", rating);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            conn.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            conn.Close();
+        }
     }
 
 

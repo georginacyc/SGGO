@@ -107,6 +107,12 @@ namespace DBService
             gem.UpdateStatus(gem_id, status);
         }
 
+        public void UpdateGemRating(int gem_id, float rating)
+        {
+            Gem gem = new Gem();
+            gem.UpdateRating(gem_id, rating);
+        }
+
         public Gem GetGemById(int id)
         {
             Gem gem = new Gem();

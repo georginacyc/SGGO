@@ -224,6 +224,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateGemRating">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="gem_id" type="xs:int" />
+        <xs:element minOccurs="0" name="rating" type="xs:float" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGemRatingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetGemById">
     <xs:complexType>
       <xs:sequence>

@@ -60,6 +60,9 @@ namespace DBService
         void UpdateGemStatus(int gem_id, string status);
 
         [OperationContract]
+        void UpdateGemRating(int gem_id, float rating);
+
+        [OperationContract]
         Gem GetGemById(int id);
 
         [OperationContract]

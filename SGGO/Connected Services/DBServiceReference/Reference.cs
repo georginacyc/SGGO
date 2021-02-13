@@ -1350,6 +1350,12 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateGemStatus", ReplyAction="http://tempuri.org/IService1/UpdateGemStatusResponse")]
         System.Threading.Tasks.Task UpdateGemStatusAsync(int gem_id, string status);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateGemRating", ReplyAction="http://tempuri.org/IService1/UpdateGemRatingResponse")]
+        void UpdateGemRating(int gem_id, float rating);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateGemRating", ReplyAction="http://tempuri.org/IService1/UpdateGemRatingResponse")]
+        System.Threading.Tasks.Task UpdateGemRatingAsync(int gem_id, float rating);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGemById", ReplyAction="http://tempuri.org/IService1/GetGemByIdResponse")]
         SGGO.DBServiceReference.Gem GetGemById(int id);
         
@@ -1622,6 +1628,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task UpdateGemStatusAsync(int gem_id, string status) {
             return base.Channel.UpdateGemStatusAsync(gem_id, status);
+        }
+        
+        public void UpdateGemRating(int gem_id, float rating) {
+            base.Channel.UpdateGemRating(gem_id, rating);
+        }
+        
+        public System.Threading.Tasks.Task UpdateGemRatingAsync(int gem_id, float rating) {
+            return base.Channel.UpdateGemRatingAsync(gem_id, rating);
         }
         
         public SGGO.DBServiceReference.Gem GetGemById(int id) {
