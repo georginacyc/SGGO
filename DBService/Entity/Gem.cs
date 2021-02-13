@@ -45,7 +45,7 @@ namespace DBService.Entity
         }
 
         // for creating gems
-        public Gem(string title, string description, string type, string location, DateTime? date,string status, float? rating, string partner, string image)
+        public Gem(string partner_email, string title, string description, string type, string location, DateTime? date,string status, float? rating, string partner, string image)
         {
             Partner_Email = partner_email;
             Title = title;
@@ -150,7 +150,7 @@ namespace DBService.Entity
         // Select by Id
         public Gem SelectById(int id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Gem WHERE Id = @id";
@@ -193,7 +193,7 @@ namespace DBService.Entity
                     date = Convert.ToDateTime(row["date"]);
                 }
 
-                gem = new Gem(title, description, type, location, date, status, rating, partner, image);
+                gem = new Gem(id, title, description, type, location, date, status, rating, partner, image);
             }
             return gem;
         }
