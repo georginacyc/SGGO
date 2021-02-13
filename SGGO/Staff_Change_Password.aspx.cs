@@ -174,5 +174,10 @@ namespace SGGO
                 }
             }
         }
+
+        protected void back_btn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Staff_Own_Account_Details.aspx");
+        }
     }
 }

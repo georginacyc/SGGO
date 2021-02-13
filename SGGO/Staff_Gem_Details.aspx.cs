@@ -116,5 +116,10 @@ namespace SGGO
 
             Response.Redirect("Staff_Gems_Table.aspx");
         }
+
+        protected void back_btn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Staff_Gems_Table.aspx");
+        }
     }
 }
