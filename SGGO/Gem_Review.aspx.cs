@@ -26,7 +26,10 @@ namespace SGGO
                     review_date.Text = DateTime.Now.ToString();
                     user = (string)Session["email"];
                     gemid = Request.QueryString["gem"]; // retrieve from gem id listing
-                    gemtitle = Request.QueryString["gemtitle"]; // retrieve from gem title listing
+
+                    DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+                    var gems = client.GetGemById(Convert.ToInt32(gemid));
+                    gemtitle = gems.Title;
                 }
             }
             else

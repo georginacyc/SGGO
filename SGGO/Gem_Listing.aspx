@@ -62,14 +62,16 @@
             </tr>
             <tr>
                 <td style="width: 549px">
-                    <div style="padding-left:50px">
-                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="4" CssClass="myDatagrid" Width="541px" DataKeyNames="review_id" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" DataSourceID="GetGemReviews" ForeColor="#333333" GridLines="None" >
+                    <div style="padding-left:20px">
+                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="4" CssClass="myDatagrid" Width="598px" DataKeyNames="review_id" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" DataSourceID="GetGemReviews" ForeColor="#333333" GridLines="None" >
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
       
-                            <asp:BoundField DataField="rating" HeaderText="rating" SortExpression="rating" />
-                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
-                            <asp:CommandField SelectText="Report" ShowCancelButton="False" ShowSelectButton="True" />
+                            <asp:BoundField DataField="rating" HeaderText="Rating (out of 5 stars)" SortExpression="rating" />
+                            <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
+                            <asp:CommandField SelectText="Report" ShowCancelButton="False" ShowSelectButton="True" >
+                            <ItemStyle ForeColor="#990000" />
+                            </asp:CommandField>
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

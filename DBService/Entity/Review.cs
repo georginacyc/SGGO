@@ -50,7 +50,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
             string query = "INSERT INTO Review (status, gem_id, gem_title, author, rating, description)" + "VALUES (@status, @gem_id, @gem_title, @author, @rating, @description)";
