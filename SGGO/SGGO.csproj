@@ -90,6 +90,7 @@
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Gem\Raffles Marina.jpg" />
     <Content Include="Partner_Delete_Gem.aspx" />
     <Content Include="Partner_Delete_Point_Shop_Item.aspx" />
     <Content Include="Partner_Gem_List.aspx" />
@@ -477,7 +478,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\Gem\" />
     <Folder Include="Images\Profile_Pictures\" />
     <Folder Include="Images\Trail\" />
     <Folder Include="Models\" />
