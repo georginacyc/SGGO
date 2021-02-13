@@ -23,6 +23,8 @@
     
     <div class="container-fluid">
     <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="New Gem"></asp:Label>
+        <br />
+        <asp:Label ID="lb_errormsg" runat="server" BorderColor="#993333" ForeColor="Black"></asp:Label>
     <br />
     <table class="auto-style5" id="formtable">
         <tr>
@@ -31,6 +33,7 @@
             </td>
             <td>
                 <asp:TextBox ID="tb_title" runat="server" Width="100%"></asp:TextBox>
+               
             </td>
         </tr>
         <tr>

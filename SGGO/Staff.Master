@@ -19,7 +19,12 @@
                 </a>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">pp</a>
+                        <a class="nav-link" href="Staff_Gem_List.aspx">Gems</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Staff_Ongoing_Trails.aspx">Ongoing Trails</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ">

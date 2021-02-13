@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class ="container-fluid">
-        <asp:Label ID="lb_msg" runat="server"></asp:Label>
+        <asp:Label ID="lb_msg" runat="server" BorderColor="#009900" ForeColor="#009900"></asp:Label>
         <br />
         <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="Gem List"></asp:Label>
     <br />

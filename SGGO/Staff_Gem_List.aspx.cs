@@ -11,7 +11,11 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //lb_msg.Text = Session["success_gem_creation"].ToString()
+            if(Session["success_gem_creation"] != null)
+            {
+                lb_msg.Text = Session["success_gem_creation"].ToString();
+            }
+            
 
         }
 
