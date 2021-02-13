@@ -11,7 +11,8 @@ namespace SGGO
     public partial class Gem_Review : System.Web.UI.Page
     {
         string user = null;
-        string gem_id = null;
+        string gemid = null;
+        string gemtitle = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
@@ -22,8 +23,10 @@ namespace SGGO
                 }
                 else
                 {
+                    review_date.Text = DateTime.Now.ToString();
                     user = (string)Session["email"];
-                    gem_id = (string)Request.QueryString["id"]; // id retrieve from gem listing
+                    gemid = Request.QueryString["gem"]; // retrieve from gem id listing
+                    gemtitle = Request.QueryString["gemtitle"]; // retrieve from gem title listing
                 }
             }
             else
@@ -81,19 +84,29 @@ namespace SGGO
             string rating = lbl_rating_score.Text;
             string status = "Pending";
             string description = tb_desc.Text;
-            string post = gem_id;
+            string gem_id = gemid;
+            string gem_title = gemtitle;
             string author = user;
 
 
             Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateReview(status, post, author, rating, description);
-            
-            
+            int result = client.CreateReview(status, gem_id,gem_title, author, rating, description);
+
+            lbl_msg.Text = "Review submitted successfully , Your review is on its way to our staff. Thank you!";
+            lbl_rating_score.Text = "0";
+            tb_desc.Text = "";
+            Rating_1.ImageUrl = "~/Test_Image/Star.png";
+            Rating_2.ImageUrl = "~/Test_Image/Star.png";
+            Rating_3.ImageUrl = "~/Test_Image/Star.png";
+            Rating_4.ImageUrl = "~/Test_Image/Star.png";
+            Rating_5.ImageUrl = "~/Test_Image/Star.png";
+
+
         }
 
         protected void btn_back_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Gem_Listing.aspx");
+            Response.Redirect("Gem_Listing.aspx?gemId="+gemid);
         }
     }
 }

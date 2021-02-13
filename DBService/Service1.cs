@@ -95,9 +95,9 @@ namespace DBService
             return gem.SelectByTitle(title);
         }
 
-        public int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image)
+        public int CreateGem(string partner_email, string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image)
         {
-            Gem gem = new Gem(title, description, type, location, date, status, rating, partner, image);
+            Gem gem = new Gem(partner_email, title, description, type, location, date, status, rating, partner, image);
             return gem.Insert();
         }
 
@@ -157,9 +157,9 @@ namespace DBService
             return review.SelectById(review_id);
         }
 
-        public int CreateReview(string status, string post, string author, string rating, string description)
+        public int CreateReview(string status, string gem_id, string gem_title, string author, string rating, string description)
         {
-            Review review = new Review(status, post, author, rating, description);
+            Review review = new Review(status, gem_id, gem_title, author, rating, description);
             return review.Insert();
         }
 
@@ -173,6 +173,12 @@ namespace DBService
         {
             Review review = new Review();
             return review.CountPending();
+        }
+
+        public void DeleteReview(int review_id)
+        {
+            Review review = new Review();
+            review.DeleteReview(review_id);
         }
 
         //Reports

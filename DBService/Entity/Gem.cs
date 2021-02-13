@@ -12,6 +12,7 @@ namespace DBService.Entity
     public class Gem
     {
         public int Gem_Id { get; set; }
+        public string Partner_Email { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Type { get; set; }
@@ -44,8 +45,9 @@ namespace DBService.Entity
         }
 
         // for creating gems
-        public Gem(string title, string description, string type, string location, DateTime? date,string status, float? rating, string partner, string image)
+        public Gem(string partner_email, string title, string description, string type, string location, DateTime? date,string status, float? rating, string partner, string image)
         {
+            Partner_Email = partner_email;
             Title = title;
             Description = description;
             Type = type;
@@ -63,7 +65,7 @@ namespace DBService.Entity
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Gem (title,description,type,status,location,date,rating,partner,image) " + "VALUES (@title,@description,@type,@status,@location,@date,@rating,@partner,@image)";
+            string query = "INSERT INTO Gem (partner_email,title,description,type,status,location,date,rating,partner,image) " + "VALUES (@partner_email,@title,@description,@type,@status,@location,@date,@rating,@partner,@image)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             if(Date is null)
@@ -75,7 +77,7 @@ namespace DBService.Entity
                 cmd.Parameters.AddWithValue("@date", Date);
             }
 
-
+            cmd.Parameters.AddWithValue("@partner_email", Title);
             cmd.Parameters.AddWithValue("@title", Title );
             cmd.Parameters.AddWithValue("@description", Description);
             cmd.Parameters.AddWithValue("@type", Type);
@@ -113,6 +115,7 @@ namespace DBService.Entity
             if (count == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];
+                string partner_email = row["partner_email"].ToString();
                 string description = row["description"].ToString();
                 string type = row["type"].ToString();
                 string status = row["status"].ToString();
@@ -139,7 +142,7 @@ namespace DBService.Entity
                     date = Convert.ToDateTime(row["date"]);
                 }
 
-                gem = new Gem(title, description, type, location, date, status, rating, partner, image);
+                gem = new Gem(partner_email, title, description, type, location, date, status, rating, partner, image);
             }
             return gem;
         }
@@ -147,7 +150,7 @@ namespace DBService.Entity
         // Select by Id
         public Gem SelectById(int id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Gem WHERE Id = @id";
@@ -190,7 +193,7 @@ namespace DBService.Entity
                     date = Convert.ToDateTime(row["date"]);
                 }
 
-                gem = new Gem(title, description, type, location, date, status, rating, partner, image);
+                gem = new Gem(id, title, description, type, location, date, status, rating, partner, image);
             }
             return gem;
         }
@@ -216,6 +219,7 @@ namespace DBService.Entity
                 DataRow row = ds.Tables[0].Rows[i];
                 string title = row["title"].ToString();
                 DateTime date = Convert.ToDateTime(row["date"].ToString());
+                string partner_email = row["partner_email"].ToString();
                 string description = row["description"].ToString();
                 string type = row["type"].ToString();
                 string status = row["status"].ToString();
@@ -224,7 +228,7 @@ namespace DBService.Entity
                 string image = row["image"].ToString();
                 float rating = (float)Convert.ToDouble(row["rating"].ToString());
 
-                Gem gem = new Gem(title, description, type, location, date, status, rating, partner, image);
+                Gem gem = new Gem(partner_email, title, description, type, location, date, status, rating, partner, image);
                 gemList.Add(gem);
             }
             return gemList;

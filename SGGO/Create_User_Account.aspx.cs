@@ -181,7 +181,7 @@ namespace SGGO
                
 
                 DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                int result = client.CreateAccount(email, pwsalt, pwhash, "User", fname, lname, DateTime.Now, "90098008", "711111", "Blk 123 NYP", "default.jpg", null, null );
+                int result = client.CreateAccount(email, pwhash, pwsalt, "User", fname, lname, DateTime.Now, "90098008", "711111", "Blk 123 NYP", "default.jpg", null, null );
                 lbMsg.Text = "Successfully Registered";
                 lbMsg.ForeColor = Color.Green;
                 lbMsg.Visible = true;
