@@ -1252,6 +1252,12 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountByEmail", ReplyAction="http://tempuri.org/IService1/GetAccountByEmailResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Account> GetAccountByEmailAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUserProfile", ReplyAction="http://tempuri.org/IService1/UpdateUserProfileResponse")]
+        void UpdateUserProfile(string email, string hp, string address, string postal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUserProfile", ReplyAction="http://tempuri.org/IService1/UpdateUserProfileResponse")]
+        System.Threading.Tasks.Task UpdateUserProfileAsync(string email, string hp, string address, string postal);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
         SGGO.DBServiceReference.Account[] GetAllAccounts();
         
@@ -1478,6 +1484,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Account> GetAccountByEmailAsync(string email) {
             return base.Channel.GetAccountByEmailAsync(email);
+        }
+        
+        public void UpdateUserProfile(string email, string hp, string address, string postal) {
+            base.Channel.UpdateUserProfile(email, hp, address, postal);
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserProfileAsync(string email, string hp, string address, string postal) {
+            return base.Channel.UpdateUserProfileAsync(email, hp, address, postal);
         }
         
         public SGGO.DBServiceReference.Account[] GetAllAccounts() {

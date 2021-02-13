@@ -32,6 +32,7 @@
                     &nbsp;</td>
                 <td>
                     <asp:Button ID="btn_login" runat="server" Text="Login" OnClick="btn_login_Click" />
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Click here to register instead" />
                 </td>
             </tr>
             <tr>

@@ -77,7 +77,7 @@ namespace SGGO
                         //create a new cookie with guid value
                         Response.Cookies.Add(new HttpCookie("AuthToken", guid));
 
-                        Response.Redirect("User_Profile.aspx");
+                        Response.Redirect("User_Home.aspx");
                     }
                 //}
 
@@ -112,70 +112,9 @@ namespace SGGO
 
         }
 
-        //protected string getDBHash(string email)
-        //{
-        //    string h = null;
-        //    SqlConnection connection = new SqlConnection("cody");
-        //    string sql = "select password FROM Account WHERE Email=@email";
-        //    SqlCommand command = new SqlCommand(sql, connection);
-        //    command.Parameters.AddWithValue("@email", email);
-        //    try
-        //    {
-        //        connection.Open();
-        //        using (SqlDataReader reader = command.ExecuteReader())
-        //        {
-
-        //            while (reader.Read())
-        //            {
-        //                if (reader["password"] != null)
-        //                {
-        //                    if (reader["password"] != DBNull.Value)
-        //                    {
-        //                        h = reader["password"].ToString();
-        //                    }
-        //                }
-        //            }
-
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.ToString());
-        //    }
-        //    finally { connection.Close(); }
-        //    return h;
-        //}
-        //   protected string getDBSalt(string email)
-        //   {
-        //       string s = null;
-        //       SqlConnection connection = new SqlConnection(ASDBConnectionString);
-        //       string sql = "select pw_salt FROM ACCOUNT WHERE Email=@email";
-        //       SqlCommand command = new SqlCommand(sql, connection);
-        //       command.Parameters.AddWithValue("@email", email);
-        //       try
-        //       {
-        //           connection.Open();
-        //           using (SqlDataReader reader = command.ExecuteReader())
-        //           {
-        //               while (reader.Read())
-        //               {
-        //                   if (reader["pw_salt"] != null)
-        //                   {
-        //                       if (reader["pw_salt"] != DBNull.Value)
-        //                       {
-        //                           s = reader["pw_salt"].ToString();
-        //                       }
-        //                   }
-        //               }
-        //           }
-        //       }
-        //       catch (Exception ex)
-        //       {
-        //           throw new Exception(ex.ToString());
-        //       }
-        //       finally { connection.Close(); }
-        //       return s;
-        //   }
-        //}
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Create_User_Account.aspx");
+        }
     }
 }

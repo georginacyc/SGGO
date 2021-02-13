@@ -41,6 +41,12 @@ namespace DBService
             return accounts.SelectByEmail(email);
         }
 
+        public void UpdateUserProfile(string email, string hp, string address, string postal)
+        {
+            Account user = new Account();
+            user.UpdateUserProfile(email, hp, address, postal);
+        }
+
         public List<Account> GetAllAccounts()
         {
             Account accounts = new Account();
