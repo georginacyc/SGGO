@@ -50,7 +50,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
             string query = "INSERT INTO Review (status, gem_id, gem_title, author, rating, description)" + "VALUES (@status, @gem_id, @gem_title, @author, @rating, @description)";
@@ -138,7 +138,7 @@ namespace DBService.Entity
         //retrive all appreved reviews
         public Review SelectByStatus(string status)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Review WHERE status = @status";
@@ -219,7 +219,7 @@ namespace DBService.Entity
 
         public void DeleteReview(int id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 

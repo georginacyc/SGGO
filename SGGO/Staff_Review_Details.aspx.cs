@@ -42,7 +42,7 @@ namespace SGGO
                         {
                             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                             var review = client.GetReviewById(Convert.ToInt32(Request.QueryString["id"]));
-                            var gem = client.GetGemById(Convert.ToInt32(review.Post));
+                            // var gem = client.GetGemById(Convert.ToInt32(review.Gem_Id));
 
 
                             if (review.Status.Trim() == "Approved" || review.Status.Trim() == "Rejected")
@@ -52,7 +52,7 @@ namespace SGGO
                             }
                             review_lb.Text = review_lb.Text + review.Review_Id.ToString();
                             status_lb.Text = review.Status;
-                            gem_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + review.Gem_Id + "'>" + gem.Title + "</a>"; // now is id, will need to retrieve name with it next time. also want to make it clickable, link to gem page.
+                            gem_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + review.Gem_Id + "&gemT=" + review.Gem_Title + "'>" + review.Gem_Title + "</a>"; // now is id, will need to retrieve name with it next time. also want to make it clickable, link to gem page.
                             author_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + review.Author + "'>" + review.Author + "</a>";
                             rating_lb.Text = review.Rating;
                             description_lb.Text = review.Description;

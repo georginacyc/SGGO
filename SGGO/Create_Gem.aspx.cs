@@ -84,7 +84,7 @@ namespace SGGO
             //string success_msg = title + " has been successfully created";
             //Session["success_gem_creation"] = success_msg;
 
-            Response.Redirect("Staff_Gem_List.aspx");
+            Response.Redirect("Partner_Gem_List.aspx");
         }
     }
 }

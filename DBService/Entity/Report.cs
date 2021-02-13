@@ -50,7 +50,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
             string query = "INSERT INTO Reports (date_reported, post, type, reported_by, main_reason, remarks, status)" + "VALUES (@date_reported, @post, @type, @reported_by, @main_reason, @remarks, @status)";
