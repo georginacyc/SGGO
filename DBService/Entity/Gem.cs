@@ -84,7 +84,7 @@ namespace DBService.Entity
             cmd.Parameters.AddWithValue("@type", Type);
             cmd.Parameters.AddWithValue("@status", Status);
             cmd.Parameters.AddWithValue("@location",Location );
-            cmd.Parameters.AddWithValue("@rating", DBNull.Value);
+            cmd.Parameters.AddWithValue("@rating", Rating);
             cmd.Parameters.AddWithValue("@partner", Partner);
             cmd.Parameters.AddWithValue("@Image", Image);
 
