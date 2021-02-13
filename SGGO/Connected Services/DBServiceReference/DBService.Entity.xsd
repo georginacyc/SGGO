@@ -38,6 +38,7 @@
       <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Partner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Partner_Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:float" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />

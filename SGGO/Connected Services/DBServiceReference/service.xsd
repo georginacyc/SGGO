@@ -165,6 +165,7 @@
   <xs:element name="CreateGem">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="partner_email" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />

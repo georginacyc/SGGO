@@ -17,6 +17,14 @@
             margin:10px;
         }
        
+        .auto-style8 {
+            width: 221px;
+            height: 26px;
+        }
+        .auto-style9 {
+            height: 26px;
+        }
+       
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -53,12 +61,20 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style7">
+            <td class="auto-style8">
 
                 <asp:Label ID="lb_partner" runat="server" Text="Partner Company:" ></asp:Label>
             </td>
-            <td>
+            <td class="auto-style9">
                 <asp:Label ID="lb_pc" runat="server" Width="100%"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style8">
+
+                &nbsp;</td>
+            <td class="auto-style9">
+                <asp:Label ID="lb_pc_email" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>

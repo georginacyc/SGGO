@@ -48,7 +48,7 @@ namespace DBService
 
         //Gem
         [OperationContract]
-        int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image);
+        int CreateGem(string partner_email, string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image);
 
         [OperationContract]
         Gem GetGemByTitle(string title);

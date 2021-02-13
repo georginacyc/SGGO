@@ -95,9 +95,9 @@ namespace DBService
             return gem.SelectByTitle(title);
         }
 
-        public int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image)
+        public int CreateGem(string partner_email, string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image)
         {
-            Gem gem = new Gem(title, description, type, location, date, status, rating, partner, image);
+            Gem gem = new Gem(partner_email, title, description, type, location, date, status, rating, partner, image);
             return gem.Insert();
         }
 

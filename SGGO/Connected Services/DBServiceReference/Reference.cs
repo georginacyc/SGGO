@@ -448,6 +448,9 @@ namespace SGGO.DBServiceReference {
         private string PartnerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Partner_EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<float> RatingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -530,6 +533,19 @@ namespace SGGO.DBServiceReference {
                 if ((object.ReferenceEquals(this.PartnerField, value) != true)) {
                     this.PartnerField = value;
                     this.RaisePropertyChanged("Partner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Partner_Email {
+            get {
+                return this.Partner_EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Partner_EmailField, value) != true)) {
+                    this.Partner_EmailField = value;
+                    this.RaisePropertyChanged("Partner_Email");
                 }
             }
         }
@@ -1263,10 +1279,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task StaffResetPasswordAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateGem", ReplyAction="http://tempuri.org/IService1/CreateGemResponse")]
-        int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
+        int CreateGem(string partner_email, string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateGem", ReplyAction="http://tempuri.org/IService1/CreateGemResponse")]
-        System.Threading.Tasks.Task<int> CreateGemAsync(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
+        System.Threading.Tasks.Task<int> CreateGemAsync(string partner_email, string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGemByTitle", ReplyAction="http://tempuri.org/IService1/GetGemByTitleResponse")]
         SGGO.DBServiceReference.Gem GetGemByTitle(string title);
@@ -1492,12 +1508,12 @@ namespace SGGO.DBServiceReference {
             return base.Channel.StaffResetPasswordAsync(email);
         }
         
-        public int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {
-            return base.Channel.CreateGem(title, description, type, location, date, status, rating, partner, image);
+        public int CreateGem(string partner_email, string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {
+            return base.Channel.CreateGem(partner_email, title, description, type, location, date, status, rating, partner, image);
         }
         
-        public System.Threading.Tasks.Task<int> CreateGemAsync(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {
-            return base.Channel.CreateGemAsync(title, description, type, location, date, status, rating, partner, image);
+        public System.Threading.Tasks.Task<int> CreateGemAsync(string partner_email, string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {
+            return base.Channel.CreateGemAsync(partner_email, title, description, type, location, date, status, rating, partner, image);
         }
         
         public SGGO.DBServiceReference.Gem GetGemByTitle(string title) {
