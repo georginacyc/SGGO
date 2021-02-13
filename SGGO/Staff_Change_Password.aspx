@@ -61,6 +61,7 @@
     </strong>
     <br />
     </p>
+        <asp:Label ID="success_lb" runat="server" Text="Password successfully changed! Logging you out." ForeColor="Green"></asp:Label>
         <div class="display: inline-block">
         <asp:Button ID="submit_btn" runat="server" CssClass="btn btn-dark" style="width: 15%; float:right" Text="Submit" OnClick="submit_btn_Click" />
 
