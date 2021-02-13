@@ -40,7 +40,8 @@ namespace SGGO
                     if (Session["Role"].ToString() == "Staff")
                     {
                         // on page load codes here
-                    } else
+                    }
+                    else
                     {
                         Session.Clear();
                         Session.Abandon();
@@ -172,6 +173,11 @@ namespace SGGO
                     error_lb.Text = "Unable to change password. Please try again later.";
                 }
             }
+        }
+
+        protected void back_btn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Staff_Own_Account_Details.aspx");
         }
     }
 }

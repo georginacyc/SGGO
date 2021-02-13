@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -14,6 +17,66 @@ namespace SGGO
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public class MyObject
+        {
+            public string success { get; set; }
+            public List<string> ErrorMessage { get; set; }
+        }
+
+        protected string sourcekey
+        {
+            get
+            {
+                StreamReader sr = File.OpenText(Server.MapPath("staffsitekey.txt"));
+                return @"https://www.google.com/recaptcha/api.js?render=" + sr.ReadToEnd();
+            }
+        }
+
+        protected string sitekey
+        {
+            get
+            {
+                StreamReader sr = File.OpenText(Server.MapPath("staffsitekey.txt"));
+                return sr.ReadToEnd();
+            }
+        }
+
+        protected string secretkey
+        {
+            get
+            {
+                StreamReader sr = File.OpenText(Server.MapPath("staffsecretkey.txt"));
+                return @"https://www.google.com/recaptcha/api/siteverify?secret=" + sr.ReadToEnd();
+            }
+        }
+
+        public bool ValidateCaptcha()
+        {
+            bool result = true;
+            string captcha = Request.Form["g-recaptcha-response"];
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(secretkey + "&response=" + captcha);
+            try
+            {
+                using (WebResponse wr = req.GetResponse())
+                {
+                    using (StreamReader sr = new StreamReader(wr.GetResponseStream()))
+                    {
+                        string jsonResponse = sr.ReadToEnd();
+
+                        JavaScriptSerializer js = new JavaScriptSerializer();
+                        MyObject jsonObject = js.Deserialize<MyObject>(jsonResponse);
+
+                        result = Convert.ToBoolean(jsonObject.success);
+                    }
+                }
+                return result;
+            }
+            catch (WebException ex)
+            {
+                throw ex;
+            }
         }
 
         protected bool Check(string email, string pw)
@@ -88,6 +151,12 @@ namespace SGGO
                 }
             }
 
+            if (!ValidateCaptcha())
+            {
+                error_lb.Text = error_lb.Text + "Something went wrong, please refresh and try again.";
+                pass = false;
+            }
+
             if (pass)
             {
                 // log in
@@ -101,35 +170,6 @@ namespace SGGO
                 client.UpdateLastLogin(user.Email);
                 Response.Redirect("Staff_Home.aspx");
             }
-            //DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            //var staff = client.GetAccountByEmail(email);
-
-            //error_lb.Text = "";
-            //bool pass = true;
-            //if (String.IsNullOrEmpty(email_tb.Text) || String.IsNullOrEmpty(password_tb.Text))
-            //{
-            //    error_lb.Text = "Please fill all fields.";
-            //    pass = false;
-            //}
-            //var suspended = client.CheckSuspended();
-            //if (suspended)
-            //{
-            //    int span = 30 - Convert.ToInt16(DateTime.Now.Subtract(Convert.ToDateTime(user.Suspended_Since)).TotalMinutes);
-            //    error_lb.Text = "Your account has been locked. Please wait " + span + " minutes before trying again.";
-            //    pass = false;
-            //}
-            //if (pass && Check(email_tb.Text, password_tb.Text))
-            //{
-            //    Session["LoggedIn"] = email_tb.Text;
-            //    string guid = Guid.NewGuid().ToString();
-            //    Session["AuthToken"] = guid;
-            //    Response.Cookies.Add(new HttpCookie("AuthToken", guid));
-            //    Response.Redirect("Staff_Home.aspx");
-            //}
-            //else if (pass && !Check(email_tb.Text, password_tb.Text))
-            //{
-            //    error_lb.Text = "Invalid email or password.";
-            //}
         }
     }
 }

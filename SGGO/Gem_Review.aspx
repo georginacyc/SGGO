@@ -11,7 +11,7 @@
             <tr>
                 <td style="width: 341px">Rate &amp; Review</td>
                 <td rowspan="3" style="width: 381px">
-                    <asp:Image ID="Image1" runat="server" Height="179px" Width="304px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
+                    <asp:Image ID="gem_image" runat="server" Height="179px" Width="304px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
                 </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>

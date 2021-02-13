@@ -22,7 +22,9 @@
                     <div class="card-body" style="text-align: center;">
                         <table style="width:100%;">
                             <tr>
-                                <td rowspan="2" class="pendingNum">6</td>
+                                <td rowspan="2" class="pendingNum">
+                                    <asp:Label ID="reports_lb" runat="server"></asp:Label>
+                                </td>
                                 <td>PENDING REPORTS</td>
                             </tr>
                             <tr>
@@ -39,7 +41,9 @@
                     <div class="card-body" style="text-align: center;">
                         <table style="width:100%;">
                             <tr>
-                                <td rowspan="2" class="pendingNum">6</td>
+                                <td rowspan="2" class="pendingNum">
+                                    <asp:Label ID="reviews_lb" runat="server"></asp:Label>
+                                </td>
                                 <td>PENDING REVIEWS</td>
                             </tr>
                             <tr>
@@ -56,7 +60,9 @@
                     <div class="card-body" style="text-align: center;">
                         <table style="width:100%;">
                             <tr>
-                                <td rowspan="2" class="pendingNum">6</td>
+                                <td rowspan="2" class="pendingNum">
+                                    <asp:Label ID="gems_lb" runat="server"></asp:Label>
+                                </td>
                                 <td>PENDING GEMS</td>
                             </tr>
                             <tr>

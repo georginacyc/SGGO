@@ -20,7 +20,7 @@
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#242121" />
     </asp:GridView>
-    <asp:SqlDataSource ID="reviewDS" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True;Connect Timeout=30" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [review_id], [status], [rating] FROM [Review] ORDER BY [status] DESC"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="reviewDS" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True;Connect Timeout=30" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [review_id], [status], [rating] FROM [Review] ORDER BY CASE WHEN [status] = 'Pending' THEN 1 ELSE 2 END ASC"></asp:SqlDataSource>
 
         </div>
 </asp:Content>

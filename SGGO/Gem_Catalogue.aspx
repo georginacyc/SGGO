@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Gem_Catalogue.aspx.cs" Inherits="SGGO.Gem_Catalogue" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
-    <form id="form1" runat="server" style="padding-left:80px;padding-top:50px;">
+    <br />
+    <p style="text-align:center;font-size:x-large">Hidden Gems</p>
+    <form id="form1" runat="server" style="padding-left:80px;padding-top:15px;">
+        
 <asp:ListView ID="ListView_Gem" runat="server" 
               DataKeyNames="Id"  
               DataSourceID="SGGO" 
@@ -26,10 +29,9 @@
         <tr>
           <td>&nbsp</td>
           <td>
-               <image src='SGGO/Images/Gems/<%# Eval("image") %>' 
+               <image src='~/Images/Gem/<%# Eval("image") %>' 
                       width="200" height="100" border="0">
-            </a> &nbsp
-          </td>
+            </a> &nbsp</td>
           <td>
             <span 
                class="ProductListHead"><%# Eval("title") %></span><br>
@@ -37,7 +39,7 @@
             <span class="GemListItem">
               <b> Rating : </b><%# Eval("rating")%>
             </span><br />
-            <a href='Gem_Listing.aspx?gemId=<%# Eval("Id") %>&gemT=<%# Eval("title") %>'>
+            <a href='Gem_Listing.aspx?gemId=<%# Eval("Id") %>'>
                <span class="GemListItem"><b>View Details<b></font></span>
             </a>
           </td>
@@ -58,7 +60,12 @@
     </table>
   </LayoutTemplate>
 </asp:ListView>
-        <asp:SqlDataSource ID="SGGO" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" SelectCommand="SELECT [Id], [title], [image], [rating] FROM [Gem]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SGGO" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" SelectCommand="SELECT * FROM [Gem] WHERE (([type] = @type) AND ([status] = @status))" ProviderName="System.Data.SqlClient">
+            <SelectParameters>
+               
+                <asp:Parameter DefaultValue="Destination" Name="type" Type="String" />
+                <asp:Parameter DefaultValue="Pending" Name="status" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </form>
 </asp:Content>

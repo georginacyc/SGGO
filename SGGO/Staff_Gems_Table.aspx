@@ -9,10 +9,10 @@
     <asp:GridView ID="gems_gv" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="GemDataSource" ForeColor="Black" GridLines="Horizontal"  Width="100%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="ID" ReadOnly="True" />
+            <asp:BoundField DataField="status" HeaderText="Status" ReadOnly="True" SortExpression="status" />
             <asp:BoundField DataField="title" HeaderText="Title" ReadOnly="True" SortExpression="title" />
             <asp:BoundField DataField="partner" HeaderText="Partner" ReadOnly="True" SortExpression="partner" />
             <asp:BoundField DataField="type" HeaderText="Type" ReadOnly="True" SortExpression="type" />
-            <asp:BoundField DataField="status" HeaderText="Status" ReadOnly="True" SortExpression="status" />
             <asp:CommandField ShowSelectButton="True" ShowCancelButton="False" SelectText="Details" />
         </Columns>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />

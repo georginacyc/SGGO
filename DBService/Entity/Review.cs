@@ -76,7 +76,7 @@ namespace DBService.Entity
 
         public Review SelectByAuthor(string author)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Review WHERE author = @author";
@@ -138,7 +138,7 @@ namespace DBService.Entity
         //retrive all appreved reviews
         public Review SelectByStatus(string status)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Review WHERE status = @status";
@@ -219,7 +219,7 @@ namespace DBService.Entity
 
         public void DeleteReview(int id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -231,6 +231,22 @@ namespace DBService.Entity
             conn.Open();
             System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
             conn.Close();
+        }
+
+        public int CountPending()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT COUNT(*) FROM Review WHERE status = 'Pending'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            conn.Open();
+            var count = (Int32) cmd.ExecuteScalar();
+            conn.Close();
+
+            return count;
         }
     }
 }

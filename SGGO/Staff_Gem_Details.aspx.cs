@@ -45,7 +45,7 @@ namespace SGGO
                         title_lb.Text = gem.Title;
                         status_lb.Text = gem.Status;
                         id_lb.Text = gem.Gem_Id.ToString();
-                        partner_lb.Text = gem.Partner;
+                        partner_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + gem.Partner_Email + "'>" + gem.Partner + "</a>";
                         type_lb.Text = gem.Type;
                         date_lb.Text = gem.Date == null ? null : Convert.ToDateTime(gem.Date).ToString("dd/MM/yyyy");
                         location_lb.Text = gem.Location;
@@ -114,6 +114,11 @@ namespace SGGO
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
             client.UpdateGemStatus(Convert.ToInt32(Request.QueryString["id"]), "Rejected");
 
+            Response.Redirect("Staff_Gems_Table.aspx");
+        }
+
+        protected void back_btn_Click(object sender, EventArgs e)
+        {
             Response.Redirect("Staff_Gems_Table.aspx");
         }
     }

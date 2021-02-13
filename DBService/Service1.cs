@@ -107,12 +107,23 @@ namespace DBService
             gem.UpdateStatus(gem_id, status);
         }
 
+        public void UpdateGemRating(int gem_id, float rating)
+        {
+            Gem gem = new Gem();
+            gem.UpdateRating(gem_id, rating);
+        }
+
         public Gem GetGemById(int id)
         {
             Gem gem = new Gem();
             return gem.SelectById(id);
         }
 
+        public int CountPendingGems()
+        {
+            Gem gem = new Gem();
+            return gem.CountPending();
+        }
 
         // Monthly Trail
         public List<Trail> GetAllTrails()
@@ -164,6 +175,12 @@ namespace DBService
             review.UpdateStatus(review_id, status);
         }
 
+        public int CountPendingReviews()
+        {
+            Review review = new Review();
+            return review.CountPending();
+        }
+
         public void DeleteReview(int review_id)
         {
             Review review = new Review();
@@ -201,7 +218,11 @@ namespace DBService
             report.UpdateStatus(review_id, status);
         }
 
-
+        public int CountUnresolvedReports()
+        {
+            Report report = new Report();
+            return report.CountUnresolved();
+        }
 
 
         public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr)

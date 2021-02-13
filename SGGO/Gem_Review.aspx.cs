@@ -23,10 +23,15 @@ namespace SGGO
                 }
                 else
                 {
+                    lbl_rating_score.Text = "0";
                     review_date.Text = DateTime.Now.ToString();
                     user = (string)Session["email"];
                     gemid = Request.QueryString["gem"]; // retrieve from gem id listing
-                    gemtitle = Request.QueryString["gemtitle"]; // retrieve from gem title listing
+
+                    DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+                    var gems = client.GetGemById(Convert.ToInt32(gemid));
+                    gemtitle = gems.Title;
+                    gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image;
                 }
             }
             else
@@ -81,6 +86,7 @@ namespace SGGO
 
         protected void btn_submit_review_Click(object sender, EventArgs e)
         {
+
             string rating = lbl_rating_score.Text;
             string status = "Pending";
             string description = tb_desc.Text;
@@ -90,7 +96,7 @@ namespace SGGO
 
 
             Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateReview(status, gem_id,gem_title, author, rating, description);
+            int result = client.CreateReview(status, gem_id, gem_title, author, rating, description);
 
             lbl_msg.Text = "Review submitted successfully , Your review is on its way to our staff. Thank you!";
             lbl_rating_score.Text = "0";
@@ -100,7 +106,7 @@ namespace SGGO
             Rating_3.ImageUrl = "~/Test_Image/Star.png";
             Rating_4.ImageUrl = "~/Test_Image/Star.png";
             Rating_5.ImageUrl = "~/Test_Image/Star.png";
-
+            
 
         }
 

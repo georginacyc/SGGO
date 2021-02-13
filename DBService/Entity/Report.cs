@@ -50,7 +50,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
             string query = "INSERT INTO Reports (date_reported, post, type, reported_by, main_reason, remarks, status)" + "VALUES (@date_reported, @post, @type, @reported_by, @main_reason, @remarks, @status)";
@@ -181,7 +181,7 @@ namespace DBService.Entity
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "UPDATE Report SET status = @status WHERE report_id = @id";
+            string query = "UPDATE Reports SET status = @status WHERE report_id = @id";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@status", status);
@@ -190,6 +190,22 @@ namespace DBService.Entity
             conn.Open();
             System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
             conn.Close();
+        }
+
+        public int CountUnresolved()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT COUNT(*) FROM Reports WHERE status = 'Unresolved'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            conn.Open();
+            var count = (Int32)cmd.ExecuteScalar();
+            conn.Close();
+
+            return count;
         }
     }
 }

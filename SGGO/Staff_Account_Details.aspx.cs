@@ -76,5 +76,10 @@ namespace SGGO
             client.StaffResetPassword(user.Email);
             resetpw_lb.Text = "Password has been reset to DOB (or Date of Establishment) + Postal Code. E.g. 12/03/2001539591";
         }
+
+        protected void back_btn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Staff_Accounts_List.aspx");
+        }
     }
 }
