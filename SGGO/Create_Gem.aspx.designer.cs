@@ -24,6 +24,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lb_pagehead;
 
         /// <summary>
+        /// lb_errormsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_errormsg;
+
+        /// <summary>
         /// lb_title control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lb_pc;
+
+        /// <summary>
+        /// lb_pc_email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_pc_email;
 
         /// <summary>
         /// lb_location control.

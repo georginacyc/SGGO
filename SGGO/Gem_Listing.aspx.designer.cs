@@ -51,13 +51,22 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lbl_gemId;
 
         /// <summary>
-        /// btn_map control.
+        /// gem_add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_map;
+        protected global::System.Web.UI.WebControls.Label gem_add;
+
+        /// <summary>
+        /// btn_report control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_report;
 
         /// <summary>
         /// gem_desc control.
@@ -76,24 +85,6 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_review;
-
-        /// <summary>
-        /// btn_report control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_report;
-
-        /// <summary>
-        /// gem_review control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label gem_review;
 
         /// <summary>
         /// gvReview control.

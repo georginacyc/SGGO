@@ -180,6 +180,7 @@
   <xs:element name="CreateGem">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="partner_email" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
@@ -252,6 +253,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CountPendingGems">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountPendingGemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountPendingGemsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CreateTrail">
     <xs:complexType>
       <xs:sequence>
@@ -304,9 +317,10 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="post" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gem_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gem_title" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="author" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="rating" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rating" type="xs:int" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -369,6 +383,30 @@
   <xs:element name="UpdateReviewStatusResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="review_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReviewResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountPendingReviews">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountPendingReviewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountPendingReviewsResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateReport">
@@ -442,6 +480,18 @@
   <xs:element name="UpdateReportStatusResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountUnresolvedReports">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountUnresolvedReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountUnresolvedReportsResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreatePointShopItem">

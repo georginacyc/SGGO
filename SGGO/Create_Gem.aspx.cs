@@ -17,6 +17,7 @@ namespace SGGO
             {
                 DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                 var user = client.GetAccountByEmail(Request.QueryString["email"]);
+                lb_pc_email.Text = user.Email;
                 lb_pc.Text = user.First_Name;
             }
         }
@@ -66,6 +67,7 @@ namespace SGGO
             string description = tb_description.Text;
             string type = rb_type.SelectedValue;
             string partner = lb_pc.Text;
+            string partner_email = lb_pc_email.Text;
             string location = tb_location.Text;
             DateTime? date = null;
             if(type == "Activity")
@@ -77,12 +79,12 @@ namespace SGGO
             
 
             Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreateGem(title, description, type, location, date, "Pending", 0, partner, image);
+            int result = client.CreateGem(partner_email, title, description, type, location, date, "Pending", 0, partner, image);
 
             //string success_msg = title + " has been successfully created";
             //Session["success_gem_creation"] = success_msg;
 
-            Response.Redirect("Staff_Gem_List.aspx");
+            Response.Redirect("Partner_Gem_List.aspx");
         }
     }
 }

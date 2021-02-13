@@ -1,91 +1,89 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Gem_Listing.aspx.cs" Inherits="SGGO.Gem_Listing" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
+    <div class="card" style="width: 60%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
     <form id="form1" runat="server">
         <table style="width:100%; text-align:center;">
             <tr>
-                <td style="width: 549px">&nbsp;</td>
-                <td style="width: 196px">&nbsp;</td>
-                <td style="width: 350px">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td style="width: 646px">&nbsp;</td>
+                <td style="width: 317px">&nbsp;</td>
             </tr>
             <tr>
-                <td rowspan="3" style="width: 549px">
+                <td rowspan="2" style="width: 646px">
                     <asp:Image ID="gem_image" runat="server" Height="221px" Width="390px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
                 </td>
-                <td style="width: 196px">
-                    &nbsp;</td>
-                <td style="width: 350px">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td style="width: 317px">
+                    <b><asp:Label ID="gem_title" runat="server" Font-Bold="True" Font-Size="30px">Nicole flower cafe</asp:Label></b>
+                </td>
             </tr>
             <tr>
-                <td style="width: 196px">
-                    <b><asp:Label ID="gem_title" runat="server">Nicole flower cafe</asp:Label></b>
+                <td style="width: 317px">
+                    <asp:Label ID="lbl_gemId" runat="server" Visible="False"></asp:Label>
                 </td>
-                <td style="width: 350px"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15955.092294639131!2d103.9108875!3d1.3115352!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe7875ff1ed2b842!2sNicole&#39;s%20Flower%3A%20Cafe%20%26%20Flower%20Delivery%20in%20Singapore!5e0!3m2!1sen!2ssg!4v1610976035355!5m2!1sen!2ssg" 
-                        width="210" height="200"  style="border:0;"aria-hidden="false" tabindex="0"></iframe></td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 196px">
-                    <asp:Label ID="lbl_gemId" runat="server"></asp:Label>
+                <td style="width: 646px">
+                    <asp:Label ID="gem_add" runat="server"></asp:Label>
                 </td>
-                <td style="width: 350px">
-                    <asp:Button ID="btn_map" runat="server" Height="37px" Text="Bring Me" Width="148px" OnClick="btn_map_Click" />
+                <td style="width: 317px">
+                    <asp:Button ID="btn_report" runat="server" Height="41px" OnClick="btn_report_Click1" Width="184px" Text="Report Gem" class="btn btn-danger" />
                 </td>
-                <td>
-                    &nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 549px">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="gem_desc" runat="server">Most Instagram-Worthy Floral-Themed Café With Soufflé Pancakes Found At East Coast.</asp:Label>
+                <td style="width: 646px">
+                    
+                    <b><asp:Label ID="gem_desc" runat="server">Most Instagram-Worthy Floral-Themed Café With Soufflé Pancakes Found At East Coast.</asp:Label></b>
                 </td>
-                <td style="width: 196px">&nbsp;</td>
-                <td style="width: 350px">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td style="width: 317px">&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 549px"><b>Reviews</b></td>
-                <td style="width: 196px">
-                    <asp:Button ID="btn_review" runat="server" Height="36px" Text="Leave a Review" Width="174px" OnClick="btn_review_Click"/>
+                <td style="width: 646px"><b>Reviews</b></td>
+                <td style="width: 317px">
+                    <asp:Button ID="btn_review" runat="server" Height="41px" Text="Leave a Review" Width="184px" OnClick="btn_review_Click" class="btn btn-dark"/>
                 </td>
-                <td style="width: 350px">
-                    <asp:Button ID="btn_report" runat="server" Height="41px" OnClick="btn_report_Click1" Text="Report" />
-                </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 549px">
-                    <div style="padding-left:50px">
-                    <asp:Label ID="gem_review" runat="server"></asp:Label>
-                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="0" CssClass="myDatagrid" Width="541px" DataKeyNames="review_id" DataSourceID="GetGemReviews" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" >
+                <td style="width: 646px">
+                    <div style="padding-left:20px">
+                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="4" CssClass="myDatagrid" Width="609px" DataKeyNames="review_id" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" DataSourceID="GetGemReviews" ForeColor="Black" GridLines="Horizontal" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" >
                         <Columns>
       
-                            <asp:BoundField DataField="rating" HeaderText="rating" SortExpression="rating" />
-                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
-                            <asp:CommandField SelectText="Report" ShowCancelButton="False" ShowSelectButton="True" />
+                            <asp:BoundField DataField="rating" HeaderText="Rating (out of 5 stars)" SortExpression="rating" />
+                            <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
+                            <asp:CommandField SelectText="Report" ShowCancelButton="False" ShowSelectButton="True" >
+                            <ItemStyle ForeColor="#990000" />
+                            </asp:CommandField>
                         </Columns>
+                        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#242121" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="GetGemReviews" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Review]"></asp:SqlDataSource>
-                    
+                   
+                    <asp:SqlDataSource ID="GetGemReviews" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" 
+                        ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Review] WHERE (([status] = @status) AND ([gem_id] = @gem_id))">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="Approved" Name="status" Type="String" />
+                        <asp:SessionParameter Name="gem_id" SessionField="gem_id" Type="String" />
+                    </SelectParameters>
+                    </asp:SqlDataSource>
+
                     </div>
                 </td>
-                <td style="width: 196px">&nbsp;</td>
-                <td style="width: 350px">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td style="width: 317px">&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 549px">&nbsp;</td>
-                <td style="width: 196px">&nbsp;</td>
-                <td style="width: 350px">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td style="width: 646px">&nbsp;</td>
+                <td style="width: 317px">&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 549px">&nbsp;</td>
-                <td style="width: 196px">&nbsp;</td>
-                <td style="width: 350px">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td style="width: 646px">&nbsp;</td>
+                <td style="width: 317px">&nbsp;</td>
             </tr>
         </table>
     </form>
+        </div>
 </asp:Content>

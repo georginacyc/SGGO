@@ -40,6 +40,8 @@ namespace SGGO
 
         }
 
+       
+
         protected void btn_addListing_Click(object sender, EventArgs e)
         {
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();

@@ -17,12 +17,22 @@
             margin:10px;
         }
        
+        .auto-style8 {
+            width: 221px;
+            height: 26px;
+        }
+        .auto-style9 {
+            height: 26px;
+        }
+       
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div class="container-fluid">
     <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="New Gem"></asp:Label>
+        <br />
+        <asp:Label ID="lb_errormsg" runat="server" BorderColor="#993333" ForeColor="Black"></asp:Label>
     <br />
     <table class="auto-style5" id="formtable">
         <tr>
@@ -31,6 +41,7 @@
             </td>
             <td>
                 <asp:TextBox ID="tb_title" runat="server" Width="100%"></asp:TextBox>
+               
             </td>
         </tr>
         <tr>
@@ -53,12 +64,20 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style7">
+            <td class="auto-style8">
 
                 <asp:Label ID="lb_partner" runat="server" Text="Partner Company:" ></asp:Label>
             </td>
-            <td>
+            <td class="auto-style9">
                 <asp:Label ID="lb_pc" runat="server" Width="100%"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style8">
+
+                &nbsp;</td>
+            <td class="auto-style9">
+                <asp:Label ID="lb_pc_email" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>

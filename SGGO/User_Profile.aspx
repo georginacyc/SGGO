@@ -97,6 +97,22 @@
                 <td>
                     &nbsp;</td>
             </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Button ID="btn_reviews" runat="server" Height="42px" OnClick="btn_reviews_Click" Text="My reviews" />
+                </td>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
         </table>
         <div>
         </div>

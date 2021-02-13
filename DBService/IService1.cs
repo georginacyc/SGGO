@@ -51,7 +51,7 @@ namespace DBService
 
         //Gem
         [OperationContract]
-        int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image);
+        int CreateGem(string partner_email, string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image);
 
         [OperationContract]
         Gem GetGemByTitle(string title);
@@ -62,8 +62,14 @@ namespace DBService
         [OperationContract]
         void UpdateGemStatus(int gem_id, string status);
 
+        //[OperationContract]
+        //void UpdateGemRating(int gem_id, float rating);
+
         [OperationContract]
         Gem GetGemById(int id);
+
+        [OperationContract]
+        int CountPendingGems();
 
 
         //Trail
@@ -79,7 +85,7 @@ namespace DBService
 
         //Review
         [OperationContract]
-        int CreateReview(string status, string post, string author, string rating, string description);
+        int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description);
 
         [OperationContract]
         Review GetReviewByAuthor(string author);
@@ -92,6 +98,13 @@ namespace DBService
 
         [OperationContract]
         void UpdateReviewStatus(int review_id, string status);
+
+        [OperationContract]
+        void DeleteReview(int review_id);
+
+
+        [OperationContract]
+        int CountPendingReviews();
 
         //Report
         [OperationContract]
@@ -108,6 +121,10 @@ namespace DBService
 
         [OperationContract]
         void UpdateReportStatus(int review_id, string status);
+
+        [OperationContract]
+        int CountUnresolvedReports();
+
 
         //Point Shop
         [OperationContract]

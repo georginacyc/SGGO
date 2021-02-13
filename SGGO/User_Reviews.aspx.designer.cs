@@ -11,17 +11,8 @@ namespace SGGO
 {
 
 
-    public partial class Gem_Catalogue
+    public partial class User_Reviews
     {
-
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// form1 control.
@@ -33,21 +24,30 @@ namespace SGGO
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ListView_Gem control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView_Gem;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// SGGO control.
+        /// gvMyreview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SGGO;
+        protected global::System.Web.UI.WebControls.GridView gvMyreview;
+
+        /// <summary>
+        /// GetGemReviews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource GetGemReviews;
     }
 }

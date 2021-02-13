@@ -110,6 +110,12 @@
   <wsdl:message name="IService1_GetGemById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGemByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_CountPendingGems_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingGems" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountPendingGems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingGemsResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateTrail_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateTrail" />
   </wsdl:message>
@@ -158,6 +164,18 @@
   <wsdl:message name="IService1_UpdateReviewStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateReviewStatusResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_DeleteReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReview" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountPendingReviews_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingReviews" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountPendingReviews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingReviewsResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateReport_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateReport" />
   </wsdl:message>
@@ -187,6 +205,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_UpdateReportStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateReportStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountUnresolvedReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountUnresolvedReports" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountUnresolvedReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountUnresolvedReportsResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_CreatePointShopItem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreatePointShopItem" />
@@ -275,6 +299,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGemById" message="tns:IService1_GetGemById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGemByIdResponse" message="tns:IService1_GetGemById_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CountPendingGems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountPendingGems" message="tns:IService1_CountPendingGems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CountPendingGemsResponse" message="tns:IService1_CountPendingGems_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateTrail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateTrail" message="tns:IService1_CreateTrail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateTrailResponse" message="tns:IService1_CreateTrail_OutputMessage" />
@@ -307,6 +335,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateReviewStatus" message="tns:IService1_UpdateReviewStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateReviewStatusResponse" message="tns:IService1_UpdateReviewStatus_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="DeleteReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteReview" message="tns:IService1_DeleteReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteReviewResponse" message="tns:IService1_DeleteReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountPendingReviews">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountPendingReviews" message="tns:IService1_CountPendingReviews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CountPendingReviewsResponse" message="tns:IService1_CountPendingReviews_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateReport">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateReport" message="tns:IService1_CreateReport_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateReportResponse" message="tns:IService1_CreateReport_OutputMessage" />
@@ -326,6 +362,10 @@
     <wsdl:operation name="UpdateReportStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateReportStatus" message="tns:IService1_UpdateReportStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateReportStatusResponse" message="tns:IService1_UpdateReportStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountUnresolvedReports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountUnresolvedReports" message="tns:IService1_CountUnresolvedReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CountUnresolvedReportsResponse" message="tns:IService1_CountUnresolvedReports_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreatePointShopItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePointShopItem" message="tns:IService1_CreatePointShopItem_InputMessage" />
@@ -495,6 +535,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CountPendingGems">
+      <soap:operation soapAction="http://tempuri.org/IService1/CountPendingGems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreateTrail">
       <soap:operation soapAction="http://tempuri.org/IService1/CreateTrail" style="document" />
       <wsdl:input>
@@ -567,6 +616,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteReview">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountPendingReviews">
+      <soap:operation soapAction="http://tempuri.org/IService1/CountPendingReviews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreateReport">
       <soap:operation soapAction="http://tempuri.org/IService1/CreateReport" style="document" />
       <wsdl:input>
@@ -605,6 +672,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateReportStatus">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdateReportStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountUnresolvedReports">
+      <soap:operation soapAction="http://tempuri.org/IService1/CountUnresolvedReports" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

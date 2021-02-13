@@ -451,6 +451,9 @@ namespace SGGO.DBServiceReference {
         private string PartnerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Partner_EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<float> RatingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -546,6 +549,19 @@ namespace SGGO.DBServiceReference {
                 if ((object.ReferenceEquals(this.PartnerField, value) != true)) {
                     this.PartnerField = value;
                     this.RaisePropertyChanged("Partner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Partner_Email {
+            get {
+                return this.Partner_EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Partner_EmailField, value) != true)) {
+                    this.Partner_EmailField = value;
+                    this.RaisePropertyChanged("Partner_Email");
                 }
             }
         }
@@ -801,10 +817,13 @@ namespace SGGO.DBServiceReference {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PostField;
+        private string Gem_IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RatingField;
+        private string Gem_TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RatingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Review_IdField;
@@ -849,25 +868,38 @@ namespace SGGO.DBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Post {
+        public string Gem_Id {
             get {
-                return this.PostField;
+                return this.Gem_IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.PostField, value) != true)) {
-                    this.PostField = value;
-                    this.RaisePropertyChanged("Post");
+                if ((object.ReferenceEquals(this.Gem_IdField, value) != true)) {
+                    this.Gem_IdField = value;
+                    this.RaisePropertyChanged("Gem_Id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Rating {
+        public string Gem_Title {
+            get {
+                return this.Gem_TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Gem_TitleField, value) != true)) {
+                    this.Gem_TitleField = value;
+                    this.RaisePropertyChanged("Gem_Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Rating {
             get {
                 return this.RatingField;
             }
             set {
-                if ((object.ReferenceEquals(this.RatingField, value) != true)) {
+                if ((this.RatingField.Equals(value) != true)) {
                     this.RatingField = value;
                     this.RaisePropertyChanged("Rating");
                 }
@@ -1301,10 +1333,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task StaffResetPasswordAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateGem", ReplyAction="http://tempuri.org/IService1/CreateGemResponse")]
-        int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
+        int CreateGem(string partner_email, string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateGem", ReplyAction="http://tempuri.org/IService1/CreateGemResponse")]
-        System.Threading.Tasks.Task<int> CreateGemAsync(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
+        System.Threading.Tasks.Task<int> CreateGemAsync(string partner_email, string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGemByTitle", ReplyAction="http://tempuri.org/IService1/GetGemByTitleResponse")]
         SGGO.DBServiceReference.Gem GetGemByTitle(string title);
@@ -1330,6 +1362,12 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGemById", ReplyAction="http://tempuri.org/IService1/GetGemByIdResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Gem> GetGemByIdAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingGems", ReplyAction="http://tempuri.org/IService1/CountPendingGemsResponse")]
+        int CountPendingGems();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingGems", ReplyAction="http://tempuri.org/IService1/CountPendingGemsResponse")]
+        System.Threading.Tasks.Task<int> CountPendingGemsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTrail", ReplyAction="http://tempuri.org/IService1/CreateTrailResponse")]
         int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
         
@@ -1349,10 +1387,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Trail[]> GetAllTrailsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateReview", ReplyAction="http://tempuri.org/IService1/CreateReviewResponse")]
-        int CreateReview(string status, string post, string author, string rating, string description);
+        int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateReview", ReplyAction="http://tempuri.org/IService1/CreateReviewResponse")]
-        System.Threading.Tasks.Task<int> CreateReviewAsync(string status, string post, string author, string rating, string description);
+        System.Threading.Tasks.Task<int> CreateReviewAsync(string status, string gem_id, string gem_title, string author, int rating, string description);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetReviewByAuthor", ReplyAction="http://tempuri.org/IService1/GetReviewByAuthorResponse")]
         SGGO.DBServiceReference.Review GetReviewByAuthor(string author);
@@ -1377,6 +1415,18 @@ namespace SGGO.DBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateReviewStatus", ReplyAction="http://tempuri.org/IService1/UpdateReviewStatusResponse")]
         System.Threading.Tasks.Task UpdateReviewStatusAsync(int review_id, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteReview", ReplyAction="http://tempuri.org/IService1/DeleteReviewResponse")]
+        void DeleteReview(int review_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteReview", ReplyAction="http://tempuri.org/IService1/DeleteReviewResponse")]
+        System.Threading.Tasks.Task DeleteReviewAsync(int review_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingReviews", ReplyAction="http://tempuri.org/IService1/CountPendingReviewsResponse")]
+        int CountPendingReviews();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingReviews", ReplyAction="http://tempuri.org/IService1/CountPendingReviewsResponse")]
+        System.Threading.Tasks.Task<int> CountPendingReviewsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateReport", ReplyAction="http://tempuri.org/IService1/CreateReportResponse")]
         int CreateReport(System.DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status);
@@ -1407,6 +1457,12 @@ namespace SGGO.DBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateReportStatus", ReplyAction="http://tempuri.org/IService1/UpdateReportStatusResponse")]
         System.Threading.Tasks.Task UpdateReportStatusAsync(int review_id, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountUnresolvedReports", ReplyAction="http://tempuri.org/IService1/CountUnresolvedReportsResponse")]
+        int CountUnresolvedReports();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountUnresolvedReports", ReplyAction="http://tempuri.org/IService1/CountUnresolvedReportsResponse")]
+        System.Threading.Tasks.Task<int> CountUnresolvedReportsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePointShopItem", ReplyAction="http://tempuri.org/IService1/CreatePointShopItemResponse")]
         int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);
@@ -1550,12 +1606,12 @@ namespace SGGO.DBServiceReference {
             return base.Channel.StaffResetPasswordAsync(email);
         }
         
-        public int CreateGem(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {
-            return base.Channel.CreateGem(title, description, type, location, date, status, rating, partner, image);
+        public int CreateGem(string partner_email, string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {
+            return base.Channel.CreateGem(partner_email, title, description, type, location, date, status, rating, partner, image);
         }
         
-        public System.Threading.Tasks.Task<int> CreateGemAsync(string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {
-            return base.Channel.CreateGemAsync(title, description, type, location, date, status, rating, partner, image);
+        public System.Threading.Tasks.Task<int> CreateGemAsync(string partner_email, string title, string description, string type, string location, System.Nullable<System.DateTime> date, string status, float rating, string partner, string image) {
+            return base.Channel.CreateGemAsync(partner_email, title, description, type, location, date, status, rating, partner, image);
         }
         
         public SGGO.DBServiceReference.Gem GetGemByTitle(string title) {
@@ -1590,6 +1646,14 @@ namespace SGGO.DBServiceReference {
             return base.Channel.GetGemByIdAsync(id);
         }
         
+        public int CountPendingGems() {
+            return base.Channel.CountPendingGems();
+        }
+        
+        public System.Threading.Tasks.Task<int> CountPendingGemsAsync() {
+            return base.Channel.CountPendingGemsAsync();
+        }
+        
         public int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status) {
             return base.Channel.CreateTrail(trailId, name, date, description, gem1, gem2, gem3, banner, status);
         }
@@ -1614,12 +1678,12 @@ namespace SGGO.DBServiceReference {
             return base.Channel.GetAllTrailsAsync();
         }
         
-        public int CreateReview(string status, string post, string author, string rating, string description) {
-            return base.Channel.CreateReview(status, post, author, rating, description);
+        public int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description) {
+            return base.Channel.CreateReview(status, gem_id, gem_title, author, rating, description);
         }
         
-        public System.Threading.Tasks.Task<int> CreateReviewAsync(string status, string post, string author, string rating, string description) {
-            return base.Channel.CreateReviewAsync(status, post, author, rating, description);
+        public System.Threading.Tasks.Task<int> CreateReviewAsync(string status, string gem_id, string gem_title, string author, int rating, string description) {
+            return base.Channel.CreateReviewAsync(status, gem_id, gem_title, author, rating, description);
         }
         
         public SGGO.DBServiceReference.Review GetReviewByAuthor(string author) {
@@ -1652,6 +1716,22 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task UpdateReviewStatusAsync(int review_id, string status) {
             return base.Channel.UpdateReviewStatusAsync(review_id, status);
+        }
+        
+        public void DeleteReview(int review_id) {
+            base.Channel.DeleteReview(review_id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteReviewAsync(int review_id) {
+            return base.Channel.DeleteReviewAsync(review_id);
+        }
+        
+        public int CountPendingReviews() {
+            return base.Channel.CountPendingReviews();
+        }
+        
+        public System.Threading.Tasks.Task<int> CountPendingReviewsAsync() {
+            return base.Channel.CountPendingReviewsAsync();
         }
         
         public int CreateReport(System.DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status) {
@@ -1692,6 +1772,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task UpdateReportStatusAsync(int review_id, string status) {
             return base.Channel.UpdateReportStatusAsync(review_id, status);
+        }
+        
+        public int CountUnresolvedReports() {
+            return base.Channel.CountUnresolvedReports();
+        }
+        
+        public System.Threading.Tasks.Task<int> CountUnresolvedReportsAsync() {
+            return base.Channel.CountUnresolvedReportsAsync();
         }
         
         public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr) {

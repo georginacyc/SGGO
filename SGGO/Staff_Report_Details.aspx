@@ -35,7 +35,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card" style="width:40%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
+    <div style="display: inline-block; width: 100%">
+        <div style="width: 35%; margin-top: 10px; padding: 20px 20px 20px 20px; float:left;">
+            <asp:Button ID="back_btn" runat="server" CssClass="btn btn-dark" style="width: auto; float:right" Text="< Back" OnClick="back_btn_Click" />
+        </div>
+        <div class="card" style="width: 30%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px; float: left;">
         <asp:Label ID="report_lb" runat="server" Font-Bold="True" Font-Size="40px" Text="Report #"></asp:Label>
         <br />
         <table style="width:100%;">
@@ -58,7 +62,7 @@
             <tr>
                 <td class="auto-style7"><strong>Reported By:</strong></td>
                 <td class="auto-style1">
-                    <asp:Label ID="reporter_lb" runat="server"></asp:Label>
+                       <asp:Label ID="reporter_lb" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -103,4 +107,5 @@
         </table>
 
     </div>
+        </div>
 </asp:Content>

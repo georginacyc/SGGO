@@ -21,7 +21,7 @@
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#242121" />
     </asp:GridView>
-    <asp:SqlDataSource ID="reportsDS" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True;Connect Timeout=30" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [report_id], [status], [type], [main_reason] FROM [Reports] ORDER BY [status] DESC"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="reportsDS" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True;Connect Timeout=30" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [report_id], [status], [type], [main_reason] FROM [Reports] ORDER BY CASE WHEN [status] = 'Unresolved' THEN 1 ELSE 2 END ASC"></asp:SqlDataSource>
 
 
     </div>

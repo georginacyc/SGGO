@@ -34,7 +34,7 @@ namespace SGGO
                     }
                     if (Request.QueryString["rev"] != null)
                     {
-                        type_id = Request.QueryString["post"];
+                        type_id = Request.QueryString["rev"];
                         lbl_id.Text = type_id;
                         type_type = "review";
                     }
@@ -58,8 +58,7 @@ namespace SGGO
 
         protected void btn_back_Click(object sender, EventArgs e)
         {
-            Response.Redirect("User_Home.aspx");
-
+            Response.Redirect("Gem_Catalogue.aspx");
         }
 
         protected void btn_submit_report_Click(object sender, EventArgs e)
