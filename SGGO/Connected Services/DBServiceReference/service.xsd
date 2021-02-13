@@ -370,11 +370,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="CountPendingReviews">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="DeleteReview">
     <xs:complexType>
       <xs:sequence>
@@ -383,6 +378,11 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteReviewResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountPendingReviews">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

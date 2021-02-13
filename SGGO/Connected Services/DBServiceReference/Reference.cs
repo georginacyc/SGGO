@@ -1410,17 +1410,17 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateReviewStatus", ReplyAction="http://tempuri.org/IService1/UpdateReviewStatusResponse")]
         System.Threading.Tasks.Task UpdateReviewStatusAsync(int review_id, string status);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingReviews", ReplyAction="http://tempuri.org/IService1/CountPendingReviewsResponse")]
-        int CountPendingReviews();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingReviews", ReplyAction="http://tempuri.org/IService1/CountPendingReviewsResponse")]
-        System.Threading.Tasks.Task<int> CountPendingReviewsAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteReview", ReplyAction="http://tempuri.org/IService1/DeleteReviewResponse")]
         void DeleteReview(int review_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteReview", ReplyAction="http://tempuri.org/IService1/DeleteReviewResponse")]
         System.Threading.Tasks.Task DeleteReviewAsync(int review_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingReviews", ReplyAction="http://tempuri.org/IService1/CountPendingReviewsResponse")]
+        int CountPendingReviews();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingReviews", ReplyAction="http://tempuri.org/IService1/CountPendingReviewsResponse")]
+        System.Threading.Tasks.Task<int> CountPendingReviewsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateReport", ReplyAction="http://tempuri.org/IService1/CreateReportResponse")]
         int CreateReport(System.DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status);
@@ -1704,20 +1704,20 @@ namespace SGGO.DBServiceReference {
             return base.Channel.UpdateReviewStatusAsync(review_id, status);
         }
         
-        public int CountPendingReviews() {
-            return base.Channel.CountPendingReviews();
-        }
-        
-        public System.Threading.Tasks.Task<int> CountPendingReviewsAsync() {
-            return base.Channel.CountPendingReviewsAsync();
-        }
-        
         public void DeleteReview(int review_id) {
             base.Channel.DeleteReview(review_id);
         }
         
         public System.Threading.Tasks.Task DeleteReviewAsync(int review_id) {
             return base.Channel.DeleteReviewAsync(review_id);
+        }
+        
+        public int CountPendingReviews() {
+            return base.Channel.CountPendingReviews();
+        }
+        
+        public System.Threading.Tasks.Task<int> CountPendingReviewsAsync() {
+            return base.Channel.CountPendingReviewsAsync();
         }
         
         public int CreateReport(System.DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status) {
