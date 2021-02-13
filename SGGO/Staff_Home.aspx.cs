@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.DataVisualization.Charting;
+using System.Drawing;
 
 namespace SGGO
 {
@@ -47,52 +48,13 @@ namespace SGGO
                         gems_lb.Text = client.CountPendingGems().ToString();
 
                         // populating charts
-                        //double[] youthdata = new double[15];
-                        //double[] yadultdata = new double[25];
-                        //double[] adultdata = new double[20];
-                        //double[] elderlydata = new double[5];
+                        double[] yValues = { 25, 27 };
+                        string[] xValues = { "Female", "Male" };
 
-                        //var series = age_chart.Series[0];
-                        //series.YValueType = ChartValueType.Int32;
+                        gender_chart.Series["gender"].Points.DataBindXY(xValues, yValues);
 
-
-                        ////var series = new Series("AgeGroups");
-                        ////series.ChartArea = "ChartArea1";
-                        ////series.ChartType = SeriesChartType.Bar;
-
-                        //var ydp = new DataPoint();
-                        //ydp.AxisLabel = "Youth";
-                        //ydp.YValues = youthdata;
-
-                        //var yadp = new DataPoint();
-                        //yadp.AxisLabel = "Young Adult";
-                        //yadp.YValues = yadultdata;
-
-                        //var adp = new DataPoint();
-                        //adp.AxisLabel = "Adult";
-                        //adp.YValues = adultdata;
-
-                        //var edp = new DataPoint();
-                        //edp.AxisLabel = "Elderly";
-                        //edp.YValues = elderlydata;
-
-                        //series.Points.Insert(0, ydp);
-                        //series.Points.Insert(1, yadp);
-                        //series.Points.Insert(2, adp);
-                        //series.Points.Insert(3, edp);
-
-                        //var ydp = series.Points.Add(youthdata);
-                        //ydp.AxisLabel = "Youth";
-                        //var yadp = series.Points.Add(yadultdata);
-                        //yadp.AxisLabel = "Young Adult";
-                        //var adp = series.Points.Add(adultdata);
-                        //adp.AxisLabel = "Adult";
-                        //var edp = series.Points.Add(elderlydata);
-                        //edp.AxisLabel = "Elderly";
-
-
-                        //var chart = age_chart.Series;
-                        //chart.Add(series);
+                        gender_chart.Series["gender"].Points[0].Color = Color.PaleVioletRed;
+                        gender_chart.Series["gender"].Points[1].Color = Color.PaleTurquoise;
                     }
                     else
                     {

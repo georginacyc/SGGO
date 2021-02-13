@@ -75,7 +75,7 @@
         </div>
     </div>
     <div class="row" style="width: 60%; margin: 10px auto auto auto;">
-        <asp:Chart ID="test_chart" runat="server">
+        <asp:Chart ID="test_chart" runat="server" CssClass="auto-style1 col">
             <series>
                 <asp:Series ChartType="Bar" Name="Test" ChartArea="ChartArea1">
                     <Points>
@@ -91,17 +91,30 @@
                 </asp:ChartArea>
             </chartareas>
         </asp:Chart>
-        <asp:Chart ID="age_chart" runat="server">
-            <series>
-                <asp:Series ChartType="Bar" Name="age_series" ChartArea="age_chartarea">
+        <asp:Chart ID="area_chart" runat="server" CssClass="col">
+            <Series>
+                <asp:Series Name="area" ChartArea="area_chart">
                     <Points>
+                        <asp:DataPoint AxisLabel="South" YValues="2" />
+                        <asp:DataPoint AxisLabel="West" YValues="4" />
+                        <asp:DataPoint AxisLabel="East" YValues="10" />
+                        <asp:DataPoint AxisLabel="North East" YValues="3" />
+                        <asp:DataPoint AxisLabel="North" YValues="3" />
                     </Points>
                 </asp:Series>
-            </series>
-            <chartareas>
-                <asp:ChartArea Name="age_chartarea">
+            </Series>
+            <ChartAreas>
+                <asp:ChartArea Name="area_chart">
                 </asp:ChartArea>
-            </chartareas>
+            </ChartAreas>
+        </asp:Chart>
+        <asp:Chart ID="gender_chart" runat="server" CssClass="col">
+            <Series>
+                <asp:Series Name="gender" ChartType="Pie" ChartArea="gender_chart"></asp:Series>
+            </Series>
+            <ChartAreas>
+                <asp:ChartArea Name="gender_chart"></asp:ChartArea>
+            </ChartAreas>
         </asp:Chart>
     </div>
 </asp:Content>

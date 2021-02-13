@@ -51,12 +51,21 @@ namespace SGGO
         protected global::System.Web.UI.DataVisualization.Charting.Chart test_chart;
 
         /// <summary>
-        /// age_chart control.
+        /// area_chart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart age_chart;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart area_chart;
+
+        /// <summary>
+        /// gender_chart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart gender_chart;
     }
 }
