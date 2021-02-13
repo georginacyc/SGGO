@@ -24,13 +24,13 @@ namespace SGGO
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Image1 control.
+        /// gem_image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image gem_image;
 
         /// <summary>
         /// gem_title control.
@@ -42,13 +42,22 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label gem_title;
 
         /// <summary>
-        /// btn_map control.
+        /// lbl_gemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_map;
+        protected global::System.Web.UI.WebControls.Label lbl_gemId;
+
+        /// <summary>
+        /// gem_add control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label gem_add;
 
         /// <summary>
         /// gem_desc control.
@@ -69,12 +78,30 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Button btn_review;
 
         /// <summary>
-        /// gem_review control.
+        /// btn_report control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label gem_review;
+        protected global::System.Web.UI.WebControls.Button btn_report;
+
+        /// <summary>
+        /// gvReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvReview;
+
+        /// <summary>
+        /// GetGemReviews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource GetGemReviews;
     }
 }

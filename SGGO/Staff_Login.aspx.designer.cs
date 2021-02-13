@@ -15,6 +15,15 @@ namespace SGGO
     {
 
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -33,15 +42,6 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.TextBox email_tb;
 
         /// <summary>
-        /// error_lb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label error_lb;
-
-        /// <summary>
         /// password_tb control.
         /// </summary>
         /// <remarks>
@@ -51,13 +51,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.TextBox password_tb;
 
         /// <summary>
-        /// error2_lb control.
+        /// error_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label error2_lb;
+        protected global::System.Web.UI.WebControls.Label error_lb;
 
         /// <summary>
         /// login_btn control.

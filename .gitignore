@@ -12,6 +12,8 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+staffsecretkey.txt
+staffsitekey.txt
 
 # Build results
 [Dd]ebug/
@@ -338,3 +340,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/SGGO/Images

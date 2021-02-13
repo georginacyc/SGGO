@@ -5,7 +5,6 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/DBService" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/DBService.Entity" />
     </xsd:schema>
   </wsdl:types>
@@ -39,6 +38,42 @@
   <wsdl:message name="IService1_GetAllAccounts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAccountsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckAttempts_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAttempts" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckAttempts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAttemptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckSuspended_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSuspended" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckSuspended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSuspendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetStaffId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetStaffId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateLastLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLastLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateLastLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLastLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_StaffResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:StaffResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IService1_StaffResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StaffResetPasswordResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateGem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateGem" />
   </wsdl:message>
@@ -56,6 +91,24 @@
   </wsdl:message>
   <wsdl:message name="IService1_GetAllGems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllGemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateGemStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGemStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateGemStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGemStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGemById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGemById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGemById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGemByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountPendingGems_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingGems" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountPendingGems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingGemsResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_CreateTrail_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateTrail" />
@@ -87,11 +140,89 @@
   <wsdl:message name="IService1_GetReviewByAuthor_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetReviewByAuthorResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetReviewById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReviewById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetAllReview_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllReview" />
   </wsdl:message>
   <wsdl:message name="IService1_GetAllReview_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateReviewStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReviewStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateReviewStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReviewStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReview" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountPendingReviews_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingReviews" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountPendingReviews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingReviewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReport" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportByStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportByStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetReportById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReports" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateReportStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReportStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateReportStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReportStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountUnresolvedReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountUnresolvedReports" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountUnresolvedReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountUnresolvedReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreatePointShopItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePointShopItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreatePointShopItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePointShopItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAll" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
@@ -114,6 +245,30 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllAccounts" message="tns:IService1_GetAllAccounts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllAccountsResponse" message="tns:IService1_GetAllAccounts_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ChangePassword" message="tns:IService1_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangePasswordResponse" message="tns:IService1_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAttempts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckAttempts" message="tns:IService1_CheckAttempts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckAttemptsResponse" message="tns:IService1_CheckAttempts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSuspended">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckSuspended" message="tns:IService1_CheckSuspended_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckSuspendedResponse" message="tns:IService1_CheckSuspended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetStaffId" message="tns:IService1_GetStaffId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetStaffIdResponse" message="tns:IService1_GetStaffId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLastLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateLastLogin" message="tns:IService1_UpdateLastLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateLastLoginResponse" message="tns:IService1_UpdateLastLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/StaffResetPassword" message="tns:IService1_StaffResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/StaffResetPasswordResponse" message="tns:IService1_StaffResetPassword_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateGem">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateGem" message="tns:IService1_CreateGem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateGemResponse" message="tns:IService1_CreateGem_OutputMessage" />
@@ -125,6 +280,18 @@
     <wsdl:operation name="GetAllGems">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllGems" message="tns:IService1_GetAllGems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllGemsResponse" message="tns:IService1_GetAllGems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGemStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateGemStatus" message="tns:IService1_UpdateGemStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateGemStatusResponse" message="tns:IService1_UpdateGemStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGemById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGemById" message="tns:IService1_GetGemById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGemByIdResponse" message="tns:IService1_GetGemById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountPendingGems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountPendingGems" message="tns:IService1_CountPendingGems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CountPendingGemsResponse" message="tns:IService1_CountPendingGems_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateTrail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateTrail" message="tns:IService1_CreateTrail_InputMessage" />
@@ -146,9 +313,61 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReviewByAuthor" message="tns:IService1_GetReviewByAuthor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReviewByAuthorResponse" message="tns:IService1_GetReviewByAuthor_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetReviewById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReviewById" message="tns:IService1_GetReviewById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReviewByIdResponse" message="tns:IService1_GetReviewById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllReview">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllReview" message="tns:IService1_GetAllReview_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllReviewResponse" message="tns:IService1_GetAllReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReviewStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateReviewStatus" message="tns:IService1_UpdateReviewStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateReviewStatusResponse" message="tns:IService1_UpdateReviewStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteReview" message="tns:IService1_DeleteReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteReviewResponse" message="tns:IService1_DeleteReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountPendingReviews">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountPendingReviews" message="tns:IService1_CountPendingReviews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CountPendingReviewsResponse" message="tns:IService1_CountPendingReviews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateReport" message="tns:IService1_CreateReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateReportResponse" message="tns:IService1_CreateReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportByStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReportByStatus" message="tns:IService1_GetReportByStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReportByStatusResponse" message="tns:IService1_GetReportByStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetReportById" message="tns:IService1_GetReportById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetReportByIdResponse" message="tns:IService1_GetReportById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllReports" message="tns:IService1_GetAllReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllReportsResponse" message="tns:IService1_GetAllReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateReportStatus" message="tns:IService1_UpdateReportStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateReportStatusResponse" message="tns:IService1_UpdateReportStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountUnresolvedReports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountUnresolvedReports" message="tns:IService1_CountUnresolvedReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CountUnresolvedReportsResponse" message="tns:IService1_CountUnresolvedReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePointShopItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePointShopItem" message="tns:IService1_CreatePointShopItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreatePointShopItemResponse" message="tns:IService1_CreatePointShopItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectById" message="tns:IService1_SelectById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectByIdResponse" message="tns:IService1_SelectById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectAll" message="tns:IService1_SelectAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectAllResponse" message="tns:IService1_SelectAll_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -198,6 +417,60 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IService1/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAttempts">
+      <soap:operation soapAction="http://tempuri.org/IService1/CheckAttempts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSuspended">
+      <soap:operation soapAction="http://tempuri.org/IService1/CheckSuspended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffId">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetStaffId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLastLogin">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateLastLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffResetPassword">
+      <soap:operation soapAction="http://tempuri.org/IService1/StaffResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreateGem">
       <soap:operation soapAction="http://tempuri.org/IService1/CreateGem" style="document" />
       <wsdl:input>
@@ -218,6 +491,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllGems">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllGems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGemStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateGemStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGemById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetGemById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountPendingGems">
+      <soap:operation soapAction="http://tempuri.org/IService1/CountPendingGems" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -270,8 +570,125 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetReviewById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReviewById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllReview">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReviewStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateReviewStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReview">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountPendingReviews">
+      <soap:operation soapAction="http://tempuri.org/IService1/CountPendingReviews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReport">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportByStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReportByStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetReportById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReports">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateReportStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountUnresolvedReports">
+      <soap:operation soapAction="http://tempuri.org/IService1/CountUnresolvedReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePointShopItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreatePointShopItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAll">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

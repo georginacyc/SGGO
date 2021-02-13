@@ -24,22 +24,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// staff_email_lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-
-        /// <summary>
-        /// staff_email_tb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox staff_email_tb;
+        protected global::System.Web.UI.WebControls.Label staff_email_lb;
 
         /// <summary>
         /// staff_fn_tb control.
@@ -96,6 +87,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.TextBox staff_address_tb;
 
         /// <summary>
+        /// picture_file control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload picture_file;
+
+        /// <summary>
         /// staff_password_tb control.
         /// </summary>
         /// <remarks>
@@ -112,6 +112,60 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox staff_password2_tb;
+
+        /// <summary>
+        /// pwd_match control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label pwd_match;
+
+        /// <summary>
+        /// error_lb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label error_lb;
+
+        /// <summary>
+        /// pwd_length control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label pwd_length;
+
+        /// <summary>
+        /// pwd_case control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label pwd_case;
+
+        /// <summary>
+        /// pwd_num control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label pwd_num;
+
+        /// <summary>
+        /// pwd_char control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label pwd_char;
 
         /// <summary>
         /// submit_btn control.

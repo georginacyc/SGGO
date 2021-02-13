@@ -12,52 +12,71 @@ namespace DBService.Entity
    public class Review
     {
         // Define class properties
+        public int Review_Id { get; set; }
         public string Status { get; set; }
-        public string Post { get; set; }
+        public string Gem_Id { get; set; }
+        public string Gem_Title { get; set; }
         public string Author { get; set; }
-        public string Rating { get; set; }
-        public string Desc { get; set; }
+        public int Rating { get; set; }
+        public string Description { get; set; }
 
         public Review()
         {
 
         }
-        public Review(string status, string post, string author, string rating, string desc)
+
+        // for creating a review
+        public Review(string status, string gem_id, string gem_title, string author, int rating, string description)
         {
             Status = status;
-            Post = post;
+            Gem_Title = gem_title;
+            Gem_Id = gem_id;
             Author = author;
             Rating = rating;
-            Desc = desc;
+            Description = description;
+        }
+
+        // retrieving individual reviews
+        public Review(int review_id, string status, string gem_id, string gem_title, string author, int rating, string description)
+        {
+            Review_Id = review_id;
+            Status = status;
+            Gem_Title = gem_title;
+            Gem_Id = gem_id;
+            Author = author;
+            Rating = rating;
+            Description = description;
         }
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
-            string query = "INSERT INTO Review (status, post, author, rating, desc) " + "VALUES (@status, @post, @author, @rating, @desc)";
+            string query = "INSERT INTO Review (status, gem_id, gem_title, author, rating, description)" + "VALUES (@status, @gem_id, @gem_title, @author, @rating, @description)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@status", Status);
-            cmd.Parameters.AddWithValue("@post", Post);
+            cmd.Parameters.AddWithValue("@gem_id", Gem_Id);
+            cmd.Parameters.AddWithValue("@gem_title", Gem_Title);
             cmd.Parameters.AddWithValue("@author", Author);
             cmd.Parameters.AddWithValue("@rating", Rating);
-            cmd.Parameters.AddWithValue("@desc", Desc);
+            cmd.Parameters.AddWithValue("@description", Description);
 
             conn.Open();
             int result = cmd.ExecuteNonQuery();
             conn.Close();
 
+
             return result;
         }
 
 
-        // Select by Title
+        // Select by author
 
         public Review SelectByAuthor(string author)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Review WHERE author = @author";
@@ -73,12 +92,76 @@ namespace DBService.Entity
             if (count == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];
+                int review_id = Convert.ToInt32(row["review_id"]);
                 string status = row["status"].ToString();
-                string post = row["post"].ToString();
-                string rating = row["rating"].ToString();
-                string desc = row["desc"].ToString();
+                string gem_id = row["gem_id"].ToString();
+                string gem_title = row["gem_title"].ToString();
+                int rating = Convert.ToInt32(row["rating"]);
+                string description = row["description"].ToString();
 
-                review = new Review(status, post, author, rating, desc);
+                review = new Review(review_id, status, gem_id, gem_title, author, rating, description);
+            }
+            return review;
+        }
+
+        // Select by ID
+        public Review SelectById(int review_id)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT * FROM Review WHERE review_id = @id";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            da.SelectCommand.Parameters.AddWithValue("@id", review_id);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            Review review = null;
+            int count = ds.Tables[0].Rows.Count;
+            if (count == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                string status = row["status"].ToString();
+                string gem_id = row["gem_id"].ToString();
+                string gem_title = row["gem_title"].ToString();
+                string author = row["author"].ToString();
+                int rating = Convert.ToInt32(row["rating"]);
+                string description = row["description"].ToString();
+
+                review = new Review(review_id, status, gem_id, gem_title, author, rating, description);
+            }
+            return review;
+        }
+
+        //retrive all appreved reviews
+        public Review SelectByStatus(string status)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT * FROM Review WHERE status = @status";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            da.SelectCommand.Parameters.AddWithValue("@status", status);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            Review review = null;
+            int count = ds.Tables[0].Rows.Count;
+            if (count == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                int review_id = Convert.ToInt32(row["review_id"]);
+                string gem_id = row["gem_id"].ToString();
+                string gem_title = row["gem_title"].ToString();
+                string author = row["author"].ToString();
+                int rating = Convert.ToInt32(row["rating"]);
+                string description = row["description"].ToString();
+
+                review = new Review(review_id, status, gem_id, gem_title, author, rating, description);
             }
             return review;
         }
@@ -87,7 +170,7 @@ namespace DBService.Entity
 
         public List<Review> SelectAll()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Review";
@@ -101,17 +184,69 @@ namespace DBService.Entity
             int count = ds.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                DataRow row = ds.Tables[0].Rows[0];
-                string desc = row["desc"].ToString();
+                DataRow row = ds.Tables[0].Rows[i];
+                int review_id = Convert.ToInt32(row["review_id"]);
+                string description = row["description"].ToString();
                 string status = row["status"].ToString();
-                string post = row["post"].ToString();
+                string gem_id = row["gem_id"].ToString();
+                string gem_title = row["gem_title"].ToString();
                 string author = row["author"].ToString();
-                string rating = row["rating"].ToString();
+                int rating = Convert.ToInt32(row["rating"]);
 
-                Review review = new Review(status, post, author, rating, desc);
+                Review review = new Review(review_id, status, gem_id, gem_title, author, rating, description);
                 reviewList.Add(review);
             }
             return reviewList;
+        }
+
+        public void UpdateStatus(int id, string status)
+        {
+            System.Diagnostics.Debug.WriteLine(id.ToString() + status);
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Review SET status = @status WHERE review_id = @id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            conn.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            conn.Close();
+        }
+
+        public void DeleteReview(int id)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "DELETE Review WHERE review_id = @id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@id", id);
+
+            conn.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            conn.Close();
+        }
+
+        public int CountPending()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT COUNT(*) FROM Review WHERE status = 'Pending'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            conn.Open();
+            var count = (Int32) cmd.ExecuteScalar();
+            conn.Close();
+
+            return count;
         }
     }
 }

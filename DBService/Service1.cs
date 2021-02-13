@@ -29,9 +29,9 @@ namespace DBService
             return composite;
         }
 
-        public int CreateAccount(string email, string password, string type, string first_name, string last_name, string hp, string address, DateTime? last_login, DateTime account_created, string staff_id, int? points, List<int> owns)
+        public int CreateAccount(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string profilepic, string staff_id, int? diamonds)
         {
-            Account user = new Account(email, password, type, first_name, last_name, hp, address, last_login, account_created, staff_id, points, null);
+            Account user = new Account(email, pw, salt, type, first_name, last_name, dob, hp, postal, address, profilepic, staff_id, diamonds);
             return user.Insert();
         }
 
@@ -45,6 +45,41 @@ namespace DBService
         {
             Account accounts = new Account();
             return accounts.SelectAll();
+        }
+        public int ChangePassword(string email, string newpass)
+        {
+            Account user = new Account();
+            return user.ChangePassword(email, newpass);
+        }
+
+        public bool CheckAttempts(string email, bool pass)
+        {
+            Account user = new Account();
+            return user.CheckAttempts(email, pass);
+        }
+
+        public bool CheckSuspended(string email)
+        {
+            Account user = new Account();
+            return user.CheckSuspended(email);
+        }
+
+        public string GetStaffId()
+        {
+            Account user = new Account();
+            return user.GetStaffId();
+        }
+
+        public void UpdateLastLogin(string email)
+        {
+            Account user = new Account();
+            user.UpdateLogin(email);
+        }
+
+        public void StaffResetPassword(string email)
+        {
+            Account user = new Account();
+            user.ResetPassword(email);
         }
 
         // Gems
@@ -60,12 +95,35 @@ namespace DBService
             return gem.SelectByTitle(title);
         }
 
-        public int CreateGem(string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image)
+        public int CreateGem(string partner_email, string title, string description, string type, string location, DateTime? date, string status, float rating, string partner, string image)
         {
-            Gem gem = new Gem(title, description, type, location, date, status, rating, partner, image);
+            Gem gem = new Gem(partner_email, title, description, type, location, date, status, rating, partner, image);
             return gem.Insert();
         }
 
+        public void UpdateGemStatus(int gem_id, string status)
+        {
+            Gem gem = new Gem();
+            gem.UpdateStatus(gem_id, status);
+        }
+
+        //public void UpdateGemRating(int gem_id)
+        //{
+        //    Gem gem = new Gem();
+        //    gem.UpdateRating(gem_id);
+        //}
+
+        public Gem GetGemById(int id)
+        {
+            Gem gem = new Gem();
+            return gem.SelectById(id);
+        }
+
+        public int CountPendingGems()
+        {
+            Gem gem = new Gem();
+            return gem.CountPending();
+        }
 
         // Monthly Trail
         public List<Trail> GetAllTrails()
@@ -99,10 +157,98 @@ namespace DBService
             return review.SelectByAuthor(author);
         }
 
-        public int CreateReview(string status, string post, string author, string rating, string desc)
+        public Review GetReviewById(int review_id)
         {
-            Review review = new Review(status, post, author, rating, desc);
+            Review review = new Review();
+            return review.SelectById(review_id);
+        }
+
+        public int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description)
+        {
+            Review review = new Review(status, gem_id, gem_title, author, rating, description);
             return review.Insert();
+        }
+
+        public void UpdateReviewStatus(int review_id, string status)
+        {
+            Review review = new Review();
+            review.UpdateStatus(review_id, status);
+            var rev = review.SelectById(review_id);
+            Gem gem = new Gem();
+            gem.UpdateRating(Convert.ToInt32(rev.Gem_Id));
+        }
+
+        public int CountPendingReviews()
+        {
+            Review review = new Review();
+            return review.CountPending();
+        }
+
+        public void DeleteReview(int review_id)
+        {
+            Review review = new Review();
+            var rev = review.SelectById(review_id);
+            string gem_id = rev.Gem_Id;
+            review.DeleteReview(review_id);
+            Gem gem = new Gem();
+            gem.UpdateRating(Convert.ToInt32(gem_id));
+        }
+
+        //Reports
+        public List<Report> GetAllReports()
+        {
+            Report report = new Report();
+            return report.SelectAll();
+        }
+
+        public Report GetReportByStatus(string status)
+        {
+            Report report = new Report();
+            return report.SelectByStatus(status);
+        }
+
+        public Report GetReportById(int report_id)
+        {
+            Report report = new Report();
+            return report.SelectById(report_id);
+        }
+
+        public int CreateReport(DateTime date_reported, string post, string type, string reported_by, string reason, string remarks, string status)
+        {
+            Report report = new Report(date_reported, post, type, reported_by, reason, remarks, status);
+            return report.Insert();
+        }
+
+        public void UpdateReportStatus(int review_id, string status)
+        {
+            Report report = new Report();
+            report.UpdateStatus(review_id, status);
+        }
+
+        public int CountUnresolvedReports()
+        {
+            Report report = new Report();
+            return report.CountUnresolved();
+        }
+
+
+        public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr)
+        {
+            Point_Shop_Item item = new Point_Shop_Item(name, partner, description, price, image, type, qr);
+            return item.Insert();
+        }
+
+        //Point Shop
+        public Point_Shop_Item SelectById(string Point_Shop_Item_Id) 
+        {
+            Point_Shop_Item items = new Point_Shop_Item();
+            return items.SelectById(Point_Shop_Item_Id);
+        }
+
+        public List<Point_Shop_Item> SelectAll()
+        {
+            Point_Shop_Item items = new Point_Shop_Item();
+            return items.SelectAll();
         }
     }
 }

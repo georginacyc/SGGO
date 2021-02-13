@@ -10,7 +10,9 @@
                 <td>
                     <asp:Label ID="Label1" runat="server" Font-Size="25pt" Text="My Profile"></asp:Label>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Label ID="lblMessage" runat="server" Text="Label"></asp:Label>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -87,10 +89,28 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>
                 <td>
                     <asp:Button ID="btn_Update" runat="server" Text="Update" />
+                    <asp:Button ID="btn_logout" runat="server" OnClick="btn_logout_Click" Text="Logout" />
                 </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Button ID="btn_reviews" runat="server" Height="42px" OnClick="btn_reviews_Click" Text="My reviews" />
+                </td>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
         </table>
         <div>

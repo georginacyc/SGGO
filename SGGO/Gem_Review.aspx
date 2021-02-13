@@ -11,7 +11,7 @@
             <tr>
                 <td style="width: 341px">Rate &amp; Review</td>
                 <td rowspan="3" style="width: 381px">
-                    <asp:Image ID="Image1" runat="server" Height="179px" Width="304px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
+                    <asp:Image ID="gem_image" runat="server" Height="179px" Width="304px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
                 </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
@@ -29,7 +29,9 @@
                     <asp:ImageButton ID="Rating_4" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_4_Click" />
                     <asp:ImageButton ID="Rating_5" runat="server" Height="25px" Width="25px" ImageUrl="~/Test_Image/Star.png" OnClick="Rating_5_Click" />
                  </td>
-                <td class="auto-style2"></td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbl_rating_score" runat="server" Visible="False"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td colspan="2">&nbsp;</td>
@@ -42,18 +44,26 @@
                 <td style="width: 402px; height: 99px"></td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="2">
+                    <asp:Label ID="lbl_msg" runat="server" ForeColor="#006600"></asp:Label>
+                </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Button ID="btn_submit_review" runat="server" Text="Submit" Width="700px" OnClick="btn_submit_review_Click" />
+                    <asp:Button ID="btn_submit_review" runat="server" Text="Submit" Width="700px" OnClick="btn_submit_review_Click" BackColor="Gray" />
                 </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
             <tr>
                 <td style="width: 341px">&nbsp;</td>
                 <td style="width: 381px">&nbsp;</td>
+                <td style="width: 402px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Button ID="btn_back" runat="server" Text="Back to Gem" Width="700px" OnClick="btn_back_Click" />
+                </td>
                 <td style="width: 402px">&nbsp;</td>
             </tr>
         </table>

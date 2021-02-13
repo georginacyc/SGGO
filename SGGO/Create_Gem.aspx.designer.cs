@@ -96,13 +96,22 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lb_partner;
 
         /// <summary>
-        /// tb_pc control.
+        /// lb_pc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_pc;
+        protected global::System.Web.UI.WebControls.Label lb_pc;
+
+        /// <summary>
+        /// lb_pc_email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_pc_email;
 
         /// <summary>
         /// lb_location control.
