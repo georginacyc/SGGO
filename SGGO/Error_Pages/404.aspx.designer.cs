@@ -7,65 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SGGO
+namespace SGGO.Error_Pages
 {
 
 
-    public partial class Staff_Home
+    public partial class _400
     {
 
         /// <summary>
-        /// reports_lb control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label reports_lb;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// reviews_lb control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label reviews_lb;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// gems_lb control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label gems_lb;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// test_chart control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart test_chart;
-
-        /// <summary>
-        /// area_chart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart area_chart;
-
-        /// <summary>
-        /// gender_chart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart gender_chart;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
