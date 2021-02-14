@@ -109,7 +109,9 @@
                     <asp:Button ID="btn_reviews" runat="server" Height="42px" OnClick="btn_reviews_Click" Text="My reviews" />
                 </td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="My Favourites" />
+                    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="My Coupons" />
+                </td>
                 <td>
                     &nbsp;</td>
             </tr>

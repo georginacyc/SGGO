@@ -102,6 +102,19 @@ namespace SGGO
             }
         }
 
-        
+        protected void btn_reviews_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btn_favourities_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("User_Favourites.aspx", false);
+        }
+
+        protected void btn_coupons_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("User_Coupons.aspx", false);
+        }
     }
 }
