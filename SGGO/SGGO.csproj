@@ -93,14 +93,17 @@
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Partner_Change_Password.aspx" />
     <Content Include="Home_Page.aspx" />
     <Content Include="Images\Gem\Nicole flower cafe.jpg" />
     <Content Include="Images\Gem\Raffles Marina.jpg" />
     <Content Include="Partner_Delete_Gem.aspx" />
     <Content Include="Partner_Delete_Point_Shop_Item.aspx" />
     <Content Include="Partner_Gem_List.aspx" />
+    <Content Include="Partner_Gem_Listing.aspx" />
     <Content Include="Partner_Home.aspx" />
     <Content Include="Partner_Login.aspx" />
+    <Content Include="Partner_Logout.aspx" />
     <Content Include="Partner_Own_Account_Details.aspx" />
     <Content Include="Partner_Point_Shop_Item_List.aspx" />
     <Content Include="Partner_Update_Gem.aspx" />
@@ -236,19 +239,12 @@
     <Compile Include="Partner.Master.designer.cs">
       <DependentUpon>Partner.Master</DependentUpon>
     </Compile>
-    <Compile Include="Partner_Delete_Gem.aspx.cs">
-      <DependentUpon>Partner_Delete_Gem.aspx</DependentUpon>
+    <Compile Include="Partner_Change_Password.aspx.cs">
+      <DependentUpon>Partner_Change_Password.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Partner_Delete_Gem.aspx.designer.cs">
-      <DependentUpon>Partner_Delete_Gem.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Partner_Delete_Point_Shop_Item.aspx.cs">
-      <DependentUpon>Partner_Delete_Point_Shop_Item.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Partner_Delete_Point_Shop_Item.aspx.designer.cs">
-      <DependentUpon>Partner_Delete_Point_Shop_Item.aspx</DependentUpon>
+    <Compile Include="Partner_Change_Password.aspx.designer.cs">
+      <DependentUpon>Partner_Change_Password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Partner_Gem_List.aspx.cs">
       <DependentUpon>Partner_Gem_List.aspx</DependentUpon>
@@ -256,6 +252,13 @@
     </Compile>
     <Compile Include="Partner_Gem_List.aspx.designer.cs">
       <DependentUpon>Partner_Gem_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Partner_Gem_Listing.aspx.cs">
+      <DependentUpon>Partner_Gem_Listing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Partner_Gem_Listing.aspx.designer.cs">
+      <DependentUpon>Partner_Gem_Listing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Partner_Home.aspx.cs">
       <DependentUpon>Partner_Home.aspx</DependentUpon>
@@ -270,6 +273,13 @@
     </Compile>
     <Compile Include="Partner_Login.aspx.designer.cs">
       <DependentUpon>Partner_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Partner_Logout.aspx.cs">
+      <DependentUpon>Partner_Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Partner_Logout.aspx.designer.cs">
+      <DependentUpon>Partner_Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Partner_Own_Account_Details.aspx.cs">
       <DependentUpon>Partner_Own_Account_Details.aspx</DependentUpon>
@@ -523,6 +533,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\Gem\" />
+    <Folder Include="Images\Point_Shop_Items\" />
     <Folder Include="Images\Profile_Pictures\" />
     <Folder Include="Images\Trail\" />
     <Folder Include="Models\" />

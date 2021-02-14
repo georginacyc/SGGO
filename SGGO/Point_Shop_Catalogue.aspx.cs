@@ -13,5 +13,11 @@ namespace SGGO
         {
 
         }
+
+        protected void PSIGV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string PSIid = PSI_gv.SelectedRow.Cells[0].Text;
+            //Cody u can put the code to push the id of the voucher thing here
+        }
     }
 }

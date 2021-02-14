@@ -1121,6 +1121,9 @@ namespace SGGO.DBServiceReference {
         private string PartnerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Partner_EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Point_Shop_Item_IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1190,6 +1193,19 @@ namespace SGGO.DBServiceReference {
                 if ((object.ReferenceEquals(this.PartnerField, value) != true)) {
                     this.PartnerField = value;
                     this.RaisePropertyChanged("Partner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Partner_Email {
+            get {
+                return this.Partner_EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Partner_EmailField, value) != true)) {
+                    this.Partner_EmailField = value;
+                    this.RaisePropertyChanged("Partner_Email");
                 }
             }
         }
@@ -1465,10 +1481,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task<int> CountUnresolvedReportsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePointShopItem", ReplyAction="http://tempuri.org/IService1/CreatePointShopItemResponse")]
-        int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);
+        int CreatePointShopItem(string name, string partner, string partner_email, string description, int price, string image, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePointShopItem", ReplyAction="http://tempuri.org/IService1/CreatePointShopItemResponse")]
-        System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string description, int price, string image, string type, string qr);
+        System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string partner_email, string description, int price, string image, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectById", ReplyAction="http://tempuri.org/IService1/SelectByIdResponse")]
         SGGO.DBServiceReference.Point_Shop_Item SelectById(string Point_Shop_Item_Id);
@@ -1782,12 +1798,12 @@ namespace SGGO.DBServiceReference {
             return base.Channel.CountUnresolvedReportsAsync();
         }
         
-        public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr) {
-            return base.Channel.CreatePointShopItem(name, partner, description, price, image, type, qr);
+        public int CreatePointShopItem(string name, string partner, string partner_email, string description, int price, string image, string type) {
+            return base.Channel.CreatePointShopItem(name, partner, partner_email, description, price, image, type);
         }
         
-        public System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string description, int price, string image, string type, string qr) {
-            return base.Channel.CreatePointShopItemAsync(name, partner, description, price, image, type, qr);
+        public System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string partner_email, string description, int price, string image, string type) {
+            return base.Channel.CreatePointShopItemAsync(name, partner, partner_email, description, price, image, type);
         }
         
         public SGGO.DBServiceReference.Point_Shop_Item SelectById(string Point_Shop_Item_Id) {

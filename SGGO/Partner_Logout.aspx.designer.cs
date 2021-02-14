@@ -11,34 +11,34 @@ namespace SGGO
 {
 
 
-    public partial class Point_Shop_Catalogue
+    public partial class Partner_Logout
     {
 
         /// <summary>
-        /// lb_Company control.
+        /// lb_Logout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_Company;
+        protected global::System.Web.UI.WebControls.Label lb_Logout;
 
         /// <summary>
-        /// PSI_gv control.
+        /// btn_Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView PSI_gv;
+        protected global::System.Web.UI.WebControls.Button btn_Back;
 
         /// <summary>
-        /// MyPSIDS control.
+        /// btn_Logout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource MyPSIDS;
+        protected global::System.Web.UI.WebControls.Button btn_Logout;
     }
 }

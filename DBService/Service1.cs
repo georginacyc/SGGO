@@ -238,9 +238,9 @@ namespace DBService
         }
 
 
-        public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr)
+        public int CreatePointShopItem(string name, string partner, string partner_email, string description, int price, string image, string type)
         {
-            Point_Shop_Item item = new Point_Shop_Item(name, partner, description, price, image, type, qr);
+            Point_Shop_Item item = new Point_Shop_Item(name, partner, partner_email, description, price, image, type);
             return item.Insert();
         }
 

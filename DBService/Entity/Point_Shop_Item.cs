@@ -14,6 +14,7 @@ namespace DBService.Entity
         public string Point_Shop_Item_Id { get; set; }
         public string Name { get; set; }
         public string Partner { get; set; }
+        public string Partner_Email { get; set; }
         public string Description { get; set; }
         public int Price { get; set; }
         public string Image { get; set; }
@@ -22,15 +23,15 @@ namespace DBService.Entity
 
         public Point_Shop_Item() { }
 
-        public Point_Shop_Item(string name, string partner, string description, int price, string image, string type, string qr)
+        public Point_Shop_Item(string name, string partner, string partner_email, string description, int price, string image, string type)
         {
             Name = name;
             Partner = partner;
+            Partner_Email = partner_email;
             Description = description;
             Price = price;
             Image = image;
             Type = type;
-            QR = "";
         }
         public int Insert()
         {
@@ -38,16 +39,16 @@ namespace DBService.Entity
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "INSERT INTO Point_Shop_Item (name,partner,description,price,image,type,qr) " + "VALUES (@name,@partner,@description,@price,@image,@type,@qr)";
+            string query = "INSERT INTO Point_Shop_Item (name,partner,partner_email,description,price,image,type) " + "VALUES (@name,@partner,@partner_email,@description,@price,@image,@type)";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@name", Name);
             cmd.Parameters.AddWithValue("@partner", Partner);
+            cmd.Parameters.AddWithValue("@partner_email", Partner_Email);
             cmd.Parameters.AddWithValue("@description", Description);
             cmd.Parameters.AddWithValue("@price", Price);
             cmd.Parameters.AddWithValue("@image", Image);
             cmd.Parameters.AddWithValue("@type", Type);
-            cmd.Parameters.AddWithValue("@qr", QR);
 
             conn.Open();
             int result = cmd.ExecuteNonQuery();
@@ -71,12 +72,13 @@ namespace DBService.Entity
                 DataRow row = ds.Tables[0].Rows[0];
                 string name = row["name"].ToString();
                 string partner = row["partner"].ToString();
+                string partner_email = row["partner_email"].ToString();
                 string description = row["description"].ToString();
                 int price = (int)row["price"];
                 string image = row["image"].ToString();
                 string type = row["type"].ToString();
                 string qr = row["qr"].ToString();
-                item = new Point_Shop_Item(name, partner, description, price, image, type, qr);
+                item = new Point_Shop_Item(name, partner, partner_email, description, price, image, type);
             }
             return item;
         }
@@ -99,12 +101,13 @@ namespace DBService.Entity
                 DataRow row = ds.Tables[0].Rows[0];
                 string name = row["name"].ToString();
                 string partner = row["partner"].ToString();
+                string partner_email = row["partner_email"].ToString();
                 string description = row["description"].ToString();
                 int price = (int)row["price"];
                 string image = row["image"].ToString();
                 string type = row["type"].ToString();
                 string qr = row["qr"].ToString();
-                Point_Shop_Item item = new Point_Shop_Item(name, partner, description, price, image, type, qr);
+                Point_Shop_Item item = new Point_Shop_Item(name, partner, partner_email, description, price, image, type);
                 itemList.Add(item);
             }
             return itemList;

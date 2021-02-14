@@ -11,70 +11,97 @@ namespace SGGO
 {
 
 
-    public partial class Partner_Login
+    public partial class Partner_Gem_Listing
     {
 
         /// <summary>
-        /// Label3 control.
+        /// gem_image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Image gem_image;
 
         /// <summary>
-        /// label control.
+        /// gem_title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label;
+        protected global::System.Web.UI.WebControls.Label gem_title;
 
         /// <summary>
-        /// tb_email control.
+        /// lbl_gemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_email;
+        protected global::System.Web.UI.WebControls.Label lbl_gemId;
 
         /// <summary>
-        /// lb_error control.
+        /// gem_add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_error;
+        protected global::System.Web.UI.WebControls.Label gem_add;
 
         /// <summary>
-        /// Label2 control.
+        /// gem_desc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label gem_desc;
 
         /// <summary>
-        /// tb_pw control.
+        /// gvReview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_pw;
+        protected global::System.Web.UI.WebControls.GridView gvReview;
 
         /// <summary>
-        /// btn_login control.
+        /// GetGemReviews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_login;
+        protected global::System.Web.UI.WebControls.SqlDataSource GetGemReviews;
+
+        /// <summary>
+        /// btn_back control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_back;
+
+        /// <summary>
+        /// btn_update control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_update;
+
+        /// <summary>
+        /// btn_delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_delete;
     }
 }

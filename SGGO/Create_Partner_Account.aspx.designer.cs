@@ -24,15 +24,6 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// picture_file control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload picture_file;
-
-        /// <summary>
         /// partner_fn_tb control.
         /// </summary>
         /// <remarks>
@@ -85,6 +76,15 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox partner_address_tb;
+
+        /// <summary>
+        /// picture_file control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload picture_file;
 
         /// <summary>
         /// submit_btn control.
