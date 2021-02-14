@@ -90,7 +90,7 @@ namespace DBService.Entity
         // account creation
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -125,7 +125,7 @@ namespace DBService.Entity
         // retrieving user account by email
         public Account SelectByEmail(string email)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Accounts WHERE email = @email";
@@ -134,7 +134,7 @@ namespace DBService.Entity
 
             DataSet ds = new DataSet();
 
-            da.Fill(ds);
+             da.Fill(ds);
 
             Account user = null;
             int count = ds.Tables[0].Rows.Count;
@@ -264,7 +264,7 @@ namespace DBService.Entity
         public void UpdateUserProfile(string email, string hp, string address, string postal_code)
         {
             Account user = new Account().SelectByEmail(email);
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "UPDATE Accounts SET hp = @hp, address = @address, postal_code = @postal_code where email = @email";

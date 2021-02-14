@@ -3,10 +3,11 @@
 
 
     <form id="form1" runat="server">
+        <div class="card" style="width: 55%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
         <table class="auto-style1">
             <tr>
                 <td>
-                    <asp:Label ID="Label3" runat="server" Font-Size="25pt" Text="Login"></asp:Label>
+                    <asp:Label ID="Label1" runat="server"  Font-Bold="True" Font-Size="40px" Text="Login"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -16,14 +17,14 @@
                 </td>
                 <td>
                     <asp:TextBox ID="tb_email" runat="server"  Width="192px"></asp:TextBox>
-                    <asp:Label ID="lblMsg2" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="lblMsg2" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="height: 40px">
                     <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                 </td>
-                <td>
+                <td style="height: 40px">
                     <asp:TextBox ID="tb_pw" TextMode="Password" runat="server" Width="187px"></asp:TextBox>
                 </td>
             </tr>
@@ -31,17 +32,18 @@
                 <td>
                     &nbsp;</td>
                 <td>
-                    <asp:Button ID="btn_login" runat="server" Text="Login" OnClick="btn_login_Click" />
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Click here to register instead" />
+                    <asp:Button ID="btn_login" runat="server"  class="btn btn-dark" Text="Login" OnClick="btn_login_Click" Width="199px" Font-Size="15px" />
                 </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Button ID="Button1" runat="server" class="btn btn-dark" OnClick="Button1_Click" Text="Click here to register instead" Width="199px" Font-Size="15px" />
+                </td>
             </tr>
         </table>
-        <div>
-        </div>
+            </div>
+        
     </form>
 
 </asp:Content>
