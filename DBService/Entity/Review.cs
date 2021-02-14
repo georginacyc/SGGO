@@ -17,7 +17,7 @@ namespace DBService.Entity
         public string Gem_Id { get; set; }
         public string Gem_Title { get; set; }
         public string Author { get; set; }
-        public string Rating { get; set; }
+        public int Rating { get; set; }
         public string Description { get; set; }
 
         public Review()
@@ -26,7 +26,7 @@ namespace DBService.Entity
         }
 
         // for creating a review
-        public Review(string status, string gem_id, string gem_title, string author, string rating, string description)
+        public Review(string status, string gem_id, string gem_title, string author, int rating, string description)
         {
             Status = status;
             Gem_Title = gem_title;
@@ -37,7 +37,7 @@ namespace DBService.Entity
         }
 
         // retrieving individual reviews
-        public Review(int review_id, string status, string gem_id, string gem_title, string author, string rating, string description)
+        public Review(int review_id, string status, string gem_id, string gem_title, string author, int rating, string description)
         {
             Review_Id = review_id;
             Status = status;
@@ -50,7 +50,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
             string query = "INSERT INTO Review (status, gem_id, gem_title, author, rating, description)" + "VALUES (@status, @gem_id, @gem_title, @author, @rating, @description)";
@@ -96,7 +96,7 @@ namespace DBService.Entity
                 string status = row["status"].ToString();
                 string gem_id = row["gem_id"].ToString();
                 string gem_title = row["gem_title"].ToString();
-                string rating = row["rating"].ToString();
+                int rating = Convert.ToInt32(row["rating"]);
                 string description = row["description"].ToString();
 
                 review = new Review(review_id, status, gem_id, gem_title, author, rating, description);
@@ -127,7 +127,7 @@ namespace DBService.Entity
                 string gem_id = row["gem_id"].ToString();
                 string gem_title = row["gem_title"].ToString();
                 string author = row["author"].ToString();
-                string rating = row["rating"].ToString();
+                int rating = Convert.ToInt32(row["rating"]);
                 string description = row["description"].ToString();
 
                 review = new Review(review_id, status, gem_id, gem_title, author, rating, description);
@@ -158,7 +158,7 @@ namespace DBService.Entity
                 string gem_id = row["gem_id"].ToString();
                 string gem_title = row["gem_title"].ToString();
                 string author = row["author"].ToString();
-                string rating = row["rating"].ToString();
+                int rating = Convert.ToInt32(row["rating"]);
                 string description = row["description"].ToString();
 
                 review = new Review(review_id, status, gem_id, gem_title, author, rating, description);
@@ -191,7 +191,7 @@ namespace DBService.Entity
                 string gem_id = row["gem_id"].ToString();
                 string gem_title = row["gem_title"].ToString();
                 string author = row["author"].ToString();
-                string rating = row["rating"].ToString();
+                int rating = Convert.ToInt32(row["rating"]);
 
                 Review review = new Review(review_id, status, gem_id, gem_title, author, rating, description);
                 reviewList.Add(review);

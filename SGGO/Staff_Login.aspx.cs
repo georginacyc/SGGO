@@ -25,6 +25,7 @@ namespace SGGO
             public List<string> ErrorMessage { get; set; }
         }
 
+        // site and secret keys for the google recaptcha are placed in a txt files (which are gitignored) as our project is on github for version control and better collaboration
         protected string sourcekey
         {
             get
@@ -52,7 +53,7 @@ namespace SGGO
             }
         }
 
-        public bool ValidateCaptcha()
+        public bool ValidateCaptcha() // captcha check
         {
             bool result = true;
             string captcha = Request.Form["g-recaptcha-response"];
@@ -79,54 +80,28 @@ namespace SGGO
             }
         }
 
-        protected bool Check(string email, string pw)
+        protected void Button1_Click(object sender, EventArgs e) // on login
         {
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            var staff = client.GetAccountByEmail(email);
-            if (staff == null)
-            {
-                return false;
-            } else
-            {
-                // initializing hashing thingy
-                SHA512Managed hashing = new SHA512Managed();
-
-                // salting plaintext and hashing after
-                string saltedpw = pw + staff.Password_Salt;
-                string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
-
-                if (staff.Password == hashedpw)
-                {
-                    return true;
-                } else
-                {
-                    return false;
-                }
-            }
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            var user = client.GetAccountByEmail(email_tb.Text.Trim());
+            var user = client.GetAccountByEmail(email_tb.Text.Trim()); // gets staff account
 
             var pass = true;
 
-            if (user == null)
+            if (user == null) // if staff doesnt exist
             {
-                error_lb.Text = "Invalid credentials";
+                error_lb.Text = "Invalid credentials"; // generic error message to prevent brute forcing
                 pass = false;
             }
             else
             {
-                var suspended = client.CheckSuspended(user.Email);
+                var suspended = client.CheckSuspended(user.Email); // retuns boolean, checks if staff account is suspended
                 if (suspended)
                 {
                     int span = 30 - Convert.ToInt16(DateTime.Now.Subtract(Convert.ToDateTime(user.Locked_Since)).TotalMinutes);
-                    error_lb.Text = "Your account has been locked. Please wait " + span + " minutes before trying again.";
+                    error_lb.Text = "Your account has been locked. Please wait " + span + " minutes before trying again."; // error message updates staff on the duration their account is locked for
                     pass = false;
                 }
-                else
+                else // if not suspended, check password
                 {
                     string salt = user.Password_Salt;
 
@@ -137,21 +112,21 @@ namespace SGGO
                     string saltedpw = password_tb.Text.Trim() + salt;
                     string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
 
-                    if (hashedpw == user.Password)
+                    if (hashedpw == user.Password) // if password is correct
                     {
                         client.CheckAttempts(user.Email, true);
                         pass = true;
                     }
-                    else
+                    else // if password is incorrect, reduce attempts left by 1
                     {
                         client.CheckAttempts(user.Email, false);
-                        error_lb.Text = "Invalid credentials";
+                        error_lb.Text = "Invalid credentials"; // generic error message to prevent brute forcing
                         pass = false;
                     }
                 }
             }
 
-            if (!ValidateCaptcha())
+            if (!ValidateCaptcha()) // in the even that the captcha detects that the user is a bot
             {
                 error_lb.Text = error_lb.Text + "Something went wrong, please refresh and try again.";
                 pass = false;
@@ -161,7 +136,7 @@ namespace SGGO
             {
                 // log in
                 Session["LoggedIn"] = user.Email;
-                Session["Role"] = user.Type;
+                Session["Role"] = user.Type; // sets user role as a session variable for future checks
 
                 string guid = Guid.NewGuid().ToString();
                 Session["AuthToken"] = guid;

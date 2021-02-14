@@ -24,15 +24,6 @@ namespace SGGO
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// gem_image control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image gem_image;
-
-        /// <summary>
         /// gem_title control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label gem_title;
+
+        /// <summary>
+        /// gem_image control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image gem_image;
 
         /// <summary>
         /// lbl_gemId control.
@@ -51,13 +51,22 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lbl_gemId;
 
         /// <summary>
-        /// gem_add control.
+        /// fav control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label gem_add;
+        protected global::System.Web.UI.WebControls.ImageButton fav;
+
+        /// <summary>
+        /// lbl_like control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_like;
 
         /// <summary>
         /// gem_desc control.
@@ -69,6 +78,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label gem_desc;
 
         /// <summary>
+        /// btn_add control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_add;
+
+        /// <summary>
         /// btn_review control.
         /// </summary>
         /// <remarks>
@@ -76,15 +94,6 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_review;
-
-        /// <summary>
-        /// btn_report control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_report;
 
         /// <summary>
         /// gvReview control.
@@ -103,5 +112,14 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource GetGemReviews;
+
+        /// <summary>
+        /// btn_report control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_report;
     }
 }

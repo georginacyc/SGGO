@@ -56,6 +56,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -86,6 +87,8 @@
     <Content Include="Create_Staff_Account.aspx" />
     <Content Include="Create_Trail.aspx" />
     <Content Include="Create_User_Account.aspx" />
+    <Content Include="Error_Pages\404.aspx" />
+    <Content Include="Error_Pages\Generic.aspx" />
     <Content Include="Gem_Catalogue.aspx" />
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
@@ -118,8 +121,12 @@
     <Content Include="Staff_Review_Details.aspx" />
     <Content Include="testform.aspx" />
     <Content Include="Test_Image\Cafe-De-Nicoles.jpg" />
+    <Content Include="Test_Image\FilledLike.png" />
     <Content Include="Test_Image\FilledStar.png" />
+    <Content Include="Test_Image\like.png" />
     <Content Include="Test_Image\Star.png" />
+    <Content Include="User_Coupons.aspx" />
+    <Content Include="User_Favourites.aspx" />
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
     <Content Include="User_Profile.aspx" />
@@ -173,6 +180,20 @@
     </Compile>
     <Compile Include="Create_User_Account.aspx.designer.cs">
       <DependentUpon>Create_User_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pages\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error_Pages\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pages\Generic.aspx.cs">
+      <DependentUpon>Generic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error_Pages\Generic.aspx.designer.cs">
+      <DependentUpon>Generic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gem_Catalogue.aspx.cs">
       <DependentUpon>Gem_Catalogue.aspx</DependentUpon>
@@ -408,6 +429,20 @@
     </Compile>
     <Compile Include="User.Master.designer.cs">
       <DependentUpon>User.Master</DependentUpon>
+    </Compile>
+    <Compile Include="User_Coupons.aspx.cs">
+      <DependentUpon>User_Coupons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Coupons.aspx.designer.cs">
+      <DependentUpon>User_Coupons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Favourites.aspx.cs">
+      <DependentUpon>User_Favourites.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Favourites.aspx.designer.cs">
+      <DependentUpon>User_Favourites.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Home.aspx.cs">
       <DependentUpon>User_Home.aspx</DependentUpon>

@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Drawing;
+using SGGO.DBServiceReference;
 
 namespace SGGO
 {
@@ -18,6 +19,7 @@ namespace SGGO
         //Regex passReg = new Regex(@"^(?=.*[a-zA-Z])(?=.*[!-/])(?=.*\d).{8}$"); // Minimum eight characters, at least one letter and one number:
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (Page.IsPostBack == false) { }
 
         }
 
@@ -34,7 +36,11 @@ namespace SGGO
         private bool ValidateInput()
         {
             bool result;
+            string email = string.Empty;
             lbMsg.Text = String.Empty;
+            email = user_email_tb.Text;//(string)Session["email"];
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            Account userObj = client.GetAccountByEmail(email);
 
             if (user_fname_tb.Text == "")
             {
@@ -44,7 +50,15 @@ namespace SGGO
             {
                 lbMsg.Text += "Last name is required" + "<br/>";
             }
-            if (user_email_tb.Text == "")
+            if (user_email_tb.Text != "")
+            {
+                if (user_email_tb.Text.Equals(userObj.Email))
+                {
+                    lbMsg.Text += "User has already been registered" + "<br/>";
+                }
+                
+            }
+            else
             {
                 lbMsg.Text += "Email is required" + "<br/>";
             }
@@ -55,19 +69,17 @@ namespace SGGO
                 {
                     lbMsg.Text += "Please put a stronger pw" + "<br/>";
                 }
+                if (user_password_tb.Text != user_confirmpw_tb.Text)
+                {
+                    lbMsg.Text += "Passwords do not match" + "<br/>";
+                }
             }
             else
             {
                 lbMsg.Text += "Password is required" + "<br/>";
             }
-            if (user_confirmpw_tb.Text == "")
-            {
-                lbMsg.Text += "Please confirm your password is required" + "<br/>";
-            }
-            if (user_password_tb.Text != user_confirmpw_tb.Text)
-            {
-                lbMsg.Text += "Please confirme your password again" + "<br/>";
-            }
+           
+            
            
             if (String.IsNullOrEmpty(lbMsg.Text))
             {
@@ -187,10 +199,7 @@ namespace SGGO
                 lbMsg.Visible = true;
 
             }
-            else
-            {
-                lbMsg.Text = "Please try again";
-            }
+           
         }
 
         protected void Button1_Click(object sender, EventArgs e)

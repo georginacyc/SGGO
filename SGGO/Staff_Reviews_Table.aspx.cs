@@ -85,6 +85,7 @@ namespace SGGO
 
         protected void reviews_gv_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // brings staff to the details page of the selected review
             string id = reviews_gv.SelectedRow.Cells[0].Text;
             Response.Redirect("Staff_Review_Details.aspx?id=" + id);
         }

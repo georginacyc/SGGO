@@ -85,6 +85,7 @@ namespace SGGO
 
         protected void reports_gv_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // brings staff to the details page of the selected report
             string id = reports_gv.SelectedRow.Cells[0].Text;
             Response.Redirect("Staff_Report_Details.aspx?id=" + id);
         }

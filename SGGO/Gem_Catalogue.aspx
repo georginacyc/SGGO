@@ -1,17 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Gem_Catalogue.aspx.cs" Inherits="SGGO.Gem_Catalogue" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
-    <br />
-    <p style="text-align:center;font-size:x-large">Hidden Gems</p>
-    <form id="form1" runat="server" style="padding-left:80px;padding-top:15px;">
+    <div class="card" style="width: 80%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px; text-align:center;">
+        <asp:Label ID="Label1" runat="server" Font-Size="40px" Text="Hidden Gems" ></asp:Label>
+        <br />
+    <form id="form1" runat="server" style="padding-left:10px;padding-top:15px;">
         
 <asp:ListView ID="ListView_Gem" runat="server" 
               DataKeyNames="Id"  
               DataSourceID="SGGO" 
-              GroupItemCount="3">
+              GroupItemCount="3" >
    <EmptyDataTemplate>
       <table runat="server">
         <tr>
-          <td>No data was returned.</td>
+          <td>There are no gems currently sorry.</td>
         </tr>
      </table>
   </EmptyDataTemplate>
@@ -24,28 +25,18 @@
     </tr>
   </GroupTemplate>
   <ItemTemplate>
-    <td runat="server">
-      <table border="0" width="400">
-        <tr>
-          <td>&nbsp</td>
-          <td>
-               <image src='~/Images/Gem/<%# Eval("image") %>' 
-                      width="200" height="100" border="0">
-            </a> &nbsp</td>
-          <td>
-            <span 
-               class="ProductListHead"><%# Eval("title") %></span><br>
-            </a>
-            <span class="GemListItem">
-              <b> Rating : </b><%# Eval("rating")%>
-            </span><br />
-            <a href='Gem_Listing.aspx?gemId=<%# Eval("Id") %>'>
-               <span class="GemListItem"><b>View Details<b></font></span>
-            </a>
-          </td>
-        </tr>
+      <td runat="server" style="width:400px">
+      <table border="0">
+          <div class="card" style="width: 300px;">
+          <img class="card-img-top" src="/Images/Gem/<%# Eval("image") %>.jpg" alt="Card image cap" style="width:300px; height:179px">
+          <div class="card-body">
+            <h3 class="card-title"><span class="ProductListHead"><%# Eval("title") %></span></h3>
+            <p class="card-text"><span class="GemListItem"><b> Average Rating : </b><%# Eval("rating")%></span></p>
+            <a href='Gem_Listing.aspx?gemId=<%# Eval("Id") %>' class="btn btn-primary"><b>View Details<b></a>
+          </div>
       </table>
     </td>
+   </div>
   </ItemTemplate>
   <LayoutTemplate>
     <table runat="server">
@@ -64,8 +55,9 @@
             <SelectParameters>
                
                 <asp:Parameter DefaultValue="Destination" Name="type" Type="String" />
-                <asp:Parameter DefaultValue="Pending" Name="status" Type="String" />
+                <asp:Parameter DefaultValue="Approved" Name="status" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
     </form>
+    </div>
 </asp:Content>

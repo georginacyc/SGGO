@@ -13,12 +13,34 @@ namespace SGGO
         {
             if (Session["LoggedIn"] != null && Session["Role"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
             {
-                if (Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+                if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+                {
+                    Session.Clear();
+                    Session.Abandon();
+                    Session.RemoveAll();
+
+                    Response.Redirect("Staff_Login.aspx");
+
+                    if (Request.Cookies["ASP.NET_SessionId"] != null)
+                    {
+                        Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                        Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                    }
+
+                    if (Request.Cookies["AuthToken"] != null)
+                    {
+                        Response.Cookies["AuthToken"].Value = string.Empty;
+                        Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                    }
+                }
+                else
                 {
                     if (Session["Role"].ToString() == "Staff")
                     {
+                        // on page load codes here
                         if (!String.IsNullOrEmpty(Request.QueryString["email"]))
                         {
+                            // retrieves selected user account, and displays info
                             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                             var user = client.GetAccountByEmail(Request.QueryString["email"]);
                             profile_img.Attributes["src"] = "/Images/Profile_Pictures/" + user.Profile_Picture;
@@ -53,20 +75,46 @@ namespace SGGO
                     }
                     else
                     {
-                        Response.Redirect("Staff_Login.aspx");
-                    }
+                        Session.Clear();
+                        Session.Abandon();
+                        Session.RemoveAll();
 
-                }
-                else
-                {
-                    Response.Redirect("Staff_Login.aspx");
+                        Response.Redirect("Staff_Login.aspx");
+
+                        if (Request.Cookies["ASP.NET_SessionId"] != null)
+                        {
+                            Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                            Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+
+                        if (Request.Cookies["AuthToken"] != null)
+                        {
+                            Response.Cookies["AuthToken"].Value = string.Empty;
+                            Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+                    }
                 }
             }
             else
             {
+                Session.Clear();
+                Session.Abandon();
+                Session.RemoveAll();
+
                 Response.Redirect("Staff_Login.aspx");
+
+                if (Request.Cookies["ASP.NET_SessionId"] != null)
+                {
+                    Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                    Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                }
+
+                if (Request.Cookies["AuthToken"] != null)
+                {
+                    Response.Cookies["AuthToken"].Value = string.Empty;
+                    Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                }
             }
-            
         }
 
         protected void resetpw_btn_Click(object sender, EventArgs e)
@@ -74,7 +122,7 @@ namespace SGGO
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
             var user = client.GetAccountByEmail(Request.QueryString["email"]);
             client.StaffResetPassword(user.Email);
-            resetpw_lb.Text = "Password has been reset to DOB (or Date of Establishment) + Postal Code. E.g. 12/03/2001539591";
+            resetpw_lb.Text = "Password has been reset to DOB or Date of Establishment (dd/MM) + Postal Code. E.g. 12/03539591";
         }
 
         protected void back_btn_Click(object sender, EventArgs e)

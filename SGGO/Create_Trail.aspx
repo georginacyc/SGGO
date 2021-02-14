@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="New Trail" Language="C#" MasterPageFile="~/Staff.Master" AutoEventWireup="true" CodeBehind="Create_Trail.aspx.cs" Inherits="SGGO.Create_Trail"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
     <style type="text/css">
         .auto-style5 {
             width: 1373px
@@ -47,7 +48,7 @@
                 <asp:Label ID="lb_date" runat="server" Text="Date:"></asp:Label>
             </td>
             <td class="auto-style9">
-                <asp:DropDownList ID="dd_month" runat="server">
+                <asp:DropDownList ID="dd_month"  runat="server">
                     <asp:ListItem>January</asp:ListItem>
                     <asp:ListItem>February</asp:ListItem>
                     <asp:ListItem>March</asp:ListItem>
@@ -77,7 +78,7 @@
                 <asp:Label ID="lb_listings" runat="server" Text="Listings Involved:"></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="dd_gem" runat="server" DataSourceID="GemDataSource" DataTextField="title" DataValueField="title" Width="230px">
+                <asp:DropDownList ID="dd_gem" runat="server" EnableFilterSearch="True" EnableServerFiltering="True" EnablePopupResize="True" DataSourceID="GemDataSource" DataTextField="title" DataValueField="title" Width="230px">
                 </asp:DropDownList>
                 <asp:Button ID="btn_addListing" runat="server" Text="+" Height="70%" OnClick="btn_addListing_Click" />
                 <asp:Label ID="lb_adderror" runat="server"></asp:Label>
@@ -133,4 +134,6 @@
     </div>
     <br />
         </div>
+
+ 
 </asp:Content>

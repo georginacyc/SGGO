@@ -41,10 +41,9 @@ namespace SGGO
                         if (!String.IsNullOrEmpty(Request.QueryString["id"]))
                         {
                             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                            var review = client.GetReviewById(Convert.ToInt32(Request.QueryString["id"]));
-                            // var gem = client.GetGemById(Convert.ToInt32(review.Gem_Id));
+                            var review = client.GetReviewById(Convert.ToInt32(Request.QueryString["id"])); // retrieves the selected review to display
 
-
+                            // checks if the review has already been dealt with
                             if (review.Status.Trim() == "Approved" || review.Status.Trim() == "Rejected")
                             {
                                 approve_btn.Visible = false;
@@ -52,12 +51,14 @@ namespace SGGO
                             }
                             review_lb.Text = review_lb.Text + review.Review_Id.ToString();
                             status_lb.Text = review.Status;
+                            // adds anchor tags/hyperlinks to the following text
                             gem_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + review.Gem_Id + "&gemT=" + review.Gem_Title + "'>" + review.Gem_Title + "</a>"; // now is id, will need to retrieve name with it next time. also want to make it clickable, link to gem page.
                             author_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + review.Author + "'>" + review.Author + "</a>";
-                            rating_lb.Text = review.Rating;
+                            rating_lb.Text = review.Rating.ToString();
                             description_lb.Text = review.Description;
                         } else
                         {
+                            // if there is no review selected, send back to reviews table.
                             Response.Redirect("Staff_Reviews_Table.aspx");
                         }
                     }
@@ -107,6 +108,7 @@ namespace SGGO
 
         protected void approve_btn_Click(object sender, EventArgs e)
         {
+            // updates status of the review to 'Approved'
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
             client.UpdateReviewStatus(Convert.ToInt32(Request.QueryString["id"]), "Approved");
 
@@ -115,6 +117,7 @@ namespace SGGO
 
         protected void disapprove_btn_Click(object sender, EventArgs e)
         {
+            // updates status of the review to 'Disapproved'
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
             client.UpdateReviewStatus(Convert.ToInt32(Request.QueryString["id"]), "Rejected");
 
@@ -122,6 +125,7 @@ namespace SGGO
         }
         protected void back_btn_Click(object sender, EventArgs e)
         {
+            // 'back' button to bring them to reviews table
             Response.Redirect("Staff_Reviews_Table.aspx");
         }
     }

@@ -1,10 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="User_Reviews.aspx.cs" Inherits="SGGO.User_Reviews" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
+    <div class="card" style="width: 80%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
     <form id="form1" runat="server" style="text-align:center;">
-        <p style="font-size:x-large">
-            My Reviews</p>
-            <asp:GridView ID="gvMyreview" runat="server" AutoGenerateColumns="False" DataKeyNames="review_id" OnSelectedIndexChanged="gvMyreview_SelectedIndexChanged" DataSourceID="GetGemReviews" CellPadding="4" ForeColor="#333333" GridLines="None" Width="852px" HorizontalAlign="Center">
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="My Reviews"></asp:Label>
+            <asp:GridView ID="gvMyreview" runat="server" AutoGenerateColumns="False" DataKeyNames="review_id" OnSelectedIndexChanged="gvMyreview_SelectedIndexChanged" DataSourceID="GetGemReviews" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="852px" HorizontalAlign="Center" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
                 <Columns>
                     <asp:BoundField DataField="gem_title" HeaderText="Gem" SortExpression="gem_title" />
                     <asp:BoundField DataField="rating" HeaderText="Rating (out of 5 stars)" SortExpression="rating" />
@@ -14,16 +13,14 @@
                     <ItemStyle ForeColor="#990000" />
                     </asp:CommandField>
                 </Columns>
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>
             <asp:SqlDataSource ID="GetGemReviews" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Review] WHERE ([author] = @author)">
                 <SelectParameters>
@@ -33,4 +30,5 @@
         
             
     </form>
+        </div>
 </asp:Content>
