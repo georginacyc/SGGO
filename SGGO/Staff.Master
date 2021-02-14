@@ -15,39 +15,47 @@
 <body>
     <form id="form1" runat="server">
         <div class="menu">
-            <nav class="navbar navbar-dark bg-dark navbar-toggleable-sm navbar-toggleable-md navbar-toggleable-lg">
-                <a class="navbar-brand" href="Staff_Home.aspx">
-                    SGGO
+             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                  <!-- Brand -->
+                  <a class="navbar-brand" href="Staff_Home.aspx">
+                      SGGO
                     <span>staff</span>
-                </a>
-                    <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="Staff_Reports_Table.aspx">reports</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Staff_Reviews_Table.aspx">reviews</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Staff_Gems_Table.aspx">gems</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Staff_Accounts_List.aspx">accounts</a>
-                        </li>
-                    </ul>
-                <ul class="navbar-nav ">
+                  </a>
+
+                  <!-- Links -->
+                  <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="Staff_Own_Account_Details.aspx"><i class="bi bi-person-fill"></i></a>
+                      <a class="nav-link" href="Staff_Reports_Table.aspx">Reports</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="Staff_Reviews_Table.aspx">Reviews</a>
+                    </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="Staff_Gems_Table.aspx">Gems</a>
+                    </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="Staff_Accounts_List.aspx">Accounts</a>
+                    </li>                    
+                  </ul>
+                 <ul class="navbar-nav ml-auto">
+                     <!-- Dropdown -->
+                     <li class="nav-item">
+                          <a class="nav-link" href="Staff_Own_Account_Details.aspx">
+                              <i class="bi bi-person-fill"></i>
+                          </a>
+                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDD" role="button" data-toggle="dropdown"><span class="navbar-toggler-icon"></span></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="Create_Staff_Account.aspx">create staff account</a>
-                            <a class="dropdown-item" href="Create_Partner_Account.aspx">create partner account</a>
-                            <a class="dropdown-item" href="#" onServerClick="Logout" runat="server">log out</a>
-                        </div>
+                      <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
+                        <span class="navbar-toggler-icon"></span>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="Create_Staff_Account.aspx">Create Staff Account</a>
+                            <a class="dropdown-item" href="Create_Partner_Account.aspx">Create Partner Account</a>
+                            <a class="dropdown-item" href="#" onServerClick="Logout" runat="server">Log Out</a>
+                      </div>
                     </li>
-                </ul>
-            </nav>
+                 </ul>
+                </nav> 
         </div>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

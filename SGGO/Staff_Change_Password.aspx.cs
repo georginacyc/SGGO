@@ -103,9 +103,10 @@ namespace SGGO
                 mt = true;
             }
 
+            // if not empty
             if (!mt)
             {
-                // checks if user exists
+                // checks if staff exists
                 var user = client.GetAccountByEmail(Session["LoggedIn"].ToString());
 
                 // initializing hashing thingy
@@ -116,12 +117,14 @@ namespace SGGO
                 string saltedpw = current_tb.Text.Trim() + salt;
                 string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
 
+                // checks if current password input matches current password in db
                 if (hashedpw != user.Password)
                 {
                     error_lb.Text = error_lb.Text + "Incorrect password <br>";
                     pass = false;
                 }
 
+                // checks if new password matches current or last 2 passwords
                 string saltednew = new_tb.Text.Trim() + salt;
                 hashednew = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltednew)));
                 if (hashednew == user.Password || hashednew == user.Password_Last || hashednew == user.Password_Last2)
@@ -130,6 +133,7 @@ namespace SGGO
                     pass = false;
                 }
 
+                // checks that new password fulfills password criteria
                 Regex pwRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}");
                 if (!pwRegex.IsMatch(new_tb.Text.Trim()))
                 {
@@ -137,6 +141,7 @@ namespace SGGO
                     pass = false;
                 }
 
+                // checks that staff's password is at least 5 mins
                 TimeSpan span = DateTime.Now.Subtract(user.Password_Age);
                 if (Convert.ToInt16(span.TotalMinutes) <= 5)
                 {
@@ -145,7 +150,7 @@ namespace SGGO
                 }
             }
 
-            if (!mt && pass)
+            if (!mt && pass) // if fields arent empty, and inputs passes all checks
             {
                 int result = client.ChangePassword(Session["LoggedIn"].ToString(), hashednew);
                 if (result == 1)
@@ -177,6 +182,7 @@ namespace SGGO
 
         protected void back_btn_Click(object sender, EventArgs e)
         {
+            // 'back' button to bring staff back to their own account details page
             Response.Redirect("Staff_Own_Account_Details.aspx");
         }
     }

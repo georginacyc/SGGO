@@ -85,6 +85,7 @@ namespace SGGO
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // brings staff to the account details page of the selected account
             string email = accounts_gv.SelectedRow.Cells[2].Text;
             Response.Redirect("Staff_Account_Details.aspx?email=" + email);
         }
