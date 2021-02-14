@@ -125,7 +125,7 @@ namespace DBService
 
         //Point Shop
         [OperationContract]
-        int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);
+        int CreatePointShopItem(string name, string partner, string partner_email, string description, int price, string image, string type);
 
         [OperationContract]
         Point_Shop_Item SelectById(string Point_Shop_Item_Id);

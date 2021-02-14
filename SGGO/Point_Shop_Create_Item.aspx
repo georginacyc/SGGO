@@ -1,78 +1,118 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Staff.Master" AutoEventWireup="true" CodeBehind="Point_Shop_Create_Item.aspx.cs" Inherits="SGGO.Point_Shop_Create_Item" %>
+﻿<%@ Page  Title="Create Point Shop Item" Language="C#" MasterPageFile="~/Partner.Master" AutoEventWireup="true" CodeBehind="Point_Shop_Create_Item.aspx.cs" Inherits="SGGO.Point_Shop_Create_Item" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            width: 141px;
+        .auto-style5 {
+            width: 1373px
         }
-        .auto-style2 {
-            width: 312px;
+        .auto-style7 {
+            width: 221px;
         }
-        .auto-style3 {
-            width: 124px;
+       
+        #button{
+            position: absolute;
+            right: 10px;
         }
+        table,tr{
+            margin:10px;
+        }
+       
+        .auto-style8 {
+            width: 221px;
+            height: 26px;
+        }
+        .auto-style9 {
+            height: 26px;
+        }
+       
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lb_create_item" runat="server" Font-Bold="True" Font-Size="40px" Text="Create Point Shop Item"></asp:Label>
+    
+    <div class="container-fluid">
+    <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="New Point Shop Item"></asp:Label>
     <br />
-    <br />
-    <table class="w-100">
+    <table class="auto-style5" id="formtable">
         <tr>
-            <td class="auto-style1">Name: </td>
-            <td class="auto-style2">
-                <asp:TextBox ID="tb_item_name" runat="server"></asp:TextBox>
+            <td class="auto-style7">
+                <asp:Label ID="lb_name" runat="server" Text="Name"></asp:Label>
             </td>
-            <td class="auto-style3">Type:</td>
             <td>
-                
-                <asp:DropDownList ID="ddl_item_type" runat="server">
-                    <asp:ListItem>- Select A Category -</asp:ListItem>
-                    <asp:ListItem>Staycation Offer</asp:ListItem>
-                    <asp:ListItem>Travel Voucher</asp:ListItem>
-                    <asp:ListItem>Food Voucher</asp:ListItem>
-                </asp:DropDownList>
-                
+                <asp:TextBox ID="tb_name" runat="server" Width="100%"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style1">Location: </td>
-            <td class="auto-style2">
-                <asp:TextBox ID="tb_item_location" runat="server" CssClass="offset-sm-0"></asp:TextBox>
+            <td class="auto-style7">
+                <asp:Label ID="lb_description" runat="server" Text="Description:"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="tb_description" runat="server" Width="100%"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">
+                <asp:Label ID="lb_type" runat="server" Text="Type:"></asp:Label>
+            </td>
+            <td>
+                <asp:RadioButtonList ID="rb_type" runat="server" AutoPostBack="True" RepeatDirection="Horizontal" Width="307px">
+                    <asp:ListItem>Package</asp:ListItem>
+                    <asp:ListItem>Voucher</asp:ListItem>
+                </asp:RadioButtonList>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style8">
+
+                <asp:Label ID="lb_partner" runat="server" Text="Partner Company:" ></asp:Label>
+            </td>
+            <td class="auto-style9">
+                <asp:Label ID="lb_pc" runat="server" Width="100%"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style8">
+
+                &nbsp;</td>
+            <td class="auto-style9">
+                <asp:Label ID="lb_pc_email" runat="server"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">
+                <asp:Label ID="lb_price" runat="server" Text="Monetary Value: " ></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="tb_price" runat="server" Width="100%" TextMode="Number"></asp:TextBox>
+            </td>
+        </tr>
+            <tr id="date_row" >
+            <td class="auto-style7">
+                &nbsp;
             </td>
             
-        </tr>
-        <tr>
-            <td class="auto-style1">Price: </td>
-            <td class="auto-style2">
-                <asp:TextBox ID="tb_item_price" runat="server"></asp:TextBox>
+            <td>
+                &nbsp;
             </td>
         </tr>
-        <tr>
-            <td class="auto-style3">Description: </td>
-            <td>
-                <asp:TextBox ID="tb_item_description" runat="server" Height="146px" Width="389px"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">
-                &nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">Upload a picture:</td>
-            <td class="auto-style2">
-                <asp:FileUpload ID="FileUpload1" runat="server" />
-            </td>
-            <td class="auto-style3">&nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-    </table>
+        
+        </table>
+    
     <br />
-    <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" />
+    <asp:Label ID="lb_image" runat="server" Text="Item Image:"></asp:Label>
     <br />
-</asp:Content>
+    <asp:FileUpload ID="ImageUpload" runat="server" Width="521px" />
+    <br />
+        <asp:Label ID="lb_uploadstatus" runat="server"></asp:Label>
+    <br />
+    <br />
+        <div id="button">
+        
+        <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click" />
+        
+        </div>
+        
+    <br />
+        </div>
 
+    
+</asp:Content>

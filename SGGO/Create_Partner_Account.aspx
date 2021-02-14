@@ -15,7 +15,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Create Partner Account"></asp:Label>
     <br />
-    <asp:FileUpload ID="picture_file" runat="server" />
     <br />
     <table class="w-100">
         <tr>
@@ -62,7 +61,8 @@
             </td>
             <td class="auto-style3">&nbsp;</td>
             <td>
-                &nbsp;</td>
+    <asp:FileUpload ID="picture_file" runat="server" />
+            </td>
         </tr>
     </table>
     <br />

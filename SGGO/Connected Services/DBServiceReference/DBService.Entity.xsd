@@ -116,6 +116,7 @@
       <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Partner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Partner_Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Point_Shop_Item_Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Price" type="xs:int" />
       <xs:element minOccurs="0" name="QR" nillable="true" type="xs:string" />
