@@ -12,7 +12,7 @@
    <EmptyDataTemplate>
       <table runat="server">
         <tr>
-          <td>No data was returned.</td>
+          <td>There are no gems currently sorry.</td>
         </tr>
      </table>
   </EmptyDataTemplate>
@@ -55,7 +55,7 @@
             <SelectParameters>
                
                 <asp:Parameter DefaultValue="Destination" Name="type" Type="String" />
-                <asp:Parameter DefaultValue="Pending" Name="status" Type="String" />
+                <asp:Parameter DefaultValue="Approved" Name="status" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
     </form>
