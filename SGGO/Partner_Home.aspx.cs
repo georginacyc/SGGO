@@ -13,5 +13,10 @@ namespace SGGO
         {
 
         }
+
+        protected void btn_Login_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Partner_Login.aspx");
+        }
     }
 }

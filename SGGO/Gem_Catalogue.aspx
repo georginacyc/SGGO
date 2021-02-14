@@ -32,7 +32,7 @@
           <div class="card-body">
             <h3 class="card-title"><span class="ProductListHead"><%# Eval("title") %></span></h3>
             <p class="card-text"><span class="GemListItem"><b> Average Rating : </b><%# Eval("rating")%></span></p>
-            <a href='Gem_Listing.aspx?gemId=<%# Eval("Id") %>' class="btn btn-primary"><b>View Details<b></a>
+            <a href='Gem_Listing.aspx?gemId=<%# Eval("Id") %>' class="btn btn-dark" style="width:250px"><b>View Details<b></a>
           </div>
       </table>
     </td>
@@ -55,7 +55,7 @@
             <SelectParameters>
                
                 <asp:Parameter DefaultValue="Destination" Name="type" Type="String" />
-                <asp:Parameter DefaultValue="Approved" Name="status" Type="String" />
+                <asp:Parameter DefaultValue="Pending" Name="status" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
     </form>

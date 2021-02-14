@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Gem_Listing.aspx.cs" Inherits="SGGO.Gem_Listing" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <div class="card" style="width: 60%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
     <form id="form1" runat="server">
         <table style="width:100%; text-align:center;">
@@ -41,13 +42,13 @@
                     <b><asp:Label ID="gem_desc" runat="server">Most Instagram-Worthy Floral-Themed Café With Soufflé Pancakes Found At East Coast.</asp:Label></b>
                 </td>
                 <td style="width: 317px">
-                    <asp:Button ID="btn_add" runat="server" Text="Locate Us" Height="41px" Width="184px" class="btn btn-dark" OnClick="btn_add_Click"/>
+                    <asp:Button ID="btn_add" runat="server" Text="Locate Us" Height="41px" Width="184px" Cssclass="btn btn-dark" OnClick="btn_add_Click"/>
                 </td>
             </tr>
             <tr>
                 <td style="width: 646px"><b>Reviews</b></td>
                 <td style="width: 317px">
-                    <asp:Button ID="btn_review" runat="server" Height="41px" Text="Leave a Review" Width="184px" OnClick="btn_review_Click" class="btn btn-dark"/>
+                    <asp:Button ID="btn_review" runat="server" Height="41px" Text="Leave a Review" Width="184px" OnClick="btn_review_Click" Cssclass="btn btn-dark"/>
                 </td>
             </tr>
             <tr>
@@ -87,7 +88,7 @@
             <tr>
                 <td style="width: 646px">&nbsp;</td>
                 <td style="width: 317px">
-                    <asp:Button ID="btn_report" runat="server" Height="41px" OnClick="btn_report_Click1" Width="184px" Text="Report Gem" class="btn btn-danger" />
+                    <asp:Button ID="btn_report" runat="server" Height="41px" OnClick="btn_report_Click1" Width="184px" Text="Report Gem" Cssclass="btn btn-danger" />
                 </td>
             </tr>
             <tr>

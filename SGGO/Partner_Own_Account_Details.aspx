@@ -28,6 +28,10 @@
         .auto-style8 {
             height: 26px;
         }
+        .auto-style9 {
+            width: 620px;
+            height: 26px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -37,27 +41,25 @@
     <br />
     <table class="w-100">
         <tr>
-            <td class="auto-style1"><strong>Email:</strong></td>
-            <td class="auto-style2">
+            <td class="auto-style5"><strong>Email:</strong></td>
+            <td class="auto-style6">
                 <asp:Label ID="email_lb" runat="server"></asp:Label>
             </td>
-            <td class="auto-style4"><strong>Staff Id:</strong></td>
-            <td class="auto-style3">
-                <asp:Label ID="staffid_lb" runat="server"></asp:Label>
-            </td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style9">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style1"><strong>First Name:</strong></td>
+            <td class="auto-style1"><strong>Company: </strong></td>
             <td class="auto-style2">
                 <asp:Label ID="fname_lb" runat="server"></asp:Label>
             </td>
-            <td class="auto-style4"><strong>Last Name: </strong> </td>
+            <td class="auto-style4">&nbsp;</td>
             <td class="auto-style3">
                 <asp:Label ID="lname_lb" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td class="auto-style1"><strong>DOB:</strong></td>
+            <td class="auto-style1"><strong>Date Established:</strong></td>
             <td class="auto-style2">
                 <asp:Label ID="dob_lb" runat="server"></asp:Label>
             </td>
@@ -91,18 +93,28 @@
             </td>
             <td class="auto-style4">&nbsp;</td>
             <td>
+                <asp:Button ID="changepw_btn" runat="server" CssClass="btn btn-warning" OnClick="changepw_btn_Click" Text="Change Password" BackColor="#666666" BorderColor="White" ForeColor="White" />
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style2">
+                <asp:Label ID="Label2" runat="server"></asp:Label>
+            </td>
+            <td class="auto-style4">&nbsp;</td>
+            <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style1"><strong>Password Age:</strong></td>
+            <td class="auto-style1">&nbsp;</td>
             <td class="auto-style2">
-                &nbsp;</td>
+                <asp:Label ID="lb_Need_Help" runat="server" Text="Need help with your account? Contact our Staff!"></asp:Label>
+            </td>
             <td class="auto-style4">&nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
     </table>
-    <asp:Button ID="btn_GotoCreateGem" runat="server" OnClick="btn_GotoCreateGem_Click" Text="Create Gem" />
     <br/>
     
 </asp:Content>

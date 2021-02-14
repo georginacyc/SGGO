@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Gem_Review.aspx.cs" Inherits="SGGO.Gem_Review" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <div class="card" style="width: 48%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
     <form id="form1" runat="server">
         
@@ -48,7 +49,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Button ID="btn_submit_review" class="btn btn-dark" runat="server" Text="Submit" Width="700px" OnClick="btn_submit_review_Click" />
+                    <asp:Button ID="btn_submit_review" Cssclass="btn btn-dark" runat="server" Text="Submit" Width="700px" OnClick="btn_submit_review_Click" />
                 </td>
             </tr>
             <tr>
@@ -56,7 +57,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Button ID="btn_back" runat="server" class="btn btn-outline-dark" Text="Back to Gem" Width="700px" OnClick="btn_back_Click" />
+                    <asp:Button ID="btn_back" runat="server" Cssclass="btn btn-outline-dark" Text="Back to Gem" Width="700px" OnClick="btn_back_Click" />
                 </td>
             </tr>
         </table>

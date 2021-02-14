@@ -151,7 +151,7 @@ namespace DBService.Entity
         // Select by Id
         public Gem SelectById(int id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["nina"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Gem WHERE Id = @id";

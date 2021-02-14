@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Create_Report.aspx.cs" Inherits="SGGO.Create_Report" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <div class="card" style="width: 48%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
     <form id="form1" runat="server">
         <table style="width:500px; text-align:center;">
@@ -42,12 +43,12 @@
             </tr>
             <tr>
                 <td style="height: 99px">
-                    <asp:Button ID="btn_submit_report" runat="server" Text="Submit" Width="700px" class="btn btn-dark" OnClick="btn_submit_report_Click" />
+                    <asp:Button ID="btn_submit_report" runat="server" Text="Submit" Width="700px" Cssclass="btn btn-dark" OnClick="btn_submit_report_Click" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btn_back" runat="server" class="btn btn-outline-dark" Text="Back to Home" Width="700px" OnClick="btn_back_Click" />
+                    <asp:Button ID="btn_back" runat="server" Cssclass="btn btn-outline-dark" Text="Back to Home" Width="700px" OnClick="btn_back_Click" />
                 </td>
             </tr>
             <tr>
