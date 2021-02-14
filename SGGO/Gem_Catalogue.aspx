@@ -3,7 +3,7 @@
     <div class="card" style="width: 80%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px; text-align:center;">
         <asp:Label ID="Label1" runat="server" Font-Size="40px" Text="Hidden Gems" ></asp:Label>
         <br />
-    <form id="form1" runat="server" style="padding-left:50px;padding-top:15px;">
+    <form id="form1" runat="server" style="padding-left:10px;padding-top:15px;">
         
 <asp:ListView ID="ListView_Gem" runat="server" 
               DataKeyNames="Id"  

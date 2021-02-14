@@ -4,36 +4,45 @@
     <form id="form1" runat="server">
         <table style="width:100%; text-align:center;">
             <tr>
-                <td style="width: 646px">&nbsp;</td>
-                <td style="width: 317px">&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="2" style="width: 646px">
-                    <asp:Image ID="gem_image" runat="server" Height="221px" Width="390px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
-                </td>
-                <td style="width: 317px">
+                <td style="width: 646px; height: 10px; padding:10px;">
                     <b><asp:Label ID="gem_title" runat="server" Font-Bold="True" Font-Size="30px">Nicole flower cafe</asp:Label></b>
                 </td>
+                <td style="width: 317px; float: left;">
+                    &nbsp;</td>
             </tr>
             <tr>
+                <td rowspan="3" style="width: 646px">
+                    <asp:Image ID="gem_image" runat="server" Height="221px" Width="390px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
+                </td>
                 <td style="width: 317px">
                     <asp:Label ID="lbl_gemId" runat="server" Visible="False"></asp:Label>
                 </td>
             </tr>
             <tr>
-                <td style="width: 646px">
-                    <asp:Label ID="gem_add" runat="server"></asp:Label>
-                </td>
                 <td style="width: 317px">
-                    <asp:Button ID="btn_report" runat="server" Height="41px" OnClick="btn_report_Click1" Width="184px" Text="Report Gem" class="btn btn-danger" />
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 317px">
+                <asp:ImageButton ID="fav" runat="server" Height="42px" Width="43px" ImageUrl="~/Test_Image/like.png" OnClick="fav_Click" />    
+                    <br />
+                    <asp:Label ID="lbl_like" runat="server"  Text="Add to Favourites"></asp:Label>
                 </td>
+            </tr>
+            <tr>
+                <td style="width: 646px">
+                    &nbsp;</td>
+                <td style="width: 317px">
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td style="width: 646px">
                     
                     <b><asp:Label ID="gem_desc" runat="server">Most Instagram-Worthy Floral-Themed Café With Soufflé Pancakes Found At East Coast.</asp:Label></b>
                 </td>
-                <td style="width: 317px">&nbsp;</td>
+                <td style="width: 317px">
+                    <asp:Button ID="btn_add" runat="server" Text="Locate Us" Height="41px" Width="184px" class="btn btn-dark" OnClick="btn_add_Click"/>
+                </td>
             </tr>
             <tr>
                 <td style="width: 646px"><b>Reviews</b></td>
@@ -77,7 +86,9 @@
             </tr>
             <tr>
                 <td style="width: 646px">&nbsp;</td>
-                <td style="width: 317px">&nbsp;</td>
+                <td style="width: 317px">
+                    <asp:Button ID="btn_report" runat="server" Height="41px" OnClick="btn_report_Click1" Width="184px" Text="Report Gem" class="btn btn-danger" />
+                </td>
             </tr>
             <tr>
                 <td style="width: 646px">&nbsp;</td>

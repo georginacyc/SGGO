@@ -11,7 +11,7 @@ namespace SGGO
     public partial class Gem_Listing : System.Web.UI.Page
     {
         string gemid;
-        
+        string gemadd;
         protected void Page_Load(object sender, EventArgs e)
         {
             gemid = Request.QueryString["gemId"];
@@ -27,13 +27,18 @@ namespace SGGO
                 gem_title.Text = gems.Title;
                 gem_desc.Text = gems.Description;
                 gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image +".jpg";
-                gem_add.Text = "Address : "+ gems.Location;
+                gemadd = gems.Location;
             }
             else
             {
                 Response.Redirect("Gem_Catalogue.aspx");
             }
             
+        }
+
+        protected void btn_add_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(gemadd);
         }
 
         //protected void btn_map_Click(object sender, EventArgs e)
@@ -59,6 +64,14 @@ namespace SGGO
 
             string id = gvReview.DataKeys[index].Value.ToString();
             Response.Redirect("Create_Report.aspx?rev=" + id);
+        }
+
+        protected void fav_Click(object sender, ImageClickEventArgs e)
+        {
+            fav.ImageUrl = "~/Test_Image/FilledLike.png";
+            lbl_like.Text = "Added To Favourites";
+            lbl_like.ForeColor = System.Drawing.ColorTranslator.FromHtml("#339933");
+              
         }
     }
 }
