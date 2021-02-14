@@ -93,6 +93,7 @@
     <Content Include="Gem_Listing.aspx" />
     <Content Include="Gem_Review.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Home_Page.aspx" />
     <Content Include="Images\Gem\Nicole flower cafe.jpg" />
     <Content Include="Images\Gem\Raffles Marina.jpg" />
     <Content Include="Partner_Delete_Gem.aspx" />
@@ -125,6 +126,7 @@
     <Content Include="Test_Image\FilledLike.png" />
     <Content Include="Test_Image\FilledStar.png" />
     <Content Include="Test_Image\like.png" />
+    <Content Include="Test_Image\Home.jpg" />
     <Content Include="Test_Image\Star.png" />
     <Content Include="User_Coupons.aspx" />
     <Content Include="User_Favourites.aspx" />
@@ -219,6 +221,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home_Page.aspx.cs">
+      <DependentUpon>Home_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home_Page.aspx.designer.cs">
+      <DependentUpon>Home_Page.aspx</DependentUpon>
     </Compile>
     <Compile Include="Partner.Master.cs">
       <DependentUpon>Partner.Master</DependentUpon>
