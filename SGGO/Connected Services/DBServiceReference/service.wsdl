@@ -32,6 +32,12 @@
   <wsdl:message name="IService1_GetAccountByEmail_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAccountByEmailResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateUserProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserProfile" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateUserProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserProfileResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetAllAccounts_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAccounts" />
   </wsdl:message>
@@ -241,6 +247,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAccountByEmail" message="tns:IService1_GetAccountByEmail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAccountByEmailResponse" message="tns:IService1_GetAccountByEmail_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateUserProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateUserProfile" message="tns:IService1_UpdateUserProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateUserProfileResponse" message="tns:IService1_UpdateUserProfile_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllAccounts">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllAccounts" message="tns:IService1_GetAllAccounts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllAccountsResponse" message="tns:IService1_GetAllAccounts_OutputMessage" />
@@ -401,6 +411,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAccountByEmail">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAccountByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserProfile">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateUserProfile" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

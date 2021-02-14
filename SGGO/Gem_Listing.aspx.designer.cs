@@ -60,6 +60,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label gem_add;
 
         /// <summary>
+        /// btn_report control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_report;
+
+        /// <summary>
         /// gem_desc control.
         /// </summary>
         /// <remarks>
@@ -76,15 +85,6 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_review;
-
-        /// <summary>
-        /// btn_report control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_report;
 
         /// <summary>
         /// gvReview control.

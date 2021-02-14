@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SGGO.DBServiceReference;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,39 +11,74 @@ namespace SGGO
 {
     public partial class User_Profile : System.Web.UI.Page
     {
+        string email = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["email"] != null)
-            //{
-            //    email = (string)Session["email"];
-
-            //    //    displayUserProfile(email);
-            //}
-            if (Session["email"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null) //checks for normal session, the new session "AuthToken" and new cookie 
+            if (Page.IsPostBack == false)
             {
-                //String authToken = Session["AuthToken"].ToString();
-                //String cookie = Request.Cookies["AuthToken"].Value;
-                //if (!authToken.Equals(cookie))
-                //comes here when the 3 conditions above is not null and checks if they match
-                if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+                if (Session["email"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null) //checks for normal session, the new session "AuthToken" and new cookie 
                 {
-                    Response.Redirect("Login.aspx", false);
+                    //String authToken = Session["AuthToken"].ToString();
+                    //String cookie = Request.Cookies["AuthToken"].Value;
+                    //if (!authToken.Equals(cookie))
+                    //comes here when the 3 conditions above is not null and checks if they match
+                    if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+                    {
+                        Response.Redirect("Login.aspx", false);
+                    }
+                    else
+                    {
+                        email = (string)Session["email"];
+                        DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+                        Account userObj = client.GetAccountByEmail(email);
+                        if (userObj != null)
+                        {
+                            
+                            displayfname_lbl.Text = userObj.First_Name;
+                            displaylname_lbl.Text = userObj.Last_Name;
+                            displayemail_lbl.Text = userObj.Email;
+                            displaydob_lbl.Text = userObj.Dob.ToString("dd/MM/yyyy");
+                            displayphone_tb.Text = userObj.Hp;
+                            displayaddress1_tb.Text = userObj.Address;
+                            displayaddress2_tb.Text = userObj.Address;
+                            displaypostalcode_tb.Text = userObj.Postal_Code;
+
+                            //Session["email"] = userObj.Email;
+                        }
+
+                        else
+                        {
+                            displayfname_lbl.Text = String.Empty;
+                            displaylname_lbl.Text = String.Empty;
+                            displayemail_lbl.Text = String.Empty;
+                            displaydob_lbl.Text = userObj.Dob.ToString("dd/MM/yyyy");
+                            displayaddress1_tb.Text = String.Empty;
+                            displayaddress2_tb.Text = String.Empty;
+                            displaypostalcode_tb.Text = String.Empty;
+                        }
+
+                    }
+
                 }
                 else
                 {
-                    lblMessage.Text = "Sucessfully logged in";
-                    lblMessage.ForeColor = System.Drawing.Color.Green;
-                    //btn_logout.Visible = true;
-                    //displayUserProfile(email);
+                    Response.Redirect("Login.aspx", false);
                 }
-
-
-
             }
-            else
-            {
-                Response.Redirect("Login.aspx", false);
-            }
+        }
+        protected void btn_Update_Click(object sender, EventArgs e)
+        {
+           
+            email = (string)Session["email"];
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            string address = displayaddress1_tb.Text + displayaddress2_tb.Text;         
+            string hp = displayphone_tb.Text;
+            string postal = displaypostalcode_tb.Text;
+            client.UpdateUserProfile( email,  hp, address,  postal);
+            lblMsg.Text = "Successfully Updated";
+            lblMsg.ForeColor = Color.Green;
+            lblMsg.Visible = true;
+
         }
 
         protected void btn_logout_Click(object sender, EventArgs e)
@@ -67,7 +104,17 @@ namespace SGGO
 
         protected void btn_reviews_Click(object sender, EventArgs e)
         {
-            Response.Redirect("User_Reviews.aspx");
+
+        }
+
+        protected void btn_favourities_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("User_Favourites.aspx", false);
+        }
+
+        protected void btn_coupons_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("User_Coupons.aspx", false);
         }
     }
 }

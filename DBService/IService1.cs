@@ -26,6 +26,9 @@ namespace DBService
         Account GetAccountByEmail(string email);
 
         [OperationContract]
+        void UpdateUserProfile(string email, string hp, string address, string postal);
+
+        [OperationContract]
         List<Account> GetAllAccounts();
 
         [OperationContract]

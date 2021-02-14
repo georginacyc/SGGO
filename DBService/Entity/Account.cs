@@ -90,7 +90,7 @@ namespace DBService.Entity
         // account creation
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -125,7 +125,7 @@ namespace DBService.Entity
         // retrieving user account by email
         public Account SelectByEmail(string email)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Accounts WHERE email = @email";
@@ -259,6 +259,31 @@ namespace DBService.Entity
             return accountList;
         }
 
+        // update account details
+
+        public void UpdateUserProfile(string email, string hp, string address, string postal_code)
+        {
+            Account user = new Account().SelectByEmail(email);
+            string connStr = ConfigurationManager.ConnectionStrings["cody"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Accounts SET hp = @hp, address = @address, postal_code = @postal_code where email = @email";
+
+            SqlCommand Cmd = new SqlCommand(query, conn);
+
+            Cmd.Parameters.AddWithValue("@hp", hp);
+            Cmd.Parameters.AddWithValue("@address", address);
+            Cmd.Parameters.AddWithValue("@postal_code", postal_code);
+            Cmd.Parameters.AddWithValue("@email", email);
+
+            conn.Open();
+            int result = Cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            
+        }
+
         // change selected user password
         public int ChangePassword(string email, string newpass)
         {
@@ -268,7 +293,7 @@ namespace DBService.Entity
             string currentpass = user.Password;
             string lastpass = user.Password_Last;
 
-            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
