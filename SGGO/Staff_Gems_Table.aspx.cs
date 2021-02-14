@@ -85,6 +85,7 @@ namespace SGGO
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // brings staff to the details page of the selected gem
             string id = gems_gv.SelectedRow.Cells[0].Text;
             Response.Redirect("Staff_Gem_Details.aspx?id=" + id);
         }

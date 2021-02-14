@@ -45,12 +45,14 @@ namespace SGGO
                         title_lb.Text = gem.Title;
                         status_lb.Text = gem.Status;
                         id_lb.Text = gem.Gem_Id.ToString();
+                        // adds anchor tags/hyperlinks to the following text
                         partner_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + gem.Partner_Email + "'>" + gem.Partner + "</a>";
                         type_lb.Text = gem.Type;
                         date_lb.Text = gem.Date == null ? null : Convert.ToDateTime(gem.Date).ToString("dd/MM/yyyy");
                         location_lb.Text = gem.Location;
                         description_lb.Text = gem.Description;
 
+                        // checks if the gem has been dealt with
                         if (gem.Status == "Approved" || gem.Status == "Rejected")
                         {
                             approve_btn.Visible = false;
@@ -103,6 +105,7 @@ namespace SGGO
 
         protected void approve_btn_Click(object sender, EventArgs e)
         {
+            // updates status of gems to 'Approved'
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
             client.UpdateGemStatus(Convert.ToInt32(Request.QueryString["id"]), "Approved");
 
@@ -111,6 +114,7 @@ namespace SGGO
 
         protected void disapprove_btn_Click(object sender, EventArgs e)
         {
+            // updates status of gems to 'Disapproved'
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
             client.UpdateGemStatus(Convert.ToInt32(Request.QueryString["id"]), "Rejected");
 
@@ -119,6 +123,7 @@ namespace SGGO
 
         protected void back_btn_Click(object sender, EventArgs e)
         {
+            // 'back' button to bring staff back to gems table
             Response.Redirect("Staff_Gems_Table.aspx");
         }
     }

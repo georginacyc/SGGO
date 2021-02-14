@@ -14,28 +14,81 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            staff_password_tb.Attributes.Add("onkeyup", "pwdChecker();");
-            staff_password2_tb.Attributes.Add("onkeyup", "pwdMatcher();");
+            if (Session["LoggedIn"] != null && Session["Role"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
+            {
+                if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
+                {
+                    Session.Clear();
+                    Session.Abandon();
+                    Session.RemoveAll();
 
-            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            staff_email_lb.Text = client.GetStaffId() + "@sggo.com";
+                    Response.Redirect("Staff_Login.aspx");
 
-            //if (Session["LoggedIn"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
-            //{
-            //    if (Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
-            //    {
-            //        DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            //        var user = client.GetAccountByEmail(Session["LoggedIn"].ToString());
-            //    }
-            //    else
-            //    {
-            //        Response.Redirect("Staff_Login.aspx");
-            //    }
-            //}
-            //else
-            //{
-            //    Response.Redirect("Staff_Login.aspx");
-            //}
+                    if (Request.Cookies["ASP.NET_SessionId"] != null)
+                    {
+                        Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                        Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                    }
+
+                    if (Request.Cookies["AuthToken"] != null)
+                    {
+                        Response.Cookies["AuthToken"].Value = string.Empty;
+                        Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                    }
+                }
+                else
+                {
+                    if (Session["Role"].ToString() == "Staff")
+                    {
+                        // on page load codes here
+                        staff_password_tb.Attributes.Add("onkeyup", "pwdChecker();");
+                        staff_password2_tb.Attributes.Add("onkeyup", "pwdMatcher();");
+
+                        DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+                        staff_email_lb.Text = client.GetStaffId() + "@sggo.com";
+                    }
+                    else
+                    {
+                        Session.Clear();
+                        Session.Abandon();
+                        Session.RemoveAll();
+
+                        Response.Redirect("Staff_Login.aspx");
+
+                        if (Request.Cookies["ASP.NET_SessionId"] != null)
+                        {
+                            Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                            Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+
+                        if (Request.Cookies["AuthToken"] != null)
+                        {
+                            Response.Cookies["AuthToken"].Value = string.Empty;
+                            Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Session.Clear();
+                Session.Abandon();
+                Session.RemoveAll();
+
+                Response.Redirect("Staff_Login.aspx");
+
+                if (Request.Cookies["ASP.NET_SessionId"] != null)
+                {
+                    Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
+                    Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-20);
+                }
+
+                if (Request.Cookies["AuthToken"] != null)
+                {
+                    Response.Cookies["AuthToken"].Value = string.Empty;
+                    Response.Cookies["AuthToken"].Expires = DateTime.Now.AddMonths(-20);
+                }
+            }
         }
 
         protected void submit_btn_Click(object sender, EventArgs e)
@@ -44,6 +97,7 @@ namespace SGGO
             bool pass = true; // overall validation
             bool empty = false; // empty checck
 
+            // retrieves inputs
             string email = staff_email_lb.Text;
             string fname = staff_fn_tb.Text;
             string lname = staff_ln_tb.Text;
@@ -53,12 +107,14 @@ namespace SGGO
             string pw = staff_password_tb.Text;
             string pw2 = staff_password2_tb.Text;
 
+            // checks if any fields are empty
             if (String.IsNullOrEmpty(email) || String.IsNullOrEmpty(fname) || String.IsNullOrEmpty(lname) || String.IsNullOrEmpty(hp) || String.IsNullOrEmpty(address) || String.IsNullOrEmpty(postal) || String.IsNullOrEmpty(pw) || String.IsNullOrEmpty(pw2) || String.IsNullOrEmpty(staff_dob_tb.Text) || !picture_file.HasFile)
             {
                 error_lb.Text = "Please fill all fields";
                 empty = true;
             }
 
+            // if not empty, perform validation checks
             if (!empty)
             {
                 Regex nameRegex = new Regex("^[A-Za-z]+$");
@@ -104,6 +160,7 @@ namespace SGGO
                 }
             }
 
+            // if fields are not empty, and pass validation checks
             if (!empty && pass)
             {
                 DateTime dob = Convert.ToDateTime(staff_dob_tb.Text);
@@ -128,7 +185,7 @@ namespace SGGO
                 string hashedpw = Convert.ToBase64String(hashing.ComputeHash(Encoding.UTF8.GetBytes(saltedpw)));
 
                 DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                int result = client.CreateAccount(email, hashedpw, pwsalt, "Staff", fname, lname, dob, hp, postal, address, filename, client.GetStaffId(), 0);
+                client.CreateAccount(email, hashedpw, pwsalt, "Staff", fname, lname, dob, hp, postal, address, filename, client.GetStaffId(), 0);
                 Response.Redirect("Staff_Accounts_List.aspx");
             }
 

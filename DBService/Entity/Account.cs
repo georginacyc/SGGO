@@ -65,7 +65,7 @@ namespace DBService.Entity
             Locked_Since = locked_since;
         }
 
-        // account creation
+        // for account creation
         public Account(string email, string pw, string salt, string type, string first_name, string last_name, DateTime dob, string hp, string postal, string address, string profilepic, string staff_id, int? diamonds)
         {
             Email = email;
@@ -122,6 +122,7 @@ namespace DBService.Entity
             return result;
         }
 
+        // retrieving user account by email
         public Account SelectByEmail(string email)
         {
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
@@ -192,6 +193,7 @@ namespace DBService.Entity
             return user;
         }
 
+        // retrieving all accounts
         public List<Account> SelectAll()
         {
             //return null;
@@ -257,11 +259,12 @@ namespace DBService.Entity
             return accountList;
         }
 
-        // update account details
-
+        // change selected user password
         public int ChangePassword(string email, string newpass)
         {
             Account user = new Account().SelectByEmail(email);
+
+            // retrieves passwords to update password history
             string currentpass = user.Password;
             string lastpass = user.Password_Last;
 
@@ -272,6 +275,7 @@ namespace DBService.Entity
             string query = "UPDATE Accounts SET password = @new, password_last = @current, password_last2 = @old, password_age = @age WHERE email = @email";
             SqlCommand cmd = new SqlCommand(query, conn);
 
+            // assigns new, previous, and previous previous password in their proper places
             cmd.Parameters.AddWithValue("@new", newpass);
             cmd.Parameters.AddWithValue("@current", currentpass);
             cmd.Parameters.AddWithValue("@old", lastpass);
@@ -285,6 +289,7 @@ namespace DBService.Entity
             return result;
         }
 
+        // updates last login
         public int UpdateLogin(string email)
         {
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
@@ -304,6 +309,7 @@ namespace DBService.Entity
             return result;
         }
 
+        // checks if selected user's account is locked
         public bool CheckSuspended(string email) // true == suspended, false == not suspended
         {
             Account user = new Account().SelectByEmail(email);
@@ -363,7 +369,8 @@ namespace DBService.Entity
             }
 
         }
-
+        
+        // checks selected user account's attempts left
         public bool CheckAttempts(string email, bool pass) // true == attempt passed, false == attempt failed
         {
 
@@ -422,6 +429,7 @@ namespace DBService.Entity
             }
         }
 
+        // gets new staff id for staff account creation
         public string GetStaffId()
         {
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
@@ -444,7 +452,7 @@ namespace DBService.Entity
             Account user = new Account().SelectByEmail(email);
             string currentpass = user.Password;
             string lastpass = user.Password_Last;
-            string newpass = user.Dob.ToString("dd/MM/yyyy") + user.Postal_Code;
+            string newpass = user.Dob.ToString("dd/MM") + user.Postal_Code;
             System.Diagnostics.Debug.WriteLine(newpass);
 
             SHA512Managed hashing = new SHA512Managed();
@@ -466,7 +474,7 @@ namespace DBService.Entity
             cmd.Parameters.AddWithValue("@age", DateTime.Now);
 
             conn.Open();
-            int result = cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             conn.Close();
 
         }
