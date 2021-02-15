@@ -24,6 +24,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lb_pagehead;
 
         /// <summary>
+        /// lb_error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_error;
+
+        /// <summary>
         /// lb_title control.
         /// </summary>
         /// <remarks>
@@ -105,6 +114,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.DropDownList dd_gem;
 
         /// <summary>
+        /// GetGemsForTrailCreation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource GetGemsForTrailCreation;
+
+        /// <summary>
         /// btn_addListing control.
         /// </summary>
         /// <remarks>
@@ -121,15 +139,6 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lb_adderror;
-
-        /// <summary>
-        /// GemDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource GemDataSource;
 
         /// <summary>
         /// lb_gem1_listing control.

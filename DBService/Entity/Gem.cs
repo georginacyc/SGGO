@@ -195,7 +195,7 @@ namespace DBService.Entity
                     date = Convert.ToDateTime(row["date"]);
                 }
 
-                gem = new Gem(id, email, title, description, type, location, date, status, rating, partner, image);
+                gem = new Gem(email, title, description, type, location, date, status, rating, partner, image);
             }
             return gem;
         }
@@ -220,18 +220,35 @@ namespace DBService.Entity
             {
                 DataRow row = ds.Tables[0].Rows[i];
                 int id = Convert.ToInt32(row["id"]);
+                string email = row["partner_email"].ToString();
                 string title = row["title"].ToString();
-                DateTime date = Convert.ToDateTime(row["date"].ToString());
-                string partner_email = row["partner_email"].ToString();
                 string description = row["description"].ToString();
                 string type = row["type"].ToString();
                 string status = row["status"].ToString();
                 string location = row["location"].ToString();
                 string partner = row["partner"].ToString();
                 string image = row["image"].ToString();
-                float rating = (float)Convert.ToDouble(row["rating"].ToString());
+                float rating;
+                DateTime? date;
+                if (row["rating"].Equals(DBNull.Value))
+                {
+                    rating = 0;
+                }
+                else
+                {
+                    rating = (float)Convert.ToDouble(row["rating"]);
+                }
 
-                Gem gem = new Gem(id, partner_email, title, description, type, location, date, status, rating, partner, image);
+                if (row["date"].Equals(DBNull.Value))
+                {
+                    date = null;
+                }
+                else
+                {
+                    date = Convert.ToDateTime(row["date"]);
+                }
+
+                Gem gem = new Gem(email, title, description, type, location, date, status, rating, partner, image);
                 gemList.Add(gem);
             }
             return gemList;

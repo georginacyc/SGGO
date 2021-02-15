@@ -1380,6 +1380,24 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTrails", ReplyAction="http://tempuri.org/IService1/GetAllTrailsResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Trail[]> GetAllTrailsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTrailByStatus", ReplyAction="http://tempuri.org/IService1/GetTrailByStatusResponse")]
+        SGGO.DBServiceReference.Trail[] GetTrailByStatus(string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTrailByStatus", ReplyAction="http://tempuri.org/IService1/GetTrailByStatusResponse")]
+        System.Threading.Tasks.Task<SGGO.DBServiceReference.Trail[]> GetTrailByStatusAsync(string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTrail", ReplyAction="http://tempuri.org/IService1/UpdateTrailResponse")]
+        int UpdateTrail(string trailid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTrail", ReplyAction="http://tempuri.org/IService1/UpdateTrailResponse")]
+        System.Threading.Tasks.Task<int> UpdateTrailAsync(string trailid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTrail", ReplyAction="http://tempuri.org/IService1/DeleteTrailResponse")]
+        void DeleteTrail(string trailid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTrail", ReplyAction="http://tempuri.org/IService1/DeleteTrailResponse")]
+        System.Threading.Tasks.Task DeleteTrailAsync(string trailid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateReview", ReplyAction="http://tempuri.org/IService1/CreateReviewResponse")]
         int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description);
         
@@ -1662,6 +1680,30 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Trail[]> GetAllTrailsAsync() {
             return base.Channel.GetAllTrailsAsync();
+        }
+        
+        public SGGO.DBServiceReference.Trail[] GetTrailByStatus(string status) {
+            return base.Channel.GetTrailByStatus(status);
+        }
+        
+        public System.Threading.Tasks.Task<SGGO.DBServiceReference.Trail[]> GetTrailByStatusAsync(string status) {
+            return base.Channel.GetTrailByStatusAsync(status);
+        }
+        
+        public int UpdateTrail(string trailid) {
+            return base.Channel.UpdateTrail(trailid);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateTrailAsync(string trailid) {
+            return base.Channel.UpdateTrailAsync(trailid);
+        }
+        
+        public void DeleteTrail(string trailid) {
+            base.Channel.DeleteTrail(trailid);
+        }
+        
+        public System.Threading.Tasks.Task DeleteTrailAsync(string trailid) {
+            return base.Channel.DeleteTrailAsync(trailid);
         }
         
         public int CreateReview(string status, string gem_id, string gem_title, string author, int rating, string description) {
