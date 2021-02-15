@@ -29,6 +29,7 @@ namespace SGGO
                 gem_desc.Text = gems.Description;
                 gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image;
                 gem_add.Text = "Address : " + gems.Location;
+                gem_company.Text = gems.Partner;
             }
             else
             {

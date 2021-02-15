@@ -24,7 +24,7 @@ namespace SGGO
                     //comes here when the 3 conditions above is not null and checks if they match
                     if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
                     {
-                        Response.Redirect("Login.aspx", false);
+                        Response.Redirect("User_Login.aspx", false);
                     }
                     else
                     {
@@ -42,6 +42,7 @@ namespace SGGO
                             displayaddress1_tb.Text = userObj.Address;
                             displayaddress2_tb.Text = userObj.Address;
                             displaypostalcode_tb.Text = userObj.Postal_Code;
+                            displaypoints_lbl.Text = userObj.Diamonds.ToString();
 
                             //Session["email"] = userObj.Email;
                         }
@@ -51,10 +52,11 @@ namespace SGGO
                             displayfname_lbl.Text = String.Empty;
                             displaylname_lbl.Text = String.Empty;
                             displayemail_lbl.Text = String.Empty;
-                            displaydob_lbl.Text = userObj.Dob.ToString("dd/MM/yyyy");
+                            displaydob_lbl.Text = String.Empty;
                             displayaddress1_tb.Text = String.Empty;
                             displayaddress2_tb.Text = String.Empty;
                             displaypostalcode_tb.Text = String.Empty;
+                            displaypoints_lbl.Text = String.Empty;
                         }
 
                     }
@@ -62,7 +64,7 @@ namespace SGGO
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx", false);
+                    Response.Redirect("User_Login.aspx", false);
                 }
             }
         }
@@ -107,10 +109,6 @@ namespace SGGO
 
         }
 
-        protected void btn_favourities_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("User_Favourites.aspx", false);
-        }
 
         protected void btn_coupons_Click(object sender, EventArgs e)
         {
