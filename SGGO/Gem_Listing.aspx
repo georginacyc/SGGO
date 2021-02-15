@@ -25,9 +25,7 @@
             </tr>
             <tr>
                 <td style="width: 317px">
-                <asp:ImageButton ID="fav" runat="server" Height="42px" Width="43px" ImageUrl="~/Test_Image/like.png" OnClick="fav_Click" />    
                     <br />
-                    <asp:Label ID="lbl_like" runat="server"  Text="Add to Favourites"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -53,8 +51,8 @@
             </tr>
             <tr>
                 <td style="width: 646px">
-                    <div style="padding-left:20px">
-                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="4" CssClass="myDatagrid" Width="609px" DataKeyNames="review_id" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" DataSourceID="GetGemReviews" ForeColor="Black" GridLines="Horizontal" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" >
+                    <div style="padding-left:20px" >
+                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CellPadding="4" CssClass="myDatagrid" Width="609px" DataKeyNames="review_id" OnSelectedIndexChanged="gvReview_SelectedIndexChanged" DataSourceID="GetGemReviews" ForeColor="Black" GridLines="Horizontal" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"  HorizontalAlign="Center">
                         <Columns>
       
                             <asp:BoundField DataField="rating" HeaderText="Rating (out of 5 stars)" SortExpression="rating" />
