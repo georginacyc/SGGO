@@ -84,6 +84,14 @@ namespace DBService
         [OperationContract]
         List<Trail> GetAllTrails();
 
+        [OperationContract]
+        List<Trail> GetTrailByStatus(string status);
+
+        [OperationContract]
+        int UpdateTrail(string trailid);
+
+        [OperationContract]
+        void DeleteTrail(string trailid);
 
         //Review
         [OperationContract]

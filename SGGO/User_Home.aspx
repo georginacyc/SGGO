@@ -18,7 +18,7 @@
             <br />
             <br />
             <br />        
-            <asp:LinkButton ID="LinkButton2" runat="server" style="margin-left: 780px" Width="212px">View Hidden Gems</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton2" runat="server" style="margin-left: 780px" Width="212px" OnClick="LinkButton2_Click1">View Hidden Gems</asp:LinkButton>
             <br />
             <br />
             <br />

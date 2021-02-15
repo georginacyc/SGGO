@@ -56,7 +56,7 @@ namespace SGGO
             }
             else
             {
-                Response.Redirect("Login.aspx", false);
+                Response.Redirect("User_Login.aspx", false);
             }
 
         }
@@ -76,6 +76,5 @@ namespace SGGO
             Response.Redirect("Gem_Catalogue.aspx");
         }
 
-        
     }
 }

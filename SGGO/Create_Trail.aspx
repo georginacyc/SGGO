@@ -33,6 +33,7 @@
     
     <div class="container-fluid">
     <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="New Trail"></asp:Label>
+    &nbsp;<asp:Label ID="lb_error" runat="server"></asp:Label>
     <br />
     <table class="auto-style5" id="formtable">
         <tr>
@@ -49,6 +50,7 @@
             </td>
             <td class="auto-style9">
                 <asp:DropDownList ID="dd_month"  runat="server">
+                    <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>January</asp:ListItem>
                     <asp:ListItem>February</asp:ListItem>
                     <asp:ListItem>March</asp:ListItem>
@@ -78,15 +80,11 @@
                 <asp:Label ID="lb_listings" runat="server" Text="Listings Involved:"></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="dd_gem" runat="server" EnableFilterSearch="True" EnableServerFiltering="True" EnablePopupResize="True" DataSourceID="GemDataSource" DataTextField="title" DataValueField="title" Width="230px">
+                <asp:DropDownList ID="dd_gem" runat="server" EnableFilterSearch="True" EnableServerFiltering="True" EnablePopupResize="True" DataSourceID="GetGemsForTrailCreation" DataTextField="title" DataValueField="title" Width="230px">
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="GetGemsForTrailCreation" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT DISTINCT [title] FROM [Gem]"></asp:SqlDataSource>
                 <asp:Button ID="btn_addListing" runat="server" Text="+" Height="70%" OnClick="btn_addListing_Click" />
                 <asp:Label ID="lb_adderror" runat="server"></asp:Label>
-                <asp:SqlDataSource ID="GemDataSource" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True;Connect Timeout=30" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [title], [partner], [type] FROM [Gem] WHERE ([status] = @status)">
-                    <SelectParameters>
-                        <asp:Parameter DefaultValue="Active" Name="status" Type="String" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
             </td>
         </tr>
         </table>
@@ -129,7 +127,7 @@
     <br />
     <br />
     <div id ="buttons">
-    <asp:Button ID="btn_savedraft" runat="server" Text="Save As Draft" />
+    <asp:Button ID="btn_savedraft" runat="server" Text="Save As Draft" OnClick="btn_savedraft_Click" />
     <asp:Button ID="btn_create" runat="server" Text="Create Trail" OnClick="btn_create_Click" />
     </div>
     <br />

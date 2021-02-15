@@ -86,17 +86,19 @@
                     <asp:TextBox ID="displaypostalcode_tb" runat="server" ></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
-            </tr>
+            </tr>                
+         
             <tr>
                 <td>
-                    
+                    <asp:Label ID="Label10" runat="server" Text="Points"></asp:Label>
                 </td>
                 <td>
-                    
-                    
+                    <asp:Label ID ="displaypoints_lbl" runat="server"></asp:Label>
                 </td>
-                <td>
-                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>
@@ -109,11 +111,12 @@
             </tr>
             <tr>
                 <td>
-                    &nbsp;</td>
-                <td>
-                    <asp:Button ID="Button1" runat="server" OnClick="btn_favourities_Click" Text="My Favourites"  class="btn btn-dark" />
-                    <asp:Button ID="Button2" runat="server" OnClick=" btn_coupons_Click" Text="My Coupons"  class="btn btn-dark"/>
+                   
+                    <asp:Button ID="Button2" runat="server" OnClick=" btn_coupons_Click" Text="My Coupons"  class="btn btn-dark" />
                 </td>
+                <td>
+                   
+                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>

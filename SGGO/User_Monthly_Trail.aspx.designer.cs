@@ -11,7 +11,7 @@ namespace SGGO
 {
 
 
-    public partial class Create_User_Account
+    public partial class User_Monthly_Trail
     {
 
         /// <summary>
@@ -24,138 +24,129 @@ namespace SGGO
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Label1 control.
+        /// img_banner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Image img_banner;
 
         /// <summary>
-        /// lbl_fname control.
+        /// img_gem1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_fname;
+        protected global::System.Web.UI.WebControls.Image img_gem1;
 
         /// <summary>
-        /// user_fname_tb control.
+        /// lb_gem1Title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user_fname_tb;
+        protected global::System.Web.UI.WebControls.Label lb_gem1Title;
 
         /// <summary>
-        /// lbl_lname control.
+        /// lb_gem1PC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_lname;
+        protected global::System.Web.UI.WebControls.Label lb_gem1PC;
 
         /// <summary>
-        /// user_lname_tb control.
+        /// btn_gem1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user_lname_tb;
+        protected global::System.Web.UI.WebControls.Button btn_gem1;
 
         /// <summary>
-        /// lbl_email control.
+        /// img_gem2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_email;
+        protected global::System.Web.UI.WebControls.Image img_gem2;
 
         /// <summary>
-        /// user_email_tb control.
+        /// lb_gem2Title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user_email_tb;
+        protected global::System.Web.UI.WebControls.Label lb_gem2Title;
 
         /// <summary>
-        /// lbl_pw control.
+        /// lb_gem2PC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_pw;
+        protected global::System.Web.UI.WebControls.Label lb_gem2PC;
 
         /// <summary>
-        /// user_password_tb control.
+        /// btn_gem2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user_password_tb;
+        protected global::System.Web.UI.WebControls.Button btn_gem2;
 
         /// <summary>
-        /// lbl_confirmpw control.
+        /// img_gem3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_confirmpw;
+        protected global::System.Web.UI.WebControls.Image img_gem3;
 
         /// <summary>
-        /// user_confirmpw_tb control.
+        /// lb_gem3Title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user_confirmpw_tb;
+        protected global::System.Web.UI.WebControls.Label lb_gem3Title;
 
         /// <summary>
-        /// btn_checkpw control.
+        /// lb_gem3PC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_checkpw;
+        protected global::System.Web.UI.WebControls.Label lb_gem3PC;
 
         /// <summary>
-        /// btn_Create control.
+        /// btn_gem3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Create;
+        protected global::System.Web.UI.WebControls.Button btn_gem3;
 
         /// <summary>
-        /// lbMsg control.
+        /// lb_desc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbMsg;
-
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label lb_desc;
     }
 }
