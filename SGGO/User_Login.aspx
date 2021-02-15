@@ -38,7 +38,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="Button1" runat="server" class="btn btn-dark" OnClick="Button1_Click" Text="Click here to register instead" Width="199px" Font-Size="15px" />
+                    <asp:Button ID="Button1" runat="server" class="btn btn-dark" OnClick="Button1_Click" Text="Click here to register" Width="199px" Font-Size="15px" />
                 </td>
             </tr>
         </table>
