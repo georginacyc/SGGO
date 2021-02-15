@@ -51,24 +51,6 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label lbl_gemId;
 
         /// <summary>
-        /// fav control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton fav;
-
-        /// <summary>
-        /// lbl_like control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_like;
-
-        /// <summary>
         /// gem_desc control.
         /// </summary>
         /// <remarks>
