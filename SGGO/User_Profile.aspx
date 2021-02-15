@@ -5,10 +5,11 @@
 
 
     <form id="form1" runat="server">
+        <div class="card" style="width: 55%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
         <table class="auto-style1">
             <tr>
                 <td>
-                    <asp:Label ID="Label1" runat="server" Font-Size="25pt" Text="My Profile"></asp:Label>
+                    <asp:Label ID="Label1" runat="server"  Font-Bold="True" Font-Size="40px" Text="My Profile"></asp:Label>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -88,17 +89,19 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblMsg" runat="server" Text="Label"></asp:Label>
+                    
                 </td>
                 <td>
-                    <asp:Button ID="btn_Update" runat="server" Text="Update" OnClick="btn_Update_Click" />
-                    <asp:Button ID="btn_logout" runat="server" OnClick="btn_logout_Click" Text="Logout" />
+                    
+                    
                 </td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Button ID="btn_reviews" runat="server" Height="42px"  class="btn btn-dark" OnClick="btn_reviews_Click" Text="My reviews" />
+                </td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -106,18 +109,33 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btn_reviews" runat="server" Height="42px" OnClick="btn_reviews_Click" Text="My reviews" />
-                </td>
+                    &nbsp;</td>
                 <td>
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="My Favourites" />
-                    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="My Coupons" />
+                    <asp:Button ID="Button1" runat="server" OnClick="btn_favourities_Click" Text="My Favourites"  class="btn btn-dark" />
+                    <asp:Button ID="Button2" runat="server" OnClick=" btn_coupons_Click" Text="My Coupons"  class="btn btn-dark"/>
                 </td>
                 <td>
                     &nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Button ID="btn_Update" runat="server" Text="Update" OnClick="btn_Update_Click"  class="btn btn-dark"/>
+                </td>  
+                <td>
+                    <asp:Label ID="lblMsg" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>          
+                    <asp:Button ID="btn_logout" runat="server" OnClick="btn_logout_Click" Text="Logout"  class="btn-danger"/>            
+                </td>
+                <td>
+
+                </td>
             </tr>
         </table>
-        <div>
-        </div>
+       
+      </div>
     </form>
 
     </asp:Content>

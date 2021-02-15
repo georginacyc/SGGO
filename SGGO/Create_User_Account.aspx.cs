@@ -45,22 +45,30 @@ namespace SGGO
             if (user_fname_tb.Text == "")
             {
                 lbMsg.Text += "First name is required" + "<br/>";
+                lbMsg.ForeColor = Color.Red;
             }
             if (user_lname_tb.Text == "")
             {
                 lbMsg.Text += "Last name is required" + "<br/>";
+                lbMsg.ForeColor = Color.Red;
             }
             if (user_email_tb.Text != "")
             {
-                if (user_email_tb.Text.Equals(userObj.Email))
+                if (userObj != null)
                 {
-                    lbMsg.Text += "User has already been registered" + "<br/>";
+                    if (user_email_tb.Text.Equals(userObj.Email))
+                    {
+                        lbMsg.Text += "User has already been registered" + "<br/>";
+                        lbMsg.ForeColor = Color.Red;
+                    }
                 }
+
                 
             }
             else
             {
                 lbMsg.Text += "Email is required" + "<br/>";
+                lbMsg.ForeColor = Color.Red;
             }
             if (user_password_tb.Text != "")
             {
@@ -68,15 +76,18 @@ namespace SGGO
                 if (checkPw(user_password_tb.Text) <= 4)
                 {
                     lbMsg.Text += "Please put a stronger pw" + "<br/>";
+                    lbMsg.ForeColor = Color.Red;
                 }
                 if (user_password_tb.Text != user_confirmpw_tb.Text)
                 {
                     lbMsg.Text += "Passwords do not match" + "<br/>";
+                    lbMsg.ForeColor = Color.Red;
                 }
             }
             else
             {
                 lbMsg.Text += "Password is required" + "<br/>";
+                lbMsg.ForeColor = Color.Red;
             }
            
             
@@ -114,13 +125,13 @@ namespace SGGO
                 default:
                     break;
             }
-            lbl_pwchecker.Text = "Status : " + status;
+            lbMsg.Text = "Status : " + status;
             if (scores < 4) //any score below 4 will show red
             {
-                lbl_pwchecker.ForeColor = Color.Red;
+                lbMsg.ForeColor = Color.Red;
                 return;
             }
-            lbl_pwchecker.ForeColor = Color.Green;
+            lbMsg.ForeColor = Color.Green;
         }
 
         protected int checkPw(string password) //server side validation for password
