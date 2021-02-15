@@ -32,16 +32,42 @@
             width: 620px;
             height: 26px;
         }
+        .auto-style10 {
+            width: 256px;
+            height: 26px;
+        }
+        .auto-style11 {
+            width: 256px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Your Account Details"></asp:Label>
     <br />
-    <asp:Image ID="profile_img" style="max-width:300px; max-height:300px; height:auto; width:auto;" runat="server" src="/Images/Profile_Pictures/default.jpg" />
     <br />
     <table class="w-100">
         <tr>
-            <td class="auto-style5"><strong>Email:</strong></td>
+            <td class="auto-style5" colspan="1">&nbsp;</td>
+            <td class="auto-style10" colspan="3">
+    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="40px" Text="Your Account Details"></asp:Label>
+            </td>
+            <td class="auto-style6">
+                &nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style9">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style10">
+    <asp:Image ID="profile_img" style="max-width:300px; max-height:300px; height:auto; width:auto;" runat="server" src="/Images/Profile_Pictures/default.jpg" />
+            </td>
+            <td class="auto-style6">
+                &nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style9">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style10"><strong>Email:</strong></td>
             <td class="auto-style6">
                 <asp:Label ID="email_lb" runat="server"></asp:Label>
             </td>
@@ -49,7 +75,8 @@
             <td class="auto-style9">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style1"><strong>Company: </strong></td>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style11"><strong>Company: </strong></td>
             <td class="auto-style2">
                 <asp:Label ID="fname_lb" runat="server"></asp:Label>
             </td>
@@ -59,7 +86,8 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style1"><strong>Date Established:</strong></td>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style11"><strong>Date Established:</strong></td>
             <td class="auto-style2">
                 <asp:Label ID="dob_lb" runat="server"></asp:Label>
             </td>
@@ -69,7 +97,8 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style1"><strong>Postal Code:</strong></td>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style11"><strong>Postal Code:</strong></td>
             <td class="auto-style2">
                 <asp:Label ID="postal_lb" runat="server"></asp:Label>
             </td>
@@ -79,7 +108,8 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style5"></td>
+            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style10"></td>
             <td class="auto-style6">
                 </td>
             <td class="auto-style7"></td>
@@ -87,7 +117,8 @@
                 </td>
         </tr>
         <tr>
-            <td class="auto-style1"><strong>Account Created:</strong></td>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style11"><strong>Account Created:</strong></td>
             <td class="auto-style2">
                 <asp:Label ID="created_lb" runat="server"></asp:Label>
             </td>
@@ -98,6 +129,7 @@
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style11">&nbsp;</td>
             <td class="auto-style2">
                 <asp:Label ID="Label2" runat="server"></asp:Label>
             </td>
@@ -107,6 +139,7 @@
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style11">&nbsp;</td>
             <td class="auto-style2">
                 <asp:Label ID="lb_Need_Help" runat="server" Text="Need help with your account? Contact our Staff!"></asp:Label>
             </td>
