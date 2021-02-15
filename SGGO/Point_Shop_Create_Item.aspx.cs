@@ -28,7 +28,7 @@ namespace SGGO
             string type = rb_type.SelectedValue.ToString();
             string partner = lb_pc.Text;
             string partner_email = lb_pc_email.Text;
-            int value = int.Parse(tb_price.Text)*100;
+            int value = int.Parse(tb_price.Text);
             Service1Client client = new DBServiceReference.Service1Client();
             if (tb_name.Text is null)
             {
