@@ -29,20 +29,20 @@ namespace SGGO
             Gem x = client.GetGemByTitle(oTrail.Gem1);
             string pc1 = x.Partner.ToString();
             string type1 = x.Type.ToString();
-            img_gem1.ImageUrl = "~Images/Gem/" + oTrail.Gem1 + ".png";
+            img_gem1.Attributes["src"] = "/Images/Gem/" + x.Image;
             lb_gem1PC.Text = type1 + " by " + pc1;
 
             Gem x2 = client.GetGemByTitle(oTrail.Gem2);
             string pc2 = x2.Partner.ToString();
             string type2 = x2.Type.ToString();
             lb_gem2PC.Text = type2 + " by " + pc2;
-            img_gem2.ImageUrl = "~Images/Gem/" + oTrail.Gem2 + ".png";
+            img_gem1.Attributes["src"] = "/Images/Gem/" + x2.Image;
 
             Gem x3 = client.GetGemByTitle(oTrail.Gem3);
             string pc3 = x3.Partner.ToString();
             string type = x3.Type.ToString();
             lb_gem3PC.Text = type + " by " + pc3;
-            img_gem3.ImageUrl = "~Images/Gem/" + oTrail.Gem3 + ".png";
+            img_gem1.Attributes["src"] = "/Images/Gem/" + x3.Image;
 
         }
 
