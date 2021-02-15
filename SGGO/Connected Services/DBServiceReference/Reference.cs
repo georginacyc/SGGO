@@ -1384,6 +1384,12 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingGems", ReplyAction="http://tempuri.org/IService1/CountPendingGemsResponse")]
         System.Threading.Tasks.Task<int> CountPendingGemsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteGem", ReplyAction="http://tempuri.org/IService1/DeleteGemResponse")]
+        void DeleteGem(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteGem", ReplyAction="http://tempuri.org/IService1/DeleteGemResponse")]
+        System.Threading.Tasks.Task DeleteGemAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTrail", ReplyAction="http://tempuri.org/IService1/CreateTrailResponse")]
         int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
         
@@ -1497,6 +1503,12 @@ namespace SGGO.DBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectAll", ReplyAction="http://tempuri.org/IService1/SelectAllResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Point_Shop_Item[]> SelectAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePointShopItem", ReplyAction="http://tempuri.org/IService1/DeletePointShopItemResponse")]
+        void DeletePointShopItem(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePointShopItem", ReplyAction="http://tempuri.org/IService1/DeletePointShopItemResponse")]
+        System.Threading.Tasks.Task DeletePointShopItemAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1670,6 +1682,14 @@ namespace SGGO.DBServiceReference {
             return base.Channel.CountPendingGemsAsync();
         }
         
+        public void DeleteGem(int id) {
+            base.Channel.DeleteGem(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteGemAsync(int id) {
+            return base.Channel.DeleteGemAsync(id);
+        }
+        
         public int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status) {
             return base.Channel.CreateTrail(trailId, name, date, description, gem1, gem2, gem3, banner, status);
         }
@@ -1820,6 +1840,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Point_Shop_Item[]> SelectAllAsync() {
             return base.Channel.SelectAllAsync();
+        }
+        
+        public void DeletePointShopItem(int id) {
+            base.Channel.DeletePointShopItem(id);
+        }
+        
+        public System.Threading.Tasks.Task DeletePointShopItemAsync(int id) {
+            return base.Channel.DeletePointShopItemAsync(id);
         }
     }
 }

@@ -106,13 +106,13 @@
             </tr>
             <tr>
                 <td style="width: 549px">
-                    <asp:Button ID="btn_back" runat="server" Height="36px" Text="Back" Width="174px" />
+                    <asp:Button ID="btn_back" runat="server" Height="36px" Text="Back" Width="174px" OnClick="btn_back_Click" />
                 </td>
                 <td style="width: 317px">
                     <asp:Button ID="btn_update" runat="server" Height="41px" Text="Request Update" CssClass="offset-sm-0" Width="174px" BackColor="#666666" ForeColor="White" />
                 </td>
                 <td style="width: 350px">
-                    <asp:Button ID="btn_delete" runat="server" Height="41px" Text="Delete Gem" CssClass="offset-sm-0" Width="174px" BackColor="#660033" ForeColor="White" />
+                    <asp:Button ID="btn_delete" runat="server" Height="41px" Text="Delete Gem" CssClass="offset-sm-0" Width="174px" BackColor="#660033" ForeColor="White" OnClick="btn_delete_Click" />
                 </td>
                 <td>&nbsp;</td>
             </tr>

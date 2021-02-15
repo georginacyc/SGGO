@@ -116,6 +116,12 @@
   <wsdl:message name="IService1_CountPendingGems_OutputMessage">
     <wsdl:part name="parameters" element="tns:CountPendingGemsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_DeleteGem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteGem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGemResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateTrail_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateTrail" />
   </wsdl:message>
@@ -230,6 +236,12 @@
   <wsdl:message name="IService1_SelectAll_OutputMessage">
     <wsdl:part name="parameters" element="tns:SelectAllResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_DeletePointShopItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePointShopItem" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletePointShopItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePointShopItemResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -302,6 +314,10 @@
     <wsdl:operation name="CountPendingGems">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountPendingGems" message="tns:IService1_CountPendingGems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CountPendingGemsResponse" message="tns:IService1_CountPendingGems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteGem" message="tns:IService1_DeleteGem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteGemResponse" message="tns:IService1_DeleteGem_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateTrail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateTrail" message="tns:IService1_CreateTrail_InputMessage" />
@@ -378,6 +394,10 @@
     <wsdl:operation name="SelectAll">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectAll" message="tns:IService1_SelectAll_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectAllResponse" message="tns:IService1_SelectAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePointShopItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletePointShopItem" message="tns:IService1_DeletePointShopItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletePointShopItemResponse" message="tns:IService1_DeletePointShopItem_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -537,6 +557,15 @@
     </wsdl:operation>
     <wsdl:operation name="CountPendingGems">
       <soap:operation soapAction="http://tempuri.org/IService1/CountPendingGems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGem">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteGem" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -708,6 +737,15 @@
     </wsdl:operation>
     <wsdl:operation name="SelectAll">
       <soap:operation soapAction="http://tempuri.org/IService1/SelectAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePointShopItem">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeletePointShopItem" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

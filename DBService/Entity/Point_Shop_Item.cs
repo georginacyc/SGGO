@@ -112,6 +112,22 @@ namespace DBService.Entity
             }
             return itemList;
         }
+        public void DeletePointShopItem(int id)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "DELETE FROM Point_Shop_Item WHERE Id = @Id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            conn.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            conn.Close();
+        }
     }
 }
 

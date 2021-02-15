@@ -71,6 +71,8 @@ namespace DBService
         [OperationContract]
         int CountPendingGems();
 
+        [OperationContract]
+        void DeleteGem(int id);
 
         //Trail
         [OperationContract]
@@ -135,6 +137,9 @@ namespace DBService
 
         [OperationContract]
         List<Point_Shop_Item> SelectAll();
+
+        [OperationContract]
+        void DeletePointShopItem(int id);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

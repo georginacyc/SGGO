@@ -295,6 +295,23 @@ namespace DBService.Entity
 
             conn.Close();
         }
+
+        public void DeleteGem(int id)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "DELETE FROM Gem WHERE Id = @Id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            conn.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            conn.Close();
+        }
     }
 
 

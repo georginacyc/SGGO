@@ -131,6 +131,12 @@ namespace DBService
             return gem.CountPending();
         }
 
+        public void DeleteGem(int Id)
+        {
+            Gem gem = new Gem();
+            gem.DeleteGem(Id);
+        }
+
         // Monthly Trail
         public List<Trail> GetAllTrails()
         {
@@ -255,6 +261,12 @@ namespace DBService
         {
             Point_Shop_Item items = new Point_Shop_Item();
             return items.SelectAll();
+        }
+
+        public void DeletePointShopItem(int point_shop_item_id)
+        {
+            Point_Shop_Item psi = new Point_Shop_Item();
+            psi.DeletePointShopItem(point_shop_item_id);
         }
     }
 }

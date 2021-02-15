@@ -32,7 +32,7 @@ namespace SGGO
             }
             else
             {
-                Response.Redirect("Gem_Catalogue.aspx");
+                Response.Redirect("Partner_Gem_List.aspx");
             }
 
         }
@@ -44,5 +44,17 @@ namespace SGGO
             Response.Redirect("Create_Report.aspx?rev=" + id);
         }
 
+        protected void btn_delete_Click(object sender, EventArgs e)
+        {
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            client.DeleteGem(Convert.ToInt32(gemid));
+
+            Response.Redirect("Partner_Gem_List.aspx");
+        }
+
+        protected void btn_back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Partner_Gem_List.aspx");
+        }
     }
 }
