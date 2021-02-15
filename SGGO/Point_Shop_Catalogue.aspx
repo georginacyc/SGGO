@@ -17,7 +17,9 @@
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style2">&nbsp;</td>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:Label ID="lb_points" runat="server" Text="Your Points: "></asp:Label>
+            </td>
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;</td>
@@ -35,7 +37,7 @@
             <asp:BoundField DataField="name" HeaderText="Name" ReadOnly="true" SortExpression="name" />
             <asp:BoundField DataField="price" HeaderText="Price" ReadOnly="true" SortExpression="price" />
             <asp:BoundField DataField="type" HeaderText="Type" ReadOnly="true" SortExpression="type" />
-            <asp:CommandField SelectText="View Page" ShowCancelButton="false" ShowSelectButton="true" />
+            <asp:CommandField SelectText="Buy" ShowCancelButton="false" ShowSelectButton="true" />
         </Columns>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
         <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
