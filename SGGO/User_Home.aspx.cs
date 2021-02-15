@@ -76,6 +76,5 @@ namespace SGGO
             Response.Redirect("Gem_Catalogue.aspx");
         }
 
-        
     }
 }

@@ -26,7 +26,7 @@ namespace SGGO
                 var gems = client.GetGemById(Convert.ToInt32(gemid));
                 gem_title.Text = gems.Title;
                 gem_desc.Text = gems.Description;
-                gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image +".jpg";
+                gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image;
                 gemadd = gems.Location;
             }
             else
