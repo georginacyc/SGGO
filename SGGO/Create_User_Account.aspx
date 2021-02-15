@@ -48,13 +48,13 @@
             <asp:Label ID="lbl_confirmpw" runat="server" Text="Confirm Password"></asp:Label>
                     </td>
                     <td>
-                        <%--<asp:Label ID="lbl_pwchecker" runat="server" Text="Password Strength"></asp:Label>--%>
+                       
             <asp:TextBox TextMode="Password" ID="user_confirmpw_tb" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="btn_checkpw" class="btn btn-dark" runat="server" OnClick="btn_checkpw_Click" Text="Check Password" Width="242px" />
+                        <asp:Button ID="btn_checkpw" class="btn btn-dark btn-sm" runat="server" OnClick="btn_checkpw_Click" Text="Check Password"  />
                     </td>
                     <td>
                         &nbsp;</td>
@@ -63,25 +63,29 @@
                     <td>
                         &nbsp;</td>
                     <td>
-                        &nbsp;</td>
+                        
+                        <asp:Button ID="btn_Create" runat="server" class="btn btn-dark" Text="Sign Up" OnClick="btn_Create_Click" Width="196px"  />
+                        
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="btn_Create" runat="server" class="btn btn-dark" Text="Sign Up" OnClick="btn_Create_Click"  />
-                        </td>
+                        
+                        &nbsp;</td>
                     <td>
+                        
+                        <asp:Button ID="Button1" runat="server" Font-Size="10px" class="btn btn-dark " OnClick="Button1_Click" Width="196px" Text="Already have an account? Login here"   />
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        &nbsp;</td>
+                    <td>                       
                         
                         <asp:Label ID="lbMsg" runat="server"></asp:Label>
                         
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        
-                        <asp:Button ID="Button1" runat="server" Font-Size="15px" class="btn btn-dark" OnClick="Button1_Click" Text="Already have an account? Login here"  />
-                        
-                    </td>
-                    <td>                       
                     </td>
                 </tr>
 

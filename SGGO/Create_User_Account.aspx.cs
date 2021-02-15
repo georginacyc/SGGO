@@ -16,10 +16,10 @@ namespace SGGO
     public partial class Create_User_Account : System.Web.UI.Page
     {
 
-        //Regex passReg = new Regex(@"^(?=.*[a-zA-Z])(?=.*[!-/])(?=.*\d).{8}$"); // Minimum eight characters, at least one letter and one number:
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Page.IsPostBack == false) { }
+            
 
         }
 

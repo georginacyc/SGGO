@@ -27,11 +27,13 @@ namespace SGGO
 
             if (tb_email.Text == "")
             {
-                lblMsg2.Text += "First name is required" + "<br/>";
+                lblMsg2.Text += "Email is required" + "<br/>";
+                lblMsg2.ForeColor = Color.Red;
             }
             if (tb_pw.Text == "")
             {
                 lblMsg2.Text += "Password is required" + "<br/>";
+                lblMsg2.ForeColor = Color.Red;
             }
 
 
