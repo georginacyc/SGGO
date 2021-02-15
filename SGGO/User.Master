@@ -20,7 +20,7 @@
         <div>
            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                   <!-- Brand -->
-                  <a class="navbar-brand" href="User_Home.aspx">
+                  <a class="navbar-brand" href="Home_Page.aspx">
                       SGGO
                   </a>
 
@@ -49,7 +49,7 @@
                         Login
                       </a>
                       <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="User_Login.aspx">Login</a>
+                           <a class="dropdown-item" href="User_Login.aspx">Login</a>
                             <a class="dropdown-item" href="Partner_Login.aspx">Partner Login</a>
                             <a class="dropdown-item" href="Staff_Login.aspx">Staff Login</a>
                       </div>

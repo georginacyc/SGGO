@@ -112,7 +112,7 @@
             <tr>
                 <td>
                    
-                    <asp:Button ID="Button2" runat="server" OnClick=" btn_coupons_Click" Text="My Coupons"  class="btn btn-dark" />
+                   
                 </td>
                 <td>
                    

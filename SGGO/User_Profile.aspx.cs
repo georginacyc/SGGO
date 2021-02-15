@@ -110,9 +110,6 @@ namespace SGGO
         }
 
 
-        protected void btn_coupons_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("User_Coupons.aspx", false);
-        }
+        
     }
 }
