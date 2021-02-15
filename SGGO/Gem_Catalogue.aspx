@@ -28,7 +28,7 @@
       <td runat="server" style="width:400px">
       <table border="0">
           <div class="card" style="width: 300px;">
-          <img class="card-img-top" src="/Images/Gem/<%# Eval("image") %>.jpg" alt="Card image cap" style="width:300px; height:179px">
+          <img class="card-img-top" src="/Images/Gem/<%# Eval("image") %>" alt="Card image cap" style="width:300px; height:179px">
           <div class="card-body">
             <h3 class="card-title"><span class="ProductListHead"><%# Eval("title") %></span></h3>
             <p class="card-text"><span class="GemListItem"><b> Average Rating : </b><%# Eval("rating")%></span></p>

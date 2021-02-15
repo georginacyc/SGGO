@@ -28,7 +28,7 @@ namespace SGGO
                 System.Diagnostics.Debug.WriteLine(gems.ToString());
                 gem_title.Text = gems.Title;
                 gem_desc.Text = gems.Description;
-                gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image +".jpg";
+                gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image;
                 gemadd = gems.Location;
             }
             else
