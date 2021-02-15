@@ -156,6 +156,25 @@ namespace DBService
             return tr.Insert();
         }
 
+        public List<Trail> GetTrailByStatus(string status)
+        {
+            Trail tr = new Trail();
+            return tr.SelectByStatus(status);
+        }
+
+        public int UpdateTrail(string trailid)
+        {
+            Trail tr = new Trail(); 
+            return tr.UpdateTrail(trailid);
+        }
+
+        public void DeleteTrail(string trailid)
+        {
+            Trail tr = new Trail();
+            var trail = tr.SelectById(trailid);
+            trail.DeleteTrail(trailid);
+        }
+
         //Reviews
         public List<Review> GetAllReview()
         {

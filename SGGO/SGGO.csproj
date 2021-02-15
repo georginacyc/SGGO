@@ -112,6 +112,7 @@
     <Content Include="Staff_Accounts_List.aspx" />
     <Content Include="Staff_Account_Details.aspx" />
     <Content Include="Staff_Change_Password.aspx" />
+    <Content Include="Staff_Draft_Trails.aspx" />
     <Content Include="Staff_Gems_Table.aspx" />
     <Content Include="Staff_Gem_Details.aspx" />
     <Content Include="Staff_Home.aspx" />
@@ -133,6 +134,7 @@
     <Content Include="User_Favourites.aspx" />
     <Content Include="User_Home.aspx" />
     <Content Include="User_Login.aspx" />
+    <Content Include="User_Monthly_Trail.aspx" />
     <Content Include="User_Profile.aspx" />
     <Content Include="User_Reviews.aspx" />
     <Content Include="Web.config" />
@@ -357,6 +359,13 @@
     <Compile Include="Staff_Change_Password.aspx.designer.cs">
       <DependentUpon>Staff_Change_Password.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Staff_Draft_Trails.aspx.cs">
+      <DependentUpon>Staff_Draft_Trails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff_Draft_Trails.aspx.designer.cs">
+      <DependentUpon>Staff_Draft_Trails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Staff_Gems_Table.aspx.cs">
       <DependentUpon>Staff_Gems_Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -475,6 +484,13 @@
     </Compile>
     <Compile Include="User_Login.aspx.designer.cs">
       <DependentUpon>User_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Monthly_Trail.aspx.cs">
+      <DependentUpon>User_Monthly_Trail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Monthly_Trail.aspx.designer.cs">
+      <DependentUpon>User_Monthly_Trail.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Profile.aspx.cs">
       <DependentUpon>User_Profile.aspx</DependentUpon>
