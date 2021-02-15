@@ -20,7 +20,7 @@
         <div>
            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                   <!-- Brand -->
-                  <a class="navbar-brand" href="Home_Page.aspx">
+                  <a class="navbar-brand" href="User_Home.aspx">
                       SGGO
                   </a>
 
