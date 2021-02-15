@@ -66,12 +66,5 @@ namespace SGGO
             Response.Redirect("Create_Report.aspx?rev=" + id);
         }
 
-        protected void fav_Click(object sender, ImageClickEventArgs e)
-        {
-            fav.ImageUrl = "~/Test_Image/FilledLike.png";
-            lbl_like.Text = "Added To Favourites";
-            lbl_like.ForeColor = System.Drawing.ColorTranslator.FromHtml("#339933");
-              
-        }
     }
 }
