@@ -105,15 +105,6 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.TextBox user_password_tb;
 
         /// <summary>
-        /// btn_checkpw control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_checkpw;
-
-        /// <summary>
         /// lbl_confirmpw control.
         /// </summary>
         /// <remarks>
@@ -130,6 +121,15 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox user_confirmpw_tb;
+
+        /// <summary>
+        /// btn_checkpw control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_checkpw;
 
         /// <summary>
         /// btn_Create control.
