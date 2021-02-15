@@ -20,9 +20,6 @@
     }
     #text{
        display: inline-block;
-       position:fixed;
-       left:30%;
-       transform: translate(-50%, -50%);
     }
 
     .auto-style3 {
