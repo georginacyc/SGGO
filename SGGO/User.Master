@@ -7,6 +7,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         li {
@@ -38,6 +40,16 @@
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="User_Login.aspx">Login</a>
+                    </li>         
+                    </ul>
+                </div>
+               <div>
+                    <ul class="navbar-nav mr-auto"> 
+                    <li class="nav-item active">
+                    <a class="nav-link" href="Staff_Login.aspx">Staff Login</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="Partner_Login.aspx">Partner Company Login</a>
                     </li>         
                     </ul>
                 </div>

@@ -15,7 +15,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="tb_email" runat="server"  Width="192px"></asp:TextBox>
-                    <asp:Label ID="lblMsg2" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="lb_error" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>

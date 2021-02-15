@@ -42,13 +42,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.TextBox tb_email;
 
         /// <summary>
-        /// lblMsg2 control.
+        /// lb_error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg2;
+        protected global::System.Web.UI.WebControls.Label lb_error;
 
         /// <summary>
         /// Label2 control.

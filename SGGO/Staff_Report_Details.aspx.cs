@@ -40,10 +40,23 @@ namespace SGGO
                         // on page load codes here
                         if (!String.IsNullOrEmpty(Request.QueryString["id"]))
                         {
+                            var id = 0;
+                            var title = "";
                             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                             var report = client.GetReportById(Convert.ToInt32(Request.QueryString["id"]));
-                            var gem = client.GetGemById(Convert.ToInt32(report.Post));
+                            if (report.Type == "gem")
+                            {
+                                var gem = client.GetGemById(Convert.ToInt32(report.Post));
+                                id = gem.Gem_Id;
+                                title = gem.Title;
+                            } else
+                            {
+                                var review = client.GetReviewById(Convert.ToInt32(report.Post));
+                                id = Convert.ToInt32(review.Gem_Id);
+                                title = review.Gem_Title;
+                            }
 
+                            // checks if the review has already been dealt 
                             if (report.Status.Trim() == "Resolved")
                             {
                                 resolve_btn.Visible = false;
@@ -51,14 +64,16 @@ namespace SGGO
                             report_lb.Text = report_lb.Text + report.Report_Id;
                             status_lb.Text = report.Status;
                             date_lb.Text = report.Date_reported.ToString("dd/MM/yyyy");
+                            // adds anchor tags/hyperlinks to the following text
                             reporter_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + report.Reported_by + "'>" + report.Reported_by + "</a>"; // links to account details page of reporter
                             type_lb.Text = report.Type;
-                            reported_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + report.Post.ToString() + "&gemT=" + gem.Title.ToString() + "'>" + gem.Title.ToString() + "</a>"; // links to reported gem/review
+                            reported_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + id + "&gemT=" + title + "'>" + title + "</a>"; // links to reported gem/review
                             reason_lb.Text = report.Reason;
                             remarks_lb.Text = report.Remarks;
                         }
                         else
                         {
+                            // if there is no report selected, send back to reports table.
                             Response.Redirect("Staff_Reports_Table.aspx");
                         }
                     }
@@ -108,6 +123,7 @@ namespace SGGO
 
         protected void disapprove_btn_Click(object sender, EventArgs e)
         {
+            // updates status of report to 'Resolved'
             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
             client.UpdateReportStatus(Convert.ToInt32(Request.QueryString["id"]), "Resolved");
 
@@ -116,6 +132,7 @@ namespace SGGO
 
         protected void back_btn_Click(object sender, EventArgs e)
         {
+            // 'back' button to bring users back to reports table
             Response.Redirect("Staff_Reports_Table.aspx");
         }
     }

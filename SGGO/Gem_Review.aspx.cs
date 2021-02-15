@@ -30,7 +30,7 @@ namespace SGGO
                     DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                     var gems = client.GetGemById(Convert.ToInt32(gemid));
                     gemtitle = gems.Title;
-                    gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image;
+                    gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image + ".jpg";
                 }
             }
             else
@@ -46,6 +46,10 @@ namespace SGGO
         protected void Rating_1_Click(object sender, ImageClickEventArgs e)
         {
             Rating_1.ImageUrl = "~/Test_Image/FilledStar.png";
+            Rating_2.ImageUrl = "~/Test_Image/Star.png";
+            Rating_3.ImageUrl = "~/Test_Image/Star.png";
+            Rating_4.ImageUrl = "~/Test_Image/Star.png";
+            Rating_5.ImageUrl = "~/Test_Image/Star.png";
             lbl_rating_score.Text = "1";
 
         }
@@ -54,6 +58,9 @@ namespace SGGO
         {
             Rating_1.ImageUrl = "~/Test_Image/FilledStar.png";
             Rating_2.ImageUrl = "~/Test_Image/FilledStar.png";
+            Rating_3.ImageUrl = "~/Test_Image/Star.png";
+            Rating_4.ImageUrl = "~/Test_Image/Star.png";
+            Rating_5.ImageUrl = "~/Test_Image/Star.png";
             lbl_rating_score.Text = "2";
 
         }
@@ -63,6 +70,8 @@ namespace SGGO
             Rating_1.ImageUrl = "~/Test_Image/FilledStar.png";
             Rating_2.ImageUrl = "~/Test_Image/FilledStar.png";
             Rating_3.ImageUrl = "~/Test_Image/FilledStar.png";
+            Rating_4.ImageUrl = "~/Test_Image/Star.png";
+            Rating_5.ImageUrl = "~/Test_Image/Star.png";
             lbl_rating_score.Text = "3";
         }
 
@@ -72,6 +81,7 @@ namespace SGGO
             Rating_2.ImageUrl = "~/Test_Image/FilledStar.png";
             Rating_3.ImageUrl = "~/Test_Image/FilledStar.png";
             Rating_4.ImageUrl = "~/Test_Image/FilledStar.png";
+            Rating_5.ImageUrl = "~/Test_Image/Star.png";
             lbl_rating_score.Text = "4";
         }
 

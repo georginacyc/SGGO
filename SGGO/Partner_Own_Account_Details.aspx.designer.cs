@@ -42,15 +42,6 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label email_lb;
 
         /// <summary>
-        /// staffid_lb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label staffid_lb;
-
-        /// <summary>
         /// fname_lb control.
         /// </summary>
         /// <remarks>
@@ -114,12 +105,30 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label created_lb;
 
         /// <summary>
-        /// btn_GotoCreateGem control.
+        /// changepw_btn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_GotoCreateGem;
+        protected global::System.Web.UI.WebControls.Button changepw_btn;
+
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// lb_Need_Help control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_Need_Help;
     }
 }

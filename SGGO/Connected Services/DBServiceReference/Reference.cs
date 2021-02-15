@@ -1121,6 +1121,9 @@ namespace SGGO.DBServiceReference {
         private string PartnerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Partner_EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Point_Shop_Item_IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1190,6 +1193,19 @@ namespace SGGO.DBServiceReference {
                 if ((object.ReferenceEquals(this.PartnerField, value) != true)) {
                     this.PartnerField = value;
                     this.RaisePropertyChanged("Partner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Partner_Email {
+            get {
+                return this.Partner_EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Partner_EmailField, value) != true)) {
+                    this.Partner_EmailField = value;
+                    this.RaisePropertyChanged("Partner_Email");
                 }
             }
         }
@@ -1284,6 +1300,12 @@ namespace SGGO.DBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccountByEmail", ReplyAction="http://tempuri.org/IService1/GetAccountByEmailResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Account> GetAccountByEmailAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUserProfile", ReplyAction="http://tempuri.org/IService1/UpdateUserProfileResponse")]
+        void UpdateUserProfile(string email, string hp, string address, string postal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUserProfile", ReplyAction="http://tempuri.org/IService1/UpdateUserProfileResponse")]
+        System.Threading.Tasks.Task UpdateUserProfileAsync(string email, string hp, string address, string postal);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAccounts", ReplyAction="http://tempuri.org/IService1/GetAllAccountsResponse")]
         SGGO.DBServiceReference.Account[] GetAllAccounts();
         
@@ -1361,6 +1383,12 @@ namespace SGGO.DBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingGems", ReplyAction="http://tempuri.org/IService1/CountPendingGemsResponse")]
         System.Threading.Tasks.Task<int> CountPendingGemsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteGem", ReplyAction="http://tempuri.org/IService1/DeleteGemResponse")]
+        void DeleteGem(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteGem", ReplyAction="http://tempuri.org/IService1/DeleteGemResponse")]
+        System.Threading.Tasks.Task DeleteGemAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTrail", ReplyAction="http://tempuri.org/IService1/CreateTrailResponse")]
         int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
@@ -1477,10 +1505,10 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task<int> CountUnresolvedReportsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePointShopItem", ReplyAction="http://tempuri.org/IService1/CreatePointShopItemResponse")]
-        int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);
+        int CreatePointShopItem(string name, string partner, string partner_email, string description, int price, string image, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePointShopItem", ReplyAction="http://tempuri.org/IService1/CreatePointShopItemResponse")]
-        System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string description, int price, string image, string type, string qr);
+        System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string partner_email, string description, int price, string image, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectById", ReplyAction="http://tempuri.org/IService1/SelectByIdResponse")]
         SGGO.DBServiceReference.Point_Shop_Item SelectById(string Point_Shop_Item_Id);
@@ -1493,6 +1521,12 @@ namespace SGGO.DBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectAll", ReplyAction="http://tempuri.org/IService1/SelectAllResponse")]
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Point_Shop_Item[]> SelectAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePointShopItem", ReplyAction="http://tempuri.org/IService1/DeletePointShopItemResponse")]
+        void DeletePointShopItem(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePointShopItem", ReplyAction="http://tempuri.org/IService1/DeletePointShopItemResponse")]
+        System.Threading.Tasks.Task DeletePointShopItemAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1552,6 +1586,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Account> GetAccountByEmailAsync(string email) {
             return base.Channel.GetAccountByEmailAsync(email);
+        }
+        
+        public void UpdateUserProfile(string email, string hp, string address, string postal) {
+            base.Channel.UpdateUserProfile(email, hp, address, postal);
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserProfileAsync(string email, string hp, string address, string postal) {
+            return base.Channel.UpdateUserProfileAsync(email, hp, address, postal);
         }
         
         public SGGO.DBServiceReference.Account[] GetAllAccounts() {
@@ -1656,6 +1698,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<int> CountPendingGemsAsync() {
             return base.Channel.CountPendingGemsAsync();
+        }
+        
+        public void DeleteGem(int id) {
+            base.Channel.DeleteGem(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteGemAsync(int id) {
+            return base.Channel.DeleteGemAsync(id);
         }
         
         public int CreateTrail(string trailId, string name, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status) {
@@ -1810,12 +1860,12 @@ namespace SGGO.DBServiceReference {
             return base.Channel.CountUnresolvedReportsAsync();
         }
         
-        public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr) {
-            return base.Channel.CreatePointShopItem(name, partner, description, price, image, type, qr);
+        public int CreatePointShopItem(string name, string partner, string partner_email, string description, int price, string image, string type) {
+            return base.Channel.CreatePointShopItem(name, partner, partner_email, description, price, image, type);
         }
         
-        public System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string description, int price, string image, string type, string qr) {
-            return base.Channel.CreatePointShopItemAsync(name, partner, description, price, image, type, qr);
+        public System.Threading.Tasks.Task<int> CreatePointShopItemAsync(string name, string partner, string partner_email, string description, int price, string image, string type) {
+            return base.Channel.CreatePointShopItemAsync(name, partner, partner_email, description, price, image, type);
         }
         
         public SGGO.DBServiceReference.Point_Shop_Item SelectById(string Point_Shop_Item_Id) {
@@ -1832,6 +1882,14 @@ namespace SGGO.DBServiceReference {
         
         public System.Threading.Tasks.Task<SGGO.DBServiceReference.Point_Shop_Item[]> SelectAllAsync() {
             return base.Channel.SelectAllAsync();
+        }
+        
+        public void DeletePointShopItem(int id) {
+            base.Channel.DeletePointShopItem(id);
+        }
+        
+        public System.Threading.Tasks.Task DeletePointShopItemAsync(int id) {
+            return base.Channel.DeletePointShopItemAsync(id);
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Drawing;
+using SGGO.DBServiceReference;
 
 namespace SGGO
 {
@@ -18,6 +19,7 @@ namespace SGGO
         //Regex passReg = new Regex(@"^(?=.*[a-zA-Z])(?=.*[!-/])(?=.*\d).{8}$"); // Minimum eight characters, at least one letter and one number:
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (Page.IsPostBack == false) { }
 
         }
 
@@ -34,19 +36,39 @@ namespace SGGO
         private bool ValidateInput()
         {
             bool result;
+            string email = string.Empty;
             lbMsg.Text = String.Empty;
+            email = user_email_tb.Text;//(string)Session["email"];
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            Account userObj = client.GetAccountByEmail(email);
 
             if (user_fname_tb.Text == "")
             {
                 lbMsg.Text += "First name is required" + "<br/>";
+                lbMsg.ForeColor = Color.Red;
             }
             if (user_lname_tb.Text == "")
             {
                 lbMsg.Text += "Last name is required" + "<br/>";
+                lbMsg.ForeColor = Color.Red;
             }
-            if (user_email_tb.Text == "")
+            if (user_email_tb.Text != "")
+            {
+                if (userObj != null)
+                {
+                    if (user_email_tb.Text.Equals(userObj.Email))
+                    {
+                        lbMsg.Text += "User has already been registered" + "<br/>";
+                        lbMsg.ForeColor = Color.Red;
+                    }
+                }
+
+                
+            }
+            else
             {
                 lbMsg.Text += "Email is required" + "<br/>";
+                lbMsg.ForeColor = Color.Red;
             }
             if (user_password_tb.Text != "")
             {
@@ -54,20 +76,21 @@ namespace SGGO
                 if (checkPw(user_password_tb.Text) <= 4)
                 {
                     lbMsg.Text += "Please put a stronger pw" + "<br/>";
+                    lbMsg.ForeColor = Color.Red;
+                }
+                if (user_password_tb.Text != user_confirmpw_tb.Text)
+                {
+                    lbMsg.Text += "Passwords do not match" + "<br/>";
+                    lbMsg.ForeColor = Color.Red;
                 }
             }
             else
             {
                 lbMsg.Text += "Password is required" + "<br/>";
+                lbMsg.ForeColor = Color.Red;
             }
-            if (user_confirmpw_tb.Text == "")
-            {
-                lbMsg.Text += "Please confirm your password is required" + "<br/>";
-            }
-            if (user_password_tb.Text != user_confirmpw_tb.Text)
-            {
-                lbMsg.Text += "Please confirme your password again" + "<br/>";
-            }
+           
+            
            
             if (String.IsNullOrEmpty(lbMsg.Text))
             {
@@ -102,13 +125,13 @@ namespace SGGO
                 default:
                     break;
             }
-            lbl_pwchecker.Text = "Status : " + status;
+            lbMsg.Text = "Status : " + status;
             if (scores < 4) //any score below 4 will show red
             {
-                lbl_pwchecker.ForeColor = Color.Red;
+                lbMsg.ForeColor = Color.Red;
                 return;
             }
-            lbl_pwchecker.ForeColor = Color.Green;
+            lbMsg.ForeColor = Color.Green;
         }
 
         protected int checkPw(string password) //server side validation for password
@@ -187,10 +210,7 @@ namespace SGGO
                 lbMsg.Visible = true;
 
             }
-            else
-            {
-                lbMsg.Text = "Please try again";
-            }
+           
         }
 
         protected void Button1_Click(object sender, EventArgs e)

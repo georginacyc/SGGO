@@ -41,6 +41,12 @@ namespace DBService
             return accounts.SelectByEmail(email);
         }
 
+        public void UpdateUserProfile(string email, string hp, string address, string postal)
+        {
+            Account user = new Account();
+            user.UpdateUserProfile(email, hp, address, postal);
+        }
+
         public List<Account> GetAllAccounts()
         {
             Account accounts = new Account();
@@ -125,6 +131,12 @@ namespace DBService
             return gem.CountPending();
         }
 
+        public void DeleteGem(int Id)
+        {
+            Gem gem = new Gem();
+            gem.DeleteGem(Id);
+        }
+
         // Monthly Trail
         public List<Trail> GetAllTrails()
         {
@@ -195,6 +207,11 @@ namespace DBService
             var rev = review.SelectById(review_id);
             Gem gem = new Gem();
             gem.UpdateRating(Convert.ToInt32(rev.Gem_Id));
+            if (status == "Approved")
+            {
+                Account user = new Account();
+                user.AddPoints(rev.Author);
+            }
         }
 
         public int CountPendingReviews()
@@ -251,9 +268,9 @@ namespace DBService
         }
 
 
-        public int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr)
+        public int CreatePointShopItem(string name, string partner, string partner_email, string description, int price, string image, string type)
         {
-            Point_Shop_Item item = new Point_Shop_Item(name, partner, description, price, image, type, qr);
+            Point_Shop_Item item = new Point_Shop_Item(name, partner, partner_email, description, price, image, type);
             return item.Insert();
         }
 
@@ -268,6 +285,12 @@ namespace DBService
         {
             Point_Shop_Item items = new Point_Shop_Item();
             return items.SelectAll();
+        }
+
+        public void DeletePointShopItem(int point_shop_item_id)
+        {
+            Point_Shop_Item psi = new Point_Shop_Item();
+            psi.DeletePointShopItem(point_shop_item_id);
         }
     }
 }

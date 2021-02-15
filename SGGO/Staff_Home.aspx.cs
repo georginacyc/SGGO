@@ -37,7 +37,7 @@ namespace SGGO
                 }
                 else
                 {
-                    if (Session["Role"].ToString() == "Staff")
+                    if (Session["Role"].ToString() == "Staff") // ensures that only staff are able to access the page
                     {
                         // on page load codes here
                         DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();

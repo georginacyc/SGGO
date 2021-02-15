@@ -114,15 +114,6 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Button btn_checkpw;
 
         /// <summary>
-        /// lbl_pwchecker control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_pwchecker;
-
-        /// <summary>
         /// lbl_confirmpw control.
         /// </summary>
         /// <remarks>

@@ -3,9 +3,12 @@
 
     
 
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="Label1" runat="server" Font-Size="25pt" Text="Join us"></asp:Label>
+        <form id="form1" runat="server">
+
+    
+
+        <div class="card" style="width: 55%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
+            <asp:Label ID="Label1" runat="server"  Font-Bold="True" Font-Size="40px" Text="Sign Up"></asp:Label>
             <br />
             <table style="width: 100%">
                 <tr>
@@ -37,9 +40,15 @@
             <asp:Label ID="lbl_pw" runat="server" Text="Password"></asp:Label>
                     </td>
                     <td>
-            <asp:TextBox ID="user_password_tb" TextMode="Password" runat="server" OnTextChanged="tb_pw_TextChanged" ></asp:TextBox>
-                        <asp:Button ID="btn_checkpw" runat="server" OnClick="btn_checkpw_Click" Text="Click to check Password Strength" />
-                        <asp:Label ID="lbl_pwchecker" runat="server" Text="Password Strength"></asp:Label>
+            <asp:TextBox ID="user_password_tb" TextMode="Password" runat="server" OnTextChanged="tb_pw_TextChanged" ></asp:TextBox>                                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                    <td>
+                        <%--<asp:Label ID="lbl_pwchecker" runat="server" Text="Password Strength"></asp:Label>--%>
+                        <asp:Button ID="btn_checkpw" class="btn btn-dark" runat="server" OnClick="btn_checkpw_Click" Text="Check Password" />
                     </td>
                 </tr>
                 <tr>
@@ -54,8 +63,8 @@
                     <td>
                         &nbsp;</td>
                     <td>
-                        <asp:Button ID="btn_Create" runat="server" Text="Sign Up" OnClick="btn_Create_Click" Width="268px" />
-                        <asp:Label ID="lbMsg" runat="server" Text="Message"></asp:Label>
+                        <asp:Button ID="btn_Create" runat="server" class="btn btn-dark" Text="Sign Up" OnClick="btn_Create_Click" Width="268px" />
+                        <asp:Label ID="lbMsg" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -63,7 +72,7 @@
                         &nbsp;</td>
                     <td>
                         
-                        <asp:Button ID="Button1" runat="server" Font-Size="15px" OnClick="Button1_Click" Text="Already have an account? Login here" Width="268px" />
+                        <asp:Button ID="Button1" runat="server" Font-Size="15px" class="btn btn-dark" OnClick="Button1_Click" Text="Already have an account? Login here" Width="268px" />
                         
                     </td>
                 </tr>
@@ -77,5 +86,7 @@
             </table>
             
         </div>
-    </form>
+    
+</form>
+    
 </asp:Content>

@@ -153,9 +153,9 @@
             <div style="display: inline-block">
                 <asp:Label ID="resetpw_lb" runat="server" ForeColor="Red"></asp:Label>
             <br />
-        <asp:Button ID="resetpw_btn" runat="server" CssClass="btn btn-warning" style="width: 20%; float: left;" OnClick="resetpw_btn_Click" Text="Reset Password" />
+        <asp:Button ID="resetpw_btn" runat="server" CssClass="btn btn-warning" style="width: 25%; float: left;" OnClick="resetpw_btn_Click" Text="Reset Password" />
 
-        <asp:Button ID="print_btn" CssClass="btn btn-dark" style="width: 10%; float: right;" OnClientClick="javascript:window.print();" Text="Print" runat="server" />
+        <asp:Button ID="print_btn" CssClass="btn btn-dark" style="width: 15%; float: right;" OnClientClick="javascript:window.print();" Text="Print" runat="server" />
             </div>
     
             </div>

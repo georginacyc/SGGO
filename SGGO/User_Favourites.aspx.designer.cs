@@ -7,10 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace SGGO
 {
-    public partial class Partner_Delete_Gem
+
+
+    public partial class User_Favourites
     {
+
+        /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     }
 }

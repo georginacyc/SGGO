@@ -11,7 +11,7 @@ namespace SGGO
     public partial class Gem_Listing : System.Web.UI.Page
     {
         string gemid;
-        
+        string gemadd;
         protected void Page_Load(object sender, EventArgs e)
         {
             gemid = Request.QueryString["gemId"];
@@ -26,14 +26,19 @@ namespace SGGO
                 var gems = client.GetGemById(Convert.ToInt32(gemid));
                 gem_title.Text = gems.Title;
                 gem_desc.Text = gems.Description;
-                gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image;
-                gem_add.Text = "Address : "+ gems.Location;
+                gem_image.Attributes["src"] = "/Images/Gem/" + gems.Image +".jpg";
+                gemadd = gems.Location;
             }
             else
             {
                 Response.Redirect("Gem_Catalogue.aspx");
             }
             
+        }
+
+        protected void btn_add_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(gemadd);
         }
 
         //protected void btn_map_Click(object sender, EventArgs e)
@@ -60,5 +65,6 @@ namespace SGGO
             string id = gvReview.DataKeys[index].Value.ToString();
             Response.Redirect("Create_Report.aspx?rev=" + id);
         }
+
     }
 }

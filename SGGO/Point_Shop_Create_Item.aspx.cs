@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SGGO.DBServiceReference;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,37 +13,48 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void submit_btn_Click(object sender, EventArgs e)
-        {
-            int value;
-
-            if (int.TryParse(tb_item_price.Text, out value))
+            if (!String.IsNullOrEmpty(Request.QueryString["email"]))
             {
-                //parsing successful 
+                DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+                var user = client.GetAccountByEmail(Request.QueryString["email"]);
+                lb_pc_email.Text = user.Email;
+                lb_pc.Text = user.First_Name;
+            }
+        }
+        protected void btn_submit_Click(object sender, EventArgs e)
+        {
+            string name = tb_name.Text;
+            string description = tb_description.Text;
+            string type = rb_type.SelectedValue.ToString();
+            string partner = lb_pc.Text;
+            string partner_email = lb_pc_email.Text;
+            int value = int.Parse(tb_price.Text);
+            Service1Client client = new DBServiceReference.Service1Client();
+            if (tb_name.Text is null)
+            {
+                lb_uploadstatus.Text = "Gem title must be entered before banner upload can be attempted";
+                lb_uploadstatus.ForeColor = System.Drawing.Color.Red;
             }
             else
             {
-                //parsing failed. 
+                if (ImageUpload.HasFile)
+                {
+                    var filename = tb_name.Text + System.IO.Path.GetExtension(Server.HtmlEncode(ImageUpload.FileName));
+                    ImageUpload.SaveAs(Request.PhysicalApplicationPath + "/Images/Point_Shop_Items/" + filename);
+                    lb_uploadstatus.Text = "File Successfully Uploaded";
+                    lb_uploadstatus.ForeColor = System.Drawing.Color.Green;
+                    string image = filename;
+                    int result = client.CreatePointShopItem(name, partner, partner_email, description, value, image, type);
+                }
+                else
+                {
+                    lb_uploadstatus.Text = "Please Select Your File";
+                    lb_uploadstatus.ForeColor = System.Drawing.Color.Red;
+                }
             }
-            string name = tb_item_name.Text;
-            string type = ddl_item_type.Text;
-            string partner = tb_item_location.Text;
-            int price = value;
-            string description = tb_item_description.Text;
-            string image = FileUpload1.ToString();
-            string qr = "qr";
 
-            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            int result = client.CreatePointShopItem(name, partner, description, price, image, type, qr);
-            Response.Redirect("Point_Shop_Catalogue.aspx");
-        }
 
-        protected void ddl_item_type_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            Response.Redirect("Partner_Point_Shop_Item_List.aspx");
         }
     }
 }

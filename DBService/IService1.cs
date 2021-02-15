@@ -26,6 +26,9 @@ namespace DBService
         Account GetAccountByEmail(string email);
 
         [OperationContract]
+        void UpdateUserProfile(string email, string hp, string address, string postal);
+
+        [OperationContract]
         List<Account> GetAllAccounts();
 
         [OperationContract]
@@ -68,6 +71,8 @@ namespace DBService
         [OperationContract]
         int CountPendingGems();
 
+        [OperationContract]
+        void DeleteGem(int id);
 
         //Trail
         [OperationContract]
@@ -133,13 +138,16 @@ namespace DBService
 
         //Point Shop
         [OperationContract]
-        int CreatePointShopItem(string name, string partner, string description, int price, string image, string type, string qr);
+        int CreatePointShopItem(string name, string partner, string partner_email, string description, int price, string image, string type);
 
         [OperationContract]
         Point_Shop_Item SelectById(string Point_Shop_Item_Id);
 
         [OperationContract]
         List<Point_Shop_Item> SelectAll();
+
+        [OperationContract]
+        void DeletePointShopItem(int id);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

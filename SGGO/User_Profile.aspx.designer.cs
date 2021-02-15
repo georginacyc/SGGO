@@ -33,15 +33,6 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// lblMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
-
-        /// <summary>
         /// label2 control.
         /// </summary>
         /// <remarks>
@@ -51,13 +42,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label label2;
 
         /// <summary>
-        /// TextBox1 control.
+        /// displayfname_lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label displayfname_lbl;
 
         /// <summary>
         /// Label3 control.
@@ -69,13 +60,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// TextBox2 control.
+        /// displaylname_lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.Label displaylname_lbl;
 
         /// <summary>
         /// Label4 control.
@@ -87,13 +78,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// TextBox3 control.
+        /// displayemail_lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.Label displayemail_lbl;
 
         /// <summary>
         /// Label5 control.
@@ -105,13 +96,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// TextBox4 control.
+        /// displaydob_lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.Label displaydob_lbl;
 
         /// <summary>
         /// Label6 control.
@@ -123,13 +114,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// TextBox5 control.
+        /// displayphone_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox displayphone_tb;
 
         /// <summary>
         /// Label7 control.
@@ -141,13 +132,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// TextBox6 control.
+        /// displayaddress1_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox displayaddress1_tb;
 
         /// <summary>
         /// Label8 control.
@@ -159,13 +150,13 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// TextBox7 control.
+        /// displayaddress2_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox displayaddress2_tb;
 
         /// <summary>
         /// Label9 control.
@@ -177,13 +168,40 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// TextBox8 control.
+        /// displaypostalcode_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+        protected global::System.Web.UI.WebControls.TextBox displaypostalcode_tb;
+
+        /// <summary>
+        /// btn_reviews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_reviews;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
         /// btn_Update control.
@@ -195,6 +213,15 @@ namespace SGGO
         protected global::System.Web.UI.WebControls.Button btn_Update;
 
         /// <summary>
+        /// lblMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
+
+        /// <summary>
         /// btn_logout control.
         /// </summary>
         /// <remarks>
@@ -202,14 +229,5 @@ namespace SGGO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_logout;
-
-        /// <summary>
-        /// btn_reviews control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_reviews;
     }
 }
