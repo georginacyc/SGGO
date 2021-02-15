@@ -503,5 +503,21 @@ namespace DBService.Entity
             conn.Close();
 
         }
+
+        public void AddPoints(string email)
+        { 
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Accounts SET diamonds = diamonds + 100 WHERE email = @email";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@email", email);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }
