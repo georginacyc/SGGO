@@ -188,6 +188,11 @@ namespace DBService
             var rev = review.SelectById(review_id);
             Gem gem = new Gem();
             gem.UpdateRating(Convert.ToInt32(rev.Gem_Id));
+            if (status == "Approved")
+            {
+                Account user = new Account();
+                user.AddPoints(rev.Author);
+            }
         }
 
         public int CountPendingReviews()

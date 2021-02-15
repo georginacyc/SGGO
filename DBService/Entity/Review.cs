@@ -167,7 +167,6 @@ namespace DBService.Entity
         }
 
         // Select All
-
         public List<Review> SelectAll()
         {
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;

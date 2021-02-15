@@ -41,7 +41,7 @@ namespace SGGO
                         DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                         var gem = client.GetGemById(Convert.ToInt32(Request.QueryString["id"]));
 
-                        gem_img.Attributes["src"] = "/Images/Gem/" + gem.Image + ".png";
+                        gem_img.Attributes["src"] = "/Images/Gem/" + gem.Image;
                         title_lb.Text = gem.Title;
                         status_lb.Text = gem.Status;
                         id_lb.Text = gem.Gem_Id.ToString();

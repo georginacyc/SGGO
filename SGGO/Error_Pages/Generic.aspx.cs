@@ -20,7 +20,7 @@ namespace SGGO.Error_Pages
             Session.Abandon();
             Session.RemoveAll();
 
-            Response.Redirect("~/User_Home.aspx");
+            Response.Redirect("~/User_Login.aspx");
 
             if (Request.Cookies["ASP.NET_SessionId"] != null)
             {
