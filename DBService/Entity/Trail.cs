@@ -115,6 +115,7 @@ namespace DBService.Entity
             string query = "SELECT * FROM Trail";
             SqlDataAdapter da = new SqlDataAdapter(query, conn);
 
+
             DataSet ds = new DataSet();
 
             da.Fill(ds);
@@ -140,6 +141,90 @@ namespace DBService.Entity
             return trailList;
         }
 
+        // Select by Status
+
+        public List<Trail> SelectByStatus(string status)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["danae"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "SELECT * FROM Trail WHERE status = @status";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            da.SelectCommand.Parameters.AddWithValue("@status", status);
+
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            List<Trail> trailList = new List<Trail>();
+            int count = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < count; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                string trailid = row["trailid"].ToString();
+                string name = row["name"].ToString();
+                DateTime date = Convert.ToDateTime(row["date"].ToString());
+                string description = row["description"].ToString();
+                string gem1 = row["gem1"].ToString();
+                string gem2 = row["gem2"].ToString();
+                string gem3 = row["gem3"].ToString();
+                string banner = row["banner"].ToString();
+
+                Trail tr = new Trail(trailid, name, date, description, gem1, gem2, gem3, banner, status);
+                trailList.Add(tr);
+            }
+            return trailList;
+        }
+
+
+
+        //update trail
+        public int UpdateTrail(string trailid)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Gem SET status = @status WHERE trailid = @trailid";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@trailid", trailid);
+            cmd.Parameters.AddWithValue("@name", Name);
+            cmd.Parameters.AddWithValue("@date", Date);
+            cmd.Parameters.AddWithValue("@description", Description);
+            cmd.Parameters.AddWithValue("@gem1", Gem1);
+            cmd.Parameters.AddWithValue("@gem2", Gem2);
+            cmd.Parameters.AddWithValue("@gem3", Gem3);
+            cmd.Parameters.AddWithValue("@banner", Banner);
+            cmd.Parameters.AddWithValue("@status", Status);
+
+          
+            conn.Open();
+            int result = cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return result;
+
+
+        }
+
+        // delete draft trail
+        public void DeleteTrail(string trailid)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "DELETE Trail WHERE trailid = @trailid";
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@trailid", trailid);
+
+            conn.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteNonQuery());
+            conn.Close();
+        }
 
     }
 }

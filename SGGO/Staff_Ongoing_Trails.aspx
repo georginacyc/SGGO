@@ -3,18 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class ="container-fluid">
+    <div class ="container-fluid" style="width: 70%; margin:auto">
         <asp:Label ID="lb_msg" runat="server"></asp:Label>
         <br />
         <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="Ongoing Trails"></asp:Label>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="OngoingTrailDataSource" ForeColor="Black" GridLines="Horizontal"  Width="100%">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="OngoingTrailDataSource" ForeColor="Black" GridLines="Horizontal"  Width="100%" OnRowCommand="Gridview1_RowCommand">
         <Columns>
             <asp:BoundField DataField="name" HeaderText="Title" SortExpression="name" ReadOnly="True" />
             <asp:BoundField DataField="date" HeaderText="Publish Date" SortExpression="date" ReadOnly="True"/>
             <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" ReadOnly="True" />
-            <asp:CommandField ShowEditButton="True" />
-            <asp:ButtonField Text="Preview" />
+            <asp:ButtonField ButtonType="Button" Text="Make Ongoing" CommandName="makeOngoing"/>
         </Columns>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
         <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
