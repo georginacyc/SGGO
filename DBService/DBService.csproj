@@ -50,7 +50,6 @@
     <Compile Include="Entity\Point_Shop_Item.cs" />
     <Compile Include="Entity\Report.cs" />
     <Compile Include="Entity\Trail.cs" />
-    <Compile Include="Entity\Employee.cs" />
     <Compile Include="Entity\Review.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
