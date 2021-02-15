@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="User_Monthly_Trail.aspx.cs" Inherits="SGGO.User_Monthly_Trail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
     <form id="form1" runat="server">
+        <div style="text-align: center;">
         <asp:Image ID="img_banner" runat="server" Height="241px" Width="1351px" Source ="~/Images/Trail" />
+        </div>
         <div class="row" style="width: 60%; margin: 10px auto auto auto;">
         <div class="col" style="left: 1px; top: 0px" >
-            <a href="Gem_Listing" style="text-decoration:none;">
                 <div class="card" style="left: 0px; top: 0px">
                     <div class="card-body" style="text-align: center;">
                         <table style="width:100%;">
@@ -29,10 +30,8 @@
                         </table>
                     </div>
                 </div>
-            </a>
         </div>
         <div class="col" >
-            <a href="Staff_Reviews_Table.aspx" style="text-decoration:none;">
                 <div class="card">
                     <div class="card-body" style="text-align: center;">
                         <table style="width:100%;">
@@ -57,10 +56,8 @@
                         </table>
                     </div>
                 </div>
-            </a>
         </div>
         <div class="col" >
-            <a href="Staff_Gems_Table.aspx" style="text-decoration:none;">
                 <div class="card">
                     <div class="card-body" style="text-align: center;">
                         <table style="width:100%;">
@@ -85,13 +82,14 @@
                         </table>
                     </div>
                 </div>
-            </a>
         </div>
             <br />
-            <asp:Label ID="lb_desc" runat="server" ></asp:Label>
+            
     </div>
         
-        
+        <div style="text-align: center; padding-top: 50px;">
+            <asp:Label ID="lb_desc" runat="server" ></asp:Label>
+            </div>
 
 
     </form>

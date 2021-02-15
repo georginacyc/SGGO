@@ -52,7 +52,8 @@ namespace SGGO
             List<Trail> eList = new List<Trail>();
             eList = client.GetTrailByStatus("ongoing").ToList<Trail>();
             Trail oTrail = eList[0];
-            Gem x = client.GetGemByTitle(oTrail.Gem1);
+            Gem x = client.GetGemByTitle(lb_gem1Title.Text);
+            System.Diagnostics.Debug.WriteLine(x.ToString());
             Response.Redirect("Gem_Listing.aspx?gemId=" + x.Gem_Id);
         }
 
