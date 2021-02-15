@@ -21,7 +21,7 @@ namespace SGGO
 
         protected void btn_trails_Click(object sender, EventArgs e)
         {
-            Response.Redirect("User_Monthly_Trails.aspx");
+            Response.Redirect("User_Monthly_Trail.aspx");
         }
     }
 }
