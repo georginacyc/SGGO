@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGGO.DBServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -84,5 +85,28 @@ namespace SGGO
                 }
             }
         }
+
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "makeOngoing")
+            {
+                // Get index of row passed as command argument
+                int index = Convert.ToInt32(e.CommandArgument.ToString());
+                List<Trail> eList = new List<Trail>();
+                Service1Client client = new Service1Client();
+                var id = eList[index].TrailId;
+                Response.Redirect("User_Monthly_Trail.aspx");
+            }
+
+
+
+        }
     }
+
+
+    
+
+
+
 }

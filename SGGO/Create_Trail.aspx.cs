@@ -285,6 +285,7 @@ namespace SGGO
                 int result;
                 if(Session["draft_edit"] != null)
                 {
+                    result = client.UpdateTrail(trailid);
 
                 }
                 else
