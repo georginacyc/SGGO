@@ -35,8 +35,18 @@
                     </li>
                       <li class="nav-item">
                       <a class="nav-link" href="Staff_Accounts_List.aspx">Accounts</a>
-                    </li>                    
+                    </li>          
+                      <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                        <span>Trails</span>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="Staff_Ongoing_Trails.aspx">Ongoing Trails</a>
+                            <a class="dropdown-item" href="Staff_Draft_Trails.aspx">Draft Trails</a>
+                            <a class="dropdown-item" href="Create_Trail.aspx">Create Trail</a>
+                      </div>
                   </ul>
+
                  <ul class="navbar-nav ml-auto">
                      <!-- Dropdown -->
                      <li class="nav-item">
