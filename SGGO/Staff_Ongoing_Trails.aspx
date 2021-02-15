@@ -8,7 +8,7 @@
         <br />
         <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="Ongoing Trails"></asp:Label>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="OngoingTrailDataSource" ForeColor="Black" GridLines="Horizontal"  Width="100%" OnRowCommand="Gridview1_RowCommand">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="OngoingTrailDataSource" ForeColor="Black" GridLines="Horizontal"  Width="100%">
         <Columns>
             <asp:BoundField DataField="name" HeaderText="Title" SortExpression="name" ReadOnly="True" />
             <asp:BoundField DataField="date" HeaderText="Publish Date" SortExpression="date" ReadOnly="True"/>

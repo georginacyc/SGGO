@@ -44,7 +44,8 @@ namespace SGGO
                   if (userObj != null)
                   {
                       Label1.Text = "Welcome " + userObj.First_Name;
-                  }
+                      
+                    }
                   else
                   {
                       Label1.Text = "Welcome User";
@@ -70,11 +71,11 @@ namespace SGGO
             Response.Redirect("User_Profile.aspx");
         }
 
-        protected void LinkButton2_Click(object sender, EventArgs e)
+        
+
+        protected void LinkButton2_Click1(object sender, EventArgs e)
         {
-            
             Response.Redirect("Gem_Catalogue.aspx");
         }
-
     }
 }

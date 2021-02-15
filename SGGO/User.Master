@@ -52,7 +52,7 @@
                         Login
                       </a>
                       <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="User_Login.aspx">Login</a>
+                           <a class="dropdown-item" href="User_Login.aspx">Login</a>
                             <a class="dropdown-item" href="Partner_Login.aspx">Partner Login</a>
                             <a class="dropdown-item" href="Staff_Login.aspx">Staff Login</a>
                       </div>

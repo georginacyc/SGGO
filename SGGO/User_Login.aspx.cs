@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -86,12 +87,14 @@ namespace SGGO
                     {
 
                         lblMsg2.Text = "User or password is invalid, please try again";
+                        lblMsg2.ForeColor = Color.Red;
 
-                    };
+                };
             }
             else
             {
                 lblMsg2.Text = "Pw is incorrect";
+                lblMsg2.ForeColor = Color.Red;
             }
 
 
