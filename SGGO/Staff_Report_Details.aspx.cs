@@ -40,9 +40,21 @@ namespace SGGO
                         // on page load codes here
                         if (!String.IsNullOrEmpty(Request.QueryString["id"]))
                         {
+                            var id = 0;
+                            var title = "";
                             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                             var report = client.GetReportById(Convert.ToInt32(Request.QueryString["id"]));
-                            var gem = client.GetGemById(Convert.ToInt32(report.Post));
+                            if (report.Type == "gem")
+                            {
+                                var gem = client.GetGemById(Convert.ToInt32(report.Post));
+                                id = gem.Gem_Id;
+                                title = gem.Title;
+                            } else
+                            {
+                                var review = client.GetReviewById(Convert.ToInt32(report.Post));
+                                id = Convert.ToInt32(review.Gem_Id);
+                                title = review.Gem_Title;
+                            }
 
                             // checks if the review has already been dealt 
                             if (report.Status.Trim() == "Resolved")
@@ -55,7 +67,7 @@ namespace SGGO
                             // adds anchor tags/hyperlinks to the following text
                             reporter_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + report.Reported_by + "'>" + report.Reported_by + "</a>"; // links to account details page of reporter
                             type_lb.Text = report.Type;
-                            reported_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + report.Post.ToString() + "&gemT=" + gem.Title.ToString() + "'>" + gem.Title.ToString() + "</a>"; // links to reported gem/review
+                            reported_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + id + "&gemT=" + title + "'>" + title + "</a>"; // links to reported gem/review
                             reason_lb.Text = report.Reason;
                             remarks_lb.Text = report.Remarks;
                         }

@@ -18,7 +18,7 @@
                 
                 <br />
                 <div style="text-align: center;">
-                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-dark" Text="Return" OnClick="Button1_Click" />
+                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-dark" Text="Return" OnClick="Button1_Click" style="height: 31px" />
                 </div>               
                 
             </div>

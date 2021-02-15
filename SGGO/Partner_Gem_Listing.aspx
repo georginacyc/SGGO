@@ -14,7 +14,8 @@
                     <asp:Image ID="gem_image" runat="server" Height="221px" Width="390px" ImageUrl="~/Test_Image/Cafe-De-Nicoles.jpg" />
                 </td>
                 <td style="width: 317px">
-                    &nbsp;</td>
+                    <b><asp:Label ID="gem_company" runat="server"></asp:Label></b>
+                </td>
                 <td style="width: 350px">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
