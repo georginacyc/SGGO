@@ -51,10 +51,8 @@
     </table>
   </LayoutTemplate>
 </asp:ListView>
-        <asp:SqlDataSource ID="SGGO" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" SelectCommand="SELECT * FROM [Gem] WHERE (([type] = @type) AND ([status] = @status))" ProviderName="System.Data.SqlClient">
+        <asp:SqlDataSource ID="SGGO" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" SelectCommand="SELECT * FROM [Gem] WHERE  ([status] = @status)" ProviderName="System.Data.SqlClient">
             <SelectParameters>
-               
-                <asp:Parameter DefaultValue="Destination" Name="type" Type="String" />
                 <asp:Parameter DefaultValue="Approved" Name="status" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>

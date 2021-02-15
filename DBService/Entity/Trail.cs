@@ -45,7 +45,7 @@ namespace DBService.Entity
 
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["danae"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -74,7 +74,7 @@ namespace DBService.Entity
 
         public Trail SelectById(string id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["danae"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Trail WHERE trailid = @trailid";
@@ -109,7 +109,7 @@ namespace DBService.Entity
 
         public List<Trail> SelectAll()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["danae"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Trail";
@@ -145,7 +145,7 @@ namespace DBService.Entity
 
         public List<Trail> SelectByStatus(string status)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["danae"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Trail WHERE status = @status";
