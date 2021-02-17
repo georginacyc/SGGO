@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="User_Monthly_Trail.aspx.cs" Inherits="SGGO.User_Monthly_Trail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
+    <asp:Image ID="img_banner" runat="server" Height="241px" Width="1351px" Source ="~/Images/Trail" HorizontalAlign="Center"/>
+        <div class="container-fluid" style="width: 80%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px; text-align:center;">
     <form id="form1" runat="server">
-        <asp:Image ID="img_banner" runat="server" Height="241px" Width="1351px" Source ="~/Images/Trail" />
+        
         <div class="row" style="width: 60%; margin: 10px auto auto auto;">
         <div class="col" style="left: 1px; top: 0px" >
             <a href="Gem_Listing" style="text-decoration:none;">
@@ -87,11 +89,11 @@
                 </div>
             </a>
         </div>
-            <br />
-            <asp:Label ID="lb_desc" runat="server" ></asp:Label>
+            
     </div>
-        
-        
+        </div>
+        <br />
+            <asp:Label ID="lb_desc" runat="server" HorizontalAlign="Center"></asp:Label>
 
 
     </form>
