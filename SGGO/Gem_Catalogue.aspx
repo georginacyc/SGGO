@@ -28,7 +28,7 @@
       <td runat="server" style="width:400px">
       <table border="0">
           <div class="card" style="width: 300px;">
-          <img class="card-img-top" src="/Images/Gem/<%# Eval("image") %>.jpg" alt="Card image cap" style="width:300px; height:179px">
+          <img class="card-img-top" src="/Images/Gem/<%# Eval("image") %>" alt="Card image cap" style="width:300px; height:179px">
           <div class="card-body">
             <h3 class="card-title"><span class="ProductListHead"><%# Eval("title") %></span></h3>
             <p class="card-text"><span class="GemListItem"><b> Average Rating : </b><%# Eval("rating")%></span></p>
@@ -51,10 +51,8 @@
     </table>
   </LayoutTemplate>
 </asp:ListView>
-        <asp:SqlDataSource ID="SGGO" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" SelectCommand="SELECT * FROM [Gem] WHERE (([type] = @type) AND ([status] = @status))" ProviderName="System.Data.SqlClient">
+        <asp:SqlDataSource ID="SGGO" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" SelectCommand="SELECT * FROM [Gem] WHERE  ([status] = @status)" ProviderName="System.Data.SqlClient">
             <SelectParameters>
-               
-                <asp:Parameter DefaultValue="Destination" Name="type" Type="String" />
                 <asp:Parameter DefaultValue="Approved" Name="status" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>

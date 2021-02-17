@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -26,11 +27,13 @@ namespace SGGO
 
             if (tb_email.Text == "")
             {
-                lblMsg2.Text += "First name is required" + "<br/>";
+                lblMsg2.Text += "Email is required" + "<br/>";
+                lblMsg2.ForeColor = Color.Red;
             }
             if (tb_pw.Text == "")
             {
                 lblMsg2.Text += "Password is required" + "<br/>";
+                lblMsg2.ForeColor = Color.Red;
             }
 
 
@@ -86,12 +89,14 @@ namespace SGGO
                     {
 
                         lblMsg2.Text = "User or password is invalid, please try again";
+                        lblMsg2.ForeColor = Color.Red;
 
-                    };
+                };
             }
             else
             {
                 lblMsg2.Text = "Pw is incorrect";
+                lblMsg2.ForeColor = Color.Red;
             }
 
 

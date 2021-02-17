@@ -5,28 +5,55 @@
 
 
     <form id="form1" runat="server">
-        <div>
+        <div class="card" style="width: 55%; margin: 10px auto auto auto; padding: 20px 20px 20px 20px">
            
-            <br />
-            <asp:Label ID="Label1" runat="server" Text="Welcome" style="margin-left: 700px" Width="131px" Font-Bold="True" Font-Size="50px"></asp:Label>
-            <br />
-            <br />
-            <br />
-            <br />
-            <asp:LinkButton ID="LinkButton1" runat="server" style="margin-left: 825px" Width="131px" OnClick="LinkButton1_Click">View profile</asp:LinkButton>
-            <br />
-            <br />
-            <br />
-            <br />        
-            <asp:LinkButton ID="LinkButton2" runat="server" style="margin-left: 780px" Width="212px">View Hidden Gems</asp:LinkButton>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            <table style="width: 100%">
+            <tr>
+                <td>
+                    &nbsp;</td>
+                    <td>
+                        <asp:Label ID="Label1" runat="server"  Font-Bold="True" Font-Size="40px" Text="Welcome"></asp:Label>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-           
+                        
+
+                    </td>
+                    <td>
+                        
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" class="btn btn-dark" Text="View Profile"/>
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" class="btn btn-dark" Text="View Hidden Gems"/>
+                         
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        &nbsp;</td>
+                    <td></td>
+                </tr>
+           </table>
         </div>
     </form>
 

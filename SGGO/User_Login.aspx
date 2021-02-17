@@ -16,29 +16,37 @@
                     <asp:Label ID="label" runat="server" Text="Email"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_email" runat="server"  Width="192px"></asp:TextBox>
-                    <asp:Label ID="lblMsg2" runat="server"></asp:Label>
+                    <asp:TextBox ID="tb_email" runat="server"  ></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td style="height: 40px">
+                <td>
                     <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                 </td>
-                <td style="height: 40px">
-                    <asp:TextBox ID="tb_pw" TextMode="Password" runat="server" Width="187px"></asp:TextBox>
+                <td>
+                    <asp:TextBox ID="tb_pw" TextMode="Password" runat="server" ></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>
                     &nbsp;</td>
                 <td>
-                    <asp:Button ID="btn_login" runat="server"  class="btn btn-dark" Text="Login" OnClick="btn_login_Click" Width="199px" Font-Size="15px" />
+                    <asp:Button ID="btn_login" runat="server"  class="btn btn-dark" Text="Login" OnClick="btn_login_Click" Width="196px" />
                 </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="Button1" runat="server" class="btn btn-dark" OnClick="Button1_Click" Text="Click here to register" Width="199px" Font-Size="15px" />
+                    <asp:Button ID="Button1" runat="server" class="btn btn-dark" OnClick="Button1_Click" Text="Click here to register" Width="196px" Font-Size="10px" />
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <asp:Label ID="lblMsg2" runat="server"></asp:Label>
                 </td>
             </tr>
         </table>

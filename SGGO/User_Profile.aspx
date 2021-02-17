@@ -102,7 +102,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btn_reviews" runat="server" Height="42px"  class="btn btn-dark" OnClick="btn_reviews_Click" Text="My reviews" />
+                    <asp:Button ID="btn_reviews" runat="server" Height="42px"  Width="196px" class="btn btn-dark" OnClick="btn_reviews_Click" Text="My reviews" />
                 </td>
                 <td>
                     &nbsp;</td>
@@ -112,7 +112,7 @@
             <tr>
                 <td>
                    
-                    <asp:Button ID="Button2" runat="server" OnClick=" btn_coupons_Click" Text="My Coupons"  class="btn btn-dark" />
+                   
                 </td>
                 <td>
                    
@@ -122,7 +122,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btn_Update" runat="server" Text="Update" OnClick="btn_Update_Click"  class="btn btn-dark"/>
+                    <asp:Button ID="btn_Update" runat="server" Text="Update" Width="196px"  OnClick="btn_Update_Click"  class="btn btn-dark"/>
                 </td>  
                 <td>
                     <asp:Label ID="lblMsg" runat="server"></asp:Label>
@@ -130,7 +130,7 @@
             </tr>
             <tr>
                 <td>          
-                    <asp:Button ID="btn_logout" runat="server" OnClick="btn_logout_Click" Text="Logout"  class="btn-danger"/>            
+                    <asp:Button ID="btn_logout" runat="server" OnClick="btn_logout_Click" Width="196px"  Text="Logout"  class="btn-danger"/>            
                 </td>
                 <td>
 
