@@ -10,7 +10,7 @@
     <asp:GridView ID="gv_draftTrails" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal"  Width="100%" OnRowCommand="gv_draftTrails_RowCommand">
         <Columns>
             <asp:BoundField DataField="name" HeaderText="Title" ReadOnly="True" />
-            <asp:BoundField DataField="date" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Publish Date" ReadOnly="True" />
+            <asp:BoundField DataField="date" DataFormatString="{0:yyyy MMMM}" HeaderText="Publish Date" ReadOnly="True" />
             <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="edit"/>
 
             <asp:ButtonField ButtonType="Button" Text="Delete" CommandName="delete" />

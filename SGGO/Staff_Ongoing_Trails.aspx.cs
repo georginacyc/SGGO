@@ -41,6 +41,9 @@ namespace SGGO
                     {
                         // on page load codes here
 
+                        
+
+
                     }
                     else
                     {
@@ -86,22 +89,78 @@ namespace SGGO
             }
         }
 
+        // make ongoing only valid for upcoming trails
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                var rowid = e.Row.RowIndex;
+                Label status  = (Label)e.Row.FindControl("lb_status");
+                if (status.Text != "upcoming") 
+                {
+                    Button btn = (Button)e.Row.FindControl("btn_makeOngoing"); 
+                    btn.Visible = false;
 
-        //protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        //{
-        //    if (e.CommandName == "makeOngoing")
-        //    {
-        //        // Get index of row passed as command argument
-        //        int index = Convert.ToInt32(e.CommandArgument.ToString());
-        //        List<Trail> eList = new List<Trail>();
-        //        Service1Client client = new Service1Client();
-        //        var id = eList[index].TrailId;
-        //        Response.Redirect("User_Monthly_Trail.aspx");
-        //    }
+                }
+            }
+        }
+
+        protected List<Trail> getlist()
+        {
+            Service1Client client = new Service1Client();
+            var all = client.GetAllTrails().ToList<Trail>();
+            var draft = client.GetTrailByStatus("draft").ToList<Trail>();
+            
+            foreach(Trail trail in all)
+            {
+                var t = trail;
+                foreach(Trail draftT in draft)
+                {
+                    if(t.TrailId == draftT.TrailId)
+                    {
+                        all.Remove(t);
+                    }
+                }
+            }
+            return all;
+
+
+        }
 
 
 
-        //}
+            protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "makeOngoing")
+            {
+                int index = 0;
+                // Get index of row passed as command argument
+                try
+                {
+                     index = Convert.ToInt32(e.CommandArgument);
+                }
+                catch (System.FormatException)
+                {
+                     index = 0; // or other default value as appropriate in context.
+                }
+
+                
+                List<Trail> eList = getlist();
+                Service1Client client = new Service1Client();
+                var id = eList[index].TrailId;
+                // update the status
+                client.UpdateTrailStatus(id, "ongoing");
+                //change status of current ongoing
+                eList = client.GetTrailByStatus("ongoing").ToList<Trail>();
+                Trail current = eList[0];
+                var currentId = current.TrailId;
+                client.UpdateTrailStatus(currentId, "past");
+                Response.Redirect("User_Monthly_Trail.aspx");
+            }
+
+
+
+        }
     }
 
 

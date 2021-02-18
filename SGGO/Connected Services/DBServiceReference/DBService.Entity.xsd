@@ -119,8 +119,8 @@
       <xs:element minOccurs="0" name="Partner_Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Point_Shop_Item_Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Price" type="xs:int" />
-      <xs:element minOccurs="0" name="QR" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Point_Shop_Item" nillable="true" type="tns:Point_Shop_Item" />

@@ -88,7 +88,10 @@ namespace DBService
         List<Trail> GetTrailByStatus(string status);
 
         [OperationContract]
-        int UpdateTrail(string trailid);
+        int UpdateTrail(string trailid, string title, DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
+
+        [OperationContract]
+        int UpdateTrailStatus(string trailid,string status);
 
         [OperationContract]
         void DeleteTrail(string trailid);

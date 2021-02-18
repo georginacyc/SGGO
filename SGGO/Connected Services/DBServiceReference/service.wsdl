@@ -152,6 +152,12 @@
   <wsdl:message name="IService1_UpdateTrail_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateTrailResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateTrailStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrailStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTrailStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrailStatusResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_DeleteTrail_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTrail" />
   </wsdl:message>
@@ -356,6 +362,10 @@
     <wsdl:operation name="UpdateTrail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTrail" message="tns:IService1_UpdateTrail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTrailResponse" message="tns:IService1_UpdateTrail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrailStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTrailStatus" message="tns:IService1_UpdateTrailStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTrailStatusResponse" message="tns:IService1_UpdateTrailStatus_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteTrail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteTrail" message="tns:IService1_DeleteTrail_InputMessage" />
@@ -641,6 +651,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateTrail">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdateTrail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrailStatus">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateTrailStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
