@@ -186,7 +186,7 @@ namespace DBService.Entity
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "UPDATE Trail SET status = @status, title = @name, date = @date,description = @desciption, gem1 = @gem1, gem2 = @gem2, gem3 = @gem3 WHERE trailid = @trailid";
+            string query = "UPDATE Trail SET status = @status, title = @name, date = @date,description = @description, gem1 = @gem1, gem2 = @gem2, gem3 = @gem3 WHERE trailid = @trailid";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@trailid", trailid);

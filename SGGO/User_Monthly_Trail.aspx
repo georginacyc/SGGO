@@ -4,7 +4,7 @@
         <div style="text-align: center;">
         <asp:Image ID="img_banner" runat="server" Height="241px" Width="1351px" Source ="~/Images/Trail" />
         </div>
-        <div class="row" style="width: 60%; margin: 10px auto auto auto;">
+        <div class="row" style="width: 80%; margin: 10px auto auto auto;">
         <div class="col" style="left: 1px; top: 0px" >
                 <div class="card" style="left: 0px; top: 0px">
                     <div class="card-body" style="text-align: center;">

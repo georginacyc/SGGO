@@ -7,13 +7,13 @@
         <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="Draft Trails"></asp:Label>
         <asp:Label ID="lb_msg" runat="server"></asp:Label>
     <br />
-    <asp:GridView ID="gv_draftTrails" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal"  Width="100%" OnRowCommand="gv_draftTrails_RowCommand">
+    <asp:GridView ID="gv_draftTrails" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal"  Width="100%" OnRowDeleting="gv_draftTrails_RowDeleting" OnRowCommand="gv_draftTrails_RowCommand">
         <Columns>
             <asp:BoundField DataField="name" HeaderText="Title" ReadOnly="True" />
             <asp:BoundField DataField="date" DataFormatString="{0:yyyy MMMM}" HeaderText="Publish Date" ReadOnly="True" />
             <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="edit"/>
 
-            <asp:ButtonField ButtonType="Button" Text="Delete" CommandName="delete" />
+            <asp:ButtonField ButtonType="Button" Text="Delete" CommandName="delete"  />
         </Columns>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
         <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

@@ -98,7 +98,20 @@ namespace SGGO
             gv_draftTrails.DataBind();
         }
 
-       
+        protected void gv_draftTrails_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            // cancel the automatic delete action
+            e.Cancel = true;
+
+            // do the delete
+            // Get index of row passed as command argument
+            
+
+            // complete delete action
+            gv_draftTrails.DataBind();
+        }
+
+
         protected void gv_draftTrails_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "edit")
@@ -113,7 +126,7 @@ namespace SGGO
                 Session["draft_id"] = id;
                 Response.Redirect("Create_Trail.aspx");
             }
-            
+
 
             if (e.CommandName == "delete")
             {
@@ -127,6 +140,7 @@ namespace SGGO
                 Session["draft_edit"] = "true";
                 Session["draft_id"] = id;
                 RefreshGridView();
+
                 lb_msg.Text = "Draft has been deleted";
                 lb_msg.ForeColor = System.Drawing.Color.Red;
             }

@@ -148,6 +148,7 @@ namespace SGGO
                 List<Trail> eList = getlist();
                 Service1Client client = new Service1Client();
                 var id = eList[index].TrailId;
+
                 // update the status
                 client.UpdateTrailStatus(id, "ongoing");
                 //change status of current ongoing
@@ -155,7 +156,7 @@ namespace SGGO
                 Trail current = eList[0];
                 var currentId = current.TrailId;
                 client.UpdateTrailStatus(currentId, "past");
-                Response.Redirect("User_Monthly_Trail.aspx");
+                Response.Redirect("Staff_Ongoing_Trails.aspx");
             }
 
 
