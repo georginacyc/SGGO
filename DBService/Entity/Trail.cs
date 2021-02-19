@@ -180,24 +180,24 @@ namespace DBService.Entity
 
 
         //update trail
-        public int UpdateTrail(string trailid)
+        public int UpdateTrail(string trailid, string title, DateTime date,string description,string gem1,string gem2,string gem3,string banner,string status)
         {
             string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
-            string query = "UPDATE Gem SET status = @status WHERE trailid = @trailid";
+            string query = "UPDATE Trail SET status = @status, title = @name, date = @date,description = @description, gem1 = @gem1, gem2 = @gem2, gem3 = @gem3 WHERE trailid = @trailid";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@trailid", trailid);
-            cmd.Parameters.AddWithValue("@name", Name);
-            cmd.Parameters.AddWithValue("@date", Date);
-            cmd.Parameters.AddWithValue("@description", Description);
-            cmd.Parameters.AddWithValue("@gem1", Gem1);
-            cmd.Parameters.AddWithValue("@gem2", Gem2);
-            cmd.Parameters.AddWithValue("@gem3", Gem3);
-            cmd.Parameters.AddWithValue("@banner", Banner);
-            cmd.Parameters.AddWithValue("@status", Status);
+            cmd.Parameters.AddWithValue("@name", title);
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@description", description);
+            cmd.Parameters.AddWithValue("@gem1", gem1);
+            cmd.Parameters.AddWithValue("@gem2", gem2);
+            cmd.Parameters.AddWithValue("@gem3", gem3);
+            cmd.Parameters.AddWithValue("@banner", banner);
+            cmd.Parameters.AddWithValue("@status", status);
 
           
             conn.Open();
@@ -205,9 +205,28 @@ namespace DBService.Entity
             conn.Close();
 
             return result;
-
-
         }
+
+        //update trail
+        public int UpdateTrailStatus(string trailid, string status)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connStr);
+
+            string query = "UPDATE Trail SET status = @status WHERE trailid = @trailid";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@trailid", trailid);
+
+            conn.Open();
+            int result = cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return result;
+        }
+
+
 
         // delete draft trail
         public void DeleteTrail(string trailid)

@@ -8,12 +8,23 @@
         <br />
         <asp:Label ID="lb_pagehead" runat="server" Font-Bold="True" Font-Size="40px" Text="Ongoing Trails"></asp:Label>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="OngoingTrailDataSource" ForeColor="Black" GridLines="Horizontal"  Width="100%">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" onrowcommand="GridView1_RowCommand" onrowdatabound="GridView1_RowDataBound" AutoGenerateColumns ="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="OngoingTrailDataSource" ForeColor="Black" GridLines="Horizontal"  Width="100%" >
         <Columns>
             <asp:BoundField DataField="name" HeaderText="Title" SortExpression="name" ReadOnly="True" />
-            <asp:BoundField DataField="date" HeaderText="Publish Date" SortExpression="date" ReadOnly="True"/>
-            <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" ReadOnly="True" />
-            <asp:ButtonField ButtonType="Button" Text="Make Ongoing" CommandName="makeOngoing"/>
+            <asp:BoundField DataField="date" HeaderText="Publish Date" SortExpression="date" ReadOnly="True" DataFormatString="{0:yyyy MMMM}"/>
+            <asp:TemplateField HeaderText="Status" SortExpression="status">
+                <EditItemTemplate>
+                    <asp:Label ID="lb_status" runat="server" Text='<%# Eval("status") %>'></asp:Label>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="lb_status" runat="server" Text='<%# Bind("status") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField ShowHeader="False">
+                <ItemTemplate>
+                    <asp:Button ID="btn_makeOngoing" runat="server" CausesValidation="false" CommandName="makeOngoing" Text="Make Ongoing" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
         <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -24,13 +35,11 @@
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#242121" />
     </asp:GridView>
-        <asp:SqlDataSource ID="OngoingTrailDataSource" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True;Connect Timeout=30" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [name], [date], [status] FROM [Trail]">
+        <asp:SqlDataSource ID="OngoingTrailDataSource" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [name], [date], [status] FROM [Trail] WHERE ([status] NOT LIKE '%' + @status + '%')">
             <SelectParameters>
-                <asp:Parameter DefaultValue="Upcoming" Name="status" Type="String" />
-                <asp:Parameter DefaultValue="Ongoing" Name="status2" Type="String" />
+                <asp:Parameter DefaultValue="draft" Name="status" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-    <asp:SqlDataSource ID="GemDataSource" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SGGO_DB.mdf;Integrated Security=True;Connect Timeout=30" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [title], [partner], [status], [type] FROM [Gem] ORDER BY [status] DESC"></asp:SqlDataSource>
 
 </div>
 </asp:Content>

@@ -109,6 +109,8 @@
     <Content Include="Point_Shop_Catalogue.aspx" />
     <Content Include="Point_Shop_Create_Item.aspx" />
     <Content Include="Point_Shop_Main_Page.aspx" />
+    <Content Include="staffsecretkey.txt" />
+    <Content Include="staffsitekey.txt" />
     <Content Include="Staff_Accounts_List.aspx" />
     <Content Include="Staff_Account_Details.aspx" />
     <Content Include="Staff_Change_Password.aspx" />

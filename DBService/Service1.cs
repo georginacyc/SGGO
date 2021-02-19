@@ -162,10 +162,16 @@ namespace DBService
             return tr.SelectByStatus(status);
         }
 
-        public int UpdateTrail(string trailid)
+        public int UpdateTrail(string trailid, string title, DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status)
         {
             Trail tr = new Trail(); 
-            return tr.UpdateTrail(trailid);
+            return tr.UpdateTrail(trailid,title,date,description,gem1,gem2,gem3,banner,status);
+        }
+
+        public int UpdateTrailStatus(string trailid, string status)
+        {
+            Trail tr = new Trail();
+            return tr.UpdateTrailStatus(trailid, status);
         }
 
         public void DeleteTrail(string trailid)

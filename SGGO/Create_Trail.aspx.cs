@@ -154,7 +154,7 @@ namespace SGGO
             string title = tb_title.Text;
             var month = dd_month.SelectedValue;
             var year = tb_year.Text;
-            var datestr = "1 " + month + " " + year;
+            var datestr = year + month;
             DateTime date = Convert.ToDateTime(datestr);
             string description = tb_description.Text;
             string gem1 = lb_gem1_listing.Text;
@@ -285,7 +285,7 @@ namespace SGGO
                 int result;
                 if(Session["draft_edit"] != null)
                 {
-                    result = client.UpdateTrail(trailid);
+                    result = client.UpdateTrail(trailid, title, date, description, gem1, gem2, gem3, banner, status);
 
                 }
                 else

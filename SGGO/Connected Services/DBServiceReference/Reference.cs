@@ -1130,10 +1130,10 @@ namespace SGGO.DBServiceReference {
         private int PriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string QRField;
+        private string TypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
+        private string UserField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1237,19 +1237,6 @@ namespace SGGO.DBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string QR {
-            get {
-                return this.QRField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.QRField, value) != true)) {
-                    this.QRField = value;
-                    this.RaisePropertyChanged("QR");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Type {
             get {
                 return this.TypeField;
@@ -1258,6 +1245,19 @@ namespace SGGO.DBServiceReference {
                 if ((object.ReferenceEquals(this.TypeField, value) != true)) {
                     this.TypeField = value;
                     this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
                 }
             }
         }
@@ -1415,10 +1415,16 @@ namespace SGGO.DBServiceReference {
         System.Threading.Tasks.Task<SGGO.DBServiceReference.Trail[]> GetTrailByStatusAsync(string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTrail", ReplyAction="http://tempuri.org/IService1/UpdateTrailResponse")]
-        int UpdateTrail(string trailid);
+        int UpdateTrail(string trailid, string title, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTrail", ReplyAction="http://tempuri.org/IService1/UpdateTrailResponse")]
-        System.Threading.Tasks.Task<int> UpdateTrailAsync(string trailid);
+        System.Threading.Tasks.Task<int> UpdateTrailAsync(string trailid, string title, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTrailStatus", ReplyAction="http://tempuri.org/IService1/UpdateTrailStatusResponse")]
+        int UpdateTrailStatus(string trailid, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTrailStatus", ReplyAction="http://tempuri.org/IService1/UpdateTrailStatusResponse")]
+        System.Threading.Tasks.Task<int> UpdateTrailStatusAsync(string trailid, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTrail", ReplyAction="http://tempuri.org/IService1/DeleteTrailResponse")]
         void DeleteTrail(string trailid);
@@ -1740,12 +1746,20 @@ namespace SGGO.DBServiceReference {
             return base.Channel.GetTrailByStatusAsync(status);
         }
         
-        public int UpdateTrail(string trailid) {
-            return base.Channel.UpdateTrail(trailid);
+        public int UpdateTrail(string trailid, string title, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status) {
+            return base.Channel.UpdateTrail(trailid, title, date, description, gem1, gem2, gem3, banner, status);
         }
         
-        public System.Threading.Tasks.Task<int> UpdateTrailAsync(string trailid) {
-            return base.Channel.UpdateTrailAsync(trailid);
+        public System.Threading.Tasks.Task<int> UpdateTrailAsync(string trailid, string title, System.DateTime date, string description, string gem1, string gem2, string gem3, string banner, string status) {
+            return base.Channel.UpdateTrailAsync(trailid, title, date, description, gem1, gem2, gem3, banner, status);
+        }
+        
+        public int UpdateTrailStatus(string trailid, string status) {
+            return base.Channel.UpdateTrailStatus(trailid, status);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateTrailStatusAsync(string trailid, string status) {
+            return base.Channel.UpdateTrailStatusAsync(trailid, status);
         }
         
         public void DeleteTrail(string trailid) {

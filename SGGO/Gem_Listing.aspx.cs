@@ -43,10 +43,6 @@ namespace SGGO
             System.Diagnostics.Process.Start(gemadd);
         }
 
-        //protected void btn_map_Click(object sender, EventArgs e)
-        //{
-        //    System.Diagnostics.Process.Start("https://g.page/NicolesFlower?share");
-        //}
 
         protected void btn_review_Click(object sender, EventArgs e)
         {

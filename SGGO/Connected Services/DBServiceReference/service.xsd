@@ -343,6 +343,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="trailid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gem1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gem2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gem3" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="banner" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -350,6 +358,21 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="UpdateTrailResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTrailStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="trailid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTrailStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTrailStatusResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
