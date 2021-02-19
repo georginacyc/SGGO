@@ -75,7 +75,7 @@ namespace SGGO
                 
                 if (checkPw(user_password_tb.Text) <= 4)
                 {
-                    lbMsg.Text += "Please put a stronger pw" + "<br/>";
+                    lbMsg.Text += "Please put a stronger password" + "<br/>";
                     lbMsg.ForeColor = Color.Red;
                 }
                 if (user_password_tb.Text != user_confirmpw_tb.Text)

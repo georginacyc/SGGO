@@ -35,7 +35,7 @@ namespace DBService.Entity
         }
         public int Insert()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 
@@ -58,7 +58,7 @@ namespace DBService.Entity
         }
         public Point_Shop_Item SelectById(string Point_Shop_Item_Id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
             string query = "SELECT * FROM Point_Shop_Item WHERE Point_Shop_Item_Id = @point_shop_item_id";
             SqlDataAdapter da = new SqlDataAdapter(query, conn);
@@ -84,7 +84,7 @@ namespace DBService.Entity
         }
         public List<Point_Shop_Item> SelectAll()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["danae"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
 
             string query = "SELECT * FROM Gem";
@@ -114,7 +114,7 @@ namespace DBService.Entity
         }
         public void DeletePointShopItem(int id)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["jon"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["ggna"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connStr);
 

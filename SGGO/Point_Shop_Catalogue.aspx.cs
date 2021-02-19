@@ -22,7 +22,7 @@ namespace SGGO
                     //comes here when the 3 conditions above is not null and checks if they match
                     if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
                     {
-                        Response.Redirect("Login.aspx", false);
+                        Response.Redirect("User_Login.aspx", false);
                     }
                     else
                     {
@@ -45,7 +45,7 @@ namespace SGGO
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx", false);
+                    Response.Redirect("User_Login.aspx", false);
                 }
             }
         }

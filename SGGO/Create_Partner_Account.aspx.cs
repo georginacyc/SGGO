@@ -45,7 +45,7 @@ namespace SGGO
 
                 DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                 int result = client.CreateAccount(email, pw, "salt", "Partner", fname, lname, DateTime.Now, hp, postal, address, filename, null, null);
-                Response.Redirect("Partner_Login.aspx");
+                Response.Redirect("Staff_Accounts_List.aspx");
             }
         }
     }

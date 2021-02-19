@@ -43,7 +43,7 @@
                  <ul class="navbar-nav ml-auto">
                      <!-- Dropdown -->
                      <li class="nav-item">
-                          <a class="nav-link" href="Staff_Own_Account_Details.aspx">
+                          <a class="nav-link" href="Create_User_Account.aspx">
                               Sign Up
                           </a>
                      </li>

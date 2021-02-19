@@ -11,7 +11,7 @@
     </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="UserContent" runat="server">
     
-    <form>
+    <form runat="server">
     <table class="w-100">
         <tr>
             <td class="auto-style1">&nbsp;</td>

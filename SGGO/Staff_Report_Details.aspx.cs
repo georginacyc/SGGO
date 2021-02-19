@@ -40,20 +40,40 @@ namespace SGGO
                         // on page load codes here
                         if (!String.IsNullOrEmpty(Request.QueryString["id"]))
                         {
-                            var id = 0;
-                            var title = "";
                             DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
                             var report = client.GetReportById(Convert.ToInt32(Request.QueryString["id"]));
-                            if (report.Type == "gem")
+                            if (report.Type.Trim() == "gem")
                             {
                                 var gem = client.GetGemById(Convert.ToInt32(report.Post));
-                                id = gem.Gem_Id;
-                                title = gem.Title;
+                                System.Diagnostics.Debug.WriteLine("post" + report.Post);
+                                var id = report.Post;
+                                var title = gem.Title;
+                                System.Diagnostics.Debug.WriteLine("id" + id);
+                                System.Diagnostics.Debug.WriteLine("title" + title);
+
+                                report_lb.Text = report_lb.Text + report.Report_Id;
+                                status_lb.Text = report.Status;
+                                date_lb.Text = report.Date_reported.ToString("dd/MM/yyyy");
+                                // adds anchor tags/hyperlinks to the following text
+                                reporter_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + report.Reported_by + "'>" + report.Reported_by + "</a>"; // links to account details page of reporter
+                                type_lb.Text = report.Type;
+                                reported_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + id + "&gemT=" + title + "'>" + title + "</a>"; // links to reported gem/review
+                                reason_lb.Text = report.Reason;
+                                remarks_lb.Text = report.Remarks;
                             } else
                             {
                                 var review = client.GetReviewById(Convert.ToInt32(report.Post));
-                                id = Convert.ToInt32(review.Gem_Id);
-                                title = review.Gem_Title;
+                                var id = Convert.ToInt32(review.Gem_Id);
+                                var title = review.Gem_Title;
+                                report_lb.Text = report_lb.Text + report.Report_Id;
+                                status_lb.Text = report.Status;
+                                date_lb.Text = report.Date_reported.ToString("dd/MM/yyyy");
+                                // adds anchor tags/hyperlinks to the following text
+                                reporter_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + report.Reported_by + "'>" + report.Reported_by + "</a>"; // links to account details page of reporter
+                                type_lb.Text = report.Type;
+                                reported_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + id + "&gemT=" + title + "'>" + title + "</a>"; // links to reported gem/review
+                                reason_lb.Text = report.Reason;
+                                remarks_lb.Text = report.Remarks;
                             }
 
                             // checks if the review has already been dealt 
@@ -61,15 +81,6 @@ namespace SGGO
                             {
                                 resolve_btn.Visible = false;
                             }
-                            report_lb.Text = report_lb.Text + report.Report_Id;
-                            status_lb.Text = report.Status;
-                            date_lb.Text = report.Date_reported.ToString("dd/MM/yyyy");
-                            // adds anchor tags/hyperlinks to the following text
-                            reporter_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Staff_Account_Details.aspx?email=" + report.Reported_by + "'>" + report.Reported_by + "</a>"; // links to account details page of reporter
-                            type_lb.Text = report.Type;
-                            reported_lb.Text = "<a style='color: black; text-decoration: underline;' target='_blank' href='Gem_Listing.aspx?gemId=" + id + "&gemT=" + title + "'>" + title + "</a>"; // links to reported gem/review
-                            reason_lb.Text = report.Reason;
-                            remarks_lb.Text = report.Remarks;
                         }
                         else
                         {

@@ -106,7 +106,7 @@ namespace SGGO
 
         protected void btn_reviews_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("User_Reviews.aspx");
         }
 
 

@@ -14,6 +14,10 @@ namespace SGGO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
+            staff_email_lb.Text = client.GetStaffId() + "@sggo.com";
+            staff_password_tb.Attributes.Add("onkeyup", "pwdChecker();");
+            staff_password2_tb.Attributes.Add("onkeyup", "pwdMatcher();");
             //if (Session["LoggedIn"] != null && Session["Role"] != null && Session["AuthToken"] != null && Request.Cookies["AuthToken"] != null)
             //{
             //    if (!Session["AuthToken"].ToString().Equals(Request.Cookies["AuthToken"].Value))
@@ -41,11 +45,9 @@ namespace SGGO
             //        if (Session["Role"].ToString() == "Staff")
             //        {
             //            // on page load codes here
-            //            staff_password_tb.Attributes.Add("onkeyup", "pwdChecker();");
-            //            staff_password2_tb.Attributes.Add("onkeyup", "pwdMatcher();");
 
-            //            DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-            //            staff_email_lb.Text = client.GetStaffId() + "@sggo.com";
+
+
             //        }
             //        else
             //        {

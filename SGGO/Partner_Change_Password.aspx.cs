@@ -30,7 +30,7 @@ namespace SGGO
             }
             else
             {
-                Response.Redirect("Login.aspx", false);
+                Response.Redirect("Partner_Login.aspx", false);
             }
         }
         protected void submit_btn_Click(object sender, EventArgs e)
